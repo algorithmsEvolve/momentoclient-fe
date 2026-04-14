@@ -59,34 +59,40 @@ export default function Home() {
         {/* Floating WhatsApp */}
         <div className="fixed bottom-10 right-10 z-[60] group cursor-pointer">
           <div className="absolute inset-0 bg-[#47AE4B] rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity" />
-          <div className="relative bg-[#47AE4B] text-white p-4 rounded-full shadow-2xl transition-transform duration-300 hover:scale-110">
-            <MessageCircle size={32} fill="currentColor" />
+          <div className="relative w-[70px] h-[70px] bg-[#47AE4B] flex items-center justify-center rounded-full shadow-2xl transition-transform duration-300 hover:scale-110">
+            <Image 
+              src="/icons/whatsapp.svg" 
+              alt="WhatsApp" 
+              width={50} 
+              height={50} 
+              className="object-contain"
+            />
           </div>
         </div>
 
         <div className="relative z-10 max-w-[925px] mx-auto flex flex-col items-center">
-          <div className="min-h-[150px] flex items-center justify-center mb-10">
-            <h1 className="text-[48px] font-bold tracking-[-1px] leading-[65px] font-serif antialiased text-white whitespace-pre-line">
+          <div className="min-h-[150px] flex items-center justify-center mb-10 text-center w-full">
+            <h1 className="text-[48px] font-bold tracking-[-1px] leading-[65px] font-serif antialiased text-white whitespace-pre-line relative inline-block" style={{ transform: 'translate3d(0,0,0)' }}>
               {text}
-              <span className="inline-block w-[3px] h-[45px] bg-white ml-2 animate-pulse align-middle" />
+              <span className="inline-block w-[3px] h-[45px] bg-white ml-2 animate-pulse align-middle" style={{ transform: 'translate3d(0,0,0)' }} />
             </h1>
           </div>
 
-          <div className="flex flex-col gap-4 text-[14px] md:text-[18px] font-medium text-white/80 mb-16 leading-tight font-nav antialiased">
+          <div className="flex flex-col gap-2 text-[18px] font-medium text-white/80 mb-16 leading-none font-nav tracking-tighter">
             <div className="flex flex-wrap justify-center gap-[15px]">
               <span>Sewa Seserahan</span>
-              <span className="text-white/20">|</span>
+              <span className="text-white/80">|</span>
               <span>Frame Mahar</span>
-              <span className="text-white/20">|</span>
+              <span className="text-white/80">|</span>
               <span>Undangan Digital</span>
-              <span className="text-white/20">|</span>
+              <span className="text-white/80">|</span>
               <span>Flower Bouquet</span>
-              <span className="text-white/20">|</span>
+              <span className="text-white/80">|</span>
               <span>Wedding Keepsake</span>
             </div>
             <div className="flex flex-wrap justify-center gap-[15px]">
               <span>Wedding Content Creator</span>
-              <span className="text-white/20">|</span>
+              <span className="text-white/80">|</span>
               <span>Master of Ceremony</span>
             </div>
           </div>
@@ -109,100 +115,138 @@ export default function Home() {
       </section>
 
       {/* Feature Section (Gold Background) */}
-      <section className="relative grad-gold py-32 px-10 z-20">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative grad-gold min-h-[700px] flex items-center py-20 px-10 z-20">
+        <div className="max-w-[1240px] mx-auto text-center w-full">
           {/* Top Row: 3 Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div className="feature-card">
-              <ShieldCheck className="text-[#D4AF37] mb-6" size={40} />
-              <h3 className="text-white font-bold uppercase tracking-widest text-sm mb-4">Authentic</h3>
-              <p className="text-white/40 text-xs leading-relaxed">Kami menjamin keaslian dan kualitas bahan terbaik untuk setiap produk kami.</p>
+          <div className="flex flex-col md:flex-row justify-center gap-[20px] mb-[40px] w-full">
+            <div className="feature-card w-[392px] h-[250px] min-w-[392px] max-w-[392px]">
+              <Image src="/icons/why/authentic.svg" alt="Authentic" width={40} height={40} className="object-contain" />
+              <h3 className="text-[20px] font-bold text-white mt-[10px] mb-[20px] font-nav tracking-normal">Authentic</h3>
+              <p className="text-[14px] leading-[22px] text-white font-nav font-normal tracking-normal">
+                Momento memberikan sentuhan original di setiap desain, khusus buat Kamu agar beda dari yang lain.
+              </p>
             </div>
-            <div className="feature-card">
-              <Crown className="text-[#D4AF37] mb-6" size={40} />
-              <h3 className="text-white font-bold uppercase tracking-widest text-sm mb-4">Professional</h3>
-              <p className="text-white/40 text-xs leading-relaxed">Tim ahli berpengalaman yang berdedikasi tinggi untuk kepuasan momen Anda.</p>
+            <div className="feature-card w-[392px] h-[250px] min-w-[392px] max-w-[392px]">
+              <Image src="/icons/why/professional.svg" alt="Professional" width={40} height={40} className="object-contain" />
+              <h3 className="text-[20px] font-bold text-white mt-[10px] mb-[20px] font-nav tracking-normal">Professional</h3>
+              <p className="text-[14px] leading-[22px] text-white font-nav font-normal tracking-normal">
+                Dibuat oleh tim berpengalaman, Momento berkomitmen memberikan hasil sesuai dengan keinginan Kamu.
+              </p>
             </div>
-            <div className="feature-card">
-              <Star className="text-[#D4AF37] mb-6" size={40} />
-              <h3 className="text-white font-bold uppercase tracking-widest text-sm mb-4">Purity Style</h3>
-              <p className="text-white/40 text-xs leading-relaxed">Desain bersih dan elegan yang memberikan kesan suci dan berkelas.</p>
+            <div className="feature-card w-[392px] h-[250px] min-w-[392px] max-w-[392px]">
+              <Image src="/icons/why/as-you-wish.svg" alt="As You Wish" width={40} height={40} className="object-contain" />
+              <h3 className="text-[20px] font-bold text-white mt-[10px] mb-[20px] font-nav tracking-normal">As You Wish</h3>
+              <p className="text-[14px] leading-[22px] text-white font-nav font-normal tracking-normal">
+                Produk Momento dirancang sesuai keinginan Kamu. Dipastikan semua detail pas seperti yang Kita sepakati.
+              </p>
             </div>
           </div>
 
           {/* Bottom Row: 2 Cards Centered */}
-          <div className="flex flex-col md:flex-row justify-center gap-8 max-w-4xl mx-auto">
-            <div className="feature-card flex-1">
-              <RefreshCw className="text-[#D4AF37] mb-6" size={40} />
-              <h3 className="text-white font-bold uppercase tracking-widest text-sm mb-4">Responsiveness</h3>
-              <p className="text-white/40 text-xs leading-relaxed">Layanan cepat tanggap untuk mewujudkan setiap keinginan spesial Anda.</p>
+          <div className="flex flex-col md:flex-row justify-center gap-[20px] w-full">
+            <div className="feature-card w-[392px] h-[250px] min-w-[392px] max-w-[392px]">
+              <Image src="/icons/why/responsive.svg" alt="Responsive" width={40} height={40} className="object-contain" />
+              <h3 className="text-[20px] font-bold text-white mt-[10px] mb-[20px] font-nav tracking-normal">Responsive</h3>
+              <p className="text-[14px] leading-[22px] text-white font-nav font-normal tracking-normal">
+                Kamu ngga perlu khawatir, Momento siap bantu Kamu kapan pun. Tanya apa saja, dipastikan pengalamanmu bareng Momento lancar hingga hari H.
+              </p>
             </div>
-            <div className="feature-card flex-1">
-              <Settings className="text-[#D4AF37] mb-6" size={40} />
-              <h3 className="text-white font-bold uppercase tracking-widest text-sm mb-4">Up-to-date</h3>
-              <p className="text-white/40 text-xs leading-relaxed">Selalu menghadirkan tren desain terbaru yang modern dan inovatif.</p>
+            <div className="feature-card w-[392px] h-[250px] min-w-[392px] max-w-[392px]">
+              <Image src="/icons/why/up-to-date.svg" alt="Up-to-date" width={40} height={40} className="object-contain" />
+              <h3 className="text-[20px] font-bold text-white mt-[10px] mb-[20px] font-nav tracking-normal">Up-to-date</h3>
+              <p className="text-[14px] leading-[22px] text-white font-nav font-normal tracking-normal">
+                Kami nggak mau momenmu terlihat membosankan. Makanya, Momento selalu bikin desain yang fresh agar acaramu tetap kekinian.
+              </p>
             </div>
-          </div>
-
-          {/* Transition back to black */}
-          <div className="absolute -bottom-1 left-0 w-full fill-black">
-             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 240" preserveAspectRatio="none" className="w-full h-[150px] md:h-[200px]">
-               <path d="M0,192L48,176C96,160,192,128,288,122.7C384,117,480,139,576,149.3C672,160,768,160,864,138.7C960,117,1056,75,1152,58.7C1248,43,1344,53,1392,58.7L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
-             </svg>
           </div>
         </div>
       </section>
 
-      {/* Main Content (Black Background) */}
-      <section className="relative z-20 py-32 space-y-48">
-        
-        {/* Sewa Seserahan */}
-        <div className="max-w-7xl mx-auto px-10 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6 uppercase tracking-wider">Sewa Seserahan</h2>
-          <p className="text-gray-medium text-xs md:text-sm max-w-3xl mx-auto mb-16 leading-relaxed">
-            Menghadirkan kotak hantaran eksklusif dengan sentuhan dekorasi bunga yang memukau untuk melengkapi prosesi lamaran dan pernikahan Anda.
-          </p>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-20 overflow-x-auto pb-8 scrollbar-hide">
-            {[1, 2, 3, 4, 5, 6, 7].map((i) => (
-              <div key={i} className="relative aspect-square rounded-xl overflow-hidden border border-white/10 group min-w-[150px]">
-                <Image 
-                   src={`https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=400&auto=format&fit=crop`}
-                   alt="Seserahan"
-                   fill
-                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                />
+      {/* Seserahan Section */}
+      <section className="relative bg-[#090909] min-h-[650px] flex flex-col items-center py-20 overflow-hidden z-20">
+        <div className="max-w-7xl mx-auto text-center px-10">
+          <h2 className="text-[48px] font-serif font-bold text-white mb-[15px] tracking-[-1px] leading-[65px] antialiased">
+            <span className="text-[56px]">S</span>ewa <span className="text-[56px]">S</span>eserahan
+          </h2>
+          <div className="max-w-[860px] mx-auto mb-[40px]">
+            <p className="text-white font-nav text-[16px] leading-[30px] tracking-normal">
+              Momento melayani sewa seserahan untuk acara lamaran dan pernikahan di wilayah <span className="font-bold">JADETABEK</span>.<br /> Berlokasi di <span className="font-bold">Tangerang</span>, kami juga menyediakan layanan pengiriman melalui <span className="font-bold">Lalamove</span> dan <span className="font-bold">Gosend Car</span>.
+            </p>
+          </div>
+        </div>
+
+        {/* Infinite Running Images */}
+        <div className="relative w-full mb-[40px] flex overflow-hidden">
+          <div className="flex animate-marquee whitespace-nowrap gap-5">
+            {[...Array(2)].map((_, groupIdx) => (
+              <div key={groupIdx} className="flex gap-5">
+                {[1, 2, 3, 4, 5, 6, 7].map((id) => (
+                  <div key={`${groupIdx}-${id}`} className="relative w-[300px] h-[200px] flex-shrink-0 rounded-xl overflow-hidden shadow-2xl border border-white/5">
+                    <Image
+                      src={`/images/seserahan-items/seserahan-${id}.png`}
+                      alt={`Seserahan ${id}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
               </div>
             ))}
           </div>
-          
-          <button className="btn-gold">Lihat Selengkapnya</button>
         </div>
 
-        {/* Frame Mahar */}
-        <div className="max-w-7xl mx-auto px-10 flex flex-col md:flex-row items-center gap-20">
-          <div className="flex-1 grid grid-cols-2 gap-4">
-             <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-white/10">
-                <Image src="https://images.unsplash.com/photo-1544928147-7972fc64fa36?q=80&w=400" alt="Mahar 1" fill className="object-cover" />
+        <button className="btn-gold w-[210px] h-[50px] flex items-center justify-center gap-[10px] rounded-[10px] transition-all duration-300 hover:brightness-110 group antialiased">
+          <span className="text-[14px] font-nav font-semibold tracking-[0.5px] text-[#161616]">Selengkapnya</span>
+          <ArrowRight size={20} className="text-[#161616] transition-transform group-hover:translate-x-1" />
+        </button>
+      </section>
+
+      {/* Main Content (Black Background) */}
+      {/* Frame Mahar Section */}
+      <section className="relative bg-[#090909] min-h-[600px] flex items-center py-[63.5px] z-20 overflow-hidden">
+        <div className="max-w-[1240px] mx-auto flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-[50px] px-10">
+          {/* Left: Image Grid Collage (W 508 H 473) */}
+          <div className="w-[508px] h-[473px] flex-shrink-0 grid grid-cols-2 gap-[11px] relative">
+             <div className="space-y-[11px]">
+                <div className="relative w-[248px] h-[205px] rounded-[10px] overflow-hidden border border-white/5 shadow-2xl">
+                   <Image src="/images/mahar-items/mahar-1.png" alt="Mahar 1" fill className="object-cover" />
+                </div>
+                <div className="relative w-[188px] h-[252px] rounded-[10px] overflow-hidden border border-white/5 shadow-2xl ml-auto">
+                   <Image src="/images/mahar-items/mahar-3.png" alt="Mahar 3" fill className="object-cover" />
+                </div>
              </div>
-             <div className="space-y-4 pt-12">
-               <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/10">
-                  <Image src="https://images.unsplash.com/photo-1518131394551-99af54cc643c?q=80&w=400" alt="Mahar 2" fill className="object-cover" />
-               </div>
-               <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/10">
-                  <Image src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=400" alt="Mahar 3" fill className="object-cover" />
-               </div>
+             <div className="space-y-[11px]">
+                <div className="relative w-[188px] h-[258px] rounded-[10px] overflow-hidden border border-white/5 shadow-2xl">
+                   <Image src="/images/mahar-items/mahar-2.png" alt="Mahar 2" fill className="object-cover" />
+                </div>
+                <div className="relative w-[248px] h-[188px] rounded-[10px] overflow-hidden border border-white/5 shadow-2xl">
+                   <Image src="/images/mahar-items/mahar-4.png" alt="Mahar 4" fill className="object-cover" />
+                </div>
              </div>
           </div>
-          <div className="flex-1 text-center md:text-left">
-            <h2 className="text-4xl md:text-5xl font-bold font-serif mb-8 uppercase tracking-wider">Frame Mahar</h2>
-            <p className="text-gray-medium text-sm leading-relaxed mb-12">
-              Bingkai mahar custom yang artistik untuk mengabadikan persembahan cinta terbaik Anda dalam balutan desain modern dan elegan.
-            </p>
-            <button className="btn-gold">Lihat Selengkapnya</button>
+
+          {/* Right: Text Content */}
+          <div className="flex-1 pt-10 md:pt-[20px] text-center md:text-left">
+            <h2 className="text-[48px] font-serif font-bold text-white mb-[15px] tracking-[-1px] leading-[65px] antialiased">
+              <span className="text-[56px]">F</span>rame <span className="text-[56px]">M</span>ahar
+            </h2>
+            <div className="max-w-[568px] mx-auto md:mx-0 mb-[40px]">
+              <p className="text-white font-nav text-[16px] leading-[30px] tracking-normal outline-none">
+                Menghadirkan mahar pernikahan yang dapat kamu simpan selamanya. Bebas request warna sesuai dengan tema pernikahanmu. Pengiriman dari <span className="font-bold">Tangerang</span> tersedia melalui Paxel maupun Gosend untuk layanan instan.
+              </p>
+            </div>
+            <div className="flex justify-center md:justify-start">
+              <button className="btn-gold w-[210px] h-[50px] flex items-center justify-center gap-[10px] rounded-[10px] transition-all duration-300 hover:brightness-110 group antialiased">
+                <span className="text-[14px] font-nav font-semibold tracking-[0.5px] text-[#161616]">Selengkapnya</span>
+                <ArrowRight size={20} className="text-[#161616] transition-transform group-hover:translate-x-1" />
+              </button>
+            </div>
           </div>
         </div>
+      </section>
 
+      {/* Other Features Section */}
+      <section className="relative z-20 py-32 space-y-48">
         {/* Undangan Digital */}
         <div className="max-w-7xl mx-auto px-10 flex flex-col md:flex-row-reverse items-center gap-20">
           <div className="flex-1 flex justify-center relative scale-110">

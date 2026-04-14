@@ -52,7 +52,7 @@ export default function Navbar() {
               <div key={link.name} className="relative flex flex-col items-center">
                 <Link 
                   href={link.href}
-                  className={`px-[20px] py-[20px] text-[16px] font-semibold font-nav tracking-[0.5px] transition-colors duration-200 antialiased ${
+                  className={`px-[20px] py-[8px] text-[16px] font-bold font-nav tracking-[0.5px] leading-none transition-colors duration-200 antialiased ${
                     isActive ? 'text-[#D4AF37]' : 'text-white hover:text-[#D4AF37]'
                   }`}
                 >
@@ -70,7 +70,7 @@ export default function Navbar() {
         {/* Right Action Button: Estimasi Harga */}
         <Link 
           href="/estimasi" 
-          className="w-[191px] h-[50px] flex items-center justify-center border-2 border-[#D4AF37] rounded-[10px] px-[30px] py-[15px] text-[16px] font-semibold font-nav tracking-[0.5px] text-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300 antialiased whitespace-nowrap"
+          className="w-[191px] h-[50px] flex items-center justify-center border-2 border-[#D4AF37] rounded-[10px] px-[30px] py-[15px] text-[16px] font-bold font-nav tracking-[0.5px] leading-none text-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300 antialiased whitespace-nowrap"
         >
           Estimasi Harga
         </Link>

@@ -42,7 +42,10 @@
   }
 
   .feature-card {
-    @apply bg-[#0D0D0D] p-8 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:translate-y-[-5px] border border-white/5;
+    @apply bg-[#010101] p-[30px] rounded-[20px] flex flex-col items-center text-center transition-all duration-300 hover:translate-y-[-5px];
+    width: 392px;
+    height: 250px;
+    max-width: 100%;
   }
 
   .text-gold {
@@ -67,4 +70,15 @@
   .grad-gold {
     background: linear-gradient(90deg, #D4AF37 0%, #CF953C 25%, #D4AF37 68%, #CF953C 100%);
   }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
 }
