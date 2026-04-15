@@ -1,50 +1,83 @@
-import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-black py-20 px-10 border-t border-white/5">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-20">
-         <div className="max-w-sm">
-            <div className="text-[#D4AF37] font-bold text-3xl mb-8 tracking-tighter italic">MOMENTO</div>
-            <p className="text-white/40 text-xs leading-relaxed">
-              Kami adalah partner terbaik untuk setiap momen spesial Anda. Menghadirkan kualitas premium 
-              dalam setiap detail seserahan, mahar, dan undangan.
-            </p>
-         </div>
-         
-         <div className="grid grid-cols-2 md:grid-cols-3 gap-16">
-           <div className="space-y-6">
-              <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D4AF37]">Services</h4>
-              <ul className="space-y-4 text-[10px] text-white/50 uppercase tracking-widest">
-                <li><Link href="#">Seserahan</Link></li>
-                <li><Link href="#">Mahar</Link></li>
-                <li><Link href="#">Undangan</Link></li>
-              </ul>
-           </div>
-           <div className="space-y-6">
-              <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D4AF37]">Company</h4>
-              <ul className="space-y-4 text-[10px] text-white/50 uppercase tracking-widest">
-                <li><Link href="#">About</Link></li>
-                <li><Link href="#">Portfolio</Link></li>
-                <li><Link href="#">Contact</Link></li>
-              </ul>
-           </div>
-           <div className="space-y-6">
-              <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D4AF37]">Contact</h4>
-              <p className="text-[10px] text-white/50 leading-loose">
-                hello@momento.com<br/>
-                +62 812 3456 7890
-              </p>
-           </div>
-         </div>
-      </div>
-      <div className="max-w-7xl mx-auto pt-20 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/5 mt-20">
-         <p className="text-[10px] text-white/20 tracking-widest uppercase">© 2024 Momento. All rights reserved.</p>
-         <div className="flex gap-8 text-[10px] text-white/20 tracking-widest uppercase">
-           <Link href="#">Privacy Policy</Link>
-           <Link href="#">Terms & Conditions</Link>
-         </div>
+    <footer className="relative z-20 py-[100px] px-10" style={{ background: "#090909" }}>
+      <div className="max-w-[1240px] mx-auto flex flex-col md:flex-row justify-between items-start gap-12 md:gap-0">
+        
+        {/* Left Column: Brand & Description */}
+        <div className="flex flex-col max-w-[459px]">
+          <div className="relative w-[200px] h-[32px] mb-[30px]">
+            <Image 
+              src="/images/footer/momento-logo.png" 
+              alt="Momento Logo" 
+              fill 
+              className="object-contain"
+            />
+          </div>
+          
+          <p className="text-white font-nav text-[14px] leading-[24px] tracking-[0.5px] font-normal mb-[60px] antialiased">
+            Berdiri sejak 2023, Momento Project memiliki berbagai produk seperti Undangan Digital, Mahar dan Sewa Seserahan. Semua dibuat sendiri secara premium sesuai dengan keinginan client.
+          </p>
+          
+          <p className="text-white font-nav text-[14px] leading-[17px] tracking-normal font-normal opacity-100 antialiased">
+            © 2026 Powered by Momento Project
+          </p>
+        </div>
+
+        {/* Right Column: Contact info */}
+        <div className="flex flex-col gap-[20px] pt-1">
+          {/* Instagram */}
+          <div className="flex items-center gap-[15px]">
+            <div className="relative w-[24px] h-[24px]">
+              <Image 
+                src="/icons/footer/instagram-white-icon.svg" 
+                alt="Instagram" 
+                fill 
+                className="object-contain"
+              />
+            </div>
+            <span className="text-white font-nav text-[14px] tracking-normal font-normal antialiased">
+              @momentoprjct
+            </span>
+          </div>
+
+          {/* WhatsApp */}
+          <div className="flex items-center gap-[15px]">
+            <div className="relative w-[24px] h-[24px]">
+              <Image 
+                src="/icons/footer/whatsapp-white-icon.svg" 
+                alt="WhatsApp" 
+                fill 
+                className="object-contain"
+              />
+            </div>
+            <span className="text-white font-nav text-[14px] tracking-normal font-normal antialiased">
+              +62 851-1779-7966
+            </span>
+          </div>
+
+          {/* Address / Location */}
+          <div className="flex items-start gap-[15px]">
+            <div className="relative w-[24px] h-[24px] flex-shrink-0 mt-0.5">
+              <Image 
+                src="/icons/footer/mail-white-icon.svg" 
+                alt="Location" 
+                fill 
+                className="object-contain"
+              />
+            </div>
+            <div className="flex flex-col text-white font-nav text-[14px] leading-[18px] font-normal antialiased">
+              <span className="font-bold mb-1">Momento Project</span>
+              <span className="max-w-[410px] opacity-100 uppercase text-[12px] leading-[18px]">
+                Jl. Dadap 11 No.145, RT.004/RW.008, Periuk Jaya Permai, Kota Tangerang, Banten 15131
+              </span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </footer>
   );
 }
+

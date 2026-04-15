@@ -60,7 +60,7 @@ export default function Navbar() {
                 </Link>
                 {/* Active Underline */}
                 {isActive && (
-                  <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#D4AF37] via-[#CF953C] to-[#D4AF37]" />
+                  <div className="absolute -bottom-3 left-0 right-0 h-[3px] bg-gradient-to-r from-[#D4AF37] via-[#CF953C] to-[#D4AF37]" />
                 )}
               </div>
             );
