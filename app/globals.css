@@ -15,6 +15,11 @@
   --font-nav: var(--font-montserrat), sans-serif;
 }
 
+.font-nav-squish {
+  transform: scaleY(0.85);
+  transform-origin: center;
+}
+
 @layer base {
   body {
     background-color: var(--color-background);
@@ -70,15 +75,48 @@
   .grad-gold {
     background: linear-gradient(90deg, #D4AF37 0%, #CF953C 25%, #D4AF37 68%, #CF953C 100%);
   }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+  }
 }
+
+/* --- ANIMATIONS & KEYFRAMES --- */
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.animate-marquee {
+@keyframes marquee-v-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes marquee-v-down {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+.animate-marquee-v-up {
   display: flex;
-  width: max-content;
-  animation: marquee 40s linear infinite;
+  flex-direction: column;
+  animation: marquee-v-up 40s linear infinite !important;
+  will-change: transform;
+}
+
+.animate-marquee-v-down {
+  display: flex;
+  flex-direction: column;
+  animation: marquee-v-down 40s linear infinite !important;
+  will-change: transform;
+}
+
+.animate-marquee-v-up-testimony {
+  display: flex;
+  flex-direction: column;
+  animation: marquee-v-up 60s linear infinite !important;
+  will-change: transform;
 }
