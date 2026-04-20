@@ -13,6 +13,7 @@
   --font-serif: var(--font-cinzel), serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-nav: var(--font-montserrat), sans-serif;
+  --font-montserrat: var(--font-montserrat), sans-serif;
 }
 
 .font-nav-squish {
@@ -74,6 +75,10 @@
   
   .grad-gold {
     background: linear-gradient(90deg, #D4AF37 0%, #CF953C 25%, #D4AF37 68%, #CF953C 100%);
+  }
+
+  .font-montserrat {
+    font-family: var(--font-montserrat), sans-serif;
   }
 
   .animate-marquee {

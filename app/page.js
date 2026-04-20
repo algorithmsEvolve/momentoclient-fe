@@ -9,7 +9,7 @@ import MaharSection from "@/components/features/landing/MaharSection";
 import InvitationSection from "@/components/features/landing/InvitationSection";
 import HighlightSection from "@/components/features/landing/HighlightSection";
 import TestimonySection from "@/components/features/landing/TestimonySection";
-import ExtraBanner from "@/components/features/landing/ExtraBanner";
+import ExtraBanner from "@/components/ui/ExtraBanner";
 
 export default function Home() {
   return (
@@ -33,7 +33,7 @@ export default function Home() {
         <TestimonySection />
       </section>
 
-      <ExtraBanner />
+      <ExtraBanner showDecoration={false} />
 
       <Footer />
     </div>
