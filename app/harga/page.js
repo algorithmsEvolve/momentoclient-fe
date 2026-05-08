@@ -19,7 +19,7 @@ export default function PricingPage() {
       <div className="relative z-10 flex flex-col pt-10">
         <PricingContent />
         
-        <div className="mt-[180px] md:mt-[250px]">
+        <div className="mt-[100px] md:mt-[250px]">
           <ExtraBanner 
             showDecoration={true}
             title="Penasaran dengan estimasi harga untuk kebutuhanmu? Klik tombol di bawah dan mulai hitung sekarang."
