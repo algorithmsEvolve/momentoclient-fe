@@ -10,10 +10,10 @@ export default function ExtraBanner({
   showDecoration = false 
 }) {
   return (
-    <section className="relative w-full">
+    <section className="relative w-full flex flex-col">
       {/* Wave Decoration - Positioned at the very top to bridge the gap with Safari fix */}
       {showDecoration && (
-        <div className="absolute top-[-249px] left-0 w-full h-[250px] z-30 pointer-events-none">
+        <div className="absolute top-[-249px] left-0 w-full h-[250px] z-10 md:z-30 pointer-events-none">
           <Image 
             src="/images/testimonies/testimony-bottom-decoration.png" 
             alt="Wave Decoration" 
@@ -26,7 +26,7 @@ export default function ExtraBanner({
 
       {/* Main Banner Body */}
       <div 
-        className={`relative overflow-hidden z-20 md:z-0 lg:z-0 ${showDecoration ? 'mt-0' : 'mt-[-1px]'} md:mt-0`}
+        className={`relative overflow-hidden z-20 md:z-0 lg:z-0 ${showDecoration ? 'mt-[-50px] md:mt-0' : 'mt-[-1px]'} md:mt-0`}
         style={{
           background: "linear-gradient(90deg, #D4AF37 -30%, #CF953C 0%, #D4AF37 35%, #CF953C 80%, #D4AF37 100%)",
           // Adding a tiny top margin/padding adjustment to seal Safari gap if not using decoration

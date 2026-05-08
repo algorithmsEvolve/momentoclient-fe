@@ -50,6 +50,10 @@ This document contains the primary working rules for AI assistants contributing 
 ## 7. Version Control Boundary
 - **Zero-Access to Git**: Do not execute any Git commands (commit, push, checkout, etc.). Version control is the user's responsibility.
 
-## 8. Expected Outcome
+## 8. Viewport Integrity (STRICT)
+- **Viewport-Specific Changes**: When instructed to modify a specific viewport (mobile/desktop), ensure changes do NOT affect other viewports.
+- **Regression Check**: Before applying styling changes, analyze the current CSS/Tailwind classes to ensure the modification is correctly scoped using responsive modifiers (e.g., `md:`, `lg:`). Never remove existing responsive logic unless explicitly requested.
+
+## 9. Expected Outcome
 - Every contribution should leave the codebase cleaner and more consistent.
 - The final implementation must be production-ready and visually perfect.
