@@ -43,13 +43,18 @@ export const metadata = {
   },
 };
 
+import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
+
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
       className={`${inter.variable} ${cinzel.variable} ${montserrat.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-black text-white">{children}</body>
+      <body className="min-h-full flex flex-col font-sans bg-black text-white">
+        {children}
+        <FloatingWhatsApp />
+      </body>
     </html>
   );
 }
