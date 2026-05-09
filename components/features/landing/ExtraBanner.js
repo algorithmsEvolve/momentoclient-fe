@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 export default function ExtraBanner() {
   return (
@@ -13,9 +14,14 @@ export default function ExtraBanner() {
         </p>
         
         <div className="flex justify-center">
-          <button className="bg-[#161616] text-gold w-[210px] h-[50px] rounded-[10px] flex items-center justify-center transition-all duration-300 hover:scale-[1.02] hover:bg-[#090909] shadow-[0_10px_30px_rgba(0,0,0,0.3)] antialiased">
+          <Link 
+            href="https://wa.me/message/ZD27PNJNNSFNF1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#161616] text-gold w-[210px] h-[50px] rounded-[10px] flex items-center justify-center transition-all duration-300 hover:scale-[1.02] hover:bg-[#090909] shadow-[0_10px_30px_rgba(0,0,0,0.3)] antialiased"
+          >
             <span className="text-[14px] font-nav font-bold uppercase tracking-[0.5px] md:tracking-[1px]">HUBUNGI KAMI</span>
-          </button>
+          </Link>
         </div>
       </div>
     </section>

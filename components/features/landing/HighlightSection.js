@@ -19,11 +19,11 @@ export default function HighlightSection() {
       desc: "Jasa pembuatan konten selama acara menggunakan iphone, yang siap dibagikan ke media sosial secara lifetime",
       img: "/images/extras/wcc.png",
     },
-    {
-      title: "Master of Ceremony",
-      desc: "Jasa pembawa acara yang memandu jalannya acara lamaran, dan memastikan acara berjalan dengan lancar",
-      img: "/images/extras/mc.png",
-    },
+    // {
+    //   title: "Master of Ceremony",
+    //   desc: "Jasa pembawa acara yang memandu jalannya acara lamaran, dan memastikan acara berjalan dengan lancar",
+    //   img: "/images/extras/mc.png",
+    // },
   ];
 
   return (
@@ -44,12 +44,14 @@ export default function HighlightSection() {
           Selain layanan dan produk utama, Momento juga menyediakan berbagai pelengkap pernikahan untuk menyempurnakan hari spesialmu
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-[20px] mb-[37px]">
-          {extras.map((item, i) => (
-            <div 
-              key={i} 
-              className="bg-[#050505] px-3 py-4 md:px-[25px] md:py-[30px] rounded-[15px] md:rounded-[20px] flex flex-col items-center text-center transition-all duration-300 hover:translate-y-[-10px] border border-white/10"
-            >
+        <div className="flex flex-wrap justify-center gap-4 md:gap-[20px] mb-[37px] max-w-[1000px] mx-auto">
+          {extras.map((item, i) => {
+            // Only render items that are not commented out. (The array length is now 3)
+            return (
+              <div 
+                key={i} 
+                className="w-[calc(50%-8px)] md:w-[calc(33.333%-14px)] max-w-[300px] bg-[#050505] px-3 py-4 md:px-[25px] md:py-[30px] rounded-[15px] md:rounded-[20px] flex flex-col items-center text-center transition-all duration-300 hover:translate-y-[-10px] border border-white/10"
+              >
               <div className="relative w-full aspect-[134/100] md:aspect-[4/3] rounded-[10px] overflow-hidden mb-4 md:mb-[30px]">
                 <Image 
                   src={item.img} 
@@ -67,7 +69,8 @@ export default function HighlightSection() {
                 {item.desc}
               </p>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="flex justify-center">

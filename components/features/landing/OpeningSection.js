@@ -42,7 +42,12 @@ export default function OpeningSection() {
   return (
     <section className="relative min-h-[calc(100vh-80px)] pt-[100px] flex flex-col items-center justify-center text-center px-6 bg-[#010101] overflow-hidden">
       {/* Floating WhatsApp */}
-      <div className="fixed bottom-6 right-6 z-[60] group cursor-pointer">
+      <a 
+        href="https://wa.me/message/ZD27PNJNNSFNF1" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-[60] group cursor-pointer"
+      >
         <div className="absolute inset-0 bg-[#47AE4B] rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity" />
         <div className="relative w-[64px] h-[64px] bg-[#47AE4B] flex items-center justify-center rounded-full shadow-2xl transition-transform duration-300 hover:scale-110">
           <Image 
@@ -53,7 +58,7 @@ export default function OpeningSection() {
             className="object-contain"
           />
         </div>
-      </div>
+      </a>
 
       <div className="relative z-10 max-w-[840px] w-full mx-auto flex flex-col items-center">
         <div className="min-h-[150px] flex items-center justify-center mb-8 text-center w-full px-2">
