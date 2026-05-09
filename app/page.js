@@ -33,7 +33,10 @@ export default function Home() {
         <TestimonySection />
       </section>
 
-      <ExtraBanner showDecoration={false} />
+      <ExtraBanner 
+        showDecoration={false} 
+        isHomePage={true}
+      />
 
       <Footer />
     </div>

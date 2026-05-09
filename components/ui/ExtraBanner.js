@@ -7,10 +7,11 @@ export default function ExtraBanner({
   title = "Kalau kamu masih bingung dengan produk-produk Momento, atau kamu butuh saran tema yang pas dengan pernikahanmu, jangan ragu untuk ngobrol dengan kami ya!", 
   buttonText = "HUBUNGI KAMI", 
   buttonHref = "https://wa.me/628123456789",
-  showDecoration = false 
+  showDecoration = false ,
+  isHomePage = false
 }) {
   return (
-    <section className="relative w-full flex flex-col">
+    <section className={`relative w-full flex flex-col ${isHomePage ? 'md:mt-0 mt-[-45px] z-20' : ''}`}>
       {/* Wave Decoration - Positioned at the very top to bridge the gap with Safari fix */}
       {showDecoration && (
         <div className="absolute top-[-249px] left-0 w-full h-[250px] z-10 md:z-30 pointer-events-none">
