@@ -11,18 +11,19 @@ export const metadata = {
 
 export default function PricingPage() {
   return (
-    <main className="bg-[#090909] min-h-screen relative">
-      {/* Background Subtle Gradient */}
-      <div className="fixed inset-0 bg-gradient-to-b from-[#090909] via-[#010101] to-[#090909] pointer-events-none" />
+    <div className="relative min-h-screen bg-[#010101] selection:bg-[#D4AF37]/30 selection:text-white">
+      {/* Background Subtle Gradient - Fixed to stay in place while scrolling */}
+      <div className="fixed inset-0 bg-gradient-to-b from-[#090909] via-[#010101] to-[#090909] pointer-events-none z-0" />
       
       <Navbar />
       
       <div className="relative z-10 flex flex-col pt-10">
-        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center text-white/50">Loading pricelist...</div>}>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center text-white/50 font-montserrat">Loading pricelist...</div>}>
           <PricingContent />
         </Suspense>
         
-        <div className="mt-[100px] md:mt-[250px]">
+        {/* Spacing for ExtraBanner to align with design expectations */}
+        <div className="mt-10 md:mt-20">
           <ExtraBanner 
             showDecoration={true}
             title="Penasaran dengan estimasi harga untuk kebutuhanmu? Klik tombol di bawah dan mulai hitung sekarang."
@@ -33,6 +34,6 @@ export default function PricingPage() {
       </div>
 
       <Footer />
-    </main>
+    </div>
   );
 }
