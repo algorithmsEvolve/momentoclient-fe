@@ -74,19 +74,41 @@ export default function OpeningSection() {
 
 
         <div className="flex flex-col gap-3 text-[13px] sm:text-[16px] font-medium text-white/80 mb-12 leading-[1.3] font-nav tracking-tighter max-w-[420px] sm:max-w-[680px]">
-          <div className="flex flex-wrap justify-center gap-[10px]">
-            <span>Sewa Seserahan</span>
-            <span className="text-white/80">|</span>
-            <span>Frame Mahar</span>
-            <span className="text-white/80">|</span>
-            <span>Undangan Digital</span>
-            <span className="text-white/80">|</span>
-            <span>Flower Bouquet</span>
+          {/* Desktop Layout */}
+          <div className="hidden sm:flex flex-col gap-3">
+            <div className="flex flex-wrap justify-center gap-[10px]">
+              <span>Sewa Seserahan</span>
+              <span className="text-white/80">|</span>
+              <span>Frame Mahar</span>
+              <span className="text-white/80">|</span>
+              <span>Undangan Digital</span>
+              <span className="text-white/80">|</span>
+              <span>Flower Bouquet</span>
+            </div>
+            <div className="flex flex-wrap justify-center gap-[10px]">
+              <span>Wedding Keepsake</span>
+              <span className="text-white/80">|</span>
+              <span>Wedding Content Creator</span>
+            </div>
           </div>
-          <div className="flex flex-wrap justify-center gap-[10px]">
-            <span>Wedding Keepsake</span>
-            <span className="text-white/80">|</span>
-            <span>Wedding Content Creator</span>
+
+          {/* Mobile Layout (Pairs 2x2) */}
+          <div className="flex sm:hidden flex-col gap-3">
+            <div className="flex justify-center gap-[10px]">
+              <span>Sewa Seserahan</span>
+              <span className="text-white/80">|</span>
+              <span>Frame Mahar</span>
+            </div>
+            <div className="flex justify-center gap-[10px]">
+              <span>Undangan Digital</span>
+              <span className="text-white/80">|</span>
+              <span>Flower Bouquet</span>
+            </div>
+            <div className="flex justify-center gap-[10px]">
+              <span>Wedding Keepsake</span>
+              <span className="text-white/80">|</span>
+              <span>Wedding Content Creator</span>
+            </div>
           </div>
         </div>
 
