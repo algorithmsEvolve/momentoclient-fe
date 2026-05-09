@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function MaharSection() {
   return (
-    <section className="relative bg-[#161616] min-h-[600px] flex items-center overflow-hidden z-20 py-20 md:py-[100px]">
+    <section className="relative bg-[#161616] min-h-[600px] flex items-center overflow-hidden z-20 pt-4 pb-10 md:py-[100px]">
       {/* Top Blend Gradient */}
       <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#090909] to-transparent z-10 pointer-events-none" />
       

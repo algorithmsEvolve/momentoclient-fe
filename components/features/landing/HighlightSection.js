@@ -50,7 +50,7 @@ export default function HighlightSection() {
             return (
               <div 
                 key={i} 
-                className="w-[calc(50%-8px)] md:w-[calc(33.333%-14px)] max-w-[300px] bg-[#050505] px-3 py-4 md:px-[25px] md:py-[30px] rounded-[15px] md:rounded-[20px] flex flex-col items-center text-center transition-all duration-300 hover:translate-y-[-10px] border border-white/10"
+                className="w-full md:w-[calc(33.333%-14px)] max-w-[300px] bg-[#050505] px-3 py-4 md:px-[25px] md:py-[30px] rounded-[15px] md:rounded-[20px] flex flex-col items-center text-center transition-all duration-300 hover:translate-y-[-10px] border border-white/10"
               >
               <div className="relative w-full aspect-[134/100] md:aspect-[4/3] rounded-[10px] overflow-hidden mb-4 md:mb-[30px]">
                 <Image 

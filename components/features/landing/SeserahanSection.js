@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function SeserahanSection() {
   return (
-    <section className="relative bg-[#090909] min-h-[500px] md:min-h-[650px] flex flex-col items-center py-12 md:py-20 overflow-hidden z-20">
+    <section className="relative bg-[#090909] min-h-[500px] md:min-h-[650px] flex flex-col items-center pt-10 pb-4 md:py-20 overflow-hidden z-20">
       <div className="max-w-7xl mx-auto text-center px-6 md:px-10">
         <h2 className="text-[24px] md:text-[48px] font-serif font-bold text-white mb-[15px] tracking-[-1px] leading-tight md:leading-[65px] antialiased uppercase md:normal-case">
           <span className="md:text-[56px]">S</span>ewa <span className="md:text-[56px]">s</span>eserahan
