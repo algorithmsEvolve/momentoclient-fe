@@ -77,13 +77,11 @@ export default function OpeningSection() {
             <span>Undangan Digital</span>
             <span className="text-white/80">|</span>
             <span>Flower Bouquet</span>
-            <span className="text-white/80">|</span>
-            <span>Wedding Keepsake</span>
           </div>
           <div className="flex flex-wrap justify-center gap-[10px]">
-            <span>Wedding Content Creator</span>
+            <span>Wedding Keepsake</span>
             <span className="text-white/80">|</span>
-            <span>Master of Ceremony</span>
+            <span>Wedding Content Creator</span>
           </div>
         </div>
 

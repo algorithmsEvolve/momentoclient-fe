@@ -72,7 +72,7 @@ export default function HighlightSection() {
 
         <div className="flex justify-center">
           <Link
-            href="/harga"
+            href="/harga?category=keepsake"
             className="btn-gold w-auto h-[36px] md:w-[210px] md:h-[50px] px-6 md:px-0 flex items-center justify-center gap-2 md:gap-[10px] rounded-[10px] transition-all duration-300 hover:brightness-110 group antialiased"
           >
             <span className="text-[#010101] text-[10px] md:text-[14px] font-nav font-semibold tracking-[0.5px]">Selengkapnya</span>

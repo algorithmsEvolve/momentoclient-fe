@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import {
   pricingCategories,
   seserahanPackages,
@@ -16,7 +17,20 @@ import {
 import ImageViewer from "@/components/ui/ImageViewer";
 
 export default function PricingContent() {
-  const [activeCategory, setActiveCategory] = useState("mahar"); // Default to mahar for now to see changes, or keep seserahan
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const categoryParam = searchParams.get("category");
+  const activeCategory = pricingCategories.find((c) => c.id === categoryParam) ? categoryParam : "seserahan";
+
+  const updateCategory = (catId) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("category", catId);
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const [viewerState, setViewerState] = useState({
     isOpen: false,
     src: "",
@@ -55,7 +69,7 @@ export default function PricingContent() {
               return (
                 <button
                   key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
+                  onClick={() => updateCategory(cat.id)}
                   className="relative flex items-center h-[55px] px-5 transition-all duration-300"
                 >
                   <span
@@ -80,11 +94,16 @@ export default function PricingContent() {
         <aside className="hidden md:block md:w-[240px] flex-shrink-0 border-r border-white/10 pr-0">
           <nav className="flex flex-col sticky top-[120px]">
             {pricingCategories.map((cat, index) => {
-              const isGroupEnd = index === 2 || index === 5;
+              // Dynamically determine group ends so it works even if categories are hidden
+              const isGroupEnd = 
+                (cat.id === "undangan") || 
+                (cat.id === "mahar" && !pricingCategories.find(c => c.id === "undangan")) ||
+                (cat.id === "wcc");
+
               return (
                 <button
                   key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
+                  onClick={() => updateCategory(cat.id)}
                   className={`group relative flex items-center h-[60px] cursor-pointer transition-all duration-300 border-b border-white/5 last:border-0 ${
                     isGroupEnd ? "mb-4 pb-4 border-b-white/20" : ""
                   }`}
@@ -566,6 +585,27 @@ export default function PricingContent() {
 
                 {/* Remaining items if any (e.g. Kuro if it were extra) */}
               </div>
+            </div>
+          )}
+
+          {/* Undangan Digital Section (On Progress) */}
+          {activeCategory === "undangan" && (
+            <div className="flex flex-col items-center justify-center text-center py-20 px-4 min-h-[400px]">
+              <div className="relative w-[100px] h-[100px] md:w-[120px] md:h-[120px] mb-8 opacity-80 animate-pulse">
+                <Image 
+                  src="/images/momento-logo.png" 
+                  alt="Momento" 
+                  fill 
+                  className="object-contain"
+                />
+              </div>
+              <h2 className="text-[28px] md:text-[40px] font-serif font-bold text-transparent bg-clip-text mb-4 tracking-[-1px] uppercase"
+                  style={{ backgroundImage: "linear-gradient(180deg, #D4AF37 0%, #CF953C 25%, #D4AF37 68%, #CF953C 100%)" }}>
+                On Progress
+              </h2>
+              <p className="text-white font-montserrat text-[14px] md:text-[16px] max-w-[400px] leading-relaxed">
+                Kami sedang meracik konten terbaik untuk Pricelist Undangan Digital. Nantikan pembaruan dari kami segera!
+              </p>
             </div>
           )}
 

@@ -2,6 +2,7 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import PricingContent from "@/components/features/pricing/PricingContent";
 import ExtraBanner from "@/components/ui/ExtraBanner";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "Pricelist | Momento Project",
@@ -17,7 +18,9 @@ export default function PricingPage() {
       <Navbar />
       
       <div className="relative z-10 flex flex-col pt-10">
-        <PricingContent />
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center text-white/50">Loading pricelist...</div>}>
+          <PricingContent />
+        </Suspense>
         
         <div className="mt-[100px] md:mt-[250px]">
           <ExtraBanner 

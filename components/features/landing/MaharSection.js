@@ -48,7 +48,7 @@ export default function MaharSection() {
             </p>
           </div>
           <div className="flex justify-center md:justify-start">
-            <Link href="/harga" className="btn-gold w-auto h-[36px] md:w-[210px] md:h-[50px] px-6 md:px-0 flex items-center justify-center gap-2 md:gap-[10px] rounded-[10px] transition-all duration-300 hover:brightness-110 group antialiased">
+            <Link href="/harga?category=mahar" className="btn-gold w-auto h-[36px] md:w-[210px] md:h-[50px] px-6 md:px-0 flex items-center justify-center gap-2 md:gap-[10px] rounded-[10px] transition-all duration-300 hover:brightness-110 group antialiased">
               <span className="text-[10px] md:text-[14px] font-nav font-semibold tracking-[0.5px] text-[#161616]">Selengkapnya</span>
               <ArrowRight size={14} className="text-[#161616] md:hidden transition-transform group-hover:translate-x-1" />
               <ArrowRight size={20} className="text-[#161616] hidden md:block transition-transform group-hover:translate-x-1" />

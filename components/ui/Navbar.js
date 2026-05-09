@@ -7,11 +7,13 @@ import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { name: 'Home', href: '/' },
-  { name: 'Seserahan', href: '#seserahan' },
-  { name: 'Mahar', href: '#mahar' },
-  { name: 'Undangan', href: '#undangan' },
-  { name: 'Extras', href: '#extras' },
+  { name: 'Info Produk', href: '/info-produk' },
+  // { name: 'Seserahan', href: '#seserahan' },
+  // { name: 'Mahar', href: '#mahar' },
+  // { name: 'Undangan', href: '#undangan' },
+  // { name: 'Extras', href: '#extras' },
   { name: 'Harga', href: '/harga' },
+  { name: 'Customer', href: '/customer' },
 ];
 
 export default function Navbar() {
@@ -28,6 +30,7 @@ export default function Navbar() {
   }, []);
 
   return (
+    <>
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-[80px] md:h-[100px] flex items-center ${
         isScrolled ? 'bg-[#090909]/90 backdrop-blur-md border-b border-white/5' : 'bg-[#090909]/50'
@@ -99,6 +102,7 @@ export default function Navbar() {
           </svg>
         </button>
       </div>
+    </nav>
 
       {/* Mobile Menu Drawer */}
       <div 
@@ -158,7 +162,7 @@ export default function Navbar() {
                   </div>
                   
                   {/* Seperator Lines based on Design - Line color #A9A9A9 */}
-                  {(index === 0 || index === 4) && (
+                  {(link.name === 'Info Produk' || link.name === 'Harga') && (
                     <div className="w-full h-[1px] bg-[#A9A9A9]/30 my-2" />
                   )}
                 </div>
@@ -178,8 +182,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-
-
-    </nav>
+    </>
   );
 }
