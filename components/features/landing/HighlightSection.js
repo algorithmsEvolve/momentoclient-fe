@@ -59,8 +59,7 @@ export default function HighlightSection() {
                 />
               </div>
               <h3
-                className="text-transparent bg-clip-text text-[12px] md:text-[18px] font-bold font-nav mb-2 md:mb-[10px] tracking-normal leading-tight md:leading-normal"
-                style={{ backgroundImage: "linear-gradient(180deg, #D4AF37 0%, #CF953C 25%, #D4AF37 68%, #CF953C 100%)" }}
+                className="text-gold text-[12px] md:text-[18px] font-bold font-nav mb-2 md:mb-[10px] tracking-normal leading-tight md:leading-normal"
               >
                 {item.title}
               </h3>

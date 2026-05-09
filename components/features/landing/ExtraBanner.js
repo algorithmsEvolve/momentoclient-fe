@@ -13,7 +13,7 @@ export default function ExtraBanner() {
         </p>
         
         <div className="flex justify-center">
-          <button className="bg-[#161616] text-[#D4AF37] w-[210px] h-[50px] rounded-[10px] flex items-center justify-center transition-all duration-300 hover:scale-[1.02] hover:bg-[#090909] shadow-[0_10px_30px_rgba(0,0,0,0.3)] antialiased">
+          <button className="bg-[#161616] text-gold w-[210px] h-[50px] rounded-[10px] flex items-center justify-center transition-all duration-300 hover:scale-[1.02] hover:bg-[#090909] shadow-[0_10px_30px_rgba(0,0,0,0.3)] antialiased">
             <span className="text-[14px] font-nav font-bold uppercase tracking-[0.5px] md:tracking-[1px]">HUBUNGI KAMI</span>
           </button>
         </div>

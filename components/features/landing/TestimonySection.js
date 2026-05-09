@@ -152,7 +152,7 @@ export default function TestimonySection() {
                 {testimonies.map((testi, i) => (
                   <div key={`${groupIdx}-${i}`} className="bg-[#0D0D0D] p-5 md:p-[30px] rounded-[20px] md:rounded-[25px] border border-white/5 flex flex-col gap-4 md:gap-[20px] shadow-xl">
                     {/* Header: Name and Date */}
-                    <div className="text-[#D4AF37] font-bold font-nav text-[12px] md:text-[16px] leading-[24px]">
+                    <div className="text-gold font-bold font-nav text-[12px] md:text-[16px] leading-[24px]">
                       {testi.name}, {testi.date}
                     </div>
                     

@@ -84,20 +84,20 @@ export default function PricingContent() {
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
                   className={`group relative flex items-center h-[60px] cursor-pointer transition-all duration-300 border-b border-white/5 last:border-0 ${
-                    isGroupEnd ? "pb-4 mb-4 border-b-white/20" : ""
+                    isGroupEnd ? "mb-4 pb-4 border-b-white/20" : ""
                   }`}
                 >
                   {activeCategory === cat.id && (
-                    <div className="absolute left-0 top-[15px] bottom-[15px] w-[3px] bg-[#D4AF37] rounded-full" />
+                    <div className={`absolute ${isGroupEnd ? "top-[7.5px] bottom-[22.5px]" : "top-[15px] bottom-[15px]"} left-0 w-[3px] grad-gold rounded-full`} />
                   )}
                   <span
                     className={`pl-[25px] text-[16px] font-montserrat font-bold tracking-[0.5px] whitespace-nowrap antialiased transition-colors duration-300 ${
                       activeCategory === cat.id
-                        ? "text-[#D4AF37]"
-                        : "text-white hover:text-[#D4AF37]"
+                        ? "text-gold"
+                        : "text-white hover:text-gold"
                     }`}
                   >
-                    {cat.id === "keepsake" ? "Keepsake" : cat.name}
+                    {cat.sidebar_name || cat.name}
                   </span>
                 </button>
               );
@@ -181,7 +181,7 @@ export default function PricingContent() {
                             className="flex flex-col border-b border-[#343434] md:border-white/10 pb-3 md:pb-[15px] mb-3 md:mb-0 last:border-0 last:pb-0 last:mb-0"
                           >
                             <div className="flex justify-between items-center">
-                              <span className="text-[#D4AF37] font-montserrat font-bold text-[12px] md:text-[14px] uppercase">
+                              <span className="text-gold font-montserrat font-bold text-[12px] md:text-[14px] uppercase">
                                 {opt.boxes}
                               </span>
                               <span className="text-white font-montserrat font-semibold text-[12px] md:text-[16px] tracking-[0.5px]">
@@ -241,7 +241,7 @@ export default function PricingContent() {
                             key={idx}
                             className="flex justify-between items-center border-b border-white/10 md:border-[#343434] pb-[8px] md:pb-3 md:pt-0 last:border-0"
                           >
-                            <span className="text-[#D4AF37] font-montserrat font-bold text-[14px]">
+                            <span className="text-gold font-montserrat font-bold text-[14px]">
                               {opt.size}
                             </span>
                             <span className="text-white font-montserrat font-semibold text-[14px] md:text-[16px]">
@@ -423,7 +423,7 @@ export default function PricingContent() {
                             ....................................................................................................
                           </span>
                         </div>
-                        <span className="text-[#D4AF37] font-bold shrink-0 pl-4">{item.price}</span>
+                        <span className="text-gold font-bold shrink-0 pl-4">{item.price}</span>
                       </div>
                     ))}
                   </div>
@@ -471,7 +471,7 @@ export default function PricingContent() {
                         <span className="font-normal">Harga Sewa :</span>{" "}
                         <span className="font-bold"> {item.price}</span>
                       </p>
-                      <p className="text-[#D4AF37] text-[12px] font-montserrat font-medium italic mt-[17px] leading-tight">
+                      <p className="text-gold text-[12px] font-montserrat font-medium italic mt-[17px] leading-tight">
                         {item.note || "*tidak bisa ubah warna"}
                       </p>
                     </div>
@@ -574,7 +574,7 @@ export default function PricingContent() {
                   <h2 className="text-[20px] md:text-[24px] font-montserrat font-bold text-white">
                     Keepsake
                   </h2>
-                  <span className="text-[#D4AF37] font-montserrat font-bold text-[18px] md:text-[24px]">
+                  <span className="text-gold font-montserrat font-bold text-[18px] md:text-[24px]">
                     Rp. 115.000
                   </span>
                 </div>
@@ -642,7 +642,7 @@ export default function PricingContent() {
                           ....................................................................................................
                         </span>
                       </div>
-                      <span className="text-[#D4AF37] font-bold shrink-0 pl-4">{item.price}</span>
+                      <span className="text-gold font-bold shrink-0 pl-4">{item.price}</span>
                     </div>
                   ))}
                 </div>
@@ -695,7 +695,7 @@ export default function PricingContent() {
                       
                       {/* Price Section - Inside Column for Mobile */}
                       <div className="md:hidden text-left mt-2">
-                        <span className="text-[#D4AF37] font-montserrat font-bold text-[18px]">
+                        <span className="text-gold font-montserrat font-bold text-[18px]">
                           {pkg.price}
                         </span>
                       </div>
@@ -704,7 +704,7 @@ export default function PricingContent() {
 
                   {/* Price Section - Below Row for Desktop */}
                   <div className="hidden md:block mt-auto pt-6 text-left">
-                    <span className="text-[#D4AF37] font-montserrat font-bold text-[24px]">
+                    <span className="text-gold font-montserrat font-bold text-[24px]">
                       {pkg.price}
                     </span>
                   </div>
@@ -716,16 +716,16 @@ export default function PricingContent() {
           {/* Wedding Content Creator Section */}
           {activeCategory === "wcc" && (
             <div className="flex flex-col gap-0">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-20">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-[15px] md:mb-20">
                 {wccPackages.map((pkg) => (
                   <div
                     key={pkg.id}
-                    className="bg-[#161616] rounded-[20px] p-[30px] flex flex-col border border-white/5 transition-all duration-300 hover:border-[#D4AF37]/20"
+                    className="bg-[#161616] rounded-[10px] md:rounded-[20px] p-[20px] md:p-[30px] flex flex-col border border-white/5 transition-all duration-300 hover:border-[#D4AF37]/20"
                   >
-                    <h2 className="text-[24px] font-montserrat font-bold text-white mb-2 tracking-[-2.5%]">
+                    <h2 className="text-[18px] md:text-[24px] font-montserrat font-bold text-white mb-2 tracking-[-2.5%]">
                       {pkg.name}
                     </h2>
-                    <p className="text-white/60 font-montserrat text-[12px] leading-[20px] mb-6">
+                    <p className="text-white font-montserrat text-[12px] leading-[20px] mb-[15px] md:mb-6 opacity-80 md:opacity-100">
                       {pkg.desc}
                     </p>
 
@@ -733,10 +733,10 @@ export default function PricingContent() {
                       <h3 className="text-white font-montserrat font-bold text-[12px] mb-2">
                         Detail :
                       </h3>
-                      <ul className="text-white font-montserrat font-normal text-[12px] space-y-0 list-none mb-8">
+                      <ul className="text-white font-montserrat font-normal text-[12px] space-y-0 list-none mb-6 md:mb-8 pl-1">
                         {pkg.details.map((detail, idx) => (
                           <li key={idx} className="flex items-start leading-[20px]">
-                            <span className="mr-[5px]">•</span>
+                            <span className="mr-[8px]">•</span>
                             <span>{detail}</span>
                           </li>
                         ))}
@@ -744,7 +744,7 @@ export default function PricingContent() {
                     </div>
 
                     <div className="mt-auto">
-                      <span className="text-[#D4AF37] font-montserrat font-bold text-[20px]">
+                      <span className="text-gold font-montserrat font-bold text-[18px] md:text-[20px]">
                         {pkg.price}
                       </span>
                     </div>
@@ -753,12 +753,12 @@ export default function PricingContent() {
               </div>
 
               {/* WCC Add Ons Section */}
-              <div className="mt-0 md:mt-10 w-full max-w-4xl mx-auto md:mx-0 mb-20">
+              <div className="mt-8 md:mt-10 w-full max-w-4xl mx-auto md:mx-0 mb-20">
                 <div className="mb-5 md:mb-8 pl-[14px] md:pl-0">
-                  <p className="text-[#B1B1B1] font-montserrat font-semibold text-[14px] md:text-[20px] mb-1">
+                  <p className="text-[#B1B1B1] font-montserrat font-semibold text-[18px] md:text-[20px] mb-1">
                     Add Ons
                   </p>
-                  <h2 className="text-[20px] md:text-[32px] font-serif font-bold text-white uppercase tracking-[0px] md:tracking-[-1px] leading-tight">
+                  <h2 className="text-[24px] md:text-[32px] font-serif font-bold text-white uppercase tracking-[0px] md:tracking-[-1px] leading-tight">
                     {formatCinzel("CONTENT WCC")}
                   </h2>
                 </div>
@@ -769,7 +769,7 @@ export default function PricingContent() {
                       key={i}
                       className="flex items-baseline font-montserrat w-full min-w-0"
                     >
-                      <span className="text-white text-[12px] md:text-[14px] shrink-0 pr-4">
+                      <span className="text-white text-[12px] md:text-[14px] shrink-0 pr-4 leading-[22px]">
                         {item.name}
                       </span>
                       <div className="flex-1 overflow-hidden h-[1em] min-w-0">
@@ -777,7 +777,7 @@ export default function PricingContent() {
                           ....................................................................................................
                         </span>
                       </div>
-                      <span className="text-[#D4AF37] font-bold text-[14px] md:text-[16px] shrink-0 pl-4">
+                      <span className="text-gold font-bold text-[12px] md:text-[16px] shrink-0 pl-4">
                         {item.price}
                       </span>
                     </div>

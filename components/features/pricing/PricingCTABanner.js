@@ -34,9 +34,11 @@ export default function PricingCTABanner() {
 
           <Link 
             href="/estimasi"
-            className="inline-flex items-center justify-center bg-[#161616] text-[#D4AF37] h-[50px] md:h-[60px] px-8 md:px-12 rounded-[12px] font-nav font-bold text-[14px] md:text-[18px] tracking-[0.5px] transition-all duration-300 hover:bg-[#161616]/90 hover:scale-105 shadow-2xl antialiased uppercase"
+            className="inline-flex items-center justify-center bg-[#161616] h-[50px] md:h-[60px] px-8 md:px-12 rounded-[12px] font-nav font-bold tracking-[0.5px] transition-all duration-300 hover:bg-[#161616]/90 hover:scale-105 shadow-2xl antialiased uppercase"
           >
-            HITUNG ESTIMASI HARGA
+            <span className="text-gold text-[14px] md:text-[18px]">
+              HITUNG ESTIMASI HARGA
+            </span>
           </Link>
         </div>
       </div>

@@ -48,9 +48,9 @@ export default function ExtraBanner({
               href={buttonHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#161616] text-[#D4AF37] min-w-[210px] w-auto px-8 h-[50px] rounded-[10px] flex items-center justify-center transition-all duration-300 hover:scale-[1.02] hover:bg-[#090909] shadow-[0_10px_30_rgba(0,0,0,0.3)] antialiased"
+              className="bg-[#161616] min-w-[210px] w-auto px-8 h-[50px] rounded-[10px] flex items-center justify-center transition-all duration-300 hover:scale-[1.02] hover:bg-[#090909] shadow-[0_10px_30_rgba(0,0,0,0.3)] antialiased"
             >
-              <span className="text-[14px] font-nav font-bold uppercase tracking-[0.5px] md:tracking-[1px]">
+              <span className="text-gold text-[14px] font-nav font-bold uppercase tracking-[0.5px] md:tracking-[1px]">
                 {buttonText}
               </span>
             </Link>

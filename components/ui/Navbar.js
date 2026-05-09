@@ -54,7 +54,7 @@ export default function Navbar() {
                 <Link 
                   href={link.href}
                   className={`px-[20px] py-[8px] text-[16px] font-bold font-nav tracking-[0.5px] leading-none transition-colors duration-200 antialiased ${
-                    isActive ? 'text-[#D4AF37]' : 'text-white hover:text-[#D4AF37]'
+                    isActive ? 'text-gold' : 'text-white hover:text-gold'
                   }`}
                 >
                   {link.name}
@@ -71,7 +71,7 @@ export default function Navbar() {
         {/* Right Action Button: Estimasi Harga */}
         <Link 
           href="/estimasi" 
-          className="hidden lg:flex w-[191px] h-[50px] items-center justify-center border-2 border-[#D4AF37] rounded-[10px] px-[30px] py-[15px] text-[16px] font-bold font-nav tracking-[0.5px] leading-none text-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300 antialiased whitespace-nowrap"
+          className="hidden lg:flex w-[191px] h-[50px] items-center justify-center border-2 border-[#D4AF37] rounded-[10px] px-[30px] py-[15px] text-[16px] font-bold font-nav tracking-[0.5px] leading-none text-gold hover:bg-[#D4AF37]/10 transition-all duration-300 antialiased whitespace-nowrap"
         >
           Estimasi Harga
         </Link>
@@ -126,7 +126,7 @@ export default function Navbar() {
               type="button"
               aria-label="Close navigation menu"
               onClick={() => setMenuOpen(false)}
-              className="text-white hover:text-[#D4AF37] transition-colors"
+              className="text-white hover:text-gold transition-colors"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18" />
@@ -144,13 +144,13 @@ export default function Navbar() {
                 <div key={link.name}>
                   <div className="relative py-[14px] flex items-center">
                     {isActive && (
-                      <div className="absolute left-[0px] w-[2px] h-[30px] bg-[#D4AF37]" />
+                      <div className="absolute left-[0px] w-[2px] h-[30px] grad-gold" />
                     )}
                     <Link
                       href={link.href}
                       onClick={() => setMenuOpen(false)}
                       className={`pl-5 text-[14px] tracking-[0.5px] font-montserrat transition-all duration-300 ${
-                        isActive ? 'text-[#D4AF37] font-bold' : 'text-white font-medium hover:text-[#D4AF37]'
+                        isActive ? 'text-gold font-bold' : 'text-white font-medium hover:text-gold'
                       }`}
                     >
                       {link.name}
@@ -171,7 +171,7 @@ export default function Navbar() {
             <Link 
               href="/estimasi"
               onClick={() => setMenuOpen(false)}
-              className="w-full h-[56px] flex items-center justify-center border border-[#D4AF37] rounded-[10px] text-[14px] font-bold font-montserrat tracking-[0.5px] text-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300 antialiased"
+              className="w-full h-[56px] flex items-center justify-center border border-[#D4AF37] rounded-[10px] text-[14px] font-bold font-montserrat tracking-[0.5px] text-gold hover:bg-[#D4AF37]/10 transition-all duration-300 antialiased"
             >
               Estimasi Harga
             </Link>

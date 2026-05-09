@@ -91,7 +91,7 @@ export default function ImageViewer({ src, alt, isOpen, onClose }) {
         <button 
           onClick={handleZoomOut}
           disabled={scale <= 1}
-          className="text-white/70 hover:text-[#D4AF37] disabled:opacity-30 disabled:hover:text-white/70 transition-colors cursor-pointer"
+          className="text-white/70 hover:text-gold disabled:opacity-30 disabled:hover:text-white/70 transition-colors cursor-pointer"
         >
           <ZoomOut size={24} />
         </button>
@@ -100,7 +100,7 @@ export default function ImageViewer({ src, alt, isOpen, onClose }) {
         </span>
         <button 
           onClick={handleZoomIn}
-          className="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer"
+          className="text-white/70 hover:text-gold transition-colors cursor-pointer"
         >
           <ZoomIn size={24} />
         </button>
@@ -109,7 +109,7 @@ export default function ImageViewer({ src, alt, isOpen, onClose }) {
       {/* Close Button */}
       <button 
         onClick={onClose}
-        className="absolute top-6 right-6 z-20 p-2 text-white/70 hover:text-[#D4AF37] transition-all duration-200 cursor-pointer hover:rotate-90"
+        className="absolute top-6 right-6 z-20 p-2 text-white/70 hover:text-gold transition-all duration-200 cursor-pointer hover:rotate-90"
         aria-label="Close viewer"
       >
         <X size={32} />

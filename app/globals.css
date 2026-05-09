@@ -51,11 +51,32 @@
     }
 
     .btn-outline-gold {
-        @apply px-8 py-2.5 border border-[#D4AF37] text-[#D4AF37] font-bold rounded-full transition-all duration-300 hover:bg-[#D4AF37]/10 active:scale-95 text-xs tracking-widest uppercase;
+        @apply px-8 py-2.5 border border-[#D4AF37] font-bold rounded-full transition-all duration-300 hover:bg-[#D4AF37]/10 active:scale-95 text-xs tracking-widest uppercase;
+        background: linear-gradient(
+            90deg,
+            #d4af37 0%,
+            #cf953c 25%,
+            #d4af37 68%,
+            #cf953c 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .nav-link {
-        @apply text-[11px] font-bold uppercase tracking-[0.15em] text-white/70 hover:text-[#D4AF37] transition-colors duration-200;
+        @apply text-[11px] font-bold uppercase tracking-[0.15em] text-white/70 transition-colors duration-200;
+    }
+
+    .nav-link:hover {
+        background: linear-gradient(
+            90deg,
+            #d4af37 0%,
+            #cf953c 25%,
+            #d4af37 68%,
+            #cf953c 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .feature-card {
@@ -64,7 +85,9 @@
         height: 250px;
         max-width: 100%;
     }
+}
 
+@layer utilities {
     .text-gold {
         background: linear-gradient(
             90deg,
@@ -75,9 +98,7 @@
         );
         @apply bg-clip-text text-transparent;
     }
-}
 
-@layer utilities {
     .wavy-bg {
         background: linear-gradient(180deg, #d4af37 0%, #a6892a 100%);
         clip-path: url("#wavy-clip");
