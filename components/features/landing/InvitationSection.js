@@ -44,16 +44,13 @@ export default function InvitationSection() {
         </div>
 
         {/* Right: Vertical Marquee Display */}
-        <div className="flex-1 flex gap-3 md:gap-6 relative h-[520px] md:h-full mt-5 md:mt-0">
-
-
-
-          {/* Shadow Gradients */}
-          <div className="absolute inset-x-0 top-0 h-16 md:h-24 bg-gradient-to-b from-[#090909] to-transparent z-40 pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-16 md:h-24 bg-gradient-to-t from-[#090909] to-transparent z-40 pointer-events-none" />
+        <div className="flex-1 flex gap-3 md:gap-6 relative h-[600px] md:h-[800px] mt-5 md:mt-0 overflow-hidden">
+          {/* Shadow Gradients - Global Overlay for both columns */}
+          <div className="absolute inset-x-0 top-0 h-32 md:h-48 bg-gradient-to-b from-[#090909] via-[#090909] to-transparent z-[60] pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-32 md:h-48 bg-gradient-to-t from-[#090909] via-[#090909] to-transparent z-[60] pointer-events-none" />
 
           {/* Column 1 — Downwards */}
-          <div className="relative h-full overflow-hidden">
+          <div className="relative h-full flex-1">
             <div className="flex flex-col animate-marquee-v-down">
               {[...Array(2)].map((_, groupIdx) => (
                 <div key={groupIdx} className="flex flex-col gap-3 md:gap-6 pb-3 md:pb-6">
@@ -78,7 +75,7 @@ export default function InvitationSection() {
           </div>
 
           {/* Column 2 — Upwards (Desktop Only) */}
-          <div className="relative h-full overflow-hidden hidden md:block">
+          <div className="relative h-full hidden md:block flex-1">
             <div className="flex flex-col animate-marquee-v-up">
               {[...Array(2)].map((_, groupIdx) => (
                 <div key={groupIdx} className="flex flex-col gap-6 pb-6">

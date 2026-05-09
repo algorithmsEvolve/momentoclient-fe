@@ -23,8 +23,24 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "Momento | Everything For Your Special Moments",
-  description: "Premium seserahan, mahar, and digital invitations for your special moments.",
+  title: "Momento - Undangan Digital, Mahar & Seserahan",
+  description: "Ciptakan momen pernikahan yang autentik dan kreatif 🪄",
+  openGraph: {
+    title: "Momento - Undangan Digital, Mahar & Seserahan",
+    description: "Ciptakan momen pernikahan yang autentik dan kreatif 🪄",
+    url: "https://momentoproject.com",
+    siteName: "Momento Project",
+    images: [
+      {
+        url: "https://xedsqvaujcspuu3e.public.blob.vercel-storage.com/global/invitation_by_wa.png",
+        width: 1200,
+        height: 630,
+        alt: "Momento Project Thumbnail",
+      },
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
