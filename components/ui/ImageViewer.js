@@ -14,11 +14,17 @@ export default function ImageViewer({ src, alt, isOpen, onClose }) {
   const imageRef = useRef(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
       // Reset state when opening new image
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setScale(1);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPosition({ x: 0, y: 0 });
     } else {
       document.body.style.overflow = 'unset';
