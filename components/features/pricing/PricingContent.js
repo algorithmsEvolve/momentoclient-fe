@@ -7,6 +7,9 @@ import {
   seserahanPackages,
   maharPackages,
   addOns,
+  bouquetPackages,
+  wccPackages,
+  wccAddOns,
 } from "@/lib/pricingData";
 import ImageViewer from "@/components/ui/ImageViewer";
 
@@ -640,6 +643,143 @@ export default function PricingContent() {
                         </span>
                       </div>
                       <span className="text-[#D4AF37] font-bold shrink-0 pl-4">{item.price}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+          {/* Flower Bouquet Section */}
+          {activeCategory === "bouqet" && (
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-6 mb-20">
+              {bouquetPackages.map((pkg) => (
+                <div
+                  key={pkg.id}
+                  className="bg-[#161616] rounded-[10px] md:rounded-[20px] p-[20px] md:p-[30px] flex flex-col border border-white/5 transition-all duration-300 hover:border-[#D4AF37]/20"
+                >
+                  <h2 className="text-[20px] md:text-[24px] font-montserrat font-bold text-white mb-[15px] tracking-[-2.5%]">
+                    {pkg.name}
+                  </h2>
+                  
+                  <div className="flex flex-row gap-[15px] md:gap-[20px]">
+                    {/* Image - Precise Dimensions: 120x156 */}
+                    <div
+                      className="w-[120px] h-[156px] flex-shrink-0 cursor-zoom-in group"
+                      onClick={() => openViewer(pkg.image, pkg.name)}
+                    >
+                      <div className="relative w-full h-full rounded-[10px] overflow-hidden border border-white/5">
+                        <Image
+                          src={pkg.image}
+                          alt={pkg.name}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Details */}
+                    <div className="flex-1 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-white font-montserrat font-bold text-[12px] md:text-[14px] mb-2">
+                          Detail :
+                        </h3>
+                        <ul className="text-white font-montserrat font-normal text-[12px] space-y-0 list-none">
+                          {pkg.details.map((detail, idx) => (
+                            <li key={idx} className="flex items-start leading-[20px]">
+                              <span className="mr-[5px]">•</span> 
+                              <span>{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      {/* Price Section - Inside Column for Mobile */}
+                      <div className="md:hidden text-left mt-2">
+                        <span className="text-[#D4AF37] font-montserrat font-bold text-[18px]">
+                          {pkg.price}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Price Section - Below Row for Desktop */}
+                  <div className="hidden md:block mt-auto pt-6 text-left">
+                    <span className="text-[#D4AF37] font-montserrat font-bold text-[24px]">
+                      {pkg.price}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Wedding Content Creator Section */}
+          {activeCategory === "wcc" && (
+            <div className="flex flex-col gap-0">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-20">
+                {wccPackages.map((pkg) => (
+                  <div
+                    key={pkg.id}
+                    className="bg-[#161616] rounded-[20px] p-[30px] flex flex-col border border-white/5 transition-all duration-300 hover:border-[#D4AF37]/20"
+                  >
+                    <h2 className="text-[24px] font-montserrat font-bold text-white mb-2 tracking-[-2.5%]">
+                      {pkg.name}
+                    </h2>
+                    <p className="text-white/60 font-montserrat text-[12px] leading-[20px] mb-6">
+                      {pkg.desc}
+                    </p>
+
+                    <div className="flex-1 flex flex-col">
+                      <h3 className="text-white font-montserrat font-bold text-[12px] mb-2">
+                        Detail :
+                      </h3>
+                      <ul className="text-white font-montserrat font-normal text-[12px] space-y-0 list-none mb-8">
+                        {pkg.details.map((detail, idx) => (
+                          <li key={idx} className="flex items-start leading-[20px]">
+                            <span className="mr-[5px]">•</span>
+                            <span>{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="mt-auto">
+                      <span className="text-[#D4AF37] font-montserrat font-bold text-[20px]">
+                        {pkg.price}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* WCC Add Ons Section */}
+              <div className="mt-0 md:mt-10 w-full max-w-4xl mx-auto md:mx-0 mb-20">
+                <div className="mb-5 md:mb-8 pl-[14px] md:pl-0">
+                  <p className="text-[#B1B1B1] font-montserrat font-semibold text-[14px] md:text-[20px] mb-1">
+                    Add Ons
+                  </p>
+                  <h2 className="text-[20px] md:text-[32px] font-serif font-bold text-white uppercase tracking-[0px] md:tracking-[-1px] leading-tight">
+                    {formatCinzel("CONTENT WCC")}
+                  </h2>
+                </div>
+
+                <div className="bg-[#161616] p-[20px] md:p-[38px] rounded-[10px] md:rounded-[20px] border border-white/5 space-y-3 md:space-y-4">
+                  {wccAddOns.map((item, i) => (
+                    <div
+                      key={i}
+                      className="flex items-baseline font-montserrat w-full min-w-0"
+                    >
+                      <span className="text-white text-[12px] md:text-[14px] shrink-0 pr-4">
+                        {item.name}
+                      </span>
+                      <div className="flex-1 overflow-hidden h-[1em] min-w-0">
+                        <span className="text-white tracking-[0.4em] font-medium select-none whitespace-nowrap opacity-20">
+                          ....................................................................................................
+                        </span>
+                      </div>
+                      <span className="text-[#D4AF37] font-bold text-[14px] md:text-[16px] shrink-0 pl-4">
+                        {item.price}
+                      </span>
                     </div>
                   ))}
                 </div>
