@@ -141,6 +141,7 @@ return (
               {currentProducts.map((product) => {
                 const isDisabled = activeCategory === "seserahan" && product.id.startsWith("tray-") && selectedTrayType && selectedTrayType !== product.id;
                 const isMaxLimitReached = activeCategory === "seserahan" && product.id.startsWith("tray-") && (cart[product.id]?.quantity || 0) >= 11;
+                const hideImage = activeCategory === "wcc" || activeCategory === "bundling";
                 return (
                   <div key={product.id} className="flex justify-center md:justify-start">
                     <ProductCard
@@ -150,6 +151,7 @@ return (
                       openViewer={(src, alt) => setViewerState({ isOpen: true, src, alt })}
                       isDisabled={isDisabled}
                       isMaxLimitReached={isMaxLimitReached}
+                      hideImage={hideImage}
                     />
                   </div>
                 );

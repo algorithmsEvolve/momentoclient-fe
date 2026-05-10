@@ -3,25 +3,27 @@
 import Image from "next/image";
 import { Minus, Plus } from "lucide-react";
 
-export default function ProductCard({ product, quantity, updateQuantity, openViewer, isDisabled, isMaxLimitReached }) {
+export default function ProductCard({ product, quantity, updateQuantity, openViewer, isDisabled, isMaxLimitReached, hideImage }) {
   return (
-    <div className={`bg-[#161616] w-[173px] h-[262px] rounded-[10px] border border-[#292929] overflow-hidden flex flex-col transition-all duration-300 ${isDisabled ? 'opacity-30 grayscale' : 'group'}`}>
+    <div className={`bg-[#161616] w-[173px] ${hideImage ? 'h-auto min-h-[160px]' : 'h-[262px]'} rounded-[10px] border border-[#292929] overflow-hidden flex flex-col transition-all duration-300 ${isDisabled ? 'opacity-30 grayscale' : 'group'}`}>
       {/* Product Image - Clickable for Image Viewer */}
-      <div 
-        className={`relative w-[173px] h-[144px] overflow-hidden ${!isDisabled ? 'cursor-zoom-in' : ''}`}
-        onClick={() => !isDisabled && openViewer(product.image, product.name)}
-      >
-        <Image
-          src={product.image}
-          alt={product.name}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-      </div>
+      {!hideImage && (
+        <div 
+          className={`relative w-[173px] h-[144px] overflow-hidden flex-shrink-0 ${!isDisabled ? 'cursor-zoom-in' : ''}`}
+          onClick={() => !isDisabled && openViewer(product.image, product.name)}
+        >
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+        </div>
+      )}
 
       {/* Product Info */}
-      <div className="p-[10px] flex flex-col flex-1">
-        <h3 className="text-white font-montserrat font-bold text-[16px] tracking-[-2.5%] mb-0.5 leading-none">
+      <div className={`flex flex-col flex-1 p-[10px] ${hideImage ? 'pt-4' : ''}`}>
+        <h3 className={`text-white font-montserrat font-bold tracking-[-2.5%] ${hideImage ? 'text-[14px] leading-snug mb-2' : 'text-[16px] leading-none mb-0.5'}`}>
           {product.name}
         </h3>
         <p className="text-white font-montserrat font-normal text-[12px] mb-4">

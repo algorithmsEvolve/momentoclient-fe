@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function ExtraBanner({ 
   title = "Kalau kamu masih bingung dengan produk-produk Momento, atau kamu butuh saran tema yang pas dengan pernikahanmu, jangan ragu untuk ngobrol dengan kami ya!", 
   buttonText = "HUBUNGI KAMI", 
-  buttonHref = "https://wa.me/628123456789",
+  buttonHref = "https://wa.me/6285117797966",
   showDecoration = false ,
   isHomePage = false
 }) {

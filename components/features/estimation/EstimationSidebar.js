@@ -34,21 +34,25 @@ export default function EstimationSidebar({ cart, summary, updateQuantity }) {
   const handleOrder = () => {
     if (cartItems.length === 0) return;
 
-    const ringboxText = selectedRingbox ? `\n*Ringbox: ${selectedRingbox.name} (${selectedRingbox.price})*` : "";
-    const bedcoverText = totalTrays > 9 ? `\n*Hias Bedcover (Free)*` : "";
+    const bonusItems = [];
+    if (selectedRingbox) bonusItems.push(`- Ringbox: ${selectedRingbox.name} (~${selectedRingbox.price}~ Free)`);
+    if (totalTrays > 9) bonusItems.push(`- Hias Bedcover (~Rp. 65.000~ Free)`);
+    
+    const bonusText = bonusItems.length > 0 ? `\n\n*Bonus & Tambahan:*\n${bonusItems.join("\n")}` : "";
 
     const message = encodeURIComponent(
-      `Halo Momento, saya ingin memesan paket berikut:\n\n${cartItems
-        .map(
-          (item, idx) =>
-            `${idx + 1}. ${item.name} (${item.quantity}x) - ${formatPrice(
-              getAdjustedPrice(item) * item.quantity
-            )}`
-        )
-        .join("\n")}${ringboxText}${bedcoverText}\n\n*Subtotal: ${formatPrice(displaySubtotal)}*\n*Diskon: -${formatPrice(displayDiscount)}*\n*Total: ${formatPrice(finalTotal)}*`
+      `Halo Momento, saya ingin melakukan pemesanan untuk paket berikut:\n\n` +
+      `*Rincian Pesanan:*\n` +
+      cartItems.map((item, idx) => `${idx + 1}. ${item.name} (${item.quantity}x) - ${formatPrice(getAdjustedPrice(item) * item.quantity)}`).join("\n") +
+      bonusText +
+      `\n\n*Ringkasan Biaya:*\n` +
+      `- Subtotal: ${formatPrice(displaySubtotal)}\n` +
+      `- Diskon: -${formatPrice(displayDiscount)}\n` +
+      `- Total Estimasi: *${formatPrice(finalTotal)}*\n\n` +
+      `Terima kasih!`
     );
 
-    window.open(`https://wa.me/message/ZD27PNJNNSFNF1?text=${message}`, "_blank");
+    window.open(`https://wa.me/6285117797966?text=${message}`, "_blank");
   };
 
   return (
@@ -191,7 +195,7 @@ export default function EstimationSidebar({ cart, summary, updateQuantity }) {
             disabled={cartItems.length === 0}
             className={`w-full py-[15px] rounded-[12px] font-montserrat font-bold text-[16px] transition-all duration-300 shadow-2xl ${
               cartItems.length > 0
-                ? "btn-gold hover:scale-[1.02] active:scale-[0.98] hover:shadow-gold/20"
+                ? "btn-gold cursor-pointer hover:scale-[1.02] active:scale-[0.98] hover:shadow-gold/20"
                 : "bg-white/5 text-white/20 cursor-not-allowed"
             }`}
           >

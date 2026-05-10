@@ -32,14 +32,14 @@ export default function CategoryTabs({ activeCategory, setActiveCategory }) {
   };
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-full overflow-hidden mb-[30px]">
       <div 
         ref={scrollRef}
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
-        className="flex flex-row items-center gap-[10px] overflow-x-auto pb-4 scrollbar-hide cursor-grab active:cursor-grabbing select-none"
+        className="flex flex-row items-center gap-[10px] overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none"
       >
         {pricingCategories.map((cat) => (
           <button
