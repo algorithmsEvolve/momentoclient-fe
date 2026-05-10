@@ -111,6 +111,17 @@
         mask-position: bottom;
     }
 
+    .border-grad-gold {
+        border: 1px solid transparent;
+        background: linear-gradient(#010101, #010101) padding-box,
+            linear-gradient(
+                90deg,
+                #D4AF37 -20%,
+                #FFF2AD 50%,
+                #D4AF37 120%
+            ) border-box;
+    }
+
     .grad-gold {
         background: linear-gradient(
             90deg,
@@ -119,16 +130,6 @@
             #d4af37 68%,
             #cf953c 100%
         );
-    }
-
-    .font-montserrat {
-        font-family: var(--font-montserrat), sans-serif;
-    }
-
-    .animate-marquee {
-        display: flex;
-        width: max-content;
-        animation: marquee 40s linear infinite;
     }
 }
 
@@ -182,10 +183,21 @@
     will-change: transform;
 }
 
+.scrollbar-custom::-webkit-scrollbar {
+    width: 6px;
+}
+.scrollbar-custom::-webkit-scrollbar-track {
+    background: #252525;
+}
+.scrollbar-custom::-webkit-scrollbar-thumb {
+    background: #787878;
+    border-radius: 10px;
+}
+
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
 .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
