@@ -76,6 +76,7 @@ export default function Navbar({ onOpenCart }) {
             <Link 
               href="/estimasi" 
               className="hidden lg:flex w-[191px] h-[50px] items-center justify-center border-2 border-[#D4AF37] rounded-[10px] px-[30px] py-[15px] text-[16px] font-bold font-nav tracking-[0.5px] leading-none text-gold hover:bg-[#D4AF37]/10 transition-all duration-300 antialiased whitespace-nowrap"
+              onClick={e => e.preventDefault()}
             >
               Estimasi Harga
             </Link>
