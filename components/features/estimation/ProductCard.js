@@ -5,11 +5,11 @@ import { Minus, Plus } from "lucide-react";
 
 export default function ProductCard({ product, quantity, updateQuantity, openViewer, isDisabled, isMaxLimitReached, hideImage }) {
   return (
-    <div className={`bg-[#161616] w-[173px] ${hideImage ? 'h-auto min-h-[160px]' : 'h-[262px]'} rounded-[10px] border border-[#292929] overflow-hidden flex flex-col transition-all duration-300 ${isDisabled ? 'opacity-30 grayscale' : 'group'}`}>
+    <div className={`bg-[#161616] w-[150px] md:w-[173px] h-[240px] md:h-[262px] rounded-[10px] border border-[#292929] overflow-hidden flex flex-col transition-all duration-300 ${isDisabled ? 'opacity-30 grayscale' : 'group'}`}>
       {/* Product Image - Clickable for Image Viewer */}
       {!hideImage && (
         <div 
-          className={`relative w-[173px] h-[144px] overflow-hidden flex-shrink-0 ${!isDisabled ? 'cursor-zoom-in' : ''}`}
+          className={`relative w-[150px] md:w-[173px] h-[130px] md:h-[144px] overflow-hidden flex-shrink-0 ${!isDisabled ? 'cursor-zoom-in' : ''}`}
           onClick={() => !isDisabled && openViewer(product.image, product.name)}
         >
           <Image
@@ -22,29 +22,30 @@ export default function ProductCard({ product, quantity, updateQuantity, openVie
       )}
 
       {/* Product Info */}
-      <div className={`flex flex-col flex-1 p-[10px] ${hideImage ? 'pt-4' : ''}`}>
-        <h3 className={`text-white font-montserrat font-bold tracking-[-2.5%] ${hideImage ? 'text-[14px] leading-snug mb-2' : 'text-[16px] leading-none mb-0.5'}`}>
+      <div className={`flex flex-col flex-1 p-[8px] md:p-[10px] ${hideImage ? 'pt-4' : ''}`}>
+        <h3 className={`text-white font-montserrat font-bold tracking-[-2.5%] mb-0.5 leading-none ${hideImage ? 'text-[14px] leading-snug mb-2' : 'text-[13px] md:text-[16px]'}`}>
           {product.name}
         </h3>
-        <p className="text-white font-montserrat font-normal text-[12px] mb-4">
+        <p className="text-white font-montserrat font-normal text-[11px] md:text-[12px] mb-4">
           {product.displayPrice}
         </p>
 
-        {/* Counter UI - Precise Figma 145x30 */}
-        <div className="mt-auto flex items-center w-[145px] h-[30px] rounded-[10px] border border-[#2C2C2C] mx-auto relative">
+        {/* Counter UI - Precise Figma 145x30 (Mobile adjusted to 135px width) */}
+        <div className="mt-auto flex items-center w-[135px] md:w-[145px] h-[30px] rounded-[10px] overflow-hidden border border-[#2C2C2C] mx-auto relative">
+
           {/* Minus Button Wrapper - Resized to 30x30 */}
           <button
             onClick={() => updateQuantity(product.id, -1)}
             disabled={isDisabled || quantity === 0}
-            className="w-[30px] h-full bg-[#2C2C2C] rounded-l-[9px] flex items-center justify-center transition-all cursor-pointer group/minus"
+            className={`w-[40px] md:w-[45px] h-full bg-[#2C2C2C] rounded-l-[9px] flex items-center justify-center transition-all cursor-pointer group/minus`}
           >
             <Minus 
-              className={`w-[20px] h-[20px] transition-colors ${
+              className={`w-[18px] md:w-[20px] h-[18px] md:h-[20px] transition-colors ${
                 !isDisabled && quantity > 0 ? "text-[#FFF]" : "text-[#777]"
               }`} 
             />
           </button>
-
+          
           {/* Qty Display Wrapper - Expanded to fill remaining space */}
           <div className="flex-1 h-full bg-[#161616] flex items-center justify-center border-l border-r border-[#2C2C2C]">
             <input
@@ -59,17 +60,18 @@ export default function ProductCard({ product, quantity, updateQuantity, openVie
             />
           </div>
 
+
           {/* Plus Button Wrapper - Resized to 30x30 with Gold Gradient */}
           <div className="relative h-full flex group/tooltip">
             <button
               onClick={() => updateQuantity(product.id, 1)}
               disabled={isDisabled || isMaxLimitReached}
-              className={`w-[30px] h-full flex items-center justify-center rounded-r-[9px] transition-all ${isDisabled || isMaxLimitReached ? "cursor-not-allowed" : "cursor-pointer active:scale-95"} group/plus`}
+              className={`w-[40px] md:w-[45px] h-full flex items-center justify-center rounded-r-[9px] transition-all ${isDisabled || isMaxLimitReached ? "cursor-not-allowed" : "cursor-pointer active:scale-95"} group/plus`}
               style={{
                 background: isDisabled || isMaxLimitReached ? "#777" : "linear-gradient(90deg, #D4AF37 0%, #CF953C 100%)"
               }}
             >
-              <Plus className="w-[20px] h-[20px] text-[#000]" />
+              <Plus className="w-[18px] md:w-[20px] h-[18px] md:h-[20px] text-[#000]" />
             </button>
 
             {isMaxLimitReached && (

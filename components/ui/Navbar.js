@@ -4,19 +4,18 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { ShoppingCart } from 'lucide-react'; // Import ShoppingCart
+
+// ... (keep existing navLinks)
 
 const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'Info Produk', href: '/info-produk' },
-  // { name: 'Seserahan', href: '#seserahan' },
-  // { name: 'Mahar', href: '#mahar' },
-  // { name: 'Undangan', href: '#undangan' },
-  // { name: 'Extras', href: '#extras' },
   { name: 'Harga', href: '/harga' },
   { name: 'Customer', href: '/customer' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ onOpenCart }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -71,36 +70,46 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Right Action Button: Estimasi Harga */}
-        <Link 
-          href="/estimasi" 
-          className="hidden lg:flex w-[191px] h-[50px] items-center justify-center border-2 border-[#D4AF37] rounded-[10px] px-[30px] py-[15px] text-[16px] font-bold font-nav tracking-[0.5px] leading-none text-gold hover:bg-[#D4AF37]/10 transition-all duration-300 antialiased whitespace-nowrap"
-        >
-          Estimasi Harga
-        </Link>
+        {/* Right Action Group */}
+        <div className="flex items-center gap-4">
+            {/* Desktop Only: Estimasi Button */}
+            <Link 
+              href="/estimasi" 
+              className="hidden lg:flex w-[191px] h-[50px] items-center justify-center border-2 border-[#D4AF37] rounded-[10px] px-[30px] py-[15px] text-[16px] font-bold font-nav tracking-[0.5px] leading-none text-gold hover:bg-[#D4AF37]/10 transition-all duration-300 antialiased whitespace-nowrap"
+            >
+              Estimasi Harga
+            </Link>
 
-        {/* Mobile Toggle */}
-        <button
-          type="button"
-          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          onClick={() => setMenuOpen((prev) => !prev)}
-          className="lg:hidden text-white p-2 rounded-md hover:bg-white/10 transition-colors duration-200"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            {menuOpen ? (
-              <>
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </>
-            ) : (
-              <>
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="18" x2="21" y2="18" />
-              </>
+            {/* Mobile Only: Cart Trigger */}
+            {pathname === '/estimasi' && (
+                <button onClick={onOpenCart} className="lg:hidden text-white hover:text-gold transition-colors">
+                    <ShoppingCart className="w-6 h-6" />
+                </button>
             )}
-          </svg>
-        </button>
+
+            {/* Mobile Toggle */}
+            <button
+                type="button"
+                aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                onClick={() => setMenuOpen((prev) => !prev)}
+                className="lg:hidden text-white p-2 rounded-md hover:bg-white/10 transition-colors duration-200"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    {menuOpen ? (
+                        <>
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </>
+                    ) : (
+                        <>
+                            <line x1="3" y1="12" x2="21" y2="12" />
+                            <line x1="3" y1="6" x2="21" y2="6" />
+                            <line x1="3" y1="18" x2="21" y2="18" />
+                        </>
+                    )}
+                </svg>
+            </button>
+        </div>
       </div>
     </nav>
 
