@@ -1,0 +1,331 @@
+  .botan-theme [name="opening-section"] {
+    padding-top: 6rem;
+    padding-bottom: 0;
+    background: transparent;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .quotes {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    gap: 0.62rem 0;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .quotes
+    .quote-text
+    p {
+    color: #efeae4;
+    font-size: 0.75rem;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .quotes
+    .quote-title
+    p {
+    color: #efeae4;
+    font-size: 0.6875rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom {
+    position: relative;
+    z-index: 2;
+    margin-top: 2rem;
+    padding: 3.34rem 1.88rem 5.19rem 1.88rem;
+    border-radius: 18.75rem 18.75rem 0rem 0rem;
+    background: #efeae4;
+    flex-direction: column;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .mobile-decorations {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .mobile-decorations
+    .top-right
+    img {
+    width: 53.33%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .mobile-decorations
+    .bottom-left
+    img {
+    width: 53.33%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride,
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom {
+    position: relative;
+    z-index: 2;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom:has(.bride .instagram)
+    .groom {
+    margin-top: 0;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .bride-photo {
+    width: 10.1875rem;
+    height: 13.78569rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .bride-name {
+    margin-top: 0.94rem;
+    width: 100%;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .bride-name
+    p {
+    font-size: 1.25rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .conj {
+    margin-top: 0.5rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .conj
+    p {
+    font-size: 0.625rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .parent {
+    margin-top: 0.31rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .parent
+    p {
+    font-size: 0.75rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .instagram {
+    margin-top: 0.5rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .instagram
+    .ig-wrapper
+    .icon
+    img {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .instagram
+    .ig-wrapper
+    .label
+    p {
+    font-size: 0.6875rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom {
+    align-items: flex-end;
+    margin-top: -1.5rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .groom-photo {
+    width: 10.1875rem;
+    height: 13.78569rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .groom-name {
+    margin-top: 0.94rem;
+    max-width: 70%;
+    width: 100%;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .groom-name
+    p {
+    font-size: 1.25rem;
+    text-align: right;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .conj {
+    margin-top: 0.5rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .conj
+    p {
+    font-size: 0.625rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .parent {
+    margin-top: 0.31rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .parent
+    p {
+    font-size: 0.75rem;
+    text-align: right;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .instagram {
+    margin-top: 0.5rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom

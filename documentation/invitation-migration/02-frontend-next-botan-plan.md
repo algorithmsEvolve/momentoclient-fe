@@ -14,6 +14,12 @@ Target MVP:
 - RSVP, wishes, gift copy, music button, dan floating menu bekerja sebagai Client Components.
 - Styling Botan tidak merusak landing page Momento.
 
+Current visual status:
+
+- Per 17 Mei 2026, Botan cover section dan opening section sudah approved untuk desktop dan mobile.
+- Section berikutnya harus dikerjakan tanpa mengubah cover/opening.
+- Jika perlu menambah animasi atau dekorasi untuk section lain, buat class/keyframe khusus agar tidak memengaruhi cover/opening.
+
 Out of scope MVP:
 
 - Admin panel.
@@ -129,6 +135,16 @@ public/themes/botan/opening/
 public/themes/botan/gallery/
 public/themes/botan/dummy/
 ```
+
+Protected Botan baseline:
+
+```txt
+components/features/invitations/themes/botan/BotanCover.js
+components/features/invitations/themes/botan/BotanOpening.js
+components/features/invitations/themes/botan/botan.css
+```
+
+Catatan: `botan.css` tetap boleh diubah untuk section berikutnya, tetapi jangan menyentuh rule `cover-section`, `opening-section`, preloader progress bar, atau shared keyframe yang dipakai cover/opening kecuali user meminta eksplisit.
 
 ## 5. Data Flow
 
@@ -704,4 +720,3 @@ Frontend phase is done when:
 - `npm run lint` passes.
 - Mobile and desktop are checked separately.
 - Implementation can become template for second theme.
-

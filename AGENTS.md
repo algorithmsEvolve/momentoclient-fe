@@ -54,6 +54,12 @@ This document contains the primary working rules for AI assistants contributing 
 - **Viewport-Specific Changes**: When instructed to modify a specific viewport (mobile/desktop), ensure changes do NOT affect other viewports.
 - **Regression Check**: Before applying styling changes, analyze the current CSS/Tailwind classes to ensure the modification is correctly scoped using responsive modifiers (e.g., `md:`, `lg:`). Never remove existing responsive logic unless explicitly requested.
 
-## 9. Expected Outcome
+## 9. Botan Migration Guardrails
+- **Protected Baseline:** As of May 17, 2026, Botan `cover-section` and `opening-section` are approved for both desktop and mobile.
+- **Do Not Touch Without Explicit Request:** Avoid modifying `BotanCover.js`, `BotanOpening.js`, and cover/opening rules inside `botan.css` unless the user explicitly asks to change cover/opening.
+- **Next Section Work:** When working on later Botan sections, scope selectors and animation changes so they cannot affect cover/opening behavior, spacing, decorations, preloader-to-cover flow, or opening animations.
+- **Regression Discipline:** If a shared animation/keyframe must be changed, first check whether it is used by cover/opening. Prefer new section-specific classes/keyframes over changing shared ones.
+
+## 10. Expected Outcome
 - Every contribution should leave the codebase cleaner and more consistent.
 - The final implementation must be production-ready and visually perfect.

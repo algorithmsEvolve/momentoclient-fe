@@ -7,10 +7,12 @@ Tujuan dokumen ini bukan menjelaskan semua detail teknis lagi, tetapi memberi pe
 ## 1. Prinsip Kerja
 
 - Botan adalah blueprint.
+- Untuk Botan saat ini, cover section dan opening section sudah menjadi baseline approved untuk desktop dan mobile per 17 Mei 2026.
 - Backend tetap sumber kebenaran data.
 - Frontend hanya menerima payload normalized dari API.
 - Tema baru harus menambah sedikit surface area, bukan menyalin seluruh pola lama.
 - Shared logic hanya diekstrak jika benar-benar dipakai tema kedua.
+- Jangan mengubah baseline cover/opening Botan saat mengerjakan section Botan berikutnya atau tema baru, kecuali ada instruksi eksplisit.
 
 ## 2. File Backend Penting
 
@@ -81,6 +83,15 @@ Botan blueprint:
 - `components/features/invitations/themes/botan/BotanSectionShell.js`
 - `components/features/invitations/themes/botan/botan.css`
 
+Protected Botan baseline:
+
+- `BotanCover.js`
+- `BotanOpening.js`
+- Rule `cover-section` dan `opening-section` di `botan.css`
+- Keyframe atau utility animation yang sedang dipakai cover/opening
+
+Jika section berikutnya butuh animasi baru, buat class/keyframe baru yang scoped ke section tersebut.
+
 Shared route isolation:
 
 - `app/(site)/layout.js`
@@ -121,6 +132,7 @@ Urutan yang disarankan:
 
 - Buat stylesheet tema baru yang diprefix nama temanya.
 - Jangan ubah `botan.css` kecuali ada shared rule yang benar-benar dipakai dua tema.
+- Untuk pekerjaan lanjutan di Botan, jangan menyentuh rule cover/opening yang sudah approved. Tambahkan selector section-specific untuk date/countdown/location/RSVP/story/gallery/wish/gift/footer.
 
 ### 5.5 Interaksi
 
@@ -169,4 +181,3 @@ Saat tema kedua selesai, kita harus punya:
 - 1 theme component baru di frontend.
 - 1 set e2e tests baru.
 - 1 dokumentasi singkat cara menambah theme berikutnya.
-

@@ -1,4 +1,13 @@
-import Image from "next/image";
+function wrapQuote(text) {
+  if (!text) return "";
+  const trimmedText = text.trim();
+  const hasOpeningQuote = trimmedText.startsWith("“") || trimmedText.startsWith('"');
+  const hasClosingQuote = trimmedText.endsWith("”") || trimmedText.endsWith('"');
+
+  if (hasOpeningQuote && hasClosingQuote) return trimmedText;
+
+  return `“${trimmedText}”`;
+}
 
 export default function BotanOpening({ invitation }) {
   const bride = invitation?.couple?.bride;
@@ -8,18 +17,27 @@ export default function BotanOpening({ invitation }) {
     <div id="opening" name="opening-section">
       <div className="content">
         <div className="view-content">
-          <div className="quotes">
+          <div className="quotes animate-fade-up" style={{ animationDelay: "1s" }}>
             <div className="quote-text">
-              <p>{invitation?.quote?.text}</p>
+              <p>{wrapQuote(invitation?.quote?.text)}</p>
             </div>
             <div className="quote-title">
               <p>{invitation?.quote?.title}</p>
             </div>
           </div>
 
-          <div className="bride-groom">
-            <div className="bride">
-              <div className="bride-photo">
+          <div className="bride-groom mobile-bride-groom">
+            <div className="mobile-decorations">
+              <div className="top-right animate-zoom-slide-from-right" style={{ animationDelay: "1.5s" }}>
+                <img src="/themes/botan/opening/mobile-decor-top-right.png" alt="decor" />
+              </div>
+              <div className="bottom-left animate-zoom-slide-from-left" style={{ animationDelay: "1.7s" }}>
+                <img src="/themes/botan/opening/mobile-decor-bottom-left.png" alt="decor" />
+              </div>
+            </div>
+
+            <div className="bride animate-fade-right" style={{ animationDelay: "1.2s" }}>
+              <div className="bride-photo animate-zoom-in" style={{ animationDelay: "1.4s" }}>
                 <img
                   src={bride?.photoUrl || "/themes/botan/dummy/bride-aira.jpg"}
                   alt="bride-picture"
@@ -49,8 +67,8 @@ export default function BotanOpening({ invitation }) {
               )}
             </div>
 
-            <div className="groom">
-              <div className="groom-photo">
+            <div className="groom animate-fade-left" style={{ animationDelay: "1.2s" }}>
+              <div className="groom-photo animate-zoom-in" style={{ animationDelay: "1.4s" }}>
                 <img
                   src={groom?.photoUrl || "/themes/botan/dummy/groom-bima.jpg"}
                   alt="groom-picture"
@@ -81,29 +99,29 @@ export default function BotanOpening({ invitation }) {
             </div>
           </div>
 
-          <div className="bottom-icon animate-fade-up">
+          <div className="bottom-icon animate-fade-up" style={{ animationDelay: "1.8s" }}>
             <img src="/themes/botan/date/date-icon.svg" alt="date-icon" />
           </div>
         </div>
       </div>
 
       <div className="decorations">
-        <div className="back">
+        <div className="back animate-zoom-slide-from-top" style={{ animationDelay: "0.8s" }}>
           <img src="/themes/botan/opening/decor-back.png" alt="decor-back" />
         </div>
-        <div className="top">
+        <div className="top opening-top-decoration animate-zoom-slide-from-top" style={{ animationDelay: "0.8s" }}>
           <picture>
             <source media="(min-width: 768px)" srcSet="/themes/botan/opening/decor-top.png" />
             <img src="/themes/botan/opening/mobile-decor-top.png" alt="decor-top" />
           </picture>
         </div>
-        <div className="bottom-left">
+        <div className="bottom-left opening-bottom-left-decoration animate-zoom-slide-from-left" style={{ animationDelay: "1.5s" }}>
           <picture>
             <source media="(min-width: 768px)" srcSet="/themes/botan/opening/decor-bottom-left.png" />
             <img src="/themes/botan/opening/mobile-decor-bottom-left.png" alt="decor-bottom-left" />
           </picture>
         </div>
-        <div className="bottom-right">
+        <div className="bottom-right opening-bottom-right-decoration animate-zoom-slide-from-right" style={{ animationDelay: "1.5s" }}>
           <picture>
             <source media="(min-width: 768px)" srcSet="/themes/botan/opening/decor-bottom-right.png" />
             <img src="/themes/botan/opening/decor-bottom-right.png" alt="decor-bottom-right" />

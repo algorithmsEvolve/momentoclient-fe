@@ -33,5 +33,19 @@ Aplikasi ini berfokus pada:
 2.  **Best Practice Next.js:** Penggunaan `next/image`, `next/font`, dan metadata API secara tepat.
 3.  **Maintainability:** Kode yang mudah dipahami oleh developer lain dengan penamaan variabel/fungsi yang deskriptif.
 
+## 5. Status Migrasi Undangan Botan
+
+Per 17 Mei 2026, migrasi visual tema Botan untuk **cover section** dan **opening section** sudah dinyatakan oke untuk tampilan desktop dan mobile.
+
+Baseline yang harus dijaga:
+- Cover section: layout, open interaction, dekorasi, animasi, dan transisi ke invitation content.
+- Opening section: layout desktop/mobile, dekorasi atas quote, dekorasi bride/groom, spacing mobile bride, animasi desktop/mobile, dan preloader/progress bar.
+- Pekerjaan berikutnya harus fokus ke section setelah opening dan tidak boleh menyenggol cover/opening kecuali ada instruksi eksplisit.
+
+File yang perlu diproteksi saat mengerjakan section berikutnya:
+- `components/features/invitations/themes/botan/BotanCover.js`
+- `components/features/invitations/themes/botan/BotanOpening.js`
+- Rule `cover-section`, `opening-section`, dan keyframe terkait di `components/features/invitations/themes/botan/botan.css`
+
 ---
 *Dokumen ini bersifat referensi teknis bagi AI Assistant.*

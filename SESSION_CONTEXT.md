@@ -8,6 +8,12 @@ Gunakan dokumen ini sebagai acuan cepat setiap kali memulai sesi percakapan baru
 - **Run Dev Server:** `npm run dev`
 - **Lint Check:** `npm run lint`
 
+## Current Botan Migration Status
+- **Approved Baseline:** Botan cover section and opening section are complete for desktop and mobile as of 17 Mei 2026.
+- **Current Focus:** Continue migration/review from the section after opening. Do not adjust cover/opening unless the user explicitly requests it.
+- **Protected Files/Selectors:** `BotanCover.js`, `BotanOpening.js`, and `botan.css` rules for `cover-section`, `opening-section`, preloader progress bar, and shared animations used by those sections.
+- **Regression Rule:** Before changing any shared Botan keyframe or decoration selector, verify it is not used by cover/opening. Prefer section-specific classes for new work.
+
 ## Working Guidelines (Mandatory)
 1.  **AI Persona:** Berperan sebagai **Senior Frontend Developer** yang sangat teliti dan estetis.
 2.  **Visual Standard:** Implementasi wajib **1:1 (Pixel-Perfect)** dengan desain Figma. No excuses.

@@ -45,6 +45,13 @@ Yang sudah diterapkan:
 - Route group pemisahan site vs invitation.
 - Playwright e2e desktop dan mobile.
 
+Status visual terkini per 17 Mei 2026:
+
+- Botan cover section sudah approved untuk desktop dan mobile.
+- Botan opening section sudah approved untuk desktop dan mobile.
+- Preloader Botan sudah disesuaikan, termasuk progress bar yang lebih tebal agar mendekati referensi legacy.
+- Cover/opening sekarang menjadi baseline stabil. Jangan ubah `BotanCover.js`, `BotanOpening.js`, atau selector/keyframe cover/opening di `botan.css` ketika mengerjakan section berikutnya, kecuali ada instruksi eksplisit.
+
 Verifikasi:
 
 - `npm run lint`
@@ -100,6 +107,7 @@ Ini bukan gap fungsional, tetapi penyesuaian implementasi:
 - Mobile Playwright memakai Chromium + viewport mobile untuk stabilitas environment ini.
 - Pixel-perfect dilakukan dengan referensi legacy Nuxt Botan, bukan Figma formal.
 - Struktur Botan sudah modular, tetapi tetap disesuaikan agar blast radius kecil dan maintainable.
+- Cover dan opening Botan sudah terkunci sebagai baseline visual. Pekerjaan lanjutan harus dimulai dari section berikutnya dan menjaga agar perubahan CSS/animasi tidak merusak dua section tersebut.
 
 ## Commands Final yang Lulus
 

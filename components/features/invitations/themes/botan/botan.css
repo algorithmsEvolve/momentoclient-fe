@@ -930,6 +930,83 @@
   }
 }
 
+@keyframes botan-zoom-slide-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px) scale(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes botan-zoom-slide-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes botan-slide-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes botan-slide-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes botan-zoom-slide-from-top {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes botan-opening-mobile-top-drop {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -56px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes botan-zoom-slide-from-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .botan-theme .animate-fade-up {
   animation: botan-fade-up 1s ease-out both;
 }
@@ -944,6 +1021,22 @@
 
 .botan-theme .animate-zoom-in {
   animation: botan-zoom-in 1s ease-out both;
+}
+
+.botan-theme .animate-zoom-slide-from-right {
+  animation: botan-zoom-slide-from-right 1s ease-out both;
+}
+
+.botan-theme .animate-zoom-slide-from-left {
+  animation: botan-zoom-slide-from-left 1s ease-out both;
+}
+
+.botan-theme .animate-zoom-slide-from-top {
+  animation: botan-zoom-slide-from-top 1s ease-out both;
+}
+
+.botan-theme .animate-zoom-slide-from-bottom {
+  animation: botan-zoom-slide-from-bottom 1s ease-out both;
 }
 
 .botan-theme [name="botan-preloader"] {
@@ -973,11 +1066,11 @@
 
 .botan-theme [name="botan-preloader"] .loading-bar-wrapper {
   width: 20vw;
-  height: 0.5rem;
+  height: 0.8rem;
   background: #d0b6b5;
   margin: 4rem auto 0 auto;
   border-radius: 0.75rem;
-  padding: 0.15rem;
+  padding: 0.2rem;
   overflow: hidden;
 }
 
@@ -987,6 +1080,14 @@
   border-radius: 1rem;
   background-color: #efeae4;
   animation: botan-progress 2s ease-in-out forwards;
+}
+
+@media (max-width: 600px) {
+  .botan-theme [name="botan-preloader"] .loading-bar-wrapper {
+    width: 80vw;
+    height: 1rem;
+    padding: 0.25rem;
+  }
 }
 
 @keyframes botan-progress {
@@ -1015,6 +1116,7 @@
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-color: var(--botan-bg);
+  overflow-x: hidden;
 }
 
 .botan-theme * {
@@ -1654,7 +1756,8 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  width: 60%;
+  width: 100%;
+  max-width: 45rem;
 }
 
 .botan-theme
@@ -1857,6 +1960,19 @@
   z-index: 1;
 }
 
+.botan-theme [name="opening-section"] .decorations .back,
+.botan-theme [name="opening-section"] .decorations .top,
+.botan-theme [name="opening-section"] .decorations .bottom-left,
+.botan-theme [name="opening-section"] .decorations .bottom-right {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.botan-theme [name="opening-section"] .decorations picture {
+  display: contents;
+}
+
 .botan-theme [name="opening-section"] .decorations img {
   pointer-events: none;
 }
@@ -1871,14 +1987,9 @@
   width: 100%;
 }
 
-.botan-theme [name="opening-section"] .decorations .top {
-  display: flex;
-  justify-content: center;
-}
-
 .botan-theme [name="opening-section"] .decorations .top img {
   position: absolute;
-  top: -2.8rem;
+  top: -0.5rem;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -1906,17 +2017,33 @@
   z-index: 2;
 }
 
+.botan-theme [name="opening-section"] .decorations .opening-bottom-left-decoration {
+  animation: botan-slide-from-left 1s ease-out both;
+}
+
+.botan-theme [name="opening-section"] .decorations .opening-bottom-right-decoration {
+  animation: botan-slide-from-right 1s ease-out both;
+}
+
+.botan-theme [name="opening-section"] .decorations .back,
+.botan-theme [name="opening-section"] .content .view-content .bride-groom .mobile-decorations {
+  display: none;
+}
+
 @media (max-width: 600px) {
   .botan-theme [name="opening-section"] {
-    padding-top: 6rem;
+    padding-top: 3rem;
     padding-bottom: 0;
-    background: unset;
+    background: transparent;
+    border-radius: 0;
   }
 
   .botan-theme [name="opening-section"] .content .view-content .quotes {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
     gap: 0.62rem 0;
+    position: relative;
+    z-index: 10;
   }
 
   .botan-theme
@@ -1929,6 +2056,7 @@
     color: #efeae4;
     font-size: 0.75rem;
     width: 100%;
+    padding: 0 1rem;
   }
 
   .botan-theme
@@ -1950,8 +2078,8 @@
     position: relative;
     z-index: 2;
     margin-top: 2rem;
-    padding: 3.34rem 1.88rem 5.19rem 1.88rem;
-    border-radius: 18.75rem 18.75rem 0rem 0rem;
+    padding: 3.5rem 1.88rem 5.19rem 1.88rem;
+    border-radius: 12.5rem 12.5rem 0rem 0rem;
     background: #efeae4;
     flex-direction: column;
   }
@@ -1960,9 +2088,59 @@
     [name="opening-section"]
     .content
     .view-content
-    .bride-groom:has(.bride .instagram)
+    .bride-groom
+    .mobile-decorations {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .mobile-decorations
+    .top-right
+    img {
+    width: 45%;
+    position: absolute;
+    top: 5rem;
+    right: 0;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .mobile-decorations
+    .bottom-left
+    img {
+    width: 45%;
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride,
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
     .groom {
-    margin-top: 0;
+    position: relative;
+    z-index: 2;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
   }
 
   .botan-theme
@@ -1971,9 +2149,17 @@
     .view-content
     .bride-groom
     .bride
-    .bride-photo {
+    .bride-photo,
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .groom-photo {
     width: 10.1875rem;
     height: 13.78569rem;
+    border-radius: 5rem;
   }
 
   .botan-theme
@@ -1982,7 +2168,14 @@
     .view-content
     .bride-groom
     .bride
-    .bride-name {
+    .bride-name,
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .groom-name {
     margin-top: 0.94rem;
     width: 100%;
   }
@@ -1994,122 +2187,7 @@
     .bride-groom
     .bride
     .bride-name
-    p {
-    font-size: 1.25rem;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .bride
-    .conj {
-    margin-top: 0.5rem;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .bride
-    .conj
-    p {
-    font-size: 0.625rem;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .bride
-    .parent {
-    margin-top: 0.31rem;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .bride
-    .parent
-    p {
-    font-size: 0.75rem;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .bride
-    .instagram {
-    margin-top: 0.5rem;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .bride
-    .instagram
-    .ig-wrapper
-    .icon
-    img {
-    width: 1.125rem;
-    height: 1.125rem;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .bride
-    .instagram
-    .ig-wrapper
-    .label
-    p {
-    font-size: 0.6875rem;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .groom {
-    align-items: flex-end;
-    margin-top: -1.5rem;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .groom
-    .groom-photo {
-    width: 10.1875rem;
-    height: 13.78569rem;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .groom
-    .groom-name {
-    margin-top: 0.94rem;
-    max-width: 70%;
-    width: 100%;
-  }
-
+    p,
   .botan-theme
     [name="opening-section"]
     .content
@@ -2119,7 +2197,6 @@
     .groom-name
     p {
     font-size: 1.25rem;
-    text-align: right;
   }
 
   .botan-theme
@@ -2127,79 +2204,8 @@
     .content
     .view-content
     .bride-groom
-    .groom
-    .conj {
-    margin-top: 0.5rem;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .groom
-    .conj
-    p {
-    font-size: 0.625rem;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .groom
-    .parent {
-    margin-top: 0.31rem;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .groom
-    .parent
-    p {
-    font-size: 0.75rem;
-    text-align: right;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .groom
-    .instagram {
-    margin-top: 0.5rem;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .groom
-    .instagram
-    .ig-wrapper
-    .icon
-    img {
-    width: 1.125rem;
-    height: 1.125rem;
-  }
-
-  .botan-theme
-    [name="opening-section"]
-    .content
-    .view-content
-    .bride-groom
-    .groom
-    .instagram
-    .ig-wrapper
-    .label
-    p {
-    font-size: 0.6875rem;
+    .groom {
+    margin-top: 3.5rem;
   }
 
   .botan-theme
@@ -2221,15 +2227,234 @@
 
   .botan-theme [name="opening-section"] .decorations .top img {
     width: 85%;
-    top: -1.5rem;
+    top: -1rem;
   }
 
   .botan-theme [name="opening-section"] .decorations .bottom-left img {
-    width: 45%;
+    width: 40%;
   }
 
   .botan-theme [name="opening-section"] .decorations .bottom-right img {
-    width: 45%;
+    width: 40%;
+  }
+}
+
+@media (max-width: 600px) {
+  .botan-theme [name="opening-section"] {
+    padding-top: 6rem;
+    padding-bottom: 0;
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .quotes {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    gap: 0.62rem 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .quotes .quote-text p {
+    width: 100%;
+    padding: 0;
+    color: #efeae4;
+    text-align: center;
+    font-family: "opensansR", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .quotes .quote-title p {
+    color: #efeae4;
+    text-align: center;
+    font-family: "opensansB", sans-serif;
+    font-size: 0.6875rem;
+    line-height: normal;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom {
+    position: relative;
+    z-index: 2;
+    margin-top: 2rem;
+    padding: 7.1rem 1.88rem 5.19rem;
+    border-radius: 18.75rem 18.75rem 0 0;
+    background: #efeae4;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom:has(.bride .instagram) .groom {
+    margin-top: 0;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .mobile-decorations {
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .mobile-decorations .top-right img {
+    width: 53.33%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .mobile-decorations .bottom-left img {
+    width: 53.33%;
+    position: absolute;
+    top: 33.25rem;
+    left: -0.75rem;
+    z-index: 1;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .bride {
+    position: relative;
+    z-index: 4;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .groom {
+    position: relative;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 100%;
+    margin-top: -1.5rem;
+    padding: 0;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .bride .bride-photo,
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .groom .groom-photo {
+    width: 10.1875rem;
+    height: 13.78569rem;
+    border-radius: 6.25rem;
+    overflow: hidden;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .bride .bride-name,
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .groom .groom-name {
+    margin-top: 0.94rem;
+    width: auto;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .groom .groom-name {
+    max-width: 70%;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .bride .bride-name p,
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .groom .groom-name p {
+    color: #66646f;
+    font-family: "benguiatstdBook", serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .bride .bride-name p {
+    text-align: left;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .groom .groom-name p {
+    text-align: right;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .conj {
+    margin-top: 0.5rem;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .conj p {
+    color: #66646f;
+    font-family: "opensansR", sans-serif;
+    font-size: 0.625rem;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .groom .conj p {
+    text-align: right;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.31rem 0;
+    margin-top: 0.31rem;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .groom .parent {
+    align-items: flex-end;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .parent p {
+    color: #66646f;
+    font-family: "opensansR", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .groom .parent p {
+    text-align: right;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .instagram {
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .groom .instagram {
+    justify-content: flex-end;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .instagram .ig-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0 0.31rem;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .instagram .ig-wrapper .icon img {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .mobile-bride-groom .instagram .ig-wrapper .label p {
+    color: #cb877e;
+    font-family: "opensansSB", sans-serif;
+    font-size: 0.6875rem;
+    line-height: normal;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .bottom-icon {
+    display: none;
+  }
+
+  .botan-theme [name="opening-section"] .decorations .top img {
+    width: 100%;
+    top: 0;
+    animation: botan-opening-mobile-top-drop 1s ease-out both;
+    animation-delay: 2s;
+  }
+
+  .botan-theme [name="opening-section"] .decorations .opening-top-decoration {
+    animation: none;
+  }
+
+  .botan-theme [name="opening-section"] .decorations .bottom-left,
+  .botan-theme [name="opening-section"] .decorations .bottom-right {
+    display: none;
   }
 }
 
