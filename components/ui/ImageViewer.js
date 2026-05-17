@@ -14,18 +14,19 @@ export default function ImageViewer({ src, alt, isOpen, onClose }) {
   const imageRef = useRef(null);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
+    const frame = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      // Reset state when opening new image
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setScale(1);
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setPosition({ x: 0, y: 0 });
+      const frame = requestAnimationFrame(() => {
+        setScale(1);
+        setPosition({ x: 0, y: 0 });
+      });
+
+      return () => cancelAnimationFrame(frame);
     } else {
       document.body.style.overflow = 'unset';
     }

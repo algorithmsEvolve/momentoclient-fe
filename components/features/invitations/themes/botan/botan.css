@@ -1,0 +1,2680 @@
+@font-face {
+  font-family: "poppinsR";
+  src: url("/fonts/poppins/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "poppinsSB";
+  src: url("/fonts/poppins/Poppins-SemiBold.ttf");
+}
+@font-face {
+  font-family: "poppinsM";
+  src: url("/fonts/poppins/Poppins-Medium.ttf");
+}
+@font-face {
+  font-family: "benguiatstdBook";
+  src: url("/fonts/itc-benguiat-std/benguiatstd-book.otf");
+}
+@font-face {
+  font-family: "dancingscript";
+  src: url("/fonts/dancing-script/dancing-script.ttf");
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex !important;
+  }
+  .md\:hidden {
+    display: none !important;
+  }
+}
+@font-face {
+  font-family: "opensansR";
+  src: url("/fonts/opensans/OpenSans-Regular.ttf");
+}
+@font-face {
+  font-family: "opensansB";
+  src: url("/fonts/opensans/OpenSans-Bold.ttf");
+}
+@font-face {
+  font-family: "opensansSB";
+  src: url("/fonts/opensans/OpenSans-SemiBold.ttf");
+}
+@font-face {
+  font-family: "antsvalley";
+  src: url("/fonts/antsvalley/AntsValley.otf");
+}
+
+.botan-theme [name="count-down-section"] {
+  background: #d0b6b5;
+  padding: 2.5rem 0;
+  position: relative;
+  z-index: 1;
+  max-width: 150rem;
+  margin: 0 auto;
+}
+
+.botan-theme [name="count-down-section"] .content .view-content .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.botan-theme [name="count-down-section"] .content .view-content .icon img {
+  width: 3.125rem;
+  height: 3.125rem;
+  object-fit: contain;
+}
+
+.botan-theme [name="count-down-section"] .content .view-content .title {
+  margin-top: 1rem;
+}
+
+.botan-theme [name="count-down-section"] .content .view-content .title p {
+  color: #fff;
+  text-align: center;
+  font-family: "benguiatstdBook", serif;
+  font-size: 2.8125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme [name="count-down-section"] .content .view-content .count-down {
+  margin-top: 4.25rem;
+  display: flex;
+  gap: 0 2.5rem;
+  justify-content: center;
+}
+
+.botan-theme
+  [name="count-down-section"]
+  .content
+  .view-content
+  .count-down
+  .count-down-item {
+  padding: 1.43rem;
+  width: 10rem;
+  height: 11.25rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.56rem 0;
+}
+
+.botan-theme
+  [name="count-down-section"]
+  .content
+  .view-content
+  .count-down
+  .count-down-item
+  .label
+  p {
+  color: #d0b6b5;
+  text-align: center;
+  font-family: "opensansR", sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme
+  [name="count-down-section"]
+  .content
+  .view-content
+  .count-down
+  .count-down-item
+  .value
+  p {
+  color: #d0b6b5;
+  text-align: center;
+  font-family: "antsvalley", cursive;
+  font-size: 5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme
+  [name="count-down-section"]
+  .content
+  .view-content
+  .just-married-wrapper
+  .just-married {
+  border-radius: 1.25rem;
+  border: 0.25rem dashed #fff;
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 75rem;
+  margin: auto;
+}
+
+.botan-theme
+  [name="count-down-section"]
+  .content
+  .view-content
+  .just-married-wrapper
+  .just-married
+  img {
+  width: 20rem;
+}
+
+@media (max-width: 600px) {
+  .botan-theme [name="count-down-section"] {
+    padding-top: 1rem;
+    padding-bottom: 1.38rem;
+  }
+
+  .botan-theme [name="count-down-section"] .content .view-content .icon img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .botan-theme [name="count-down-section"] .content .view-content .title p {
+    font-size: 1.5rem;
+  }
+
+  .botan-theme [name="count-down-section"] .content .view-content .count-down {
+    margin-top: 1rem;
+    gap: 0 0.5rem;
+  }
+
+  .botan-theme
+    [name="count-down-section"]
+    .content
+    .view-content
+    .count-down
+    .count-down-item {
+    width: 4.375rem;
+    height: 5.3125rem;
+    padding: 0.5rem 0.63rem;
+  }
+
+  .botan-theme
+    [name="count-down-section"]
+    .content
+    .view-content
+    .count-down
+    .count-down-item
+    .label
+    p {
+    font-size: 0.75rem;
+  }
+
+  .botan-theme
+    [name="count-down-section"]
+    .content
+    .view-content
+    .count-down
+    .count-down-item
+    .value
+    p {
+    font-size: 2rem;
+  }
+
+  .botan-theme
+    [name="count-down-section"]
+    .content
+    .view-content
+    .just-married-wrapper {
+    padding: 1rem;
+  }
+
+  .botan-theme
+    [name="count-down-section"]
+    .content
+    .view-content
+    .just-married-wrapper
+    .just-married {
+    border: 0.1rem dashed #fff;
+  }
+}
+
+.botan-theme [name="location-section"] {
+  background: transparent;
+  padding: 1.5rem 0 3.38rem 0;
+  position: relative;
+  z-index: 1;
+  max-width: 150rem;
+  margin: 0 auto;
+}
+
+.botan-theme [name="location-section"] .content .view-content .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.botan-theme [name="location-section"] .content .view-content .icon img {
+  width: 3.125rem;
+  height: 3.125rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.botan-theme [name="location-section"] .content .view-content .title {
+  margin-top: 2rem;
+}
+
+.botan-theme [name="location-section"] .content .view-content .title p {
+  color: #fff;
+  text-align: center;
+  font-family: "opensansB", sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.botan-theme [name="location-section"] .content .view-content .desc {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.botan-theme [name="location-section"] .content .view-content .desc p {
+  color: #fff;
+  text-align: center;
+  font-family: "opensansR", sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  max-width: 50%;
+}
+
+.botan-theme [name="location-section"] .content .view-content .maps {
+  margin-top: 2.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.botan-theme
+  [name="location-section"]
+  .content
+  .view-content
+  .maps
+  iframe.g-maps {
+  width: 100%;
+  height: 24.8125rem;
+  border-radius: 1.25rem;
+}
+
+.botan-theme [name="location-section"] .content .view-content .decorations img {
+  pointer-events: none;
+}
+
+.botan-theme
+  [name="location-section"]
+  .content
+  .view-content
+  .decorations
+  .decor-top-left
+  img {
+  width: 28.6%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.botan-theme
+  [name="location-section"]
+  .content
+  .view-content
+  .decorations
+  .decor-top-right
+  img {
+  width: 25.8%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@media (max-width: 600px) {
+  .botan-theme [name="location-section"] {
+    padding-top: 7rem;
+    padding-bottom: 3.19rem;
+  }
+
+  .botan-theme [name="location-section"] .content .view-content .icon img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .botan-theme [name="location-section"] .content .view-content .title {
+    margin-top: 1rem;
+  }
+
+  .botan-theme [name="location-section"] .content .view-content .title p {
+    color: #efeae4;
+    font-size: 1rem;
+  }
+
+  .botan-theme [name="location-section"] .content .view-content .desc {
+    margin-top: 0.31rem;
+    padding-left: 1.88rem;
+    padding-right: 1.88rem;
+  }
+
+  .botan-theme [name="location-section"] .content .view-content .desc p {
+    color: #efeae4;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    max-width: unset;
+  }
+
+  .botan-theme [name="location-section"] .content .view-content .maps {
+    margin-top: 1.25rem;
+    padding-left: 1.88rem;
+    padding-right: 1.88rem;
+  }
+
+  .botan-theme [name="location-section"] .content .view-content .maps iframe {
+    height: 12.5rem;
+  }
+
+  .botan-theme
+    [name="location-section"]
+    .content
+    .view-content
+    .decorations
+    .decor-top-left
+    img {
+    width: 62.22%;
+  }
+}
+
+.botan-theme [name="rsvp-section"] {
+  padding-top: 7.62rem;
+  position: relative;
+  max-width: 150rem;
+  margin: 0 auto;
+  border-radius: 62.5rem 62.5rem 0rem 0rem;
+  background: #efeae4;
+}
+
+.botan-theme [name="rsvp-section"] .content {
+  position: relative;
+  z-index: 10;
+}
+
+.botan-theme [name="rsvp-section"] .content .view-content {
+  min-height: 47rem;
+}
+
+.botan-theme [name="rsvp-section"] .content .view-content:has(.rsvp-sent) {
+  min-height: unset;
+  padding-bottom: 8rem;
+}
+
+.botan-theme [name="rsvp-section"] .content .view-content .title p {
+  color: #66646f;
+  text-align: center;
+  font-family: "benguiatstdBook", serif;
+  font-size: 2.8125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme [name="rsvp-section"] .content .view-content .desc {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.botan-theme [name="rsvp-section"] .content .view-content .desc p {
+  width: 65%;
+  color: #66646f;
+  text-align: center;
+  font-family: "poppinsR", sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.5rem;
+}
+
+.botan-theme [name="rsvp-section"] .content .view-content .desc p span.bold {
+  color: #66646f;
+  font-family: "poppinsB", sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: 2.5rem;
+}
+
+.botan-theme [name="rsvp-section"] .content .view-content .rsvp-input-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.botan-theme
+  [name="rsvp-section"]
+  .content
+  .view-content
+  .rsvp-input-wrapper
+  .rsvp-input-container {
+  margin-top: 3.13rem;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  gap: 3.75rem 0;
+}
+
+.botan-theme
+  [name="rsvp-section"]
+  .content
+  .view-content
+  .rsvp-input-wrapper
+  .group-member-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3.75rem;
+}
+
+.botan-theme
+  [name="rsvp-section"]
+  .content
+  .view-content
+  .rsvp-input-wrapper
+  .group-member-input
+  .label {
+  margin-bottom: 1.5rem;
+}
+
+.botan-theme
+  [name="rsvp-section"]
+  .content
+  .view-content
+  .rsvp-input-wrapper
+  .group-member-input
+  .label
+  p {
+  color: #64564c;
+  font-family: "poppinsSB", sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.botan-theme
+  [name="rsvp-section"]
+  .content
+  .view-content
+  .rsvp-input-wrapper
+  .group-member-input
+  [name="input"] {
+  width: 100%;
+  max-height: unset;
+  height: 3.5rem;
+}
+
+.botan-theme
+  [name="rsvp-section"]
+  .content
+  .view-content
+  .rsvp-input-wrapper
+  .group-member-input
+  [name="input"]
+  input {
+  font-size: 1.25rem;
+}
+
+.botan-theme
+  [name="rsvp-section"]
+  .content
+  .view-content
+  .rsvp-input-wrapper
+  .reason-input {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3.75rem;
+}
+
+.botan-theme
+  [name="rsvp-section"]
+  .content
+  .view-content
+  .rsvp-input-wrapper
+  .reason-input
+  .label {
+  margin-bottom: 1.5rem;
+}
+
+.botan-theme
+  [name="rsvp-section"]
+  .content
+  .view-content
+  .rsvp-input-wrapper
+  .reason-input
+  .label
+  p {
+  color: #66646f;
+  font-family: "poppinsSB", sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.botan-theme
+  [name="rsvp-section"]
+  .content
+  .view-content
+  .rsvp-input-wrapper
+  .reason-input
+  textarea {
+  font-size: 1rem;
+}
+
+.botan-theme
+  [name="rsvp-section"]
+  .content
+  .view-content
+  .rsvp-input-wrapper
+  .reason-input
+  .message-counter {
+  position: absolute;
+  right: 0.81rem;
+  bottom: 0.75rem;
+}
+
+.botan-theme
+  [name="rsvp-section"]
+  .content
+  .view-content
+  .rsvp-input-wrapper
+  .reason-input
+  .message-counter
+  p {
+  color: #57663a;
+  text-align: right;
+  font-family: "opensansR", sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.botan-theme [name="rsvp-section"] .content .view-content .confirm-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.75rem;
+  background-color: #efeae4;
+  padding-bottom: 8rem;
+}
+
+.botan-theme
+  [name="rsvp-section"]
+  .content
+  .view-content
+  .confirm-button
+  [name="botan-button"] {
+  min-width: 25rem;
+  padding: 1.12rem 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.botan-theme [name="rsvp-section"] .content .view-content .change-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.75rem;
+  background-color: #efeae4;
+}
+
+.botan-theme
+  [name="rsvp-section"]
+  .content
+  .view-content
+  .change-button
+  [name="botan-button"] {
+  min-width: 25rem;
+  padding: 1.12rem 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.botan-theme [name="rsvp-section"] .decorations img {
+  pointer-events: none;
+}
+
+.botan-theme [name="rsvp-section"] .decorations .bottom-left img {
+  position: absolute;
+  left: 0;
+  bottom: -6rem;
+  width: 22.5%;
+  object-fit: contain;
+  z-index: 11;
+}
+
+.botan-theme [name="rsvp-section"] .decorations .bottom-right img {
+  position: absolute;
+  right: 0;
+  bottom: -6rem;
+  width: 22.5%;
+  object-fit: contain;
+  z-index: 11;
+}
+
+@media (max-width: 600px) {
+  .botan-theme [name="rsvp-section"] {
+    border-radius: 18.75rem 18.75rem 0rem 0rem;
+    background: #efeae4;
+    padding-top: 7.06rem;
+    padding-bottom: 1.88rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .botan-theme [name="rsvp-section"] .content .view-content {
+    min-height: unset;
+  }
+
+  .botan-theme [name="rsvp-section"] .content .view-content:has(.rsvp-sent) {
+    padding-bottom: unset;
+  }
+
+  .botan-theme [name="rsvp-section"] .content .view-content .title p {
+    text-align: left;
+    font-size: 2rem;
+  }
+
+  .botan-theme [name="rsvp-section"] .content .view-content .desc {
+    margin-top: 1.25rem;
+    justify-content: flex-start;
+  }
+
+  .botan-theme [name="rsvp-section"] .content .view-content .desc p {
+    font-family: "opensansR", sans-serif;
+    font-size: 0.75rem;
+    text-align: left;
+    width: 90%;
+  }
+
+  .botan-theme [name="rsvp-section"] .content .view-content .desc p span.bold {
+    font-family: "opensansB", sans-serif;
+    font-size: 0.75rem;
+    text-align: left;
+  }
+
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .rsvp-input-wrapper
+    .rsvp-input-container {
+    margin-top: 1.5rem;
+    width: 100%;
+    gap: 1.5rem 0;
+  }
+
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .rsvp-input-wrapper
+    .reason-input,
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .rsvp-input-wrapper
+    .group-member-input {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .rsvp-input-wrapper
+    .reason-input
+    .label,
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .rsvp-input-wrapper
+    .group-member-input
+    .label {
+    margin-bottom: 0.5rem;
+  }
+
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .rsvp-input-wrapper
+    .reason-input
+    .label
+    p,
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .rsvp-input-wrapper
+    .group-member-input
+    .label
+    p {
+    font-size: 0.75rem;
+  }
+
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .rsvp-input-wrapper
+    .reason-input
+    [name="input"],
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .rsvp-input-wrapper
+    .group-member-input
+    [name="input"] {
+    height: unset;
+  }
+
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .rsvp-input-wrapper
+    .reason-input
+    input,
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .rsvp-input-wrapper
+    .reason-input
+    textarea,
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .rsvp-input-wrapper
+    .group-member-input
+    input,
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .rsvp-input-wrapper
+    .group-member-input
+    textarea {
+    font-size: 0.75rem;
+  }
+
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .rsvp-input-wrapper
+    .message-counter {
+    position: absolute !important;
+    right: 0.69rem !important;
+    bottom: 0.44rem !important;
+  }
+
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .rsvp-input-wrapper
+    .message-counter
+    p {
+    font-size: 0.75rem !important;
+  }
+
+  .botan-theme [name="rsvp-section"] .content .view-content .confirm-button,
+  .botan-theme [name="rsvp-section"] .content .view-content .change-button {
+    margin-top: 1.5rem;
+    padding-bottom: unset;
+  }
+
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .confirm-button
+    [name="botan-button"],
+  .botan-theme
+    [name="rsvp-section"]
+    .content
+    .view-content
+    .change-button
+    [name="botan-button"] {
+    min-width: 100%;
+    padding: 0.62rem 1.5rem;
+  }
+
+  .botan-theme [name="rsvp-section"] .decorations .top-right img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 66.67%;
+    object-fit: contain;
+    z-index: 11;
+  }
+}
+
+/* --- BOTAN ANIMATIONS --- */
+
+@keyframes rotationAndBubbling {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.25);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes botan-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes botan-fade-right {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes botan-fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes botan-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.botan-theme .animate-fade-up {
+  animation: botan-fade-up 1s ease-out both;
+}
+
+.botan-theme .animate-fade-right {
+  animation: botan-fade-right 1s ease-out both;
+}
+
+.botan-theme .animate-fade-left {
+  animation: botan-fade-left 1s ease-out both;
+}
+
+.botan-theme .animate-zoom-in {
+  animation: botan-zoom-in 1s ease-out both;
+}
+
+.botan-theme [name="botan-preloader"] {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #efeae4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.botan-theme [name="botan-preloader"] .loading-spin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.botan-theme [name="botan-preloader"] .loading-spin img {
+  width: 5rem;
+  animation: 1.5s rotationAndBubbling infinite linear;
+}
+
+.botan-theme [name="botan-preloader"] .loading-bar-wrapper {
+  width: 20vw;
+  height: 0.5rem;
+  background: #d0b6b5;
+  margin: 4rem auto 0 auto;
+  border-radius: 0.75rem;
+  padding: 0.15rem;
+  overflow: hidden;
+}
+
+.botan-theme [name="botan-preloader"] .loading-bar {
+  width: 0%;
+  height: 100%;
+  border-radius: 1rem;
+  background-color: #efeae4;
+  animation: botan-progress 2s ease-in-out forwards;
+}
+
+@keyframes botan-progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.botan-theme {
+  --botan-bg: #efeae4;
+  --botan-card: rgba(255, 255, 255, 0.92);
+  --botan-border: #d0b6b5;
+  --botan-text: #66646f;
+  --botan-muted: #64564c;
+  --botan-accent: #cb877e;
+  --botan-accent-strong: #b56f67;
+  --botan-accent-soft: #f8f2eb;
+  --botan-shadow: 0 20px 50px rgba(102, 100, 111, 0.08);
+  color: var(--botan-text);
+  background-image: url("/themes/botan/global/background-desktop.png");
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-color: var(--botan-bg);
+}
+
+.botan-theme * {
+  font-family: "poppinsR", sans-serif;
+}
+
+.botan-theme .botan-shell {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 4.75rem 0 5rem;
+  background: var(--botan-bg);
+}
+
+.botan-theme .botan-shell__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 96rem;
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+}
+
+.botan-theme .botan-shell__eyebrow {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.38em;
+  color: #66646f;
+  text-align: center;
+}
+
+.botan-theme .botan-shell__title {
+  margin-top: 0.75rem;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #66646f;
+  text-align: center;
+}
+
+.botan-theme .botan-card {
+  border: 1px solid var(--botan-border);
+  border-radius: 28px;
+  background: var(--botan-card);
+  box-shadow: 0 10px 30px rgba(98, 68, 43, 0.06);
+}
+
+.botan-theme .botan-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid var(--botan-border);
+  background: #fff;
+  color: #49372d;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.botan-theme .botan-button:hover {
+  border-color: #c8b49f;
+  transform: translateY(-1px);
+}
+
+.botan-theme .botan-button--primary {
+  border-color: var(--botan-accent);
+  background: var(--botan-accent);
+  color: #fff;
+}
+
+.botan-theme .botan-button--primary:hover {
+  background: var(--botan-accent-strong);
+  border-color: var(--botan-accent-strong);
+}
+
+.botan-theme .botan-input {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid var(--botan-border);
+  background: #fff;
+  padding: 0.85rem 1rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.botan-theme .botan-input:focus {
+  border-color: var(--botan-accent);
+}
+
+.botan-theme .botan-input[readonly] {
+  background: #f8f2eb;
+  color: #5b473a;
+}
+
+.botan-theme .botan-muted {
+  color: var(--botan-muted);
+}
+
+.botan-theme .botan-section-card {
+  border-radius: 9999px 9999px 0 0;
+  background: var(--botan-bg);
+}
+
+.botan-theme .botan-section-card--bottom {
+  border-radius: 0 0 9999px 9999px;
+}
+
+.botan-theme .botan-shell .botan-card {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.botan-theme .botan-shell__body {
+  margin-top: 2.5rem;
+}
+
+.botan-theme .botan-shell#opening {
+  padding-top: 10.4375rem;
+  padding-bottom: 3.1rem;
+  border-radius: 62.5rem 62.5rem 0 0;
+}
+
+.botan-theme .botan-shell#date {
+  padding-top: 5rem;
+  padding-bottom: 5.63rem;
+}
+
+.botan-theme .botan-shell#countdown {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background: transparent;
+}
+
+.botan-theme .botan-shell#location {
+  padding-top: 1.5rem;
+  padding-bottom: 3.38rem;
+  background: transparent;
+}
+
+.botan-theme .botan-shell#gallery {
+  padding-top: 1.86rem;
+  padding-bottom: 2rem;
+}
+
+.botan-theme .botan-shell#wishes {
+  padding-top: 2.5rem;
+  padding-bottom: 12rem;
+  border-radius: 0 0 62.5rem 62.5rem;
+}
+
+.botan-theme .botan-shell#gift {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.botan-theme .botan-shell#footer {
+  padding-top: 7.94rem;
+  padding-bottom: 10.67rem;
+}
+
+.botan-theme .botan-floating-menu {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 50;
+  border-top: 1px solid var(--botan-border);
+  background: rgba(252, 248, 241, 0.92);
+  backdrop-filter: blur(14px);
+}
+
+@media (max-width: 600px) {
+  .botan-theme {
+    background-attachment: scroll;
+  }
+
+  .botan-theme .botan-shell {
+    padding: 3.5rem 0 4rem;
+  }
+}
+
+.botan-theme [name="cover-section"] {
+  position: relative;
+  max-width: 150rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.botan-theme [name="cover-section"].scroll-cover {
+  margin-top: -100vh;
+  margin-top: -100svh;
+  transition: margin-top 1s ease-in-out;
+}
+
+.botan-theme [name="cover-section"] .content {
+  height: 100%;
+  display: flex;
+  position: relative;
+  z-index: 10;
+}
+
+.botan-theme [name="cover-section"] .content .view-content {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.botan-theme [name="cover-section"] .content .view-content .title {
+  margin-bottom: 2rem;
+}
+
+.botan-theme [name="cover-section"] .content .view-content .title p {
+  color: #64564c;
+  text-align: center;
+  font-family: "poppinsR", sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme
+  [name="cover-section"]
+  .content
+  .view-content
+  .bride-groom
+  .bride
+  p,
+.botan-theme
+  [name="cover-section"]
+  .content
+  .view-content
+  .bride-groom
+  .groom
+  p {
+  color: #66646f;
+  text-align: center;
+  font-family: "benguiatstdBook", serif;
+  font-size: 5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme [name="cover-section"] .content .view-content .bride-groom .and {
+  margin-bottom: 1.06rem;
+}
+
+.botan-theme [name="cover-section"] .content .view-content .bride-groom .and p {
+  color: #66646f;
+  text-align: center;
+  font-family: "dancingscript", cursive;
+  font-size: 3.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme [name="cover-section"] .content .view-content .guest-name {
+  margin-top: 0.81rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.31rem 0;
+}
+
+.botan-theme [name="cover-section"] .content .view-content .guest-name .for p {
+  color: #66646f;
+  text-align: center;
+  font-family: "poppinsR", sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme [name="cover-section"] .content .view-content .guest-name .name p {
+  color: #66646f;
+  text-align: center;
+  font-family: "poppinsSB", sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.botan-theme
+  [name="cover-section"]
+  .content
+  .view-content
+  .open-button-wrapper {
+  margin-top: 1.25rem;
+}
+
+.botan-theme
+  [name="cover-section"]
+  .content
+  .view-content
+  [name="botan-button"] {
+  display: flex;
+  align-items: center;
+  gap: 0 0.94rem;
+  border-radius: 1.875rem;
+  background: #d0b6b5;
+  border: none;
+  transition: 0.5s;
+  padding: 0.94rem 4.87rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.botan-theme
+  [name="cover-section"]
+  .content
+  .view-content
+  [name="botan-button"]:hover {
+  box-shadow: #d0b6b5 0px 0px 17px 0px;
+  transition: 0.25s;
+}
+
+.botan-theme
+  [name="cover-section"]
+  .content
+  .view-content
+  [name="botan-button"]
+  .icon
+  img {
+  width: 1.875rem;
+}
+
+.botan-theme
+  [name="cover-section"]
+  .content
+  .view-content
+  [name="botan-button"]
+  .label
+  p {
+  color: #fff;
+  font-family: "poppinsM", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.botan-theme [name="cover-section"] .content .view-content .date {
+  margin-top: 2.38rem;
+}
+
+.botan-theme [name="cover-section"] .content .view-content .date p {
+  color: #66646f;
+  text-align: center;
+  font-family: "dancingscript", cursive;
+  font-size: 1.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 3.125rem;
+}
+
+.botan-theme [name="cover-section"] .decorations picture {
+  display: contents;
+}
+
+.botan-theme [name="cover-section"] .decorations img {
+  pointer-events: none;
+}
+
+.botan-theme [name="cover-section"] .decorations {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.botan-theme [name="cover-section"] .decorations .back {
+  position: absolute;
+  top: -15vh;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 120vh;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.botan-theme [name="cover-section"] .decorations .back-left,
+.botan-theme [name="cover-section"] .decorations .bottom-left,
+.botan-theme [name="cover-section"] .decorations .top-right {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.botan-theme [name="cover-section"] .decorations .back-left {
+  z-index: 3;
+}
+
+.botan-theme [name="cover-section"] .decorations .bottom-left,
+.botan-theme [name="cover-section"] .decorations .top-right {
+  z-index: 2;
+}
+
+.botan-theme [name="cover-section"] .decorations .back img {
+  width: 57%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.botan-theme [name="cover-section"] .decorations .back-left img {
+  width: 34.7%;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: -49%;
+  right: 0;
+  margin: 0 auto;
+  z-index: 3;
+}
+
+.botan-theme [name="cover-section"] .decorations .bottom-left img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 39%;
+  z-index: 2;
+}
+
+.botan-theme [name="cover-section"] .decorations .top-right img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 38%;
+  z-index: 2;
+}
+
+@media (max-width: 600px) {
+  .botan-theme
+    [name="cover-section"]
+    .content
+    .view-content:has(.guest-name)
+    .open-button-wrapper {
+    margin-top: 0.75rem;
+  }
+
+  .botan-theme [name="cover-section"] .content .view-content .title {
+    margin-bottom: 1rem;
+  }
+
+  .botan-theme [name="cover-section"] .content .view-content .title p {
+    font-size: 0.875rem;
+  }
+
+  .botan-theme
+    [name="cover-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    p,
+  .botan-theme
+    [name="cover-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    p {
+    font-size: 3.75rem;
+  }
+
+  .botan-theme [name="cover-section"] .content .view-content .bride-groom .and {
+    margin-bottom: 0.63rem;
+  }
+
+  .botan-theme
+    [name="cover-section"]
+    .content
+    .view-content
+    .bride-groom
+    .and
+    p {
+    font-size: 3rem;
+  }
+
+  .botan-theme [name="cover-section"] .content .view-content .guest-name {
+    margin-top: 1.13rem;
+  }
+
+  .botan-theme
+    [name="cover-section"]
+    .content
+    .view-content
+    .guest-name
+    .for
+    p {
+    font-size: 0.6875rem;
+  }
+
+  .botan-theme
+    [name="cover-section"]
+    .content
+    .view-content
+    .guest-name
+    .name
+    p {
+    font-size: 0.875rem;
+  }
+
+  .botan-theme
+    [name="cover-section"]
+    .content
+    .view-content
+    .open-button-wrapper {
+    margin-top: 0.94rem;
+  }
+
+  .botan-theme
+    [name="cover-section"]
+    .content
+    .view-content
+    [name="botan-button"] {
+    padding: 0.62rem 4.75rem;
+  }
+
+  .botan-theme
+    [name="cover-section"]
+    .content
+    .view-content
+    [name="botan-button"]
+    .icon
+    img {
+    width: 1.25rem;
+  }
+
+  .botan-theme
+    [name="cover-section"]
+    .content
+    .view-content
+    [name="botan-button"]
+    .label
+    p {
+    font-size: 0.75rem;
+  }
+
+  .botan-theme [name="cover-section"] .content .view-content .date {
+    margin-top: 0.5rem;
+  }
+
+  .botan-theme [name="cover-section"] .content .view-content .date p {
+    font-size: 1.25rem;
+  }
+
+  .botan-theme [name="cover-section"] .decorations .back {
+    padding-left: 0.94rem;
+    padding-right: 0.94rem;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    align-items: center;
+  }
+
+  .botan-theme [name="cover-section"] .decorations .back img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .botan-theme [name="cover-section"] .decorations .back-left img {
+    width: 44.4%;
+    left: 0;
+    top: 10%;
+    right: unset;
+  }
+
+  .botan-theme [name="cover-section"] .decorations .top-right img {
+    width: 80%;
+  }
+
+  .botan-theme [name="cover-section"] .decorations .bottom-left img {
+    width: 80%;
+  }
+}
+
+.botan-theme [name="opening-section"] {
+  padding-top: 10.4375rem;
+  padding-bottom: 3.1rem;
+  position: relative;
+  max-width: 150rem;
+  margin: 0 auto;
+  border-radius: 62.5rem 62.5rem 0rem 0rem;
+  background: #efeae4;
+}
+
+.botan-theme [name="opening-section"] .content {
+  position: relative;
+  z-index: 10;
+}
+
+.botan-theme [name="opening-section"] .content .view-content .quotes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.62rem 0;
+}
+
+.botan-theme
+  [name="opening-section"]
+  .content
+  .view-content
+  .quotes
+  .quote-text {
+  display: flex;
+  justify-content: center;
+}
+
+.botan-theme
+  [name="opening-section"]
+  .content
+  .view-content
+  .quotes
+  .quote-text
+  p {
+  color: #66646f;
+  text-align: center;
+  font-family: "opensansR", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 60%;
+}
+
+.botan-theme
+  [name="opening-section"]
+  .content
+  .view-content
+  .quotes
+  .quote-title
+  p {
+  color: #66646f;
+  text-align: center;
+  font-family: "opensansB", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.botan-theme [name="opening-section"] .content .view-content .bride-groom {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.88rem;
+}
+
+.botan-theme
+  [name="opening-section"]
+  .content
+  .view-content
+  .bride-groom
+  .groom,
+.botan-theme
+  [name="opening-section"]
+  .content
+  .view-content
+  .bride-groom
+  .bride {
+  padding: 1.25rem 4.75rem 1.5rem 4.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.botan-theme [name="opening-section"] .content .view-content .groom-photo,
+.botan-theme [name="opening-section"] .content .view-content .bride-photo {
+  width: 12.93031rem;
+  height: 16.5rem;
+  flex-shrink: 0;
+  border-radius: 6.25rem;
+  overflow: hidden;
+}
+
+.botan-theme [name="opening-section"] .content .view-content .groom-photo img,
+.botan-theme [name="opening-section"] .content .view-content .bride-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+}
+
+.botan-theme
+  [name="opening-section"]
+  .content
+  .view-content
+  .groom-name.groom-name-fullwidth {
+  width: 100%;
+}
+
+.botan-theme [name="opening-section"] .content .view-content .groom-name,
+.botan-theme [name="opening-section"] .content .view-content .bride-name {
+  margin-top: 2rem;
+  width: 79%;
+}
+
+.botan-theme [name="opening-section"] .content .view-content .groom-name p,
+.botan-theme [name="opening-section"] .content .view-content .bride-name p {
+  color: #66646f;
+  text-align: center;
+  font-family: "benguiatstdBook", serif;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme [name="opening-section"] .content .view-content .conj {
+  margin-top: 1.37rem;
+}
+
+.botan-theme [name="opening-section"] .content .view-content .conj p {
+  color: #66646f;
+  text-align: center;
+  font-family: "opensansR", sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme [name="opening-section"] .content .view-content .parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.31rem 0;
+  margin-top: 0.63rem;
+}
+
+.botan-theme [name="opening-section"] .content .view-content .parent p {
+  color: #66646f;
+  text-align: center;
+  font-family: "opensansR", sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem;
+}
+
+.botan-theme [name="opening-section"] .content .view-content .instagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.31rem;
+}
+
+.botan-theme
+  [name="opening-section"]
+  .content
+  .view-content
+  .instagram:hover
+  .ig-wrapper {
+  border-bottom: 1px solid #cb877e;
+  transition: 0.25s;
+}
+
+.botan-theme
+  [name="opening-section"]
+  .content
+  .view-content
+  .instagram
+  .ig-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0 0.31rem;
+  border-bottom: 1px solid transparent;
+  transition: 0.25s;
+}
+
+.botan-theme
+  [name="opening-section"]
+  .content
+  .view-content
+  .instagram
+  .ig-wrapper
+  .icon {
+  display: flex;
+  align-items: center;
+}
+
+.botan-theme
+  [name="opening-section"]
+  .content
+  .view-content
+  .instagram
+  .ig-wrapper
+  .icon
+  img {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.botan-theme
+  [name="opening-section"]
+  .content
+  .view-content
+  .instagram
+  .ig-wrapper
+  .label
+  p {
+  color: #cb877e;
+  font-family: "opensansSB", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.botan-theme [name="opening-section"] .content .view-content .bottom-icon {
+  margin-top: 5.38rem;
+  display: flex;
+  justify-content: center;
+}
+
+.botan-theme [name="opening-section"] .content .view-content .bottom-icon img {
+  width: 3.125rem;
+}
+
+.botan-theme [name="opening-section"] .decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.botan-theme [name="opening-section"] .decorations img {
+  pointer-events: none;
+}
+
+.botan-theme [name="opening-section"] .decorations .back img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  object-fit: cover;
+  z-index: 1;
+  width: 100%;
+}
+
+.botan-theme [name="opening-section"] .decorations .top {
+  display: flex;
+  justify-content: center;
+}
+
+.botan-theme [name="opening-section"] .decorations .top img {
+  position: absolute;
+  top: -2.8rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  object-fit: contain;
+  width: 42%;
+  max-width: 40rem;
+  z-index: 2;
+}
+
+.botan-theme [name="opening-section"] .decorations .bottom-left img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 26%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.botan-theme [name="opening-section"] .decorations .bottom-right img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 26%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+@media (max-width: 600px) {
+  .botan-theme [name="opening-section"] {
+    padding-top: 6rem;
+    padding-bottom: 0;
+    background: unset;
+  }
+
+  .botan-theme [name="opening-section"] .content .view-content .quotes {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    gap: 0.62rem 0;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .quotes
+    .quote-text
+    p {
+    color: #efeae4;
+    font-size: 0.75rem;
+    width: 100%;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .quotes
+    .quote-title
+    p {
+    color: #efeae4;
+    font-size: 0.6875rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom {
+    position: relative;
+    z-index: 2;
+    margin-top: 2rem;
+    padding: 3.34rem 1.88rem 5.19rem 1.88rem;
+    border-radius: 18.75rem 18.75rem 0rem 0rem;
+    background: #efeae4;
+    flex-direction: column;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom:has(.bride .instagram)
+    .groom {
+    margin-top: 0;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .bride-photo {
+    width: 10.1875rem;
+    height: 13.78569rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .bride-name {
+    margin-top: 0.94rem;
+    width: 100%;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .bride-name
+    p {
+    font-size: 1.25rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .conj {
+    margin-top: 0.5rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .conj
+    p {
+    font-size: 0.625rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .parent {
+    margin-top: 0.31rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .parent
+    p {
+    font-size: 0.75rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .instagram {
+    margin-top: 0.5rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .instagram
+    .ig-wrapper
+    .icon
+    img {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .bride
+    .instagram
+    .ig-wrapper
+    .label
+    p {
+    font-size: 0.6875rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom {
+    align-items: flex-end;
+    margin-top: -1.5rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .groom-photo {
+    width: 10.1875rem;
+    height: 13.78569rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .groom-name {
+    margin-top: 0.94rem;
+    max-width: 70%;
+    width: 100%;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .groom-name
+    p {
+    font-size: 1.25rem;
+    text-align: right;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .conj {
+    margin-top: 0.5rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .conj
+    p {
+    font-size: 0.625rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .parent {
+    margin-top: 0.31rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .parent
+    p {
+    font-size: 0.75rem;
+    text-align: right;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .instagram {
+    margin-top: 0.5rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .instagram
+    .ig-wrapper
+    .icon
+    img {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bride-groom
+    .groom
+    .instagram
+    .ig-wrapper
+    .label
+    p {
+    font-size: 0.6875rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bottom-icon {
+    margin-top: 3.13rem;
+  }
+
+  .botan-theme
+    [name="opening-section"]
+    .content
+    .view-content
+    .bottom-icon
+    img {
+    width: 2.5rem;
+  }
+
+  .botan-theme [name="opening-section"] .decorations .top img {
+    width: 85%;
+    top: -1.5rem;
+  }
+
+  .botan-theme [name="opening-section"] .decorations .bottom-left img {
+    width: 45%;
+  }
+
+  .botan-theme [name="opening-section"] .decorations .bottom-right img {
+    width: 45%;
+  }
+}
+
+.botan-theme [name="date-section"] {
+  background: #efeae4;
+  padding: 5rem 0 5.63rem 0;
+  position: relative;
+  z-index: 1;
+  max-width: 150rem;
+  margin: -1px auto 0 auto;
+}
+
+.botan-theme [name="date-section"] .content .view-content {
+  text-align: center;
+}
+
+.botan-theme [name="date-section"] .content .view-content .akad .date,
+.botan-theme [name="date-section"] .content .view-content .reception .date {
+  margin-top: 2.69rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.botan-theme [name="date-section"] .content .view-content .akad .date .day,
+.botan-theme
+  [name="date-section"]
+  .content
+  .view-content
+  .reception
+  .date
+  .day {
+  padding: 0 0.75rem 0 0;
+  width: 15.625rem;
+}
+
+.botan-theme [name="date-section"] .content .view-content .akad .date .day p,
+.botan-theme
+  [name="date-section"]
+  .content
+  .view-content
+  .reception
+  .date
+  .day
+  p {
+  color: #66646f;
+  text-align: center;
+  font-family: "cinzel", serif;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.botan-theme [name="date-section"] .content .view-content .akad .date .month,
+.botan-theme
+  [name="date-section"]
+  .content
+  .view-content
+  .reception
+  .date
+  .month {
+  padding: 0;
+  height: 4.44rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 13.5rem;
+  border-left: 0.0625rem solid #66646f;
+  border-right: 0.0625rem solid #66646f;
+}
+
+.botan-theme
+  [name="date-section"]
+  .content
+  .view-content
+  .akad
+  .date
+  .month
+  .month-number
+  p,
+.botan-theme
+  [name="date-section"]
+  .content
+  .view-content
+  .reception
+  .date
+  .month
+  .month-number
+  p {
+  color: #66646f;
+  text-align: center;
+  font-family: "cinzel", serif;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.botan-theme
+  [name="date-section"]
+  .content
+  .view-content
+  .akad
+  .date
+  .month
+  .month-name
+  p,
+.botan-theme
+  [name="date-section"]
+  .content
+  .view-content
+  .reception
+  .date
+  .month
+  .month-name
+  p {
+  color: #66646f;
+  text-align: center;
+  font-family: "cinzel", serif;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme [name="date-section"] .content .view-content .akad .date .year,
+.botan-theme
+  [name="date-section"]
+  .content
+  .view-content
+  .reception
+  .date
+  .year {
+  padding: 0 0 0 0.75rem;
+  width: 15.625rem;
+}
+
+.botan-theme [name="date-section"] .content .view-content .akad .date .year p,
+.botan-theme
+  [name="date-section"]
+  .content
+  .view-content
+  .reception
+  .date
+  .year
+  p {
+  color: #66646f;
+  text-align: center;
+  font-family: "cinzel", serif;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.botan-theme [name="date-section"] .content .view-content .akad .date-icon img {
+  width: 3.125rem;
+  height: 3.125rem;
+  object-fit: contain;
+  object-position: top center;
+}
+
+.botan-theme [name="date-section"] .content .view-content .akad .title {
+  margin-top: 2.06rem;
+}
+
+.botan-theme [name="date-section"] .content .view-content .akad .title p {
+  color: #66646f;
+  text-align: center;
+  font-family: "benguiatstdBook", serif;
+  font-size: 2.8125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme [name="date-section"] .content .view-content .akad .time {
+  margin-top: 2rem;
+}
+
+.botan-theme [name="date-section"] .content .view-content .akad .time p {
+  color: #66646f;
+  text-align: center;
+  font-family: "cinzel", serif;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.2rem;
+}
+
+.botan-theme [name="date-section"] .content .view-content .reception {
+  padding-top: 5.13rem;
+  position: relative;
+}
+
+.botan-theme [name="date-section"] .content .view-content .reception .title {
+  margin-top: 2.06rem;
+}
+
+.botan-theme [name="date-section"] .content .view-content .reception .title p {
+  color: #66646f;
+  text-align: center;
+  font-family: "benguiatstdBook", serif;
+  font-size: 2.8125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme [name="date-section"] .content .view-content .reception .time {
+  margin-top: 2rem;
+}
+
+.botan-theme [name="date-section"] .content .view-content .reception .time p {
+  color: #66646f;
+  text-align: center;
+  font-family: "cinzel", serif;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.2rem;
+}
+
+.botan-theme
+  [name="date-section"]
+  .content
+  .view-content
+  .reception
+  .decorations
+  img {
+  pointer-events: none;
+}
+
+.botan-theme
+  [name="date-section"]
+  .content
+  .view-content
+  .reception
+  .decorations
+  .decor-top-left
+  img {
+  width: 30%;
+  position: absolute;
+  top: 0;
+  left: -5%;
+}
+
+.botan-theme
+  [name="date-section"]
+  .content
+  .view-content
+  .reception
+  .decorations
+  .decor-top-right
+  img {
+  width: 30%;
+  position: absolute;
+  top: 0;
+  right: -5%;
+}
+
+@media (max-width: 600px) {
+  .botan-theme [name="date-section"] {
+    z-index: 10;
+    margin-top: -1px;
+    padding-top: 2rem;
+    padding-bottom: 2.94rem;
+  }
+
+  .botan-theme [name="date-section"] .content .view-content .akad .date,
+  .botan-theme [name="date-section"] .content .view-content .reception .date {
+    margin-top: 1.5rem;
+  }
+
+  .botan-theme [name="date-section"] .content .view-content .akad .date .day,
+  .botan-theme
+    [name="date-section"]
+    .content
+    .view-content
+    .reception
+    .date
+    .day {
+    width: 5.8125rem;
+    padding-right: 0.75rem;
+  }
+
+  .botan-theme [name="date-section"] .content .view-content .akad .date .day p,
+  .botan-theme
+    [name="date-section"]
+    .content
+    .view-content
+    .reception
+    .date
+    .day
+    p {
+    font-size: 1.125rem;
+  }
+
+  .botan-theme [name="date-section"] .content .view-content .akad .date .month,
+  .botan-theme
+    [name="date-section"]
+    .content
+    .view-content
+    .reception
+    .date
+    .month {
+    width: 6.75rem;
+    height: 3rem;
+    padding: 0 0.75rem;
+  }
+
+  .botan-theme
+    [name="date-section"]
+    .content
+    .view-content
+    .akad
+    .date
+    .month
+    .month-number
+    p,
+  .botan-theme
+    [name="date-section"]
+    .content
+    .view-content
+    .reception
+    .date
+    .month
+    .month-number
+    p {
+    font-size: 1.75rem;
+  }
+
+  .botan-theme
+    [name="date-section"]
+    .content
+    .view-content
+    .akad
+    .date
+    .month
+    .month-name
+    p,
+  .botan-theme
+    [name="date-section"]
+    .content
+    .view-content
+    .reception
+    .date
+    .month
+    .month-name
+    p {
+    font-size: 0.875rem;
+  }
+
+  .botan-theme [name="date-section"] .content .view-content .akad .date .year,
+  .botan-theme
+    [name="date-section"]
+    .content
+    .view-content
+    .reception
+    .date
+    .year {
+    width: 5.8125rem;
+    padding-left: 0.75rem;
+  }
+
+  .botan-theme [name="date-section"] .content .view-content .akad .date .year p,
+  .botan-theme
+    [name="date-section"]
+    .content
+    .view-content
+    .reception
+    .date
+    .year
+    p {
+    font-size: 1.125rem;
+  }
+
+  .botan-theme
+    [name="date-section"]
+    .content
+    .view-content
+    .akad
+    .date-icon
+    img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .botan-theme [name="date-section"] .content .view-content .akad .title {
+    margin-top: 1.5rem;
+  }
+
+  .botan-theme [name="date-section"] .content .view-content .akad .title p {
+    font-size: 1.5rem;
+  }
+
+  .botan-theme [name="date-section"] .content .view-content .akad .time {
+    margin-top: 1rem;
+  }
+
+  .botan-theme [name="date-section"] .content .view-content .akad .time p {
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .botan-theme [name="date-section"] .content .view-content .reception {
+    padding-top: 2.31rem;
+  }
+
+  .botan-theme [name="date-section"] .content .view-content .reception .title {
+    margin-top: 0;
+  }
+
+  .botan-theme
+    [name="date-section"]
+    .content
+    .view-content
+    .reception
+    .title
+    p {
+    font-size: 1.5rem;
+  }
+
+  .botan-theme [name="date-section"] .content .view-content .reception .time {
+    margin-top: 1rem;
+  }
+
+  .botan-theme [name="date-section"] .content .view-content .reception .time p {
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .botan-theme [name="date-section"] .decorations img {
+    pointer-events: none;
+  }
+
+  .botan-theme [name="date-section"] .decorations .top-right img {
+    width: 57.7%;
+    position: absolute;
+    top: -1.37rem;
+    right: 0;
+  }
+}

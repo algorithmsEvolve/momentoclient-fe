@@ -1,6 +1,16 @@
+"use client";
+
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function FloatingWhatsApp() {
+  const pathname = usePathname();
+  const hiddenPaths = new Set(["/", "/harga", "/estimasi", "/customer", "/info-produk"]);
+
+  if (!hiddenPaths.has(pathname)) {
+    return null;
+  }
+
   return (
     <a 
       href="https://wa.me/message/ZD27PNJNNSFNF1" 

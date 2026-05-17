@@ -1,0 +1,151 @@
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content {
+        min-height: unset;
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content:has(.rsvp-sent) {
+        padding-bottom: unset;
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content .title p {
+        text-align: left;
+        font-size: 2rem;
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content .desc {
+        margin-top: 1.25rem;
+        justify-content: flex-start;
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content .desc p {
+        font-family: "opensansR", sans-serif;
+        font-size: 0.75rem;
+        text-align: left;
+        width: 90%;
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content .desc p span.bold {
+        font-family: "opensansB", sans-serif;
+        font-size: 0.75rem;
+        text-align: left;
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content .rsvp-input-wrapper .rsvp-input-container {
+        margin-top: 1.5rem;
+        width: 100%;
+        gap: 1.5rem 0;
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input,
+    .botan-theme [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input {
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input .label,
+    .botan-theme [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input .label {
+        margin-bottom: 0.5rem;
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input .label p,
+    .botan-theme [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input .label p {
+        font-size: 0.75rem;
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input [name=input],
+    .botan-theme [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input [name=input] {
+        height: unset;
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input input,
+    .botan-theme [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input textarea,
+    .botan-theme [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input input,
+    .botan-theme [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input textarea {
+        font-size: 0.75rem;
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content .rsvp-input-wrapper .message-counter {
+        position: absolute !important;
+        right: 0.69rem !important;
+        bottom: 0.44rem !important;
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content .rsvp-input-wrapper .message-counter p {
+        font-size: 0.75rem !important;
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content .confirm-button,
+    .botan-theme [name=rsvp-section] .content .view-content .change-button {
+        margin-top: 1.5rem;
+        padding-bottom: unset;
+    }
+
+    .botan-theme [name=rsvp-section] .content .view-content .confirm-button [name=botan-button],
+    .botan-theme [name=rsvp-section] .content .view-content .change-button [name=botan-button] {
+        min-width: 100%;
+        padding: 0.62rem 1.5rem;
+    }
+
+    .botan-theme [name=rsvp-section] .decorations .top-right img {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 66.67%;
+        object-fit: contain;
+        z-index: 11;
+    }
+}
+
+
+
+
+.botan-theme {
+  --botan-bg: #efeae4;
+  --botan-card: rgba(255, 255, 255, 0.92);
+  --botan-border: #d0b6b5;
+  --botan-text: #66646f;
+  --botan-muted: #64564c;
+  --botan-accent: #cb877e;
+  --botan-accent-strong: #b56f67;
+  --botan-accent-soft: #f8f2eb;
+  --botan-shadow: 0 20px 50px rgba(102, 100, 111, 0.08);
+  color: var(--botan-text);
+  background-image: url("/themes/botan/global/background-desktop.png");
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: var(--botan-bg);
+}
+
+.botan-theme * {
+    font-family: 'poppinsR', sans-serif;
+}
+
+.botan-theme .botan-shell {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 4.75rem 0 5rem;
+  background: var(--botan-bg);
+}
+
+.botan-theme .botan-shell__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 96rem;
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+}
+
+.botan-theme .botan-shell__eyebrow {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.38em;
+  color: #66646f;
+  text-align: center;
+}
+
