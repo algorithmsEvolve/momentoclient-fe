@@ -16,14 +16,30 @@ export async function POST(request) {
   }
 
   const body = await request.json().catch(() => ({}));
+  const slug = typeof body.slug === "string" ? body.slug : "home";
 
   if (body.secret !== secret) {
     return unauthorized();
   }
 
-  revalidateTag("site-page:home");
-  revalidateTag("site-pages");
-  revalidatePath("/");
+  const targets = {
+    home: {
+      path: "/",
+      tags: ["site-page:home", "site-pages"],
+    },
+    pricing: {
+      path: "/harga",
+      tags: ["site-page:pricing", "site-pages"],
+    },
+  };
 
-  return NextResponse.json({ revalidated: true, now: Date.now() });
+  const selected = targets[slug];
+  if (!selected) {
+    return NextResponse.json({ message: "Invalid slug" }, { status: 422 });
+  }
+
+  selected.tags.forEach((tag) => revalidateTag(tag));
+  revalidatePath(selected.path);
+
+  return NextResponse.json({ revalidated: true, slug, now: Date.now() });
 }

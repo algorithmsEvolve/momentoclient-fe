@@ -1,15 +1,17 @@
 "use client";
 
-import { pricingCategories } from "@/lib/pricingData";
-
-export default function PricingSidebar({ activeCategory, updateCategory }) {
+export default function PricingSidebar({
+  activeCategory,
+  categories = [],
+  updateCategory,
+}) {
   return (
     <aside className="hidden md:block w-[240px] shrink-0 border-r border-white/10 pr-0">
       <nav className="flex flex-col sticky top-[120px]">
-        {pricingCategories.map((cat, index) => {
+        {categories.map((cat) => {
           const isGroupEnd = 
             (cat.id === "undangan") || 
-            (cat.id === "mahar" && !pricingCategories.find(c => c.id === "undangan")) ||
+            (cat.id === "mahar" && !categories.find(c => c.id === "undangan")) ||
             (cat.id === "wcc");
 
           return (
@@ -32,7 +34,7 @@ export default function PricingSidebar({ activeCategory, updateCategory }) {
                     : "text-white hover:text-gold"
                 }`}
               >
-                {cat.sidebar_name || cat.name}
+                {cat.sidebarName || cat.sidebar_name || cat.name}
               </span>
             </button>
           );

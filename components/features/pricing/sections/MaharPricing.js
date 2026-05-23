@@ -1,14 +1,32 @@
 "use client";
 
 import Image from "next/image";
-import { maharPackages } from "@/lib/pricingData";
+import { pricingDefaults } from "@/lib/site-content/pricingDefaults";
 
-export default function MaharPricing({ openViewer, formatCinzel }) {
+export default function MaharPricing({ openViewer, formatCinzel, sectionData }) {
+  const defaultSection = pricingDefaults.sections.mahar;
+  const packages = (sectionData?.packages || []).filter((item) => item?.enabled !== false);
+  const addOnItems = (sectionData?.addOns?.items || []).filter(
+    (item) => item?.enabled !== false,
+  );
+  const customSection =
+    sectionData?.custom?.enabled === false
+      ? null
+      : sectionData?.custom || defaultSection.custom;
+
+  const displayPackages = packages.length > 0 ? packages : defaultSection.packages;
+  const displayAddOns = addOnItems.length > 0 ? addOnItems : defaultSection.addOns.items;
+  const excludedLabel = sectionData?.excludedLabel || defaultSection.excludedLabel;
+  const excludedText = sectionData?.excludedText || defaultSection.excludedText;
+  const addOnsEyebrow = sectionData?.addOns?.eyebrow || defaultSection.addOns.eyebrow;
+  const addOnsTitle = sectionData?.addOns?.title || defaultSection.addOns.title;
+  const customImages = customSection?.images || [];
+
   return (
     <div className="flex flex-col gap-0">
       {/* Mahar Packages Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] mb-[15px] md:mb-[80px]">
-        {maharPackages.map((pkg) => (
+        {displayPackages.map((pkg) => (
           <div
             key={pkg.id}
             className="bg-[#161616] rounded-[10px] p-[20px] md:p-[30px] flex flex-col border border-white/5 transition-all duration-300 hover:border-[#D4AF37]/20"
@@ -20,11 +38,11 @@ export default function MaharPricing({ openViewer, formatCinzel }) {
             <div className="flex flex-row gap-[15px] md:gap-[18px] mb-[15px] md:mb-0">
               <div
                 className="w-[115px] h-[139px] md:w-[170px] md:h-[206px] flex-shrink-0 cursor-zoom-in group"
-                onClick={() => openViewer(pkg.image, pkg.name)}
+                onClick={() => openViewer(pkg.image?.src || pkg.image, pkg.name)}
               >
                 <div className="relative w-full h-full rounded-[5px] md:rounded-[10px] overflow-hidden border border-white/5">
                   <Image
-                    src={pkg.image}
+                    src={pkg.image?.src || pkg.image}
                     alt={pkg.name}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -51,10 +69,10 @@ export default function MaharPricing({ openViewer, formatCinzel }) {
 
                 <div className="hidden md:block pt-[16px] md:pt-[4px]">
                   <p className="text-white font-montserrat font-bold text-[12px] leading-tight mb-1">
-                    Belum termasuk :
+                    {excludedLabel}
                   </p>
                   <p className="text-white font-montserrat text-[12px] leading-[18px] opacity-80">
-                    Replika mahar seperti LM, Perhiasan, Mata Uang Asing, dsb.
+                    {excludedText}
                   </p>
                 </div>
               </div>
@@ -62,33 +80,33 @@ export default function MaharPricing({ openViewer, formatCinzel }) {
 
             <div className="block md:hidden pt-2 border-t border-white/5">
               <p className="text-white font-montserrat font-bold text-[12px] leading-tight mb-1">
-                Belum termasuk :
+                {excludedLabel}
               </p>
               <p className="text-white font-montserrat text-[12px] leading-[18px] opacity-80">
-                Replika mahar seperti LM, Perhiasan, Mata Uang Asing, dsb.
+                {excludedText}
               </p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Custom Mahar Section */}
+      {customSection && (
       <div className="bg-[#161616] rounded-[10px] p-[20px] md:p-[30px] border border-white/5 mb-0 md:mb-[80px]">
         <div className="flex flex-col lg:flex-row gap-[10px]">
           <div className="flex flex-col gap-[10px] lg:hidden mb-[10px]">
             <div>
               <h2 className="text-[20px] font-montserrat font-bold text-white mb-2">
-                Custom Mahar
+                {customSection.title || "Custom Mahar"}
               </h2>
               <p className="text-white font-montserrat text-[12px] italic mb-4 pr-10">
-                Harga disesuaikan biaya barang dan tingkat kesulitan pembuat
+                {customSection.description}
               </p>
               <div className="space-y-1">
                 <p className="text-white font-montserrat font-bold text-[12px]">
-                  Belum termasuk :
+                  {customSection.excludedLabel || excludedLabel}
                 </p>
                 <p className="text-white font-montserrat text-[12px] leading-[18px] pr-[30px]">
-                  Replika mahar seperti LM, Perhiasan, Mata Uang Asing, dsb.
+                  {customSection.excludedText || excludedText}
                 </p>
               </div>
             </div>
@@ -97,45 +115,45 @@ export default function MaharPricing({ openViewer, formatCinzel }) {
           <div className="flex flex-col flex-1 gap-[10px]">
             <div className="hidden lg:block">
               <h2 className="text-[24px] font-montserrat font-bold text-white mb-2">
-                Custom Mahar
+                {customSection.title || "Custom Mahar"}
               </h2>
               <p className="text-white font-montserrat text-[14px] italic mb-4">
-                Harga disesuaikan biaya barang dan tingkat kesulitan pembuatan.
+                {customSection.description}
               </p>
               <div className="space-y-1">
                 <p className="text-white font-montserrat font-bold text-[12px]">
-                  Belum termasuk :
+                  {customSection.excludedLabel || excludedLabel}
                 </p>
                 <p className="text-white font-montserrat text-[12px] opacity-80">
-                  Replika mahar seperti LM, Perhiasan, Mata Uang Asing, dsb.
+                  {customSection.excludedText || excludedText}
                 </p>
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-[10px] mt-auto">
-              {[1, 2].map((i) => (
+              {customImages.slice(0, 2).map((image, i) => (
                 <div
-                  key={`custom-grid-1-${i}`}
+                  key={`custom-grid-1-${i}-${image.src}`}
                   className="hidden lg:block relative aspect-[145/166] lg:aspect-[210/169] rounded-[5px] lg:rounded-[10px] overflow-hidden cursor-zoom-in group border border-white/5"
-                  onClick={() => openViewer(`/images/pricelist/mahar/custom-${i}.png`, `Custom Mahar ${i}`)}
+                  onClick={() => openViewer(image.src, image.alt || `Custom Mahar ${i + 1}`)}
                 >
                   <Image
-                    src={`/images/pricelist/mahar/custom-${i}.png`}
-                    alt={`Custom Mahar ${i}`}
+                    src={image.src}
+                    alt={image.alt || `Custom Mahar ${i + 1}`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
               ))}
-              {[3, 4].map((i) => (
+              {customImages.slice(2, 4).map((image, i) => (
                 <div
-                  key={`custom-mobile-grid-1-${i}`}
+                  key={`custom-mobile-grid-1-${i}-${image.src}`}
                   className="block lg:hidden relative aspect-[145/166] lg:aspect-[210/169] rounded-[5px] lg:rounded-[10px] overflow-hidden cursor-zoom-in group border border-white/5"
-                  onClick={() => openViewer(`/images/pricelist/mahar/custom-${i}.png`, `Custom Mahar ${i}`)}
+                  onClick={() => openViewer(image.src, image.alt || `Custom Mahar ${i + 3}`)}
                 >
                   <Image
-                    src={`/images/pricelist/mahar/custom-${i}.png`}
-                    alt={`Custom Mahar ${i}`}
+                    src={image.src}
+                    alt={image.alt || `Custom Mahar ${i + 3}`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
@@ -146,29 +164,29 @@ export default function MaharPricing({ openViewer, formatCinzel }) {
 
           <div className="flex flex-col flex-1 gap-[10px]">
             <div className="grid grid-cols-2 gap-[10px] mt-auto">
-              {[3, 4].map((i) => (
+              {customImages.slice(2, 4).map((image, i) => (
                 <div
-                  key={`custom-grid-2-${i}`}
+                  key={`custom-grid-2-${i}-${image.src}`}
                   className="hidden lg:block relative aspect-[145/111] lg:aspect-[3/4] rounded-[5px] lg:rounded-[10px] overflow-hidden cursor-zoom-in group border border-white/5"
-                  onClick={() => openViewer(`/images/pricelist/mahar/custom-${i}.png`, `Custom Mahar ${i}`)}
+                  onClick={() => openViewer(image.src, image.alt || `Custom Mahar ${i + 3}`)}
                 >
                   <Image
-                    src={`/images/pricelist/mahar/custom-${i}.png`}
-                    alt={`Custom Mahar ${i}`}
+                    src={image.src}
+                    alt={image.alt || `Custom Mahar ${i + 3}`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
               ))}
-              {[1, 2].map((i) => (
+              {customImages.slice(0, 2).map((image, i) => (
                 <div
-                  key={`custom-mobile-grid-2-${i}`}
+                  key={`custom-mobile-grid-2-${i}-${image.src}`}
                   className="block lg:hidden relative aspect-[145/111] lg:aspect-[3/4] rounded-[5px] lg:rounded-[10px] overflow-hidden cursor-zoom-in group border border-white/5"
-                  onClick={() => openViewer(`/images/pricelist/mahar/custom-${i}.png`, `Custom Mahar ${i}`)}
+                  onClick={() => openViewer(image.src, image.alt || `Custom Mahar ${i + 1}`)}
                 >
                   <Image
-                    src={`/images/pricelist/mahar/custom-${i}.png`}
-                    alt={`Custom Mahar ${i}`}
+                    src={image.src}
+                    alt={image.alt || `Custom Mahar ${i + 1}`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
@@ -178,27 +196,22 @@ export default function MaharPricing({ openViewer, formatCinzel }) {
           </div>
         </div>
       </div>
+      )}
 
       {/* Add Ons Replika Mahar Section */}
       <div className="mt-[31px] md:mt-[64px] w-full max-w-[896px] mx-auto md:mx-0">
         <div className="mb-5 md:mb-8 pl-[14px] md:pl-0">
           <p className="text-[#B1B1B1] font-montserrat font-semibold text-[14px] md:text-[16px] mb-1">
-            Add Ons
+            {addOnsEyebrow}
           </p>
           <h2 className="text-[20px] md:text-[32px] font-serif font-bold text-white uppercase tracking-[0px] md:tracking-[-1px] leading-tight">
-            {formatCinzel("REPLIKA MAHAR")}
+            {formatCinzel(addOnsTitle)}
           </h2>
         </div>
         
         <div className="bg-[#161616] p-[38px] rounded-[20px] border border-white/5 space-y-[16px]">
-          {[
-            { name: "Mata uang Asing", price: "Rp. 5.000/pcs" },
-            { name: "Koin Kuno", price: "Rp. 5.000/pcs" },
-            { name: "LM 1 - 10 Gram", price: "Rp. 10.000/pcs" },
-            { name: "LM > 10 Gram", price: "Rp. 10.000/pcs" },
-            { name: "Set Perhiasan", price: "Rp. 15.000/set" },
-          ].map((item, i) => (
-            <div key={i} className="flex items-baseline font-montserrat text-[12px] md:text-[16px] w-full min-w-0">
+          {displayAddOns.map((item, i) => (
+            <div key={item.id || i} className="flex items-baseline font-montserrat text-[12px] md:text-[16px] w-full min-w-0">
               <span className="text-white shrink-0 pr-4">{item.name}</span>
               <div className="flex-1 overflow-hidden h-[1em] min-w-0">
                 <span className="text-white tracking-[0.4em] font-medium select-none whitespace-nowrap">

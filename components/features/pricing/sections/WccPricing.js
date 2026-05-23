@@ -1,12 +1,20 @@
 "use client";
 
-import { wccPackages, wccAddOns } from "@/lib/pricingData";
+import { pricingDefaults } from "@/lib/site-content/pricingDefaults";
 
-export default function WccPricing({ formatCinzel }) {
+export default function WccPricing({ formatCinzel, sectionData }) {
+  const defaultSection = pricingDefaults.sections.wcc;
+  const packages = (sectionData?.packages || []).filter((item) => item?.enabled !== false);
+  const addOnItems = (sectionData?.addOns?.items || []).filter(
+    (item) => item?.enabled !== false,
+  );
+  const displayPackages = packages.length > 0 ? packages : defaultSection.packages;
+  const displayAddOns = addOnItems.length > 0 ? addOnItems : defaultSection.addOns.items;
+
   return (
     <div className="flex flex-col gap-0">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-[20px] mb-[15px] md:mb-[80px]">
-        {wccPackages.map((pkg) => (
+        {displayPackages.map((pkg) => (
           <div
             key={pkg.id}
             className="bg-[#161616] rounded-[10px] md:rounded-[20px] p-[20px] md:p-[30px] flex flex-col border border-white/5 transition-all duration-300 hover:border-[#D4AF37]/20"
@@ -20,7 +28,7 @@ export default function WccPricing({ formatCinzel }) {
 
             <div className="flex-1 flex flex-col">
               <h3 className="text-white font-montserrat font-bold text-[12px] mb-2">
-                Detail :
+                {pkg.detailsTitle || "Detail :"}
               </h3>
               <ul className="text-white font-montserrat font-normal text-[12px] space-y-0 list-none mb-6 md:mb-8 pl-1">
                 {pkg.details.map((detail, idx) => (
@@ -45,15 +53,15 @@ export default function WccPricing({ formatCinzel }) {
       <div className="mt-[32px] md:mt-[40px] w-full max-w-[896px] mx-auto md:mx-0 mb-[80px]">
         <div className="mb-5 md:mb-8 pl-[14px] md:pl-0">
           <p className="text-[#B1B1B1] font-montserrat font-semibold text-[18px] md:text-[20px] mb-1">
-            Add Ons
+            {sectionData?.addOns?.eyebrow || defaultSection.addOns.eyebrow}
           </p>
           <h2 className="text-[24px] md:text-[32px] font-serif font-bold text-white uppercase tracking-[0px] md:tracking-[-1px] leading-tight">
-            {formatCinzel("CONTENT WCC")}
+            {formatCinzel(sectionData?.addOns?.title || defaultSection.addOns.title)}
           </h2>
         </div>
 
         <div className="bg-[#161616] p-[20px] md:p-[38px] rounded-[10px] md:rounded-[20px] border border-white/5 space-y-[12px] md:space-y-[16px]">
-          {wccAddOns.map((item, i) => (
+          {displayAddOns.map((item, i) => (
             <div
               key={i}
               className="flex items-baseline font-montserrat w-full min-w-0"

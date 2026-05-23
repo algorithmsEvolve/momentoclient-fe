@@ -1,12 +1,14 @@
 "use client";
 
-import { pricingCategories } from "@/lib/pricingData";
-
-export default function PricingMobileNav({ activeCategory, updateCategory }) {
+export default function PricingMobileNav({
+  activeCategory,
+  categories = [],
+  updateCategory,
+}) {
   return (
     <div className="block md:hidden sticky top-[80px] z-30 w-[calc(100%+32px)] -mx-[16px] bg-[#161616] overflow-x-auto scrollbar-hide mb-[30px]">
       <nav className="flex min-w-max flex-row items-center px-[16px]">
-        {pricingCategories.map((cat) => {
+        {categories.map((cat) => {
           const shortName = cat.name
             .replace("Sewa ", "")
             .replace("Frame ", "")

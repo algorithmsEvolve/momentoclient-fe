@@ -1,31 +1,41 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { pricingCategories } from "@/lib/pricingData";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import ImageViewer from "@/components/ui/ImageViewer";
-
-// Modular Sections
-import PricingSidebar from "./sections/PricingSidebar";
 import PricingMobileNav from "./sections/PricingMobileNav";
-import SeserahanPricing from "./sections/SeserahanPricing";
-import MaharPricing from "./sections/MaharPricing";
-import UndanganPricing from "./sections/UndanganPricing";
-import KeepsakePricing from "./sections/KeepsakePricing";
+import PricingSidebar from "./sections/PricingSidebar";
 import BouquetPricing from "./sections/BouquetPricing";
-import WccPricing from "./sections/WccPricing";
 import BundlingPricing from "./sections/BundlingPricing";
+import KeepsakePricing from "./sections/KeepsakePricing";
+import MaharPricing from "./sections/MaharPricing";
+import SeserahanPricing from "./sections/SeserahanPricing";
+import UndanganPricing from "./sections/UndanganPricing";
+import WccPricing from "./sections/WccPricing";
 
 const PRICING_EXIT_DURATION = 120;
 const PRICING_ENTER_DURATION = 260;
 
-export default function PricingContent() {
+export default function PricingContent({ content }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
 
+  const categories = useMemo(() => {
+    const list = Array.isArray(content?.categories) ? content.categories : [];
+    return list.filter((item) => item && item.id && item.enabled !== false);
+  }, [content]);
+
+  const fallbackCategory = categories[0]?.id || "seserahan";
+  const preferredCategory = content?.settings?.defaultCategory || fallbackCategory;
+  const validCategoryIds = new Set(categories.map((item) => item.id));
   const categoryParam = searchParams.get("category");
-  const activeCategory = pricingCategories.find((c) => c.id === categoryParam) ? categoryParam : "seserahan";
+
+  const activeCategory = validCategoryIds.has(categoryParam)
+    ? categoryParam
+    : validCategoryIds.has(preferredCategory)
+      ? preferredCategory
+      : fallbackCategory;
 
   const [displayCategory, setDisplayCategory] = useState(activeCategory);
   const [transitionState, setTransitionState] = useState("idle");
@@ -49,16 +59,13 @@ export default function PricingContent() {
 
     clearTransitionTimers();
 
-    // Phase 1: Exit current content
     const exitTimer = setTimeout(() => {
       setTransitionState("exiting");
 
-      // Phase 2: Swap content and enter new category
       const swapTimer = setTimeout(() => {
         setDisplayCategory(activeCategory);
         setTransitionState("entering");
 
-        // Phase 3: Settle to idle
         const settleTimer = setTimeout(() => {
           setTransitionState("idle");
         }, PRICING_ENTER_DURATION);
@@ -72,13 +79,13 @@ export default function PricingContent() {
     transitionTimersRef.current.push(exitTimer);
   }, [activeCategory, displayCategory]);
 
-  const updateCategory = (catId) => {
-    if (catId === activeCategory) {
+  const updateCategory = (categoryId) => {
+    if (categoryId === activeCategory || !validCategoryIds.has(categoryId)) {
       return;
     }
 
     const params = new URLSearchParams(searchParams.toString());
-    params.set("category", catId);
+    params.set("category", categoryId);
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
 
     window.requestAnimationFrame(() => {
@@ -96,55 +103,73 @@ export default function PricingContent() {
     setViewerState({ isOpen: true, src, alt });
   };
 
-  // Helper for Cinzel pattern: First letter of each word is slightly larger
   const formatCinzel = (text) => {
     if (!text) return null;
     return text.split(" ").map((word, index) => (
-      <span key={index} className="inline-block mr-2 last:mr-0 uppercase">
+      <span key={index} className="mr-2 inline-block uppercase last:mr-0">
         <span className="text-[1.15em]">{word[0]}</span>
         <span className="text-[0.9em]">{word.slice(1)}</span>
       </span>
     ));
   };
 
-  // Render Section based on display category
-  const renderPricingSection = (category) => {
-    switch (category) {
+  const sectionMap = content?.sections || {};
+  const activeSection = sectionMap?.[displayCategory] || {};
+  const activeCategoryMeta = categories.find((item) => item.id === displayCategory);
+  const showCategoryHeader = content?.settings?.showCategoryHeader !== false;
+
+  const renderPricingSection = (categoryId) => {
+    switch (categoryId) {
       case "seserahan":
-        return <SeserahanPricing openViewer={openViewer} />;
+        return <SeserahanPricing sectionData={sectionMap.seserahan} openViewer={openViewer} />;
       case "mahar":
-        return <MaharPricing openViewer={openViewer} formatCinzel={formatCinzel} />;
+        return (
+          <MaharPricing
+            sectionData={sectionMap.mahar}
+            openViewer={openViewer}
+            formatCinzel={formatCinzel}
+          />
+        );
       case "undangan":
-        return <UndanganPricing />;
+        return <UndanganPricing sectionData={sectionMap.undangan} />;
       case "keepsake":
-        return <KeepsakePricing openViewer={openViewer} formatCinzel={formatCinzel} />;
+        return (
+          <KeepsakePricing
+            sectionData={sectionMap.keepsake}
+            openViewer={openViewer}
+            formatCinzel={formatCinzel}
+          />
+        );
       case "bouqet":
-        return <BouquetPricing openViewer={openViewer} />;
+        return <BouquetPricing sectionData={sectionMap.bouqet} openViewer={openViewer} />;
       case "wcc":
-        return <WccPricing formatCinzel={formatCinzel} />;
+        return <WccPricing sectionData={sectionMap.wcc} formatCinzel={formatCinzel} />;
       case "bundling":
-        return <BundlingPricing formatCinzel={formatCinzel} />;
+        return <BundlingPricing sectionData={sectionMap.bundling} formatCinzel={formatCinzel} />;
       default:
-        return <SeserahanPricing openViewer={openViewer} />;
+        return <SeserahanPricing sectionData={sectionMap.seserahan} openViewer={openViewer} />;
     }
   };
 
+  const maharFreeNotes = Array.isArray(activeSection?.freeNotes)
+    ? activeSection.freeNotes
+    : [];
+
   return (
-    <div className="w-full pt-0 md:pt-[150px] pb-[8px] md:pb-[80px]">
-      <div className="mx-auto flex w-full max-w-[1280px] flex-col px-[16px] md:flex-row md:px-[40px] gap-[40px] lg:gap-[49px]">
-        {/* Mobile Horizontal Navigation */}
-        <PricingMobileNav 
-          activeCategory={activeCategory} 
-          updateCategory={updateCategory} 
+    <div className="w-full pb-[8px] pt-0 md:pb-[80px] md:pt-[150px]">
+      <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-[40px] px-[16px] md:flex-row md:px-[40px] lg:gap-[49px]">
+        <PricingMobileNav
+          activeCategory={activeCategory}
+          categories={categories}
+          updateCategory={updateCategory}
         />
 
-        {/* Desktop Sidebar Navigation */}
-        <PricingSidebar 
-          activeCategory={activeCategory} 
-          updateCategory={updateCategory} 
+        <PricingSidebar
+          activeCategory={activeCategory}
+          categories={categories}
+          updateCategory={updateCategory}
         />
 
-        {/* Main Content Area */}
         <main className="flex-1">
           <div
             key={displayCategory}
@@ -154,46 +179,40 @@ export default function PricingContent() {
                 : "pricing-category-transition--enter"
             }`}
           >
-            {/* Section Header */}
-            {displayCategory !== "bundling" && (
-              <div className="mb-[20px] md:mb-[30px] pl-[14px] md:pl-0">
-                <p className="text-[#B1B1B1] font-montserrat font-semibold text-[18px] mb-[5px] leading-none">
-                  Pricelist
+            {showCategoryHeader && displayCategory !== "bundling" && (
+              <div className="mb-[20px] pl-[14px] md:mb-[30px] md:pl-0">
+                <p className="mb-[5px] font-montserrat text-[18px] font-semibold leading-none text-[#B1B1B1]">
+                  {activeSection?.eyebrow || "Pricelist"}
                 </p>
-                <h1 className="text-[24px] md:text-[32px] font-serif font-bold text-white uppercase tracking-[-1px] leading-tight">
-                  {formatCinzel(
-                    pricingCategories.find((c) => c.id === displayCategory)?.name ||
-                      "Price List",
-                  )}
+                <h1 className="font-serif text-[24px] font-bold uppercase leading-tight tracking-[-1px] text-white md:text-[32px]">
+                  {formatCinzel(activeSection?.title || activeCategoryMeta?.name || "Price List")}
                 </h1>
 
-                {displayCategory === "mahar" && (
-                  <div className="mt-[10px] md:mt-[10px] mb-[30px] space-y-[4px] md:space-y-0">
-                    <p className="text-white font-montserrat text-[12px] md:text-[16px] leading-[18px] md:leading-[30px]">
-                      <span className="font-bold">Free</span> Replika rupiah kertas
-                      maks. 10 lembar
-                    </p>
-                    <p className="text-white font-montserrat text-[12px] md:text-[16px] leading-[18px] md:leading-[30px]">
-                      <span className="font-bold">Free</span> Packaging kardus &
-                      bubblewrap
-                    </p>
+                {displayCategory === "mahar" && maharFreeNotes.length > 0 && (
+                  <div className="mb-[30px] mt-[10px] space-y-[4px] md:space-y-0">
+                    {maharFreeNotes.map((note, index) => (
+                      <p
+                        key={index}
+                        className="font-montserrat text-[12px] leading-[18px] text-white md:text-[16px] md:leading-[30px]"
+                      >
+                        <span className="font-bold">Free</span> {note}
+                      </p>
+                    ))}
                   </div>
                 )}
               </div>
             )}
 
-            {/* Pricing Sections */}
             {renderPricingSection(displayCategory)}
           </div>
         </main>
       </div>
 
-      {/* Modern Image Viewer Component */}
       <ImageViewer
-        src={viewerState.src}
         alt={viewerState.alt}
         isOpen={viewerState.isOpen}
-        onClose={() => setViewerState({ ...viewerState, isOpen: false })}
+        onClose={() => setViewerState((prev) => ({ ...prev, isOpen: false }))}
+        src={viewerState.src}
       />
     </div>
   );

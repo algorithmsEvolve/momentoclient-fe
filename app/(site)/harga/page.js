@@ -3,14 +3,27 @@ import Footer from "@/components/ui/Footer";
 import PricingContent from "@/components/features/pricing/PricingContent";
 import ExtraBanner from "@/components/ui/ExtraBanner";
 import { Suspense } from "react";
+import { getPricingContent } from "@/lib/api/siteContent";
 
-export const metadata = {
-  title: "Pricelist | Momento Project",
-  description:
-    "Daftar harga produk dan layanan Momento Project - Sewa Seserahan, Mahar, Undangan Digital, dan lainnya.",
-};
+export async function generateMetadata() {
+  const { content } = await getPricingContent();
+  const title = content?.seo?.title || "Pricelist | Momento Project";
+  const description =
+    content?.seo?.description ||
+    "Daftar harga produk dan layanan Momento Project - Sewa Seserahan, Mahar, Undangan Digital, dan lainnya.";
+  const ogImageUrl = content?.seo?.ogImageUrl;
 
-export default function PricingPage() {
+  return {
+    title,
+    description,
+    openGraph: ogImageUrl ? { images: [ogImageUrl] } : undefined,
+  };
+}
+
+export default async function PricingPage() {
+  const { content } = await getPricingContent();
+  const banner = content?.extraBanner || {};
+
   return (
     <div className="relative min-h-screen bg-[#010101] selection:bg-[#D4AF37]/30 selection:text-white">
       <div className="fixed inset-0 bg-gradient-to-b from-[#090909] via-[#010101] to-[#090909] pointer-events-none z-0" />
@@ -25,15 +38,15 @@ export default function PricingPage() {
             </div>
           }
         >
-          <PricingContent />
+          <PricingContent content={content} />
         </Suspense>
 
         <div className="mt-10 md:mt-20">
           <ExtraBanner
-            showDecoration={true}
-            title="Penasaran dengan estimasi harga untuk kebutuhanmu? Klik tombol di bawah dan mulai hitung sekarang."
-            buttonText="HITUNG ESTIMASI HARGA"
-            buttonHref="/estimasi"
+            showDecoration={banner.showDecoration !== false}
+            title={banner.title}
+            buttonText={banner.buttonText}
+            buttonHref={banner.buttonHref}
           />
         </div>
       </div>

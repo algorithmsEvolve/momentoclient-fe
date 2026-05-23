@@ -1,17 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import { bundlingPackages } from "@/lib/pricingData";
+import { pricingDefaults } from "@/lib/site-content/pricingDefaults";
 
-export default function BundlingPricing({ formatCinzel }) {
+export default function BundlingPricing({ formatCinzel, sectionData }) {
+  const defaultSection = pricingDefaults.sections.bundling;
+  const groups = (sectionData?.groups || []).filter(Boolean);
+  const displayGroups = groups.length > 0 ? groups : defaultSection.groups;
+  const eyebrowLabel = sectionData?.eyebrow || defaultSection.eyebrow;
+
   return (
     <div className="flex flex-col gap-0 w-full mb-[80px]">
-      {bundlingPackages.map((categoryData, catIdx) => (
+      {displayGroups.map((categoryData, catIdx) => (
         <div key={catIdx} className="flex flex-col gap-0 w-full">
           {/* Category Header */}
           <div className="mb-[20px] md:mb-[40px] pl-[14px] md:pl-0">
             <p className="text-[#B1B1B1] font-montserrat font-semibold text-[14px] md:text-[18px] mb-[5px] leading-none">
-              Bundling
+              {eyebrowLabel}
             </p>
             <h2 className="text-[20px] md:text-[32px] font-serif font-bold text-white uppercase tracking-[-1px] leading-tight">
               {formatCinzel(categoryData.category)}
@@ -20,7 +25,7 @@ export default function BundlingPricing({ formatCinzel }) {
 
           {/* Packages in Category */}
           <div className="flex flex-col gap-[20px] md:gap-[32px] w-full">
-            {categoryData.packages.map((pkg) => (
+            {(categoryData.packages || []).filter((item) => item?.enabled !== false).map((pkg) => (
               <div
                 key={pkg.id}
                 className="relative bg-[#161616] rounded-[10px] md:rounded-[20px] pt-[30px] pb-0 md:pb-[31px] px-[20px] md:pl-[50px] md:pr-[31px] flex flex-col border border-white/5 transition-all duration-300 hover:border-[#D4AF37]/20 overflow-hidden w-full"
@@ -49,7 +54,12 @@ export default function BundlingPricing({ formatCinzel }) {
                       <div className="flex items-center gap-[12px] mb-[5px]">
                         <div className="w-[16px] h-[16px] md:w-[20px] md:h-[20px] relative flex-shrink-0">
                           {item.icon && (
-                            <Image src={item.icon} alt={item.name} fill className="object-contain" />
+                            <Image
+                              src={item.icon?.src || item.icon}
+                              alt={item.icon?.alt || item.name}
+                              fill
+                              className="object-contain"
+                            />
                           )}
                         </div>
                         <span className="font-montserrat font-semibold text-white text-[14px] md:text-[18px]">
@@ -122,7 +132,7 @@ export default function BundlingPricing({ formatCinzel }) {
           </div>
           
           {/* Category Separator */}
-          {catIdx < bundlingPackages.length - 1 && (
+          {catIdx < displayGroups.length - 1 && (
             <div className="w-full h-[1px] bg-white/20 my-[30px]" />
           )}
         </div>
