@@ -7,7 +7,7 @@ export default function SeserahanPricing({ openViewer }) {
   return (
     <div className="flex flex-col gap-0">
       {/* Packages Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-[15px] md:mb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] mb-[15px] md:mb-[80px]">
         {seserahanPackages.map((pkg) => (
           <div
             key={pkg.id}
@@ -15,7 +15,7 @@ export default function SeserahanPricing({ openViewer }) {
           >
             <div className="flex-1 flex flex-col">
               <div className="mb-4 md:mb-[32px]">
-                <h2 className="text-[18px] md:text-[24px] font-montserrat font-bold text-white tracking-[-2.5%] leading-tight mb-0">
+                <h2 className="text-[18px] md:text-[24px] font-montserrat font-bold text-white tracking-[-0.025em] leading-tight mb-0">
                   {pkg.name}
                 </h2>
                 <p className="text-white font-montserrat text-[12px] md:text-[14px] leading-normal md:leading-[22px] antialiased">
@@ -26,7 +26,7 @@ export default function SeserahanPricing({ openViewer }) {
                 </p>
               </div>
 
-              <div className="flex flex-row md:flex-row gap-[15px] md:gap-8 lg:gap-[30px]">
+              <div className="flex flex-row md:flex-row gap-[15px] md:gap-[32px] lg:gap-[30px]">
                 <div
                   className="w-[123px] h-[150px] md:w-[173px] md:h-[210px] flex-shrink-0 cursor-zoom-in group"
                   onClick={() => openViewer(pkg.images[0], pkg.name)}
@@ -75,8 +75,8 @@ export default function SeserahanPricing({ openViewer }) {
       </div>
 
       {/* Add Ons Section */}
-      <div className="mt-20">
-        <div className="mb-5 md:mb-[30px] pl-[14px] md:pl-0">
+      <div className="mt-[80px]">
+        <div className="mb-[20px] md:mb-[30px] pl-[14px] md:pl-0">
           <p className="text-[#B1B1B1] font-montserrat font-semibold text-[18px] mb-[5px] leading-none">
             Add Ons
           </p>

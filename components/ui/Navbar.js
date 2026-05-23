@@ -30,14 +30,14 @@ export default function Navbar({ onOpenCart }) {
 
   return (
     <>
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-[80px] md:h-[100px] flex items-center ${
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 box-border h-[80px] min-h-[80px] md:h-[100px] md:min-h-[100px] flex items-center transition-all duration-300 ${
         isScrolled ? 'bg-[#090909]/90 backdrop-blur-md border-b border-white/5' : 'bg-[#090909]/50'
       }`}
     >
-      <div className="max-w-7xl mx-auto w-full px-4 md:px-10 flex items-center justify-between">
+      <div className="mx-auto flex h-full w-full max-w-[1280px] items-center justify-between px-4 md:px-10">
         {/* Logo */}
-        <Link href="/" className="relative w-[50px] h-[50px]">
+        <Link href="/" className="relative h-[50px] w-[50px] shrink-0">
           <Image 
             src="/images/momento-logo.png" 
             alt="Momento" 
@@ -48,7 +48,7 @@ export default function Navbar({ onOpenCart }) {
         </Link>
 
         {/* Center Nav Links */}
-        <div className="hidden lg:flex items-center gap-[10px]">
+        <div className="hidden shrink-0 items-center gap-[10px] lg:flex">
           {navLinks.map((link) => {
             const isActive = pathname === link.href || (link.name === 'Home' && pathname === '/');
             return (
@@ -71,11 +71,11 @@ export default function Navbar({ onOpenCart }) {
         </div>
 
         {/* Right Action Group */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-[16px]">
             {/* Desktop Only: Estimasi Button */}
             <Link 
               href="/estimasi" 
-              className="hidden lg:flex w-[191px] h-[50px] items-center justify-center border-2 border-[#D4AF37] rounded-[10px] px-[30px] py-[15px] text-[16px] font-bold font-nav tracking-[0.5px] leading-none text-gold hover:bg-[#D4AF37]/10 transition-all duration-300 antialiased whitespace-nowrap"
+              className="hidden h-[50px] w-[191px] shrink-0 items-center justify-center border-2 border-[#D4AF37] rounded-[10px] px-[30px] py-[15px] text-[16px] font-bold font-nav tracking-[0.5px] leading-none text-gold hover:bg-[#D4AF37]/10 transition-all duration-300 antialiased whitespace-nowrap lg:flex"
               onClick={e => e.preventDefault()}
             >
               Estimasi Harga

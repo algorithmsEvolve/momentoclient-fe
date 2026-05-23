@@ -32,10 +32,10 @@ export default function KeepsakePricing({ openViewer, formatCinzel }) {
           </div>
 
           <div className="flex-1 flex flex-col">
-            <h3 className="text-white font-montserrat font-bold text-[14px] md:text-[16px] mb-2 md:mb-3">
+            <h3 className="text-white font-montserrat font-bold text-[14px] md:text-[16px] mb-[8px] md:mb-[12px]">
               Include :
             </h3>
-            <ul className="text-white font-montserrat font-medium text-[12px] md:font-normal md:text-white/80 md:text-[14px] space-y-[6px] md:space-y-2 list-none pl-2 md:pl-0">
+            <ul className="text-white font-montserrat font-medium text-[12px] md:font-normal md:text-white/80 md:text-[14px] space-y-[6px] md:space-y-[8px] list-none pl-[8px] md:pl-0">
               <li className="flex items-start"><span className="mr-2">•</span> Envelope + Wax Seal</li>
               <li className="flex items-start"><span className="mr-2">•</span> 2 Name with Tassel</li>
               <li className="flex items-start"><span className="mr-2">•</span> 2 Vows with Ribbon</li>
@@ -50,7 +50,7 @@ export default function KeepsakePricing({ openViewer, formatCinzel }) {
       </div>
 
       {/* Add Ons Aksesoris Keepsake Section */}
-      <div className="mt-[45px] md:mt-[100px] w-full max-w-4xl mx-auto md:mx-0 mb-20">
+      <div className="mt-[45px] md:mt-[100px] w-full max-w-[896px] mx-auto md:mx-0 mb-[80px]">
         <div className="mb-5 md:mb-8 pl-[14px] md:pl-0">
           <p className="text-[#B1B1B1] font-montserrat font-semibold text-[14px] md:text-[16px] mb-1">
             Add Ons
@@ -60,7 +60,7 @@ export default function KeepsakePricing({ openViewer, formatCinzel }) {
           </h2>
         </div>
         
-        <div className="bg-[#161616] p-[20px] md:p-[38px] rounded-[10px] md:rounded-[20px] border border-white/5 space-y-3 md:space-y-4">
+        <div className="bg-[#161616] p-[20px] md:p-[38px] rounded-[10px] md:rounded-[20px] border border-white/5 space-y-[12px] md:space-y-[16px]">
           {[
             { name: "Artificial Flower", price: "Rp. 5.000" },
             { name: "Acrylic Logo", price: "Rp. 15.000" },

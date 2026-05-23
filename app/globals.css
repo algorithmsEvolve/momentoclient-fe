@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   font-size: 12px;
 }
@@ -7,8 +9,6 @@
     font-size: 16px;
   }
 }
-
-@import "tailwindcss";
 
 @theme {
     --color-background: #010101;

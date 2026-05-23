@@ -4,7 +4,7 @@ import { pricingCategories } from "@/lib/pricingData";
 
 export default function PricingSidebar({ activeCategory, updateCategory }) {
   return (
-    <aside className="hidden md:block md:w-[240px] flex-shrink-0 border-r border-white/10 pr-0">
+    <aside className="hidden md:block w-[240px] shrink-0 border-r border-white/10 pr-0">
       <nav className="flex flex-col sticky top-[120px]">
         {pricingCategories.map((cat, index) => {
           const isGroupEnd = 

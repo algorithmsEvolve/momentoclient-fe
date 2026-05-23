@@ -7,7 +7,7 @@ export default function MaharPricing({ openViewer, formatCinzel }) {
   return (
     <div className="flex flex-col gap-0">
       {/* Mahar Packages Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-[15px] md:mb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] mb-[15px] md:mb-[80px]">
         {maharPackages.map((pkg) => (
           <div
             key={pkg.id}
@@ -32,12 +32,12 @@ export default function MaharPricing({ openViewer, formatCinzel }) {
                 </div>
               </div>
 
-              <div className="flex-1 flex flex-col justify-start md:justify-between gap-[10px] md:gap-4 md:pt-1">
-                <div className="flex flex-col gap-[10px] md:gap-4">
+              <div className="flex-1 flex flex-col justify-start md:justify-between gap-[10px] md:gap-[16px] md:pt-1">
+                <div className="flex flex-col gap-[10px] md:gap-[16px]">
                   {pkg.pricing.map((opt, idx) => (
                     <div
                       key={idx}
-                      className="flex justify-between items-center border-b border-white/10 md:border-[#343434] pb-[8px] md:pb-3 md:pt-0 last:border-0"
+                      className="flex justify-between items-center border-b border-white/10 md:border-[#343434] pb-[8px] md:pb-[12px] md:pt-0 last:border-0"
                     >
                       <span className="text-gold font-montserrat font-bold text-[14px]">
                         {opt.size}
@@ -49,7 +49,7 @@ export default function MaharPricing({ openViewer, formatCinzel }) {
                   ))}
                 </div>
 
-                <div className="hidden md:block pt-4 md:pt-1">
+                <div className="hidden md:block pt-[16px] md:pt-[4px]">
                   <p className="text-white font-montserrat font-bold text-[12px] leading-tight mb-1">
                     Belum termasuk :
                   </p>
@@ -73,7 +73,7 @@ export default function MaharPricing({ openViewer, formatCinzel }) {
       </div>
 
       {/* Custom Mahar Section */}
-      <div className="bg-[#161616] rounded-[10px] p-[20px] md:p-[30px] border border-white/5 mb-0 md:mb-20">
+      <div className="bg-[#161616] rounded-[10px] p-[20px] md:p-[30px] border border-white/5 mb-0 md:mb-[80px]">
         <div className="flex flex-col lg:flex-row gap-[10px]">
           <div className="flex flex-col gap-[10px] lg:hidden mb-[10px]">
             <div>
@@ -180,7 +180,7 @@ export default function MaharPricing({ openViewer, formatCinzel }) {
       </div>
 
       {/* Add Ons Replika Mahar Section */}
-      <div className="mt-[31px] md:mt-16 w-full max-w-4xl mx-auto md:mx-0">
+      <div className="mt-[31px] md:mt-[64px] w-full max-w-[896px] mx-auto md:mx-0">
         <div className="mb-5 md:mb-8 pl-[14px] md:pl-0">
           <p className="text-[#B1B1B1] font-montserrat font-semibold text-[14px] md:text-[16px] mb-1">
             Add Ons
@@ -190,7 +190,7 @@ export default function MaharPricing({ openViewer, formatCinzel }) {
           </h2>
         </div>
         
-        <div className="bg-[#161616] p-[38px] rounded-[20px] border border-white/5 space-y-4">
+        <div className="bg-[#161616] p-[38px] rounded-[20px] border border-white/5 space-y-[16px]">
           {[
             { name: "Mata uang Asing", price: "Rp. 5.000/pcs" },
             { name: "Koin Kuno", price: "Rp. 5.000/pcs" },

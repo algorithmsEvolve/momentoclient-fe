@@ -5,13 +5,13 @@ import { bouquetPackages } from "@/lib/pricingData";
 
 export default function BouquetPricing({ openViewer }) {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-6 mb-20">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-[20px] md:gap-[24px] mb-[80px]">
       {bouquetPackages.map((pkg) => (
         <div
           key={pkg.id}
           className="bg-[#161616] rounded-[10px] md:rounded-[20px] p-[20px] md:p-[30px] flex flex-col border border-white/5 transition-all duration-300 hover:border-[#D4AF37]/20"
         >
-          <h2 className="text-[20px] md:text-[24px] font-montserrat font-bold text-white mb-[15px] tracking-[-2.5%]">
+          <h2 className="text-[20px] md:text-[24px] font-montserrat font-bold text-white mb-[15px] tracking-[-0.025em]">
             {pkg.name}
           </h2>
           
@@ -53,7 +53,7 @@ export default function BouquetPricing({ openViewer }) {
             </div>
           </div>
 
-          <div className="hidden md:block mt-auto pt-6 text-left">
+          <div className="hidden md:block mt-auto pt-[24px] text-left">
             <span className="text-gold font-montserrat font-bold text-[24px]">
               {pkg.price}
             </span>

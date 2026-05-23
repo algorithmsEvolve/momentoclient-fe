@@ -75,8 +75,8 @@ export default function PricingContent() {
   };
 
   return (
-    <div className="w-full pt-0 md:pt-[150px] pb-2 md:pb-20">
-      <div className="max-w-7xl mx-auto px-4 md:px-10 flex flex-col md:flex-row gap-10 lg:gap-[49px]">
+    <div className="w-full pt-0 md:pt-[150px] pb-[8px] md:pb-[80px]">
+      <div className="mx-auto flex w-full max-w-[1280px] flex-col px-[16px] md:flex-row md:px-[40px] gap-[40px] lg:gap-[49px]">
         {/* Mobile Horizontal Navigation */}
         <PricingMobileNav 
           activeCategory={activeCategory} 
@@ -93,7 +93,7 @@ export default function PricingContent() {
         <main className="flex-1">
           {/* Section Header */}
           {activeCategory !== "bundling" && (
-            <div className="mb-5 md:mb-[30px] pl-[14px] md:pl-0">
+            <div className="mb-[20px] md:mb-[30px] pl-[14px] md:pl-0">
               <p className="text-[#B1B1B1] font-montserrat font-semibold text-[18px] mb-[5px] leading-none">
                 Pricelist
               </p>
@@ -105,7 +105,7 @@ export default function PricingContent() {
               </h1>
 
               {activeCategory === "mahar" && (
-                <div className="mt-[10px] md:mt-[10px] mb-[30px] space-y-1 md:space-y-0">
+                <div className="mt-[10px] md:mt-[10px] mb-[30px] space-y-[4px] md:space-y-0">
                   <p className="text-white font-montserrat text-[12px] md:text-[16px] leading-[18px] md:leading-[30px]">
                     <span className="font-bold">Free</span> Replika rupiah kertas
                     maks. 10 lembar
