@@ -1,30 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { homeDefaults } from "@/lib/site-content/homeDefaults";
+import { getImageSrc } from "@/lib/site-content/image";
 
-export default function HighlightSection() {
-  const extras = [
-    {
-      title: "Wedding Keepsake",
-      desc: "Properti pernikahan seperti vow, surat, amplop, dsb. yang dapat disimpan sebagai kenangan dan dokumentasi",
-      img: "/images/extras/keepsake.png",
-    },
-    {
-      title: "Flower Bouqet",
-      desc: "Buket bunga untuk pengantin wanita yang dibawa selama acara pernikahan, dan dapat disesuaikan dengan tema",
-      img: "/images/extras/bouqet.png",
-    },
-    {
-      title: "Wedding Content Creator",
-      desc: "Jasa pembuatan konten selama acara menggunakan iphone, yang siap dibagikan ke media sosial secara lifetime",
-      img: "/images/extras/wcc.png",
-    },
-    // {
-    //   title: "Master of Ceremony",
-    //   desc: "Jasa pembawa acara yang memandu jalannya acara lamaran, dan memastikan acara berjalan dengan lancar",
-    //   img: "/images/extras/mc.png",
-    // },
-  ];
+export default function HighlightSection({ content = {} }) {
+  const c = { ...homeDefaults.highlight, ...content };
+  const extras = c.items || homeDefaults.highlight.items;
+
+  const titleText = c.title || 'More Extras!';
 
   return (
     <section
@@ -38,15 +22,14 @@ export default function HighlightSection() {
         <h2
           className="text-[24px] md:text-[48px] font-serif font-bold mb-[15px] tracking-[-1px] leading-tight md:leading-[65px] antialiased text-white uppercase"
         >
-          <span className="md:text-[56px]">M</span>ore <span className="md:text-[56px]">E</span>xtras!
+          <span className="md:text-[56px]">{titleText.charAt(0)}</span>{titleText.split(' ')[0]?.slice(1)} <span className="md:text-[56px]">{titleText.split(' ')[1]?.charAt(0) || ''}</span>{titleText.split(' ')[1]?.slice(1) || ''}
         </h2>
         <p className="text-white font-nav text-[12px] md:text-[16px] leading-[20px] md:leading-[30px] tracking-normal mb-8 md:mb-[50px] max-w-[300px] md:max-w-[860px] mx-auto">
-          Selain layanan dan produk utama, Momento juga menyediakan berbagai pelengkap pernikahan untuk menyempurnakan hari spesialmu
+          {c.description || 'Selain layanan dan produk utama, Momento juga menyediakan berbagai pelengkap pernikahan untuk menyempurnakan hari spesialmu'}
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 md:gap-[20px] mb-[37px] max-w-[1000px] mx-auto">
           {extras.map((item, i) => {
-            // Only render items that are not commented out. (The array length is now 3)
             return (
               <div 
                 key={i} 
@@ -54,8 +37,8 @@ export default function HighlightSection() {
               >
               <div className="relative w-full aspect-[134/100] md:aspect-[4/3] rounded-[10px] overflow-hidden mb-4 md:mb-[30px]">
                 <Image 
-                  src={item.img} 
-                  alt={item.title} 
+                  src={getImageSrc(item.image, '/images/extras/default.png')}
+                  alt={item.image?.alt || item.title} 
                   fill 
                   className="object-cover"
                 />
@@ -66,7 +49,7 @@ export default function HighlightSection() {
                 {item.title}
               </h3>
               <p className="text-white text-[10px] md:text-[14px] leading-[16px] md:leading-[22px] font-nav font-normal opacity-80 md:opacity-100">
-                {item.desc}
+                {item.description || item.desc}
               </p>
             </div>
             );
@@ -75,10 +58,10 @@ export default function HighlightSection() {
 
         <div className="flex justify-center">
           <Link
-            href="/harga?category=keepsake"
+            href={c.cta?.href || '/harga?category=keepsake'}
             className="btn-gold w-auto h-[36px] md:w-[210px] md:h-[50px] px-6 md:px-0 flex items-center justify-center gap-2 md:gap-[10px] rounded-[10px] transition-all duration-300 hover:brightness-110 group antialiased"
           >
-            <span className="text-[#010101] text-[10px] md:text-[14px] font-nav font-semibold tracking-[0.5px]">Selengkapnya</span>
+            <span className="text-[#010101] text-[10px] md:text-[14px] font-nav font-semibold tracking-[0.5px]">{c.cta?.label || 'Selengkapnya'}</span>
             <ArrowRight size={14} className="text-[#010101] md:hidden transition-transform group-hover:translate-x-1" />
             <ArrowRight size={20} className="text-[#010101] hidden md:block transition-transform group-hover:translate-x-1" />
           </Link>

@@ -3,16 +3,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { homeDefaults } from "@/lib/site-content/homeDefaults";
+import { getImageSrc } from "@/lib/site-content/image";
 
-export default function InvitationSection() {
-  const leftImages = [
+export default function InvitationSection({ content = {} }) {
+  const c = { ...homeDefaults.invitation, ...content };
+
+  const leftImages = c.leftImages?.map(i => getImageSrc(i)) || [
     "/images/undangan-items/left/invitation-left-1.png",
     "/images/undangan-items/left/invitation-left-2.png",
     "/images/undangan-items/left/invitation-left-3.png",
     "/images/undangan-items/left/invitation-left-4.png",
   ];
 
-  const rightImages = [
+  const rightImages = c.rightImages?.map(i => getImageSrc(i)) || [
     "/images/undangan-items/right/invitation-right-1.png",
     "/images/undangan-items/right/invitation-rigth-2.png",
     "/images/undangan-items/right/invitation-rigth-3.png",
@@ -20,23 +24,27 @@ export default function InvitationSection() {
   ];
   const allImages = [...leftImages, ...rightImages];
 
+  const titleText = c.title || 'Undangan Digital';
+
   return (
     <section className="relative bg-[#090909] min-h-0 md:h-[650px] flex items-center overflow-hidden z-20 md:py-0 py-0">
       <div className="max-w-[1240px] mx-auto flex flex-row items-start md:items-center gap-4 md:gap-[50px] px-6 md:px-10 w-full relative z-20">
         {/* Left: Text Content */}
         <div className="flex-1 text-left z-30 bg-[#090909] pt-10 pb-[158px] md:py-10">
           <h2 className="text-[24px] md:text-[48px] font-serif font-bold text-white mb-[15px] tracking-[-1px] leading-tight md:leading-[65px] antialiased uppercase">
-            <span className="md:text-[56px]">U</span>ndangan <br className="md:hidden" />
-            <span className="md:text-[56px]">D</span>igital
+            <span className="md:text-[56px]">{titleText.charAt(0)}</span>{titleText.split(' ')[0]?.slice(1)} <br className="md:hidden" />
+            {titleText.split(' ').slice(1).map((word, i) => (
+              <span key={i}>
+                <span className="md:text-[56px]">{word.charAt(0)}</span>{word.slice(1)}{' '}
+              </span>
+            ))}
           </h2>
           <div className="max-w-[165px] md:max-w-[568px] mb-[30px] md:mb-[40px]">
-            <p className="text-white font-nav text-[12px] md:text-[16px] leading-[20px] md:leading-[30px] tracking-normal outline-none">
-              Hadir dengan desain responsif di semua perangkat. Dilengkapi fitur <span className="font-bold whitespace-nowrap md:whitespace-normal">Exclusive Guest Name</span>, <span className="font-bold">Dashboard Kelola Tamu</span> untuk <span className="font-bold">RSVP</span>, <span className="font-bold">Unique Link Invitation</span> untuk dibagikan, dan masih banyak lagi yang dapat kamu sesuaikan dengan kebutuhanmu.
-            </p>
+            <p className="text-white font-nav text-[12px] md:text-[16px] leading-[20px] md:leading-[30px] tracking-normal outline-none" dangerouslySetInnerHTML={{ __html: c.description || '' }} />
           </div>
           <div className="flex justify-start">
-            <Link href="/harga?category=undangan" className="btn-gold w-auto h-[36px] md:w-[210px] md:h-[50px] px-6 md:px-0 flex items-center justify-center gap-2 md:gap-[10px] rounded-[10px] transition-all duration-300 hover:brightness-110 group antialiased">
-              <span className="text-[10px] md:text-[14px] font-nav font-semibold tracking-[0.5px] text-[#161616]">Selengkapnya</span>
+            <Link href={c.cta?.href || '/harga?category=undangan'} className="btn-gold w-auto h-[36px] md:w-[210px] md:h-[50px] px-6 md:px-0 flex items-center justify-center gap-2 md:gap-[10px] rounded-[10px] transition-all duration-300 hover:brightness-110 group antialiased">
+              <span className="text-[10px] md:text-[14px] font-nav font-semibold tracking-[0.5px] text-[#161616]">{c.cta?.label || 'Selengkapnya'}</span>
               <ArrowRight size={14} className="text-[#161616] md:hidden transition-transform group-hover:translate-x-1" />
               <ArrowRight size={20} className="text-[#161616] hidden md:block transition-transform group-hover:translate-x-1" />
             </Link>

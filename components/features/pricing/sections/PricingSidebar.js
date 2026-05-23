@@ -16,13 +16,15 @@ export default function PricingSidebar({ activeCategory, updateCategory }) {
             <button
               key={cat.id}
               onClick={() => updateCategory(cat.id)}
-              className={`group relative flex items-center h-[60px] cursor-pointer transition-all duration-300 border-b border-white/5 last:border-0 ${
+              className={`group relative flex items-center h-[60px] cursor-pointer transition-all duration-300 border-b border-white/5 last:border-0 overflow-hidden ${
                 isGroupEnd ? "mb-4 pb-4 border-b-white/20" : ""
               }`}
             >
-              {activeCategory === cat.id && (
-                <div className={`absolute ${isGroupEnd ? "top-[7.5px] bottom-[22.5px]" : "top-[15px] bottom-[15px]"} left-0 w-[3px] grad-gold rounded-full`} />
-              )}
+              <div
+                className={`absolute ${isGroupEnd ? "top-[7.5px] bottom-[22.5px]" : "top-[15px] bottom-[15px]"} left-0 w-[3px] grad-gold rounded-full transition-all duration-300 ${
+                  activeCategory === cat.id ? "opacity-100 scale-y-100" : "opacity-0 scale-y-50"
+                }`}
+              />
               <span
                 className={`pl-[25px] text-[16px] font-montserrat font-bold tracking-[0.5px] whitespace-nowrap antialiased transition-colors duration-300 ${
                   activeCategory === cat.id

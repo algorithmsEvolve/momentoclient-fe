@@ -1,61 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { Quote, Box, Users, Mail, Smartphone, Flower, SmartphoneIcon } from "lucide-react";
+import { homeDefaults } from "@/lib/site-content/homeDefaults";
+import { getImageSrc } from "@/lib/site-content/image";
 
-export default function TestimonySection() {
-  const stats = [
-    { icon: <Box size={24} />, value: "200+", label: "Tray Seserahan disewakan" },
-    { icon: <Users size={24} />, value: "50+", label: "Pengantin telah mempercayakan kami" },
-    { icon: <Mail size={24} />, value: "25+", label: "Undangan Digital dibuat" },
-    { icon: <Smartphone size={24} />, value: "1500+", label: "Undangan telah disebarkan" },
-    { icon: <Flower size={24} />, value: "25+", label: "Frame Mahar dirangkai" },
-  ];
+export default function TestimonySection({ content = {} }) {
+  const c = { ...homeDefaults.testimony, ...content };
 
-  const testimonies = [
-    {
-      name: "Itsna & Rizky",
-      date: "Desember 2025",
-      img: "/images/testimonies/testimony-pictures/itsna-rizky.png",
-      text: "Saya sangat suka dengan layanan Momento untuk desain seserahan dan mahar pernikahan saya. Hasilnya rapi, detailnya terasa premium, dan sesuai dengan tema pernikahan kami. Keluarga dan tamu pun banyak yang memuji tampilannya. Selain itu, pelayanannya ramah, pengerjaannya tepat waktu, dan harganya sangat sebanding dengan kualitas yang diberikan. Untuk calon pengantin yang sedang mencari vendor seserahan dan mahar, saya sangat merekomendasikan Momento. 😊✨"
-    },
-    {
-      name: "Shana & Danang",
-      date: "Oktober 2025",
-      img: "/images/testimonies/testimony-pictures/shana-danang.png",
-      text: "Aku sangat merekomendasikan Momento ini untuk membantu kalian para pejuang halal yang ingin desain mahar, seserahan, dan undangan digital. Pengerjaannya sangat profesional dan apik bgt gess untuk harga paketan pun sangat terjangkau dan banyak free nya. Adminnya juga sangat komunikatif bgt kalau ada yang kurang atau perlu revisi dari kita. Terimakasih banyak Tim Momento 💓✨"
-    },
-    {
-      name: "Rifa & Bayu",
-      date: "Februari 2025",
-      img: "/images/testimonies/testimony-pictures/rifa-bayu.png",
-      text: "Hasilnya sangat bagus, rapi, dan sesuai yang diinginkan. Pelayanannya jg fast respon, cukup baik dan selalu merekomendasikan yg terbaik seperti apaaa. Thank you momento sudah mempercantik Seserahan, Bingkai Mahar, dan Undangan Digitalnya❤️ best!!!❤️️❤️️❤️️"
-    },
-    {
-      name: "Ajeng & Tirta",
-      date: "Desember 2024",
-      img: "/images/testimonies/testimony-pictures/ajeng-tirta.png",
-      text: "Hasilnya sangat bagus, rapi, dan sesuai yang diinginkan. Pelayanannya jg fast respon, cukup baik dan selalu merekomendasikan yg terbaik seperti apaaa. Thank you momento sudah mempercantik Seserahan, Bingkai Mahar, dan Undangan Digitalnya❤️ best!!!❤️️❤️️❤️️"
-    },
-    {
-      name: "Chyntia & Bagus",
-      date: "November 2024",
-      img: "/images/testimonies/testimony-pictures/chyntia-bagus.png",
-      text: "The best mahar frame that you can find ever. Best packaging, best price and best owner. Trust me!!! Hasilnya sesuai sama design yang udah disepakati dan yang kita mau. Beberapa kali ganti konsep/revisi tapi owner nya selalu usahakan yg terbaik. Highly recommended for all bride and groom who want mahar frame with premium results. Sukses selalu Momento"
-    },
-    {
-      name: "Riri & Ari",
-      date: "Mei 2024",
-      img: "/images/testimonies/testimony-pictures/riri-ari.png",
-      text: "Komunikatif dan sabar bgt. Undangan digital ku jadi cantik bgt sesuai dengan color pallete yg ku mau. Kotak seserahan dihias dengan sangat cantik dan rapi, banyak yg muji dan nanyain rent dimana. Rentnya disini ya guys!!! Dijamin rapi dan cantik sesuai tema yg kita mau. Makasih momento project, sukses terus yaaa!!!"
-    },
-    {
-      name: "Viranda & Akbar",
-      date: "November 2023",
-      img: "/images/testimonies/testimony-pictures/viranda-akbar.png",
-      text: "Pengerjaannya cepat, hasilnya bagus banget dan sesuai sama yang direquest, adminnya fast respon dan ramah, pelayanannya juga oke banget!"
-    }
-  ];
+  const stats = c.stats || homeDefaults.testimony.stats;
+  const testimonies = c.items || homeDefaults.testimony.items;
+
+  // Split stats into left column (indices 0, 2, 4 → 3 items) and right column (indices 1, 3 → 2 items)
+  // Matching the original layout: left has 3, right has 2
+  const leftStats = [stats[0], stats[2], stats[4]].filter(Boolean);
+  const rightStats = [stats[1], stats[3]].filter(Boolean);
 
   return (
     <section className="relative bg-[#161616] min-h-[800px] py-16 md:py-24 flex items-center overflow-hidden z-20">
@@ -68,18 +26,18 @@ export default function TestimonySection() {
             <div className="relative inline-block">
                <div className="absolute top-[-20px] md:top-[-30px] -left-[34px] md:left-[-61px] w-[60px] md:w-[95px] h-[49px] md:h-[71px] z-0 opacity-50 md:opacity-100">
                 <Image 
-                  src="/images/testimonies/quote-mark.svg" 
-                  alt="Quote Icon" 
+                  src={getImageSrc(c.quoteImage, '/images/testimonies/quote-mark.svg')} 
+                  alt={c.quoteImage?.alt || 'Quote Icon'} 
                   fill 
                   className="object-contain"
                 />
               </div>
               <h2 className="text-[24px] md:text-[40px] font-nav font-bold text-white mb-[8px] tracking-[-0.025em] md:tracking-[-0.05em] leading-[30px] md:leading-[45px] antialiased relative z-10 origin-center md:origin-left scale-y-[0.9]">
-                Apa Kata Mereka?
+                {c.title || 'Apa Kata Mereka?'}
               </h2>
             </div>
             <p className="text-white font-nav font-normal text-[12px] md:text-[18px] leading-[20px] md:leading-[28px] opacity-80 max-w-[488px] antialiased">
-              Dari mereka yang telah menggunakan jasa Momento sejak 2023.
+              {c.description || 'Dari mereka yang telah menggunakan jasa Momento sejak 2023.'}
             </p>
           </div>
 
@@ -88,11 +46,7 @@ export default function TestimonySection() {
 
             {/* Left Stats Column (W: 275px) */}
             <div className="flex flex-col gap-8 md:gap-[60px] flex-1 md:w-[275px]">
-              {[
-                { icon: "/images/testimonies/icons/008-wedding gift.svg", value: "200+", label: "Tray Seserahan disewakan" },
-                { icon: "/images/testimonies/icons/034-wedding invitation.svg", value: "25+", label: "Undangan Digital dibuat" },
-                { icon: "/images/testimonies/icons/027-beverage.svg", value: "25+", label: "Frame Mahar dirangkai" },
-              ].map((stat, i) => (
+              {leftStats.map((stat, i) => (
                 <div key={i} className="flex gap-3 md:gap-[21px] items-start">
                   <div className="w-[20px] h-[20px] md:w-[40px] md:h-[40px] relative flex-shrink-0 mt-1">
                     <Image src={stat.icon} alt="icon" fill className="object-contain" />
@@ -114,10 +68,7 @@ export default function TestimonySection() {
 
             {/* Right Stats Column (W: 261px) */}
             <div className="flex flex-col gap-10 md:gap-[100px] flex-1 md:w-[261px] mt-4 md:mt-[25px]">
-              {[
-                { icon: "/images/testimonies/icons/025-picture.svg", value: "50+", label: "Pengantin telah mempercayakan kami" },
-                { icon: "/images/testimonies/icons/023-message.svg", value: "1500+", label: "Undangan telah disebarkan" },
-              ].map((stat, i) => (
+              {rightStats.map((stat, i) => (
                 <div key={i} className="flex gap-3 md:gap-[21px] items-start">
                   <div className="w-[20px] h-[20px] md:w-[40px] md:h-[40px] relative flex-shrink-0 mt-1">
                     <Image src={stat.icon} alt="icon" fill className="object-contain" />
@@ -159,7 +110,7 @@ export default function TestimonySection() {
                     {/* Body: Avatar and Testimony Text */}
                     <div className="flex items-start gap-4 md:gap-[15px]">
                       <div className="relative w-[40px] h-[40px] md:w-[70px] md:h-[70px] rounded-full overflow-hidden border border-[#D4AF37]/20 flex-shrink-0">
-                        <Image src={testi.img} alt={testi.name} fill className="object-cover" />
+                        <Image src={testi.image || testi.img} alt={testi.name} fill className="object-cover" />
                       </div>
                       <p className="text-white font-nav font-medium text-[11px] md:text-[14px] leading-[20px] md:leading-[30px] antialiased">
                         {testi.text}
@@ -178,8 +129,8 @@ export default function TestimonySection() {
       {/* Wave Decoration */}
       <div className="absolute bottom-[-1px] left-0 w-full h-[250px] z-30 pointer-events-none">
         <Image 
-          src="/images/testimonies/testimony-bottom-decoration.png" 
-          alt="Wave Decoration" 
+          src={getImageSrc(c.bottomDecoration, '/images/testimonies/testimony-bottom-decoration.png')} 
+          alt={c.bottomDecoration?.alt || 'Wave Decoration'} 
           fill 
           className="object-cover object-top"
         />

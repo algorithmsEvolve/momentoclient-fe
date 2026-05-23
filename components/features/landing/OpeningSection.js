@@ -3,14 +3,18 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { homeDefaults } from "@/lib/site-content/homeDefaults";
+import { getImageSrc } from "@/lib/site-content/image";
 
-export default function OpeningSection() {
+export default function OpeningSection({ content = {} }) {
+  const c = { ...homeDefaults.opening, ...content };
+
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(100);
 
-  const fullText = "Everything For\nYour Special Moments";
+  const fullText = c.headline || "Everything For\nYour Special Moments";
 
   useEffect(() => {
     let timer;
@@ -36,7 +40,7 @@ export default function OpeningSection() {
 
     timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [text, isDeleting, typingSpeed]);
+  }, [text, isDeleting, typingSpeed, fullText]);
 
 
   return (
@@ -58,44 +62,41 @@ export default function OpeningSection() {
           {/* Desktop Layout */}
           <div className="hidden sm:flex flex-col gap-3">
             <div className="flex flex-wrap justify-center gap-[10px]">
-              <span>Sewa Seserahan</span>
-              <span className="text-white/80">|</span>
-              <span>Frame Mahar</span>
-              <span className="text-white/80">|</span>
-              <span>Undangan Digital</span>
-              <span className="text-white/80">|</span>
-              <span>Flower Bouquet</span>
+              {c.services?.slice(0, 4).map((service, i) => (
+                <span key={i}>
+                  {i > 0 && <span className="text-white/80 mr-[10px]">|</span>}
+                  <span>{service}</span>
+                </span>
+              ))}
             </div>
             <div className="flex flex-wrap justify-center gap-[10px]">
-              <span>Wedding Keepsake</span>
-              <span className="text-white/80">|</span>
-              <span>Wedding Content Creator</span>
+              {c.services?.slice(4).map((service, i) => (
+                <span key={i}>
+                  {i > 0 && <span className="text-white/80 mr-[10px]">|</span>}
+                  <span>{service}</span>
+                </span>
+              ))}
             </div>
           </div>
 
           {/* Mobile Layout (Pairs 2x2) */}
           <div className="flex sm:hidden flex-col gap-3">
-            <div className="flex justify-center gap-[10px]">
-              <span>Sewa Seserahan</span>
-              <span className="text-white/80">|</span>
-              <span>Frame Mahar</span>
-            </div>
-            <div className="flex justify-center gap-[10px]">
-              <span>Undangan Digital</span>
-              <span className="text-white/80">|</span>
-              <span>Flower Bouquet</span>
-            </div>
-            <div className="flex justify-center gap-[10px]">
-              <span>Wedding Keepsake</span>
-              <span className="text-white/80">|</span>
-              <span>Wedding Content Creator</span>
-            </div>
+            {[0, 2, 4].map((start) => (
+              <div key={start} className="flex justify-center gap-[10px]">
+                {c.services?.slice(start, start + 2).map((service, i) => (
+                  <span key={i}>
+                    {i > 0 && <span className="text-white/80 mr-[10px]">|</span>}
+                    <span>{service}</span>
+                  </span>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
 
-        <Link href="/harga" className="btn-gold w-full max-w-[320px] h-[56px] flex items-center justify-center rounded-[12px] text-[15px] font-semibold font-nav tracking-[0.5px] text-[#161616] shadow-xl hover:brightness-110 transition-all duration-300 antialiased">
-          <span className="hidden lg:inline">LIHAT HARGA</span>
-          <span className="lg:hidden">HITUNG ESTIMASI HARGA</span>
+        <Link href={c.cta?.href || '/harga'} className="btn-gold w-full max-w-[320px] h-[56px] flex items-center justify-center rounded-[12px] text-[15px] font-semibold font-nav tracking-[0.5px] text-[#161616] shadow-xl hover:brightness-110 transition-all duration-300 antialiased">
+          <span className="hidden lg:inline">{c.cta?.desktopLabel || 'LIHAT HARGA'}</span>
+          <span className="lg:hidden">{c.cta?.mobileLabel || 'HITUNG ESTIMASI HARGA'}</span>
         </Link>
 
       </div>
@@ -103,8 +104,8 @@ export default function OpeningSection() {
       {/* Bottom Decoration Transition */}
       <div className="absolute bottom-0 left-0 w-full h-[140px] md:h-[220px] pointer-events-none">
         <Image 
-          src="/images/home-decoration.png" 
-          alt="Decoration" 
+          src={getImageSrc(c.decorationImage, '/images/home-decoration.png')} 
+          alt={c.decorationImage?.alt || 'Decoration'} 
           fill 
           className="object-contain object-bottom"
           priority

@@ -211,3 +211,32 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
 }
+
+/* --- PRICING CATEGORY TRANSITIONS --- */
+
+.pricing-category-transition {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 260ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.pricing-category-transition--exit {
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+}
+
+.pricing-category-transition--enter {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pricing-category-transition {
+        transition: none;
+        transform: none;
+    }
+}

@@ -29,9 +29,11 @@ export default function PricingMobileNav({ activeCategory, updateCategory }) {
               >
                 {shortName}
               </span>
-              {activeCategory === cat.id && (
-                <div className="absolute bottom-0 left-[20px] right-[20px] h-[2px] bg-gradient-to-r from-[#D4AF37] via-[#CF953C] to-[#CF953C]" />
-              )}
+              <div
+                className={`absolute bottom-0 left-[20px] right-[20px] h-[2px] bg-gradient-to-r from-[#D4AF37] via-[#CF953C] to-[#CF953C] transition-all duration-300 ${
+                  activeCategory === cat.id ? "opacity-100 scale-x-100" : "opacity-0 scale-x-50"
+                }`}
+              />
             </button>
           );
         })}
