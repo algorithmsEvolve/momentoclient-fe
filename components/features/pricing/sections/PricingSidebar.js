@@ -14,16 +14,18 @@ export default function PricingSidebar({
             (cat.id === "mahar" && !categories.find(c => c.id === "undangan")) ||
             (cat.id === "wcc");
 
+          const isCompact = ["seserahan", "mahar", "keepsake", "bouqet"].includes(cat.id);
+
           return (
             <button
               key={cat.id}
               onClick={() => updateCategory(cat.id)}
-              className={`group relative flex items-center h-[60px] cursor-pointer transition-all duration-300 border-b border-white/5 last:border-0 overflow-hidden ${
+              className={`group relative flex items-center ${isCompact ? "h-[50px]" : "h-[60px]"} cursor-pointer transition-all duration-300 border-b border-white/5 last:border-0 overflow-hidden ${
                 isGroupEnd ? "mb-4 pb-4 border-b-white/20" : ""
               }`}
             >
               <div
-                className={`absolute ${isGroupEnd ? "top-[7.5px] bottom-[22.5px]" : "top-[15px] bottom-[15px]"} left-0 w-[3px] grad-gold rounded-full transition-all duration-300 ${
+                className={`absolute ${isGroupEnd ? "top-[7.5px] bottom-[22.5px]" : isCompact ? "top-[13.5px] bottom-[13.5px]" : "top-[15px] bottom-[15px]"} left-0 w-[3px] grad-gold rounded-full transition-all duration-300 ${
                   activeCategory === cat.id ? "opacity-100 scale-y-100" : "opacity-0 scale-y-50"
                 }`}
               />
