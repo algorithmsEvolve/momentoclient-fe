@@ -84,13 +84,13 @@ export default function PricingContent({ content }) {
       return;
     }
 
+    if (transitionState !== "idle") return;
+
+    window.scrollTo(0, 0);
+
     const params = new URLSearchParams(searchParams.toString());
     params.set("category", categoryId);
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
-
-    window.requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
   };
 
   const [viewerState, setViewerState] = useState({
