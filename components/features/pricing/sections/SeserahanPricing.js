@@ -161,41 +161,39 @@ export default function SeserahanPricing({ openViewer, sectionData }) {
             </div>
           )})}
 
-          <div className="bg-[#161616] p-[15px] rounded-[10px] md:rounded-[20px] border border-white/5 md:row-span-3 lg:col-start-3 lg:row-start-1 lg:row-span-3 flex flex-col h-full">
-            <div className="grid grid-cols-2 gap-[10px] mb-[15px] md:mb-[25px]">
-              {(bedcover?.images || []).map((image, index) => (
-                <div
-                  key={image.src || index}
-                  className="relative aspect-[147/143] md:aspect-square rounded-[5px] md:rounded-[8px] overflow-hidden cursor-zoom-in group"
-                  onClick={() =>
-                    openViewer(
-                      image.src,
-                      image.alt || `${bedcover?.name || "Hias Bedcover"} ${index + 1}`,
-                    )
-                  }
-                >
-                  <Image
-                    src={image.src}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    alt={image.alt || `${bedcover?.name || "Hias Bedcover"} ${index + 1}`}
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="mt-auto">
-              <h3 className="text-white font-montserrat font-bold text-[16px] md:text-[20px] mb-1">
-                {bedcover?.name || "Hias Bedcover"}
-              </h3>
-              <p className="text-white text-[12px] md:text-[14px] font-montserrat">
-                <span className="font-normal md:hidden">{bedcover?.price || "Rp. 65.000"}</span>
-                <span className="hidden md:inline">
-                  Harga Sewa :{" "}
+          {bedcover?.enabled !== false && (() => {
+            const bedcoverImage = getImage(bedcover?.image, bedcover?.name || "Hias Bedcover");
+            return (
+            <div
+              className="bg-[#161616] p-[15px] rounded-[10px] flex items-start gap-[15px] border border-white/5 transition-all hover:border-[#D4AF37]/20"
+            >
+              <div
+                className="relative w-[90px] h-[90px] rounded-[5px] overflow-hidden flex-shrink-0 cursor-zoom-in group"
+                onClick={() => openViewer(bedcoverImage.src, bedcoverImage.alt)}
+              >
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+                <Image
+                  src={bedcoverImage.src}
+                  alt={bedcoverImage.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="flex flex-col pt-0">
+                <h3 className="text-white font-montserrat font-bold text-[20px] leading-tight mb-[5px]">
+                  {bedcover?.name || "Hias Bedcover"}
+                </h3>
+                <p className="text-white font-montserrat text-[12px] leading-normal antialiased">
+                  <span className="font-normal">Harga Sewa :</span>{" "}
                   <span className="font-bold">{bedcover?.price || "Rp. 65.000"}</span>
-                </span>
-              </p>
+                </p>
+                <p className="text-gold text-[12px] font-montserrat font-medium italic mt-[17px] leading-tight">
+                  {bedcover?.note || "*bisa ubah warna"}
+                </p>
+              </div>
             </div>
-          </div>
+          );
+          })()}
         </div>
       </div>
     </div>
