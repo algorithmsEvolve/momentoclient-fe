@@ -114,6 +114,7 @@ export default function EstimationSidebar({
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSubmittingOrder, setIsSubmittingOrder] = useState(false);
   const [showOrderSuccessModal, setShowOrderSuccessModal] = useState(false);
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const scrollAreaRef = useRef(null);
   const [scrollbarThumb, setScrollbarThumb] = useState({
     height: 0,
@@ -482,7 +483,12 @@ export default function EstimationSidebar({
     `Terima kasih!`
   );
 
-  const handleOrder = async () => {
+  const handleOrder = () => {
+    if (cartItems.length === 0 || isSubmittingOrder) return;
+    setIsConfirmationOpen(true);
+  };
+
+  const handleConfirmOrder = async () => {
     if (cartItems.length === 0 || isSubmittingOrder) return;
 
     const bonusItems = [];
@@ -513,9 +519,7 @@ export default function EstimationSidebar({
         source: "estimation_page",
       });
 
-      window.open(`https://wa.me/6285117797966?text=${encodeURIComponent(orderMessage)}`, "_blank", "noopener,noreferrer");
-      setIsSubmittingOrder(false);
-      setShowOrderSuccessModal(true);
+      window.location.assign(`https://wa.me/6285117797966?text=${encodeURIComponent(orderMessage)}`);
     } catch (error) {
       setIsSubmittingOrder(false);
       window.alert(error.message || "Gagal menyimpan pesanan. Silakan coba lagi.");
@@ -1064,6 +1068,48 @@ export default function EstimationSidebar({
           </p>
         </div>
       </div>
+      {isConfirmationOpen && (
+        <div className="fixed inset-0 z-[2147483647] flex items-center justify-center bg-black/75 px-5 backdrop-blur-[4px]">
+          <div className="w-full max-w-[390px] rounded-[18px] border border-[#D4AF37]/25 bg-[#161616] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
+            <h3 className="font-montserrat text-[18px] font-bold leading-[25px] text-white">
+              Konfirmasi Pesanan
+            </h3>
+            <p className="mt-3 font-montserrat text-[13px] leading-[21px] text-[#bdbdbd]">
+              Pastikan rincian pesanan dan total estimasi sudah benar sebelum pesanan disimpan dan diarahkan ke WhatsApp admin.
+            </p>
+
+            <div className="my-6 rounded-[14px] border border-white/10 bg-black/20 p-4 space-y-3">
+              <div className="flex items-center justify-between gap-4">
+                <span className="font-montserrat text-[12px] text-white/60">Jumlah item</span>
+                <span className="font-montserrat text-[13px] font-bold text-white">{cartItems.length}</span>
+              </div>
+              <div className="flex items-center justify-between gap-4 border-t border-white/10 pt-3">
+                <span className="font-montserrat text-[12px] text-white/60">Total estimasi</span>
+                <span className="font-montserrat text-[16px] font-bold text-[#D4AF37]">{formatPrice(finalTotal)}</span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              <button
+                type="button"
+                onClick={() => setIsConfirmationOpen(false)}
+                disabled={isSubmittingOrder}
+                className="h-[46px] cursor-pointer rounded-[10px] border border-white/10 font-montserrat text-[13px] font-bold text-white transition-colors hover:bg-white/10 disabled:cursor-wait disabled:opacity-50"
+              >
+                Batal
+              </button>
+              <button
+                type="button"
+                onClick={handleConfirmOrder}
+                disabled={isSubmittingOrder}
+                className="h-[46px] cursor-pointer rounded-[10px] bg-[#D4AF37] font-montserrat text-[13px] font-bold text-black transition-colors hover:bg-[#E6C45A] disabled:cursor-wait disabled:opacity-80"
+              >
+                {isSubmittingOrder ? "Menyimpan..." : "Konfirmasi"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {showOrderSuccessModal && (
         <div className="fixed inset-0 z-[2147483647] flex items-center justify-center bg-black/75 px-5 backdrop-blur-[4px]">
           <div className="w-full max-w-[390px] rounded-[18px] border border-[#D4AF37]/25 bg-[#161616] p-6 text-center shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
