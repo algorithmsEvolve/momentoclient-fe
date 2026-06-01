@@ -1,13 +1,42 @@
 "use client";
 
-import { pricingCategories } from "@/lib/pricingData";
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+
+const estimationTabs = [
+  { id: "seserahan", label: "Seserahan" },
+  { id: "mahar", label: "Mahar" },
+  { id: "undangan", label: "Undangan" },
+  { id: "keepsake-bouqet", label: "Keepsake & Bouquet" },
+  { id: "wcc", label: "WCC" },
+  { id: "bundling", label: "Bundling Package" },
+];
 
 export default function CategoryTabs({ activeCategory, setActiveCategory }) {
   const scrollRef = useRef(null);
+  const tabRefs = useRef({});
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [activePill, setActivePill] = useState({ left: 0, width: 0 });
+
+  const updateActivePill = useCallback(() => {
+    const activeEl = tabRefs.current[activeCategory];
+    if (!activeEl) return;
+
+    setActivePill({
+      left: activeEl.offsetLeft,
+      width: activeEl.offsetWidth,
+    });
+  }, [activeCategory]);
+
+  useLayoutEffect(() => {
+    updateActivePill();
+  }, [updateActivePill]);
+
+  useEffect(() => {
+    window.addEventListener("resize", updateActivePill);
+    return () => window.removeEventListener("resize", updateActivePill);
+  }, [updateActivePill]);
 
   const handleMouseDown = (e) => {
     setIsDragging(true);
@@ -32,30 +61,39 @@ export default function CategoryTabs({ activeCategory, setActiveCategory }) {
   };
 
   return (
-    <div className="w-full overflow-hidden mb-[30px]">
+    <div className="mb-[30px] w-full overflow-hidden">
       <div 
         ref={scrollRef}
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
-        className="flex flex-row items-center gap-[10px] overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none"
+        className="scrollbar-hide cursor-grab overflow-x-auto rounded-[10px] bg-[#161616] active:cursor-grabbing select-none"
       >
-        {pricingCategories.map((cat) => (
-          <button
-            key={cat.id}
-            onClick={() => !isDragging && setActiveCategory(cat.id)}
-            className={`flex-shrink-0 px-[20px] h-[47px] rounded-[10px] font-montserrat font-semibold text-[14px] tracking-[0.5px] whitespace-nowrap transition-all duration-300 flex items-center justify-center ${
-              activeCategory === cat.id
-                ? "border-grad-gold shadow-lg"
-                : "bg-[#252525] border border-transparent text-white hover:border-white/10"
-            }`}
-          >
-            <span className={`leading-none ${activeCategory === cat.id ? "text-gold" : ""}`}>
-              {cat.sidebar_name || cat.name}
-            </span>
-          </button>
-        ))}
+        <div className="relative flex min-w-max flex-row items-center gap-0 p-0">
+          <div
+            className="absolute bottom-0 top-0 rounded-[10px] bg-[#252525] transition-[left,width] duration-300 ease-out"
+            style={{
+              left: activePill.left,
+              width: activePill.width,
+            }}
+          />
+
+          {estimationTabs.map((cat) => (
+            <button
+              key={cat.id}
+              ref={(el) => {
+                if (el) tabRefs.current[cat.id] = el;
+              }}
+              onClick={() => !isDragging && setActiveCategory(cat.id)}
+              className="relative z-10 flex h-[47px] flex-shrink-0 cursor-pointer items-center justify-center whitespace-nowrap rounded-[10px] px-[20px] py-[15px] font-montserrat text-[14px] font-semibold tracking-[0.5px] text-white transition-colors duration-300"
+            >
+              <span className="leading-none">
+                {cat.label}
+              </span>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

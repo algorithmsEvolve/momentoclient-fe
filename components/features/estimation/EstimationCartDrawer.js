@@ -1,31 +1,57 @@
 'use client';
 
-import { X } from "lucide-react";
+import { useState } from "react";
+import { createPortal } from "react-dom";
 import EstimationSidebar from "./EstimationSidebar";
 
-export default function EstimationCartDrawer({ isOpen, onClose, cart, summary, updateQuantity }) {
-  if (!isOpen) return null;
+export default function EstimationCartDrawer({
+  isOpen,
+  onClose,
+  cart,
+  summary,
+  updateQuantity,
+  updateCartItem,
+  ringboxOptions,
+  bedcoverProduct,
+  onEditItem,
+}) {
+  const [isClosing, setIsClosing] = useState(false);
 
-  return (
-    <div className="fixed inset-0 z-[100] flex justify-end">
-      {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-        onClick={onClose}
+  if (!isOpen || typeof document === "undefined") return null;
+
+  const handleClose = () => {
+    setIsClosing(true);
+    window.setTimeout(() => {
+      setIsClosing(false);
+      onClose();
+    }, 180);
+  };
+
+  return createPortal(
+    <div className="fixed inset-0 z-[2147483647]">
+      <div
+        className={`absolute inset-0 bg-black ${
+          isClosing ? "estimation-modal-backdrop--closing" : "estimation-modal-backdrop"
+        }`}
       />
-      
-      {/* Drawer */}
-      <div className="relative w-[90%] max-w-[400px] h-full bg-[#161616] shadow-2xl flex flex-col animate-in slide-in-from-right duration-300">
-        <div className="p-4 border-b border-[#292929] flex items-center justify-between">
-            <span className="text-white font-montserrat font-bold">Cart</span>
-            <button onClick={onClose} className="text-white">
-                <X className="w-6 h-6" />
-            </button>
-        </div>
-        <div className="flex-1 overflow-y-auto p-4">
-            <EstimationSidebar cart={cart} summary={summary} updateQuantity={updateQuantity} />
-        </div>
+      <div
+        className={`relative z-10 h-full w-full bg-black ${
+          isClosing ? "estimation-modal-panel--closing" : "estimation-modal-panel"
+        }`}
+      >
+        <EstimationSidebar
+          cart={cart}
+          summary={summary}
+          updateQuantity={updateQuantity}
+          updateCartItem={updateCartItem}
+          ringboxOptions={ringboxOptions}
+          bedcoverProduct={bedcoverProduct}
+          onEditItem={onEditItem}
+          isDrawer
+          onClose={handleClose}
+        />
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

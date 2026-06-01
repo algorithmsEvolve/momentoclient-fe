@@ -31,7 +31,14 @@ export default function SeserahanSection({ content = {} }) {
 
       {/* Infinite Running Images */}
       <div className="relative w-full mb-[30px] md:mb-[40px] flex overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap gap-3 md:gap-5">
+        <div
+          className="flex animate-marquee whitespace-nowrap gap-3 md:gap-5"
+          style={{
+            width: 'max-content',
+            animation: 'marquee 35s linear infinite',
+            willChange: 'transform',
+          }}
+        >
           {[...Array(2)].map((_, groupIdx) => (
             <div key={groupIdx} className="flex gap-3 md:gap-5">
               {images.map((img, id) => (

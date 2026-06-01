@@ -2,9 +2,13 @@
 
 import { useState } from "react";
 import { ChevronDown, Info } from "lucide-react";
-import { addOns } from "@/lib/pricingData";
 
-export default function RingboxSelector({ selectedRingbox, onSelect, onOpenChange }) {
+export default function RingboxSelector({
+  selectedRingbox,
+  onSelect,
+  onOpenChange,
+  items = [],
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -44,13 +48,13 @@ export default function RingboxSelector({ selectedRingbox, onSelect, onOpenChang
 
             {isOpen && (
               <div className="absolute left-0 w-full bg-[#161616] border border-[#292929] rounded-[10px] overflow-hidden mt-1 z-[200] max-h-[200px] overflow-y-auto scrollbar-custom">
-                {addOns.map((item) => (
+                {items.map((item) => (
                   <button
-                    key={item.name}
+                    key={item.id || item.name}
                     onClick={() => handleSelect(item)}
                     className="w-full text-left px-4 py-3 text-white font-montserrat text-[12px] hover:bg-[#2C2C2C] transition-colors"
                   >
-                    {item.name}
+                    {item.name.replace(" Ringbox", "")}
                   </button>
                 ))}
               </div>
@@ -71,10 +75,9 @@ export default function RingboxSelector({ selectedRingbox, onSelect, onOpenChang
 
         {/* Price on the far right */}
         <span className="text-white font-montserrat font-semibold text-[14px]">
-          {selectedRingbox ? selectedRingbox.price : "Rp. 0"}
+          {selectedRingbox ? selectedRingbox.displayPrice : "Rp. 0"}
         </span>
       </div>
     </div>
   );
 }
-

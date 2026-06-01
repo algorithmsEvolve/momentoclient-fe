@@ -3,13 +3,105 @@
 import Image from "next/image";
 import { Minus, Plus } from "lucide-react";
 
-export default function ProductCard({ product, quantity, updateQuantity, openViewer, isDisabled, isMaxLimitReached, hideImage }) {
+export default function ProductCard({
+  product,
+  quantity,
+  updateQuantity,
+  openViewer,
+  isDisabled,
+  isMaxLimitReached,
+  hideImage,
+  actionLabel,
+  selectedActionLabel,
+  onAction,
+  hideControls = false,
+  hideNote = false,
+}) {
+  const isSelected = quantity > 0;
+  const counterIconColor = isSelected ? "text-[#D4AF37]" : "text-white";
+  const disabledIconColor = "text-white/35";
+  const isMaharCard = product.type === "mahar" || product.type === "mahar-addon";
+  const isKeepsakeBouquetCard = product.id?.startsWith("keepsake-") || product.id?.startsWith("bouquet-");
+  const isWccPackage = product.type === "wcc-package";
+  const isWccAddOn = product.type === "wcc-addon";
+  const cardHeightClass = actionLabel || isMaharCard
+    ? "h-[300px] md:h-[340px]"
+    : isKeepsakeBouquetCard
+      ? "h-[330px] md:h-[340px]"
+    : isWccAddOn
+      ? "h-[175px]"
+    : "h-[260px] md:h-[300px]";
+  const controlMarginClass = isWccAddOn ? "mt-0" : isKeepsakeBouquetCard ? "mt-auto" : isMaharCard ? "mt-[18px]" : "mt-[13px]";
+  const counterWidthClass = isKeepsakeBouquetCard ? "w-full" : isWccAddOn ? "w-full" : "w-[126px] md:w-[145px]";
+
+  if (isWccPackage) {
+    return (
+      <div
+        className={`group flex h-[480px] w-full max-w-[295px] flex-col overflow-hidden rounded-[8px] border bg-[#161616] transition-all duration-300 md:h-[304px] ${
+          isSelected ? "border-[#4A4127]" : "border-transparent"
+        } ${isDisabled ? "opacity-45" : ""}`}
+      >
+        <div className={`flex h-full flex-col transition-opacity duration-300 ${
+          isSelected ? "opacity-100" : isDisabled ? "opacity-55" : "opacity-100"
+        }`}
+        >
+        <div
+          className={`relative h-[260px] w-full flex-shrink-0 overflow-hidden md:h-[156px] ${!isDisabled ? "cursor-zoom-in" : ""}`}
+          onClick={() => !isDisabled && openViewer(product.image, product.name)}
+        >
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+
+        <div className="flex flex-1 flex-col justify-between gap-[19px] p-[15px]">
+          <div>
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="font-montserrat text-[16px] font-bold leading-[20px] tracking-[-0.025em] text-[#D4AF37]">
+                {product.name}
+              </h3>
+              <span className="shrink-0 pt-[2px] font-montserrat text-[14px] font-bold leading-[17px] text-white">
+                {product.displayPrice}
+              </span>
+            </div>
+            <p className="mt-[7px] line-clamp-2 font-montserrat text-[12px] font-normal leading-[18px] text-white">
+              {product.desc}
+            </p>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => !isDisabled && onAction?.(product)}
+            disabled={isDisabled}
+            className={`flex h-[36px] w-full shrink-0 items-center justify-center rounded-[8px] border font-montserrat text-[12px] font-semibold leading-[22px] transition-all ${
+              isSelected
+                ? "border-[#4A4127] bg-transparent text-[#D4AF37]"
+                : "border-transparent bg-[#252525] text-white hover:bg-[#2D2D2D]"
+            } ${
+              isDisabled ? "cursor-not-allowed" : "cursor-pointer active:scale-[0.98]"
+            }`}
+          >
+            {isSelected ? selectedActionLabel || "Telah Dipilih" : actionLabel || "Pilih Item"}
+          </button>
+        </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className={`bg-[#161616] w-[150px] md:w-[173px] h-[240px] md:h-[262px] rounded-[10px] border border-[#292929] overflow-hidden flex flex-col transition-all duration-300 ${isDisabled ? 'opacity-30 grayscale' : 'group'}`}>
+    <div
+      className={`bg-[#161616] ${isWccAddOn ? "w-full max-w-[150px]" : "w-[150px] md:w-[173px]"} ${cardHeightClass} rounded-[10px] overflow-hidden flex flex-col border transition-all duration-300 ${
+        isSelected ? "border-[#4A4127] shadow-[0_0_0_1px_rgba(212,175,55,0.08)]" : "border-transparent"
+      } ${isDisabled ? "opacity-30 grayscale" : "group"}`}
+    >
       {/* Product Image - Clickable for Image Viewer */}
       {!hideImage && (
         <div 
-          className={`relative w-[150px] md:w-[173px] h-[130px] md:h-[144px] overflow-hidden flex-shrink-0 ${!isDisabled ? 'cursor-zoom-in' : ''}`}
+          className={`relative w-[150px] md:w-[173px] h-[145px] md:h-[180px] overflow-hidden flex-shrink-0 ${!isDisabled ? "cursor-zoom-in" : ""}`}
           onClick={() => !isDisabled && openViewer(product.image, product.name)}
         >
           <Image
@@ -22,32 +114,59 @@ export default function ProductCard({ product, quantity, updateQuantity, openVie
       )}
 
       {/* Product Info */}
-      <div className={`flex flex-col flex-1 p-[8px] md:p-[10px] ${hideImage ? 'pt-4' : ''}`}>
-        <h3 className={`text-white font-montserrat font-bold tracking-[-2.5%] mb-0.5 leading-none ${hideImage ? 'text-[14px] leading-snug mb-2' : 'text-[13px] md:text-[16px]'}`}>
-          {product.name}
-        </h3>
-        <p className="text-white font-montserrat font-normal text-[11px] md:text-[12px] mb-4">
-          {product.displayPrice}
-        </p>
+      <div className={`flex flex-col flex-1 px-[12px] pb-[12px] pt-[14px] md:px-[15px] md:pb-[18px] md:pt-[17px] ${hideImage ? "pt-4" : ""} ${isWccAddOn ? "justify-between gap-[28px] px-[13px] py-[13px] md:px-[13px] md:py-[13px]" : ""}`}>
+        <div>
+          <h3 className={`text-white font-montserrat font-bold mb-[3px] leading-[20px] ${hideImage ? "text-[14px] leading-snug mb-2" : "text-[15px] md:text-[16px]"} ${isWccAddOn ? "text-[12px] leading-[16px] md:text-[13px]" : ""}`}>
+            {product.name}
+          </h3>
+          <p className={`text-white font-montserrat font-normal text-[12px] leading-[22px] ${isWccAddOn ? "text-[9px] leading-[14px]" : ""}`}>
+            {product.displayPrice}
+          </p>
+        </div>
 
-        {/* Counter UI - Precise Figma 145x30 (Mobile adjusted to 135px width) */}
-        <div className="mt-auto flex items-center w-[135px] md:w-[145px] h-[30px] rounded-[10px] overflow-hidden border border-[#2C2C2C] mx-auto relative">
+        {product.note && !hideNote && (
+          <p className="mt-[13px] font-montserrat text-[10px] italic leading-[14px] text-[#D4AF37]/70">
+            {product.note}
+          </p>
+        )}
+
+        {hideControls ? null : actionLabel ? (
+          <button
+            onClick={() => !isDisabled && onAction?.(product)}
+            disabled={isDisabled}
+            className={`${controlMarginClass} flex h-[35px] w-full items-center justify-center rounded-[10px] border font-montserrat text-[12px] font-semibold tracking-[0.5px] transition-all duration-300 ${
+              isSelected
+                ? "border-[#4A4127] text-[#D4AF37]"
+                : "border-transparent bg-[#252525] text-white hover:bg-[#2D2D2D]"
+            } ${isDisabled ? "cursor-not-allowed opacity-50" : "cursor-pointer active:scale-[0.98]"}`}
+          >
+            {isSelected ? selectedActionLabel || "Telah Dipilih" : actionLabel}
+          </button>
+        ) : (
+          <div
+            className={`${controlMarginClass} flex items-center ${counterWidthClass} h-[35px] rounded-[10px] overflow-hidden border mx-auto relative transition-colors duration-300 ${
+              isSelected ? "border-[#4A4127]" : "border-transparent"
+            }`}
+          >
 
           {/* Minus Button Wrapper - Resized to 30x30 */}
           <button
             onClick={() => updateQuantity(product.id, -1)}
             disabled={isDisabled || quantity === 0}
-            className={`w-[40px] md:w-[45px] h-full bg-[#2C2C2C] rounded-l-[9px] flex items-center justify-center transition-all cursor-pointer group/minus`}
+            className={`${isWccAddOn ? "w-[30px]" : "w-[35px]"} h-[35px] bg-[#242424] rounded-l-[9px] flex items-center justify-center transition-all ${
+              isDisabled || quantity === 0 ? "cursor-not-allowed" : "cursor-pointer active:scale-95"
+            } group/minus`}
           >
             <Minus 
-              className={`w-[18px] md:w-[20px] h-[18px] md:h-[20px] transition-colors ${
-                !isDisabled && quantity > 0 ? "text-[#FFF]" : "text-[#777]"
+              strokeWidth={3}
+              className={`${isWccAddOn ? "h-[16px] w-[16px]" : "h-[20px] w-[20px]"} transition-colors ${
+                isDisabled || quantity === 0 ? disabledIconColor : counterIconColor
               }`} 
             />
           </button>
           
           {/* Qty Display Wrapper - Expanded to fill remaining space */}
-          <div className="flex-1 h-full bg-[#161616] flex items-center justify-center border-l border-r border-[#2C2C2C]">
+          <div className="flex-1 h-full bg-[#131313] flex items-center justify-center border-l border-r border-[#2C2C2C]">
             <input
               type="number"
               value={quantity}
@@ -61,17 +180,19 @@ export default function ProductCard({ product, quantity, updateQuantity, openVie
           </div>
 
 
-          {/* Plus Button Wrapper - Resized to 30x30 with Gold Gradient */}
+          {/* Plus Button Wrapper */}
           <div className="relative h-full flex group/tooltip">
             <button
               onClick={() => updateQuantity(product.id, 1)}
               disabled={isDisabled || isMaxLimitReached}
-              className={`w-[40px] md:w-[45px] h-full flex items-center justify-center rounded-r-[9px] transition-all ${isDisabled || isMaxLimitReached ? "cursor-not-allowed" : "cursor-pointer active:scale-95"} group/plus`}
-              style={{
-                background: isDisabled || isMaxLimitReached ? "#777" : "linear-gradient(90deg, #D4AF37 0%, #CF953C 100%)"
-              }}
+              className={`h-[35px] ${isWccAddOn ? "w-[30px]" : "w-[35px]"} bg-[#242424] flex items-center justify-center rounded-r-[9px] transition-all ${isDisabled || isMaxLimitReached ? "cursor-not-allowed" : "cursor-pointer active:scale-95"} group/plus`}
             >
-              <Plus className="w-[18px] md:w-[20px] h-[18px] md:h-[20px] text-[#000]" />
+              <Plus
+                strokeWidth={2.7}
+                className={`${isWccAddOn ? "h-[16px] w-[16px]" : "h-[20px] w-[20px]"} transition-colors ${
+                  isDisabled || isMaxLimitReached ? disabledIconColor : counterIconColor
+                }`}
+              />
             </button>
 
             {isMaxLimitReached && (
@@ -82,6 +203,7 @@ export default function ProductCard({ product, quantity, updateQuantity, openVie
             )}
           </div>
         </div>
+        )}
 
       </div>
     </div>
