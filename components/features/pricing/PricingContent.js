@@ -156,7 +156,7 @@ export default function PricingContent({ content }) {
     : [];
 
   return (
-    <div className="w-full pb-[8px] pt-0 md:pb-[80px] md:pt-[150px]">
+    <div className="w-full pb-[260px] pt-0 md:pb-[80px] md:pt-[150px]">
       <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-[40px] px-[16px] md:flex-row md:px-[40px] lg:gap-[49px]">
         <PricingMobileNav
           activeCategory={activeCategory}

@@ -8,6 +8,8 @@ import { getImageSrc } from "@/lib/site-content/image";
 
 export default function OpeningSection({ content = {} }) {
   const c = { ...homeDefaults.opening, ...content };
+  const desktopCtaHref = c.cta?.desktopHref || c.cta?.href || '/harga';
+  const mobileCtaHref = c.cta?.mobileHref || '/estimasi';
 
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -94,9 +96,11 @@ export default function OpeningSection({ content = {} }) {
           </div>
         </div>
 
-        <Link href={c.cta?.href || '/harga'} className="btn-gold w-full max-w-[320px] h-[56px] flex items-center justify-center rounded-[12px] text-[15px] font-semibold font-nav tracking-[0.5px] text-[#161616] shadow-xl hover:brightness-110 transition-all duration-300 antialiased">
-          <span className="hidden lg:inline">{c.cta?.desktopLabel || 'LIHAT HARGA'}</span>
-          <span className="lg:hidden">{c.cta?.mobileLabel || 'HITUNG ESTIMASI HARGA'}</span>
+        <Link href={desktopCtaHref} className="btn-gold hidden w-full max-w-[320px] h-[56px] lg:flex items-center justify-center rounded-[12px] text-[15px] font-semibold font-nav tracking-[0.5px] text-[#161616] shadow-xl hover:brightness-110 transition-all duration-300 antialiased">
+          <span>{c.cta?.desktopLabel || 'LIHAT HARGA'}</span>
+        </Link>
+        <Link href={mobileCtaHref} className="btn-gold w-full max-w-[320px] h-[56px] flex lg:hidden items-center justify-center rounded-[12px] text-[15px] font-semibold font-nav tracking-[0.5px] text-[#161616] shadow-xl hover:brightness-110 transition-all duration-300 antialiased">
+          <span>{c.cta?.mobileLabel || 'HITUNG ESTIMASI HARGA'}</span>
         </Link>
 
       </div>

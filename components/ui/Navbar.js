@@ -197,9 +197,9 @@ export default function Navbar({ onOpenCart, cartItemCount = 0 }) {
             <Link 
               href="/estimasi"
               onClick={() => setMenuOpen(false)}
-              className="group relative w-full h-[56px] flex items-center justify-center overflow-hidden border border-[#D4AF37] rounded-[10px] text-[14px] font-bold font-montserrat tracking-[0.5px] text-gold hover:bg-[#D4AF37]/10 transition-all duration-300 active:scale-[0.97] antialiased"
+              className="group relative w-full h-[56px] flex items-center justify-center overflow-hidden border border-[#D4AF37] rounded-[10px] text-[14px] font-bold font-montserrat tracking-[0.5px] hover:bg-[#D4AF37]/10 transition-all duration-300 active:scale-[0.97] antialiased"
             >
-              <span className="relative z-10">Estimasi Harga</span>
+              <span className="relative z-10 text-gold">Estimasi Harga</span>
               <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-[#D4AF37]/18 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
             </Link>
           </div>
