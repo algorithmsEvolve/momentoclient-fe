@@ -238,22 +238,22 @@ export default function EstimationContainer({ pricingContent }) {
           {activeCategory === "seserahan" && (
             <div 
               className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                selectedTrayType ? "max-h-[100px] opacity-100 mb-8" : "max-h-0 opacity-0 mb-0"
+                selectedTrayType ? "max-h-[260px] opacity-100 mb-8 md:max-h-[140px]" : "max-h-0 opacity-0 mb-0"
               }`}
             >
               <div className="flex items-start gap-3 bg-[#161616] rounded-[10px] p-4">
                 <Info className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-[2px]" />
-                <div className="flex flex-col space-y-1">
-                  <p className="text-white font-montserrat font-medium text-[12px] tracking-[0.5px]">
+                <div className="flex flex-col space-y-2 md:space-y-1">
+                  <p className="text-white font-montserrat font-medium text-[12px] leading-[20px] tracking-[0.5px]">
                     • Kamu hanya dapat memilih 1 jenis tray, hapus jika ingin mengubah jenis tray yang lain
                   </p>
                   {totalTraysCount > 7 && (
-                    <p className="text-white font-montserrat font-medium text-[12px] tracking-[0.5px]">
+                    <p className="text-white font-montserrat font-medium text-[12px] leading-[20px] tracking-[0.5px]">
                       • Kamu mendapatkan <span className="font-bold">FREE RINGBOX</span> karena memesan lebih dari 7 Box
                     </p>
                   )}
                   {totalTraysCount > 9 && (
-                    <p className="text-white font-montserrat font-medium text-[12px] tracking-[0.5px]">
+                    <p className="text-white font-montserrat font-medium text-[12px] leading-[20px] tracking-[0.5px]">
                       • Kamu mendapatkan <span className="font-bold">FREE HIAS BEDCOVER</span> karena memesan lebih dari 9 Box
                     </p>
                   )}
