@@ -589,7 +589,7 @@ export default function EstimationSidebar({
   };
 
   return (
-    <aside className={isDrawer ? "h-full w-full" : "w-full lg:w-[400px] flex-shrink-0 lg:self-start lg:sticky lg:top-[100px]"}>
+    <aside className={isDrawer ? "h-full w-full" : "w-full lg:w-[400px] flex-shrink-0"}>
       <div className={`${isDrawer ? "h-full min-h-0 rounded-none bg-black p-[28px]" : "h-[calc(100vh-140px)] min-h-[500px] rounded-[20px] bg-[#161616] p-[25px]"} flex flex-col`}>
         <div className={`${isDrawer ? "mb-6 flex items-center justify-between border-b border-[#292929] pb-[36px] pt-[8px]" : "mb-6 border-b border-[#292929] pb-6"}`}>
           <h2 className="text-[20px] font-montserrat font-bold text-white">

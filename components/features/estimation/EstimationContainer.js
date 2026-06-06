@@ -360,7 +360,7 @@ export default function EstimationContainer({ pricingContent }) {
         </div>
 
         {/* Right Column: Estimation Sidebar (Visible only on Desktop) */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:sticky lg:top-[100px] lg:block lg:self-start">
           <EstimationSidebar
             cart={cart}
             summary={total}
