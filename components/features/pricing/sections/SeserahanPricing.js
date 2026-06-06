@@ -10,10 +10,17 @@ export default function SeserahanPricing({ openViewer, sectionData }) {
   const section = hasSectionObject ? sectionData : defaultSection;
 
   const packageSource = Array.isArray(section.packages) ? section.packages : [];
-  const addOnSource = Array.isArray(section.addOns?.items) ? section.addOns.items : [];
+  const addOnItems = Array.isArray(section.addOns?.items) ? section.addOns.items : [];
+  const legacyBedcover = section.addOns?.bedcover;
+  const hasBedcoverItem = addOnItems.some(
+    (item) => item?.id === "hias-bedcover" || item?.name?.toLowerCase() === "hias bedcover",
+  );
+  const addOnSource =
+    legacyBedcover && !hasBedcoverItem
+      ? [...addOnItems, legacyBedcover]
+      : addOnItems;
   const displayPackages = packageSource.filter((item) => item?.enabled !== false);
   const displayAddOns = addOnSource.filter((item) => item?.enabled !== false);
-  const bedcover = section.addOns?.bedcover || defaultSection.addOns.bedcover;
   const usesFallback = !hasSectionObject;
 
   const priceLabel = section.basePriceLabel || defaultSection.basePriceLabel;
@@ -127,7 +134,7 @@ export default function SeserahanPricing({ openViewer, sectionData }) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[15px] items-start">
-          {displayAddOns.slice(0, 6).map((item, i) => {
+          {displayAddOns.map((item, i) => {
             const addOnImage = getImage(item.image, item.name);
             return (
             <div
@@ -161,39 +168,6 @@ export default function SeserahanPricing({ openViewer, sectionData }) {
             </div>
           )})}
 
-          {bedcover?.enabled !== false && (() => {
-            const bedcoverImage = getImage(bedcover?.image, bedcover?.name || "Hias Bedcover");
-            return (
-            <div
-              className="bg-[#161616] p-[15px] rounded-[10px] flex items-start gap-[15px] border border-white/5 transition-all hover:border-[#D4AF37]/20"
-            >
-              <div
-                className="relative w-[90px] h-[90px] rounded-[5px] overflow-hidden flex-shrink-0 cursor-zoom-in group"
-                onClick={() => openViewer(bedcoverImage.src, bedcoverImage.alt)}
-              >
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
-                <Image
-                  src={bedcoverImage.src}
-                  alt={bedcoverImage.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-              <div className="flex flex-col pt-0">
-                <h3 className="text-white font-montserrat font-bold text-[20px] leading-tight mb-[5px]">
-                  {bedcover?.name || "Hias Bedcover"}
-                </h3>
-                <p className="text-white font-montserrat text-[12px] leading-normal antialiased">
-                  <span className="font-normal">Harga Sewa :</span>{" "}
-                  <span className="font-bold">{bedcover?.price || "Rp. 65.000"}</span>
-                </p>
-                <p className="text-gold text-[12px] font-montserrat font-medium italic mt-[17px] leading-tight">
-                  {bedcover?.note || "*bisa ubah warna"}
-                </p>
-              </div>
-            </div>
-          );
-          })()}
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import { Minus, Plus } from "lucide-react";
 
 export default function ProductCard({
   product,
+  category,
   quantity,
   updateQuantity,
   openViewer,
@@ -24,14 +25,23 @@ export default function ProductCard({
   const isKeepsakeBouquetCard = product.id?.startsWith("keepsake-") || product.id?.startsWith("bouquet-");
   const isWccPackage = product.type === "wcc-package";
   const isWccAddOn = product.type === "wcc-addon";
+  const isSeserahanCard = category === "seserahan";
   const cardHeightClass = actionLabel || isMaharCard
     ? "h-[300px] md:h-[340px]"
     : isKeepsakeBouquetCard
       ? "h-[330px] md:h-[340px]"
     : isWccAddOn
       ? "h-[175px]"
+    : isSeserahanCard
+      ? "h-auto min-h-[260px] md:min-h-[300px]"
     : "h-[260px] md:h-[300px]";
-  const controlMarginClass = isWccAddOn ? "mt-0" : isKeepsakeBouquetCard ? "mt-auto" : isMaharCard ? "mt-[18px]" : "mt-[13px]";
+  const controlMarginClass = isWccAddOn
+    ? "mt-0"
+    : isKeepsakeBouquetCard || isSeserahanCard
+      ? "mt-auto"
+      : isMaharCard
+        ? "mt-[18px]"
+        : "mt-[13px]";
   const counterWidthClass = isKeepsakeBouquetCard ? "w-full" : isWccAddOn ? "w-full" : "w-[126px] md:w-[145px]";
 
   if (isWccPackage) {

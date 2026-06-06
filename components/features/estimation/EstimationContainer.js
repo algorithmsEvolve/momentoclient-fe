@@ -337,6 +337,7 @@ export default function EstimationContainer({ pricingContent }) {
                   <div key={product.id} className={`flex justify-center w-full ${activeCategory === "wcc" && product.type === "wcc-package" ? "col-span-2 md:col-span-1 xl:col-span-2" : "xl:justify-start"}`}>
                     <ProductCard
                       product={product}
+                      category={activeCategory}
                       quantity={cart[product.id]?.quantity || 0}
                       updateQuantity={updateQuantity}
                       openViewer={(src, alt) => setViewerState({ isOpen: true, src, alt })}

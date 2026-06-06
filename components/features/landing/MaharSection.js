@@ -1,12 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { homeDefaults } from "@/lib/site-content/homeDefaults";
-import { getImageSrc } from "@/lib/site-content/image";
+import MaharImageCollage from "./MaharImageCollage";
 
 export default function MaharSection({ content = {} }) {
   const c = { ...homeDefaults.mahar, ...content };
-  const images = c.images?.length ? c.images : homeDefaults.mahar.images;
 
   const titleText = c.title || 'Frame Mahar';
   const titleParts = titleText.split(' ');
@@ -21,27 +19,7 @@ export default function MaharSection({ content = {} }) {
 
       <div className="max-w-[1240px] mx-auto flex flex-col md:flex-row items-center gap-[30px] md:gap-[50px] px-6 md:px-10 w-full relative z-20">
         
-        {/* Image Grid Collage - Order 2 on Mobile, 1 on Desktop */}
-        <div className="w-full max-w-[320px] md:max-w-none md:w-[508px] flex-shrink-0 grid grid-cols-2 gap-[11px] relative order-2 md:order-1 px-4 md:px-0">
-           {/* Column 1 */}
-           <div className="flex flex-col gap-[11px]">
-              <div className="relative w-full aspect-[152/126] md:w-[248px] md:h-[205px] rounded-[10px] overflow-hidden border border-white/5 shadow-2xl">
-                 <Image src={getImageSrc(images[0], '/images/mahar-items/mahar-1.png')} alt={images[0]?.alt || 'Mahar 1'} fill className="object-cover" />
-              </div>
-              <div className="relative w-[75%] md:w-[188px] ml-auto aspect-[115/155] md:h-[252px] rounded-[10px] overflow-hidden border border-white/5 shadow-2xl">
-                 <Image src={getImageSrc(images[2], '/images/mahar-items/mahar-3.png')} alt={images[2]?.alt || 'Mahar 3'} fill className="object-cover" />
-              </div>
-           </div>
-           {/* Column 2 */}
-           <div className="flex flex-col gap-[11px] pt-4 md:pt-0">
-              <div className="relative w-[76%] md:w-[188px] aspect-[116/157] md:h-[258px] rounded-[10px] overflow-hidden border border-white/5 shadow-2xl">
-                 <Image src={getImageSrc(images[1], '/images/mahar-items/mahar-2.png')} alt={images[1]?.alt || 'Mahar 2'} fill className="object-cover" />
-              </div>
-              <div className="relative w-full aspect-[152/126] md:w-[248px] md:h-[188px] rounded-[10px] overflow-hidden border border-white/5 shadow-2xl">
-                 <Image src={getImageSrc(images[3], '/images/mahar-items/mahar-4.png')} alt={images[3]?.alt || 'Mahar 4'} fill className="object-cover" />
-              </div>
-           </div>
-        </div>
+        <MaharImageCollage images={c.images} />
 
 
 
