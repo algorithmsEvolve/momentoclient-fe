@@ -70,6 +70,13 @@ export default function BotanWishSection({ invitation, guest }) {
 
   return (
     <div id="wish" name="wish-section" className={withoutGift ? "without-gift" : ""}>
+      <div className="decorations">
+        <img className="hidden md:block decor-top-left" src="/themes/botan/wish/decor-top-left.png" alt="decor-top-left" />
+        <img className="hidden md:block decor-bottom" src="/themes/botan/wish/decor-bottom.png" alt="decor-bottom" />
+        <img className="md:hidden decor-mobile-top" src="/themes/botan/wish/mobile-decor-top.png" alt="decor-top" />
+        <img className="md:hidden decor-mobile-bottom-right" src="/themes/botan/wish/mobile-decor-bottom.png" alt="decor-bottom" />
+      </div>
+
       <div className="content">
         <div className="view-content">
           <div className="title">
@@ -128,7 +135,7 @@ export default function BotanWishSection({ invitation, guest }) {
                     </div>
                   </div>
 
-                  <div className="message-input" style={{ position: 'relative' }}>
+                  <div className="message-input">
                     <div className="label">
                       <p>Pesan</p>
                     </div>
@@ -141,7 +148,6 @@ export default function BotanWishSection({ invitation, guest }) {
                         onChange={(e) => setMessage(e.target.value)}
                         className="botan-input"
                         data-testid="botan-wish-message"
-                        style={{ height: 'auto', minHeight: '150px' }}
                       />
                     </div>
                     <div className="message-counter">
@@ -174,23 +180,6 @@ export default function BotanWishSection({ invitation, guest }) {
           </div>
         </div>
       </div>
-
-      <div className="decorations">
-        <div className="hidden md:block top-left">
-          <img src="/themes/botan/wish/decor-top-left.png" alt="decor-top-left" />
-        </div>
-        <div className="hidden md:block bottom">
-          <img src="/themes/botan/wish/decor-bottom.png" alt="decor-bottom" />
-        </div>
-
-        <div className="md:hidden top">
-          <img src="/themes/botan/wish/mobile-decor-top.png" alt="decor-top" />
-        </div>
-        <div className="md:hidden bottom-right">
-          <img src="/themes/botan/wish/mobile-decor-bottom.png" alt="decor-bottom" />
-        </div>
-      </div>
     </div>
   );
 }
-

@@ -75,7 +75,7 @@ export default function BotanTheme({ invitation, guest }) {
           <BotanGallery invitation={invitation} galleryType={galleryType} />
           <BotanWishSection invitation={invitation} guest={guest} />
           {!withoutGift && <BotanGift invitation={invitation} />}
-          <BotanFooter />
+          <BotanFooter invitation={invitation} />
 
           <div className="md:hidden">
             <BotanFloatingMenu invitation={invitation} onNavigate={scrollToSection} />
