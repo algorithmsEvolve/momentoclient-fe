@@ -1,11 +1,36 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function BotanGift({ invitation }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
   const [copied, setCopied] = useState("");
   const [giftModalState, setGiftModalState] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const gifts = Array.isArray(invitation?.gifts) ? invitation.gifts : [];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const copyToClipboard = async (value, key) => {
     if (!value) return;
@@ -34,11 +59,19 @@ export default function BotanGift({ invitation }) {
   useEffect(() => {
     if (giftModalState) {
       document.body.style.overflow = "hidden";
+      const timer = setTimeout(() => setShowModal(true), 10);
+      return () => clearTimeout(timer);
     } else {
+      setShowModal(false);
       document.body.style.overflow = "";
     }
     return () => { document.body.style.overflow = ""; };
   }, [giftModalState]);
+
+  const closeGiftModal = () => {
+    setShowModal(false);
+    setTimeout(() => setGiftModalState(false), 300);
+  };
 
   if (gifts.length === 0) return null;
 
@@ -46,19 +79,19 @@ export default function BotanGift({ invitation }) {
   const restGifts = gifts.slice(1);
 
   return (
-    <div id="gift" name="gift-section">
+    <div id="gift" name="gift-section" ref={sectionRef}>
       <div className="content">
         <div className="view-content">
-          <div className="md:hidden gift-icon">
+          <div className={`md:hidden gift-icon ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "250ms" }}>
             <img src="/themes/botan/gift/mobile-gift-icon.svg" alt="gift-icon" />
           </div>
-          <div className="title">
+          <div className={`title ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "350ms" }}>
             <p>Kirim Hadiah</p>
           </div>
-          <div className="desc">
+          <div className={`desc ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "450ms" }}>
             <p>Bagi keluarga dan sahabat yang ingin mengirimkan hadiah. Kami akan dengan senang hati menerimanya.</p>
           </div>
-          <div className="open-button">
+          <div className={`open-button ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "550ms" }}>
             <button
               name="botan-button"
               className="botan-button"
@@ -72,7 +105,7 @@ export default function BotanGift({ invitation }) {
 
       <div className="modals">
         {giftModalState && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4" onClick={() => setGiftModalState(false)}>
+          <div className={`modal-overlay ${showModal ? 'active' : ''}`} onClick={closeGiftModal}>
             <div className="gift-modal bg-[#efeae4] rounded-[1.875rem] w-full" onClick={(e) => e.stopPropagation()}>
               <div className="modal-content">
                 <div className="modal-header">
@@ -80,7 +113,7 @@ export default function BotanGift({ invitation }) {
                     <div className="gift-bank">
                       <img src={fetchGiftImage(firstGift.providerName)} alt="gift-icon" />
                     </div>
-                    <div className="close-modal-button" onClick={() => setGiftModalState(false)}>
+                    <div className="close-modal-button" onClick={closeGiftModal}>
                       <img src="/themes/botan/component/close-modal.svg" alt="close-modal-icon" />
                     </div>
                   </div>

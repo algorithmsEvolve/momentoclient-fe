@@ -30,6 +30,13 @@ export default function BotanTheme({ invitation, guest }) {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    if (!isOpened) return;
+
+    // All components have been migrated to use local IntersectionObservers for animations.
+    // Global observer for [data-aos] is no longer needed.
+  }, [isOpened]);
+
   const openInvitation = () => {
     setIsOpened(true);
     setMusicRequested(true);

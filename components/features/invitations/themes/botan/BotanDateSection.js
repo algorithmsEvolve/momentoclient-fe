@@ -89,17 +89,17 @@ export default function BotanDateSection({ invitation }) {
             </div>
           )}
 
-          <div className="hidden md:flex bird-decorations">
-            <div className={`birds-left ${isVisible ? "animate-fade-right" : "opacity-0"}`} style={{ animationDelay: "500ms" }}>
-              <img src="/themes/botan/date/decor-side.png" alt="birds-left" />
-            </div>
-            <div className={`birds-right ${isVisible ? "animate-fade-left" : "opacity-0"}`} style={{ animationDelay: "250ms" }}>
-              <img src="/themes/botan/date/decor-side.png" alt="birds-right" />
-            </div>
-          </div>
-
           {receptionDate && (
             <div className="reception">
+              <div className="hidden md:flex bird-decorations">
+                <div className={`birds-left ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "300ms" }}>
+                  <img src="/themes/botan/date/decor-side.png" alt="birds-left" />
+                </div>
+                <div className={`birds-right ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "300ms" }}>
+                  <img src="/themes/botan/date/decor-side.png" alt="birds-right" />
+                </div>
+              </div>
+
               <div className={`title ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "600ms" }}>
                 <p>{reception?.title || "Resepsi"}</p>
               </div>

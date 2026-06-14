@@ -1,14 +1,38 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   createInvitationWish,
   getInvitationWishes,
 } from "@/lib/api/invitations";
 
 export default function BotanWishSection({ invitation, guest }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
   const [loading, setLoading] = useState(true);
   const [submitLoading, setSubmitLoading] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
   const [message, setMessage] = useState("");
   const [name, setName] = useState(guest?.name || "");
   const [wishes, setWishes] = useState([]);
@@ -69,24 +93,32 @@ export default function BotanWishSection({ invitation, guest }) {
   const formValidated = name.length > 0 && message.length > 0 && message.length <= 400;
 
   return (
-    <div id="wish" name="wish-section" className={withoutGift ? "without-gift" : ""}>
+    <div id="wish" name="wish-section" ref={sectionRef} className={withoutGift ? "without-gift" : ""}>
       <div className="decorations">
-        <img className="hidden md:block decor-top-left" src="/themes/botan/wish/decor-top-left.png" alt="decor-top-left" />
-        <img className="hidden md:block decor-bottom" src="/themes/botan/wish/decor-bottom.png" alt="decor-bottom" />
-        <img className="md:hidden decor-mobile-top" src="/themes/botan/wish/mobile-decor-top.png" alt="decor-top" />
-        <img className="md:hidden decor-mobile-bottom-right" src="/themes/botan/wish/mobile-decor-bottom.png" alt="decor-bottom" />
+        <div className="hidden md:block decor-top-left">
+          <img className={`${isVisible ? "animate-zoom-in" : "opacity-0"}`} src="/themes/botan/wish/decor-top-left.png" alt="decor-top-left" style={{ animationDelay: "250ms" }} />
+        </div>
+        <div className="hidden md:block decor-bottom">
+          <img className={`${isVisible ? "animate-zoom-in" : "opacity-0"}`} src="/themes/botan/wish/decor-bottom.png" alt="decor-bottom" style={{ animationDelay: "250ms" }} />
+        </div>
+        <div className="md:hidden decor-mobile-top">
+          <img className={`${isVisible ? "animate-zoom-in" : "opacity-0"}`} src="/themes/botan/wish/mobile-decor-top.png" alt="decor-top" style={{ animationDelay: "250ms" }} />
+        </div>
+        <div className="md:hidden decor-mobile-bottom-right">
+          <img className={`${isVisible ? "animate-zoom-in" : "opacity-0"}`} src="/themes/botan/wish/mobile-decor-bottom.png" alt="decor-bottom" style={{ animationDelay: "250ms" }} />
+        </div>
       </div>
 
       <div className="content">
         <div className="view-content">
-          <div className="title">
+          <div className={`title ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "250ms" }}>
             <p>Ucapan dan Doa</p>
           </div>
 
           <div className="md:hidden bottom-border"></div>
 
           <div className="wish-wrapper">
-            <div className="left">
+            <div className={`left ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "350ms" }}>
               <div className="wishes">
                 {loading ? (
                   <div className="no-data"><p>Memuat ucapan...</p></div>
@@ -116,7 +148,7 @@ export default function BotanWishSection({ invitation, guest }) {
               </div>
             </div>
 
-            <div className="right">
+            <div className={`right ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "450ms" }}>
               <div className="form-wish">
                 <form onSubmit={handleSubmit} style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
                   <div className="name-input">

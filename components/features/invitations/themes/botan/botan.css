@@ -43,6 +43,12 @@
   font-family: "opensansSB";
   src: url("/fonts/opensans/OpenSans-SemiBold.ttf");
 }
+.botan-theme button,
+.botan-theme .botan-button,
+.botan-theme .close-modal-button {
+  cursor: pointer;
+}
+
 @font-face {
   font-family: "antsvalley";
   src: url("/fonts/antsvalley/AntsValley.otf");
@@ -1646,6 +1652,11 @@
   margin: 0 auto;
 }
 
+.botan-theme [name="gallery-section"] .content {
+  position: relative;
+  z-index: 2;
+}
+
 .botan-theme [name="gallery-section"] .content .view-content .logo {
   display: flex;
   justify-content: center;
@@ -1658,26 +1669,41 @@
   object-position: center;
 }
 
-.botan-theme [name="gallery-section"] .decorations img {
+.botan-theme [name="gallery-section"] .decorations {
+  position: absolute;
+  inset: 0;
   pointer-events: none;
+  z-index: 0;
+}
+
+.botan-theme [name="gallery-section"] .decorations .top-left img,
+.botan-theme [name="gallery-section"] .decorations .top-left picture {
+  position: absolute;
+  left: 0;
+  top: -14rem;
+  width: 32%;
+  max-width: 40rem;
+  object-fit: contain;
+  z-index: 1;
 }
 
 .botan-theme [name="gallery-section"] .decorations .top-left img {
+  width: 100%;
+}
+
+.botan-theme [name="gallery-section"] .decorations .top-right img,
+.botan-theme [name="gallery-section"] .decorations .top-right picture {
   position: absolute;
-  left: 0;
-  top: -28rem;
-  width: 33%;
+  right: 0;
+  top: -14rem;
+  width: 32%;
+  max-width: 40rem;
   object-fit: contain;
-  z-index: -1;
+  z-index: 1;
 }
 
 .botan-theme [name="gallery-section"] .decorations .top-right img {
-  position: absolute;
-  right: 0;
-  top: -28rem;
-  width: 33%;
-  object-fit: contain;
-  z-index: -1;
+  width: 100%;
 }
 
 .botan-theme .botan-shell#wishes {
@@ -1696,14 +1722,81 @@
   padding-bottom: 10.67rem;
 }
 
-.botan-theme .botan-floating-menu {
+@keyframes zoomAndBubbling {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bubblingOnly {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.botan-theme [name="botan-floating-menu"] {
   position: fixed;
-  inset-inline: 0;
-  bottom: 0;
-  z-index: 50;
-  border-top: 1px solid var(--botan-border);
-  background: rgba(252, 248, 241, 0.92);
-  backdrop-filter: blur(14px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  bottom: 3rem;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+}
+
+.botan-theme [name="botan-floating-menu"].show {
+  opacity: 1;
+  visibility: visible;
+  animation: 0.5s zoomAndBubbling forwards;
+}
+
+.botan-theme [name="botan-floating-menu"] .menus {
+  padding: 0.62rem 1.56rem;
+  justify-content: center;
+  display: flex;
+  width: fit-content;
+  gap: 0 1.25rem;
+  border-radius: 1.875rem;
+  background: #efeae4;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.15);
+}
+
+.botan-theme [name="botan-floating-menu"] .menus .menu {
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.botan-theme [name="botan-floating-menu"] .menus .menu img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.botan-theme [name="botan-floating-menu"] .menus .menu.active {
+  animation: 0.5s bubblingOnly forwards;
 }
 
 @media (max-width: 600px) {
@@ -2881,6 +2974,7 @@
 
 .botan-theme [name="date-section"] .content .view-content {
   text-align: center;
+  position: relative;
 }
 
 .botan-theme [name="date-section"] .content .view-content .akad .date,
@@ -3079,18 +3173,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5%;
-  margin: 0.5rem 0;
+  padding: 0;
+  margin: 0;
   pointer-events: none;
   width: 100%;
   position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 
 .botan-theme [name="date-section"] .content .view-content .bird-decorations .birds-left img,
 .botan-theme [name="date-section"] .content .view-content .bird-decorations .birds-right img {
-  width: 23rem;
+  width: 18rem;
   height: auto;
   object-fit: contain;
+}
+
+.botan-theme [name="date-section"] .content .view-content .bird-decorations .birds-left {
+  margin-left: -5%;
+}
+
+.botan-theme [name="date-section"] .content .view-content .bird-decorations .birds-right {
+  margin-right: -5%;
 }
 
 .botan-theme [name="date-section"] .content .view-content .bird-decorations .birds-right img {
@@ -3485,7 +3590,8 @@
     object-fit: contain;
   }
 
-  .botan-theme [name="gallery-section"] .decorations .top-left img {
+  .botan-theme [name="gallery-section"] .decorations .top-left img,
+  .botan-theme [name="gallery-section"] .decorations .top-left picture {
     position: absolute;
     left: 0;
     top: 0;
@@ -3494,7 +3600,8 @@
     z-index: 2;
   }
 
-  .botan-theme [name="gallery-section"] .decorations .top-right img {
+  .botan-theme [name="gallery-section"] .decorations .top-right img,
+  .botan-theme [name="gallery-section"] .decorations .top-right picture {
     position: absolute;
     right: 0;
     top: 0;
@@ -3515,6 +3622,7 @@
 .botan-theme #wish {
     padding-top: 2.5rem;
     position: relative;
+    z-index: 10;
     max-width: 150rem;
     margin: 0 auto 15rem auto;
     border-radius: 0rem 0rem 62.5rem 62.5rem;
@@ -3710,10 +3818,10 @@
 @media (max-width: 600px) {
     .botan-theme [name=wish-section] {
         background: #EFEAE4;
-        padding-top: 5rem;
+        padding-top: 5rem !important;
         padding-bottom: 35%;
         border-radius: 0 0 18.75rem 18.75rem;
-        margin-bottom: 1.62rem;
+        margin-bottom: 3rem !important;
     }
 
     .botan-theme [name=wish-section] .content {
@@ -3900,9 +4008,37 @@
     color: #fff;
 }
 
+.botan-theme .modals .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.botan-theme .modals .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 .botan-theme .gift-modal {
     max-width: 42.3125rem;
     margin: auto;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+.botan-theme .modals .modal-overlay.active .gift-modal {
+    transform: scale(1);
+    opacity: 1;
 }
 
 .botan-theme .gift-modal .modal-content {
@@ -4029,7 +4165,7 @@
 
 @media (max-width: 600px) {
     .botan-theme #gift {
-        padding: 5rem 0 3rem 0;
+        padding: 2.38rem 0 3rem 0;
     }
 
     .botan-theme [name=gift-section] .content .view-content {
@@ -4290,3 +4426,63 @@
         z-index: 11;
     }
 }
+
+/* AOS-like Scroll Animations */
+[data-aos] {
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: 0.8s;
+  transition-timing-function: ease;
+  pointer-events: none;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Zoom In */
+[data-aos="zoom-in"] {
+  transform: scale(0.6);
+}
+[data-aos="zoom-in"].aos-animate {
+  transform: scale(1);
+}
+
+/* Zoom In Left */
+[data-aos="zoom-in-left"] {
+  transform: scale(0.6) translateX(100px);
+}
+[data-aos="zoom-in-left"].aos-animate {
+  transform: scale(1) translateX(0);
+}
+
+/* Fade Right */
+[data-aos="fade-right"] {
+  transform: translateX(-100px);
+}
+[data-aos="fade-right"].aos-animate {
+  transform: translateX(0);
+}
+
+/* Fade Left */
+[data-aos="fade-left"] {
+  transform: translateX(100px);
+}
+[data-aos="fade-left"].aos-animate {
+  transform: translateX(0);
+}
+
+/* Fade In Up */
+[data-aos="fade-in-up"] {
+  transform: translateY(100px);
+}
+[data-aos="fade-in-up"].aos-animate {
+  transform: translateY(0);
+}
+
+/* Delays */
+[data-aos-delay="250"] { transition-delay: 250ms; }
+[data-aos-delay="350"] { transition-delay: 350ms; }
+[data-aos-delay="450"] { transition-delay: 450ms; }
+[data-aos-delay="550"] { transition-delay: 550ms; }

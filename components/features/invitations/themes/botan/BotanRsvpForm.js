@@ -1,14 +1,38 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   createInvitationRsvp,
   getInvitationGuestRsvp,
 } from "@/lib/api/invitations";
 
 export default function BotanRsvpForm({ invitation, guest }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
   const [rsvpChanging, setRsvpChanging] = useState(false);
   const [error, setError] = useState("");
   const [form, setForm] = useState({
@@ -78,10 +102,10 @@ export default function BotanRsvpForm({ invitation, guest }) {
   };
 
   return (
-    <div name="rsvp-section">
+    <div name="rsvp-section" ref={sectionRef}>
       <div className="content">
         <div className="view-content">
-          <div className="title">
+          <div className={`title ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "250ms" }}>
             <p>R S V P</p>
           </div>
 
@@ -106,7 +130,7 @@ export default function BotanRsvpForm({ invitation, guest }) {
             </>
           ) : (
             <form onSubmit={handleSubmit} style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <div className="desc">
+              <div className={`desc ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "350ms" }}>
                 {rsvpCaptionType == 1 ? (
                   <p>
                     Bpk/ Ibu/ Sdr. {isGroup ? "member dari " : ""}
@@ -120,7 +144,7 @@ export default function BotanRsvpForm({ invitation, guest }) {
                 )}
               </div>
 
-              <div className="rsvp-input-wrapper" style={{ width: '100%' }}>
+              <div className={`rsvp-input-wrapper ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ width: '100%', animationDelay: "450ms" }}>
                 <div className="rsvp-input-container">
                   {isGroup && (
                     <div className="group-member-input">
@@ -212,7 +236,7 @@ export default function BotanRsvpForm({ invitation, guest }) {
                 </div>
               )}
 
-              <div className="confirm-button">
+              <div className={`confirm-button ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "550ms" }}>
                 <button
                   type="submit"
                   name="botan-button"
@@ -229,13 +253,13 @@ export default function BotanRsvpForm({ invitation, guest }) {
       </div>
 
       <div className="decorations">
-        <div className="hidden md:block bottom-left">
+        <div className={`hidden md:block bottom-left ${isVisible ? "animate-fade-right" : "opacity-0"}`} style={{ animationDelay: "1000ms" }}>
           <img src="/themes/botan/rsvp/decor-bottom-left.png" alt="decor-bottom-left" />
         </div>
-        <div className="hidden md:block bottom-right">
+        <div className={`hidden md:block bottom-right ${isVisible ? "animate-fade-left" : "opacity-0"}`} style={{ animationDelay: "1000ms" }}>
           <img src="/themes/botan/rsvp/decor-bottom-right.png" alt="decor-bottom-right" />
         </div>
-        <div className="md:hidden top-right">
+        <div className={`md:hidden top-right ${isVisible ? "animate-zoom-slide-from-right" : "opacity-0"}`} style={{ animationDelay: "1000ms" }}>
           <img src="/themes/botan/rsvp/mobile-decor-top-right.png" alt="decor-top-right" />
         </div>
       </div>

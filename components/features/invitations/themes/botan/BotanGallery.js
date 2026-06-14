@@ -1,10 +1,12 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import Image from "next/image";
 import ImageViewer from "@/components/ui/ImageViewer";
 
 export default function BotanGallery({ invitation, galleryType }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
   const [flipped, setFlipped] = useState({
     first: false,
     second: false,
@@ -15,6 +17,28 @@ export default function BotanGallery({ invitation, galleryType }) {
   const [flipAll, setFlipAll] = useState(false);
   const [viewerOpen, setViewerOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const galleries = useMemo(() => {
     return Array.isArray(invitation?.galleries) ? invitation.galleries : [];
@@ -82,16 +106,16 @@ export default function BotanGallery({ invitation, galleryType }) {
   };
 
   return (
-    <div id="gallery" name="gallery-section">
+    <div id="gallery" name="gallery-section" ref={sectionRef}>
       <div className="content">
         <div className="view-content">
-          <div className="logo">
+          <div className={`logo ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "250ms" }}>
             <img src={invitation?.quote?.nickLogo || "/themes/botan/gallery/nick-logo.png"} alt="nick-logo" />
           </div>
 
           {galleryType === '4P1L' && galleries.length >= 5 && (
             <>
-              <div className="hidden md:flex galleries" name="gt-4P1L">
+              <div className={`hidden md:flex galleries ${isVisible ? "animate-zoom-in" : "opacity-0"}`} name="gt-4P1L" style={{ animationDelay: "350ms" }}>
                 <div className="left-image">
                   <div className="left-left">
                     {renderImage(0, "first-image", flipped.first)}
@@ -111,7 +135,7 @@ export default function BotanGallery({ invitation, galleryType }) {
                 </div>
               </div>
 
-              <div className="md:hidden mobile-galleries" name="gt-4P1L">
+              <div className={`md:hidden mobile-galleries ${isVisible ? "animate-zoom-in" : "opacity-0"}`} name="gt-4P1L" style={{ animationDelay: "350ms" }}>
                 <div className="top-image">
                   <div className="top-left">
                     {renderImage(0, "first-image", flipped.first)}
@@ -139,19 +163,19 @@ export default function BotanGallery({ invitation, galleryType }) {
 
       <div className="decorations">
         <div className="top-left">
-          <picture>
+          <picture className={`${isVisible ? "animate-zoom-slide-from-left" : "opacity-0"}`} style={{ animationDelay: "1000ms" }}>
             <source media="(min-width: 768px)" srcSet="/themes/botan/gallery/decor-top-left.png" />
             <img src="/themes/botan/gallery/mobile-decor-top-left.png" alt="decor-top-left" />
           </picture>
         </div>
         <div className="top-right">
-          <picture>
+          <picture className={`${isVisible ? "animate-zoom-slide-from-right" : "opacity-0"}`} style={{ animationDelay: "1000ms" }}>
             <source media="(min-width: 768px)" srcSet="/themes/botan/gallery/decor-top-right.png" />
             <img src="/themes/botan/gallery/mobile-decor-top-right.png" alt="decor-top-right" />
           </picture>
         </div>
         <div className="md:hidden back">
-          <img src="/themes/botan/gallery/mobile-decor-back.png" alt="decor-back" />
+          <img className={`${isVisible ? "animate-zoom-slide-from-bottom" : "opacity-0"}`} src="/themes/botan/gallery/mobile-decor-back.png" alt="decor-back" style={{ animationDelay: "1000ms" }} />
         </div>
       </div>
 
