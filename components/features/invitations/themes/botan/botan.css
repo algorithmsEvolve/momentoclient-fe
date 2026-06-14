@@ -297,6 +297,9 @@
   margin-top: 2.5rem;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .botan-theme
@@ -319,12 +322,35 @@
   .content
   .view-content
   .decorations
-  .decor-top-left
-  img {
+  .decor-top-left {
   width: 28.6%;
   position: absolute;
   top: 0;
   left: 0;
+  pointer-events: none;
+}
+
+.botan-theme
+  [name="location-section"]
+  .content
+  .view-content
+  .decorations
+  .decor-top-left
+  img {
+  width: 100%;
+}
+
+.botan-theme
+  [name="location-section"]
+  .content
+  .view-content
+  .decorations
+  .decor-top-right {
+  width: 25.8%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: none;
 }
 
 .botan-theme
@@ -334,10 +360,7 @@
   .decorations
   .decor-top-right
   img {
-  width: 25.8%;
-  position: absolute;
-  top: 0;
-  right: 0;
+  width: 100%;
 }
 
 @media (max-width: 600px) {
@@ -388,8 +411,7 @@
     .content
     .view-content
     .decorations
-    .decor-top-left
-    img {
+    .decor-top-left {
     width: 62.22%;
   }
 }
@@ -872,7 +894,346 @@
   }
 }
 
+
+
 /* --- BOTAN ANIMATIONS --- */
+
+.botan-theme [name="our-story-section"] {
+  background: #EFEAE4;
+  padding: 1.69rem 0 0 0;
+  position: relative;
+  z-index: 1;
+  max-width: 150rem;
+  margin: 0 auto;
+}
+
+.botan-theme [name="our-story-section"] .content {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content {
+  padding: 1.69rem 0;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .title p {
+  color: #66646F;
+  text-align: center;
+  font-family: "benguiatstdBook", serif;
+  font-size: 2.8125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories {
+  margin-top: 1.69rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 37rem;
+  overflow-y: auto;
+  box-sizing: content-box;
+  max-width: 100%;
+  margin: 1.69rem auto 0 auto;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 0.15rem rgba(0,0,0,0.3);
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories::-webkit-scrollbar-thumb {
+  background-color: #D0B6B5;
+  outline: 1px solid #D0B6B5;
+}
+.botan-theme [name="our-story-section"] .content .view-content .our-stories:has(.story-with-image) {
+  max-width: 78%;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 95%;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item:has(.story-with-image):nth-of-type(even) .story-with-image {
+  flex-direction: row-reverse;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item:has(.story-with-image):nth-of-type(even) .story-with-image .story-right {
+  padding-left: 1.88rem;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item .bridge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item .bridge img {
+  width: 2.5rem;
+  height: 7.5rem;
+  object-fit: cover;
+  object-position: top;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item .story-wrapper {
+  padding: 1.88rem;
+  background-image: url('/themes/botan/our-story/story-bg.png');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.9375rem;
+  min-width: 100%;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item .story-wrapper:has(.story-with-image) {
+  padding: unset;
+  height: 12.5rem;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item .story-wrapper .story-with-image {
+  display: flex;
+  gap: 0 1.25rem;
+  height: 100%;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item .story-wrapper .story-with-image .story-left .story-image {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item .story-wrapper .story-with-image .story-left .story-image img {
+  width: 24.125rem;
+  height: 12.5rem;
+  object-fit: cover;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item .story-wrapper .story-with-image .story-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.62rem 0;
+  padding: 1.25rem;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item .story-wrapper .story-title p {
+  text-align: left;
+  color: #FFF;
+  font-family: 'poppinsB', sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item .story-wrapper .story-desc p {
+  text-align: left;
+  color: #FFF;
+  font-family: 'poppinsR', sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item .story-wrapper .story-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item .story-wrapper .story-text .story-with-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.62rem 0;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item .story-wrapper .story-text .story-with-title .story-title p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsB', sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item .story-wrapper .story-text .story-with-title .story-desc p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsR', sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botan-theme [name="our-story-section"] .content .view-content .our-stories .story-item .story-wrapper .story-text p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsM', sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+@media (max-width: 600px) {
+  .botan-theme [name="our-story-section"] {
+    padding-top: 3.06rem;
+    padding-bottom: 1.61rem;
+    position: relative;
+  }
+  .botan-theme [name="our-story-section"] .content {
+    padding-top: 0;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .title {
+    margin-bottom: 1.56rem;
+    position: relative;
+    z-index: 12;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .title p {
+    font-size: 2rem;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories {
+    margin-top: 0;
+    display: unset;
+    height: unset;
+    overflow-y: unset;
+    box-sizing: unset;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories:has(.story-with-image) {
+    max-width: 100%;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item {
+    display: flex !important;
+    align-items: center;
+    width: 100% !important;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .bridge {
+    width: 12%;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .bridge img {
+    width: 100%;
+    height: unset !important;
+    object-fit: contain;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .bridge-dummy {
+    width: 12%;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .story-wrapper {
+    padding-left: 1.88rem;
+    padding-right: 1.88rem;
+    width: 76%;
+    height: 16.5rem;
+    background-image: url('/themes/botan/our-story/mobile-story-bg.png');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0.9375rem;
+    overflow: hidden;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .story-wrapper:has(.story-with-image) {
+    padding-left: 0;
+    padding-right: 0;
+    height: 25.0625rem;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .story-wrapper:has(.story-with-title) {
+    height: 17.5rem;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .story-wrapper .story-text {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .story-wrapper .story-text:has(.story-with-title) {
+    align-items: flex-start;
+    padding: 1.25rem;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .story-wrapper .story-text .story-with-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.62rem 0;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .story-wrapper .story-text .story-with-title .story-title p {
+    color: #FFF;
+    text-align: center;
+    font-family: 'poppinsB', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    line-height: normal;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .story-wrapper .story-text .story-with-title .story-desc p {
+    color: #FFF;
+    text-align: center;
+    font-family: 'poppinsR', sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .story-wrapper .story-text p {
+    color: #FFF;
+    text-align: center;
+    font-family: 'poppinsM', sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    line-height: normal;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .story-wrapper .story-with-image .story-image {
+    display: flex;
+    align-items: center;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .story-wrapper .story-with-image .story-image img {
+    width: 100%;
+    height: 9.375rem;
+    flex-shrink: 0;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .story-wrapper .story-with-image .story-content {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem 0;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .story-wrapper .story-with-image .story-content .story-title p {
+    color: #FFF;
+    text-align: center;
+    font-family: 'poppinsB', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    line-height: normal;
+  }
+  .botan-theme [name="our-story-section"] .content .view-content .our-stories .mobile-story-item .story-wrapper .story-with-image .story-content .story-desc p {
+    color: #FFF;
+    text-align: center;
+    font-family: 'poppinsR', sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .botan-theme [name="our-story-section"] .decorations img {
+    pointer-events: none;
+  }
+  .botan-theme [name="our-story-section"] .decorations .top-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 35.55%;
+    z-index: 11;
+  }
+  .botan-theme [name="our-story-section"] .decorations .top-left img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
 
 @keyframes rotationAndBubbling {
   0% {
@@ -1114,7 +1475,7 @@
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-color: var(--botan-bg);
   overflow-x: hidden;
 }
@@ -1296,7 +1657,7 @@
 
 @media (max-width: 600px) {
   .botan-theme {
-    background-attachment: scroll;
+    background-attachment: fixed;
   }
 
   .botan-theme .botan-shell {
@@ -2511,15 +2872,10 @@
 }
 
 .botan-theme [name="date-section"] .content .view-content .akad .date .month,
-.botan-theme
-  [name="date-section"]
-  .content
-  .view-content
-  .reception
-  .date
-  .month {
-  padding: 0;
-  height: 4.44rem;
+.botan-theme [name="date-section"] .content .view-content .reception .date .month {
+  padding: 0.5rem 0;
+  min-height: 4.44rem;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2613,51 +2969,30 @@
   line-height: normal;
 }
 
-.botan-theme [name="date-section"] .content .view-content .akad .date-icon img {
+.botan-theme [name="date-section"] .content .view-content .date-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.botan-theme [name="date-section"] .content .view-content .date-icon img {
   width: 3.125rem;
   height: 3.125rem;
   object-fit: contain;
-  object-position: top center;
 }
 
-.botan-theme [name="date-section"] .content .view-content .akad .title {
-  margin-top: 2.06rem;
-}
-
-.botan-theme [name="date-section"] .content .view-content .akad .title p {
-  color: #66646f;
-  text-align: center;
-  font-family: "benguiatstdBook", serif;
-  font-size: 2.8125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.botan-theme [name="date-section"] .content .view-content .akad .time {
-  margin-top: 2rem;
-}
-
-.botan-theme [name="date-section"] .content .view-content .akad .time p {
-  color: #66646f;
-  text-align: center;
-  font-family: "cinzel", serif;
-  font-size: 2rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 0.2rem;
-}
-
+.botan-theme [name="date-section"] .content .view-content .akad,
 .botan-theme [name="date-section"] .content .view-content .reception {
-  padding-top: 5.13rem;
   position: relative;
 }
 
+.botan-theme [name="date-section"] .content .view-content .akad .title,
 .botan-theme [name="date-section"] .content .view-content .reception .title {
-  margin-top: 2.06rem;
+  margin-top: 1rem;
 }
 
+.botan-theme [name="date-section"] .content .view-content .akad .title p,
 .botan-theme [name="date-section"] .content .view-content .reception .title p {
   color: #66646f;
   text-align: center;
@@ -2668,10 +3003,16 @@
   line-height: normal;
 }
 
+.botan-theme [name="date-section"] .content .view-content .reception {
+  padding-top: 5.13rem;
+}
+
+.botan-theme [name="date-section"] .content .view-content .akad .time,
 .botan-theme [name="date-section"] .content .view-content .reception .time {
   margin-top: 2rem;
 }
 
+.botan-theme [name="date-section"] .content .view-content .akad .time p,
 .botan-theme [name="date-section"] .content .view-content .reception .time p {
   color: #66646f;
   text-align: center;
@@ -2683,42 +3024,26 @@
   letter-spacing: 0.2rem;
 }
 
-.botan-theme
-  [name="date-section"]
-  .content
-  .view-content
-  .reception
-  .decorations
-  img {
+.botan-theme [name="date-section"] .content .view-content .bird-decorations {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  margin: 0.5rem 0;
   pointer-events: none;
+  width: 100%;
+  position: absolute;
 }
 
-.botan-theme
-  [name="date-section"]
-  .content
-  .view-content
-  .reception
-  .decorations
-  .decor-top-left
-  img {
-  width: 30%;
-  position: absolute;
-  top: 0;
-  left: -5%;
+.botan-theme [name="date-section"] .content .view-content .bird-decorations .birds-left img,
+.botan-theme [name="date-section"] .content .view-content .bird-decorations .birds-right img {
+  width: 23rem;
+  height: auto;
+  object-fit: contain;
 }
 
-.botan-theme
-  [name="date-section"]
-  .content
-  .view-content
-  .reception
-  .decorations
-  .decor-top-right
-  img {
-  width: 30%;
-  position: absolute;
-  top: 0;
-  right: -5%;
+.botan-theme [name="date-section"] .content .view-content .bird-decorations .birds-right img {
+  transform: scaleX(-1);
 }
 
 @media (max-width: 600px) {

@@ -98,10 +98,6 @@ export default function BotanOpening({ invitation }) {
               )}
             </div>
           </div>
-
-          <div className="bottom-icon animate-fade-up" style={{ animationDelay: "1.8s" }}>
-            <img src="/themes/botan/date/date-icon.svg" alt="date-icon" />
-          </div>
         </div>
       </div>
 

@@ -1,7 +1,35 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { formatInvitationDate, formatInvitationDay, formatInvitationTime } from "@/lib/invitations/date";
 
 export default function BotanDateSection({ invitation }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const akad = invitation?.opening?.akad;
   const reception = invitation?.opening?.reception;
 
@@ -23,18 +51,18 @@ export default function BotanDateSection({ invitation }) {
   const receptionDate = getParts(reception?.date);
 
   return (
-    <div id="time" name="date-section">
+    <div id="time" name="date-section" ref={sectionRef}>
       <div className="content">
         <div className="view-content">
+          <div className={`date-icon ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "200ms" }}>
+            <img src="/themes/botan/date/date-icon.svg" alt="date-icon" />
+          </div>
           {akadDate && (
             <div className="akad">
-              <div className="date-icon">
-                <img src="/themes/botan/date/date-icon.svg" alt="date-icon" />
-              </div>
-              <div className="title">
+              <div className={`title ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "300ms" }}>
                 <p>{akad?.title || "Akad Nikah"}</p>
               </div>
-              <div className="date">
+              <div className={`date ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "400ms" }}>
                 <div className="day">
                   <p>{akadDate.day}</p>
                 </div>
@@ -51,7 +79,7 @@ export default function BotanDateSection({ invitation }) {
                 </div>
               </div>
               {akad?.startTime && (
-                <div className="time">
+                <div className={`time ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "500ms" }}>
                   <p>
                     {formatInvitationTime(akad.startTime)}
                     {akad.endTime && ` - ${formatInvitationTime(akad.endTime)}`}
@@ -61,12 +89,21 @@ export default function BotanDateSection({ invitation }) {
             </div>
           )}
 
+          <div className="hidden md:flex bird-decorations">
+            <div className={`birds-left ${isVisible ? "animate-fade-right" : "opacity-0"}`} style={{ animationDelay: "500ms" }}>
+              <img src="/themes/botan/date/decor-side.png" alt="birds-left" />
+            </div>
+            <div className={`birds-right ${isVisible ? "animate-fade-left" : "opacity-0"}`} style={{ animationDelay: "250ms" }}>
+              <img src="/themes/botan/date/decor-side.png" alt="birds-right" />
+            </div>
+          </div>
+
           {receptionDate && (
             <div className="reception">
-              <div className="title">
+              <div className={`title ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "600ms" }}>
                 <p>{reception?.title || "Resepsi"}</p>
               </div>
-              <div className="date">
+              <div className={`date ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "700ms" }}>
                 <div className="day">
                   <p>{receptionDate.day}</p>
                 </div>
@@ -83,28 +120,20 @@ export default function BotanDateSection({ invitation }) {
                 </div>
               </div>
               {reception?.startTime && (
-                <div className="time">
+                <div className={`time ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "800ms" }}>
                   <p>
                     {formatInvitationTime(reception.startTime)}
                     {reception.endTime && ` - ${formatInvitationTime(reception.endTime)}`}
                   </p>
                 </div>
               )}
-              <div className="hidden md:block decorations">
-                <div className="decor-top-left">
-                  <img src="/themes/botan/date/decor-side.png" alt="decor-top-left" />
-                </div>
-                <div className="decor-top-right">
-                  <img src="/themes/botan/date/decor-side.png" alt="decor-top-right" />
-                </div>
-              </div>
             </div>
           )}
         </div>
       </div>
 
       <div className="md:hidden decorations">
-        <div className="top-right">
+        <div className={`top-right ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "300ms" }}>
           <img src="/themes/botan/date/mobile-decor-right.png" alt="decor-top-right" />
         </div>
       </div>
