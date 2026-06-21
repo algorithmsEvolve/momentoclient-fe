@@ -1,7 +1,21 @@
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import { formatInvitationCoverDate } from "@/lib/invitations/date";
 
 export default function BotanCover({ invitation, guest, onOpen, isOpened }) {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 600);
+    };
+    window.addEventListener("resize", handleResize);
+    const timerId = setTimeout(handleResize, 0);
+    return () => {
+      clearTimeout(timerId);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const brideName = invitation?.couple?.bride?.displayName || "Aira";
   const groomName = invitation?.couple?.groom?.displayName || "Bima";
   const coverDate =
@@ -69,31 +83,31 @@ export default function BotanCover({ invitation, guest, onOpen, isOpened }) {
 
       <div className="decorations">
         <div className="back animate-fade-up">
-          <picture>
-            <source media="(min-width: 601px)" srcSet="/themes/botan/cover/decor-back.png" />
-            <img src="/themes/botan/cover/mobile-decor-back.png" alt="decor-back" />
-          </picture>
+          <img
+            src={isDesktop ? "/themes/botan/cover/decor-back.png" : "/themes/botan/cover/mobile-decor-back.png"}
+            alt="decor-back"
+          />
         </div>
 
         <div className="back-left animate-zoom-in">
-          <picture>
-            <source media="(min-width: 601px)" srcSet="/themes/botan/cover/decor-back-left.png" />
-            <img src="/themes/botan/cover/mobile-decor-back-left.png" alt="decor-back-left" />
-          </picture>
+          <img
+            src={isDesktop ? "/themes/botan/cover/decor-back-left.png" : "/themes/botan/cover/mobile-decor-back-left.png"}
+            alt="decor-back-left"
+          />
         </div>
         
         <div className="bottom-left animate-fade-right">
-          <picture>
-            <source media="(min-width: 601px)" srcSet="/themes/botan/cover/decor-left.png" />
-            <img src="/themes/botan/cover/mobile-decor-left.png" alt="decor-bottom-left" />
-          </picture>
+          <img
+            src={isDesktop ? "/themes/botan/cover/decor-left.png" : "/themes/botan/cover/mobile-decor-left.png"}
+            alt="decor-bottom-left"
+          />
         </div>
 
         <div className="top-right animate-fade-left">
-          <picture>
-            <source media="(min-width: 601px)" srcSet="/themes/botan/cover/decor-right.png" />
-            <img src="/themes/botan/cover/mobile-decor-right.png" alt="decor-top-right" />
-          </picture>
+          <img
+            src={isDesktop ? "/themes/botan/cover/decor-right.png" : "/themes/botan/cover/mobile-decor-right.png"}
+            alt="decor-top-right"
+          />
         </div>
       </div>
     </div>

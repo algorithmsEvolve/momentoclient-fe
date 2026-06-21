@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePreloadProgress } from "@/lib/invitations/usePreloadProgress";
 import "./botan.css";
 import BotanPreloader from "@/components/features/invitations/themes/botan/BotanPreloader";
 import BotanCover from "@/components/features/invitations/themes/botan/BotanCover";
@@ -21,14 +22,9 @@ export default function BotanTheme({ invitation, guest }) {
   const [isOpened, setIsOpened] = useState(false);
   const [showCover, setShowCover] = useState(true);
   const [musicRequested, setMusicRequested] = useState(false);
-  const [preloading, setPreloading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setPreloading(false);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
+  const { progress, isDone } = usePreloadProgress(invitation, { minDuration: 1200 });
+  const preloading = !isDone;
 
   useEffect(() => {
     if (!isOpened) return;
@@ -60,7 +56,7 @@ export default function BotanTheme({ invitation, guest }) {
 
   return (
     <main className={`botan-theme ${hasGuest ? "guest" : ""}`}>
-      {preloading && <BotanPreloader />}
+      {preloading && <BotanPreloader progress={progress} />}
       
       {!preloading && showCover && (
         <BotanCover

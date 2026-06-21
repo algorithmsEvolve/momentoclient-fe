@@ -146,22 +146,21 @@ export default function BotanRsvpForm({ invitation, guest }) {
 
               <div className={`rsvp-input-wrapper ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ width: '100%', animationDelay: "450ms" }}>
                 <div className="rsvp-input-container">
-                  {isGroup && (
-                    <div className="group-member-input">
-                      <div className="label">
-                        <p>Nama</p>
-                      </div>
-                      <div name="input">
-                        <input
-                          className="botan-input"
-                          value={form.name}
-                          onChange={(e) => setForm({ ...form, name: e.target.value })}
-                          placeholder="Masukkan Nama Kamu..."
-                          data-testid="botan-rsvp-name"
-                        />
-                      </div>
+                  <div className="group-member-input">
+                    <div className="label">
+                      <p>Nama</p>
                     </div>
-                  )}
+                    <div name="input">
+                      <input
+                        className="botan-input"
+                        value={form.name}
+                        onChange={isGroup ? (e) => setForm({ ...form, name: e.target.value }) : undefined}
+                        placeholder="Masukkan Nama Kamu..."
+                        data-testid="botan-rsvp-name"
+                        readOnly={!isGroup}
+                      />
+                    </div>
+                  </div>
 
                   <div className="group-member-input">
                     <div className="label">

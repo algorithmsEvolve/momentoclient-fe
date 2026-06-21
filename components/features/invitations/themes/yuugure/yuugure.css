@@ -1,0 +1,4779 @@
+@font-face {
+  font-family: "poppinsR";
+  src: url("/fonts/poppins/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "poppinsSB";
+  src: url("/fonts/poppins/Poppins-SemiBold.ttf");
+}
+@font-face {
+  font-family: "poppinsM";
+  src: url("/fonts/poppins/Poppins-Medium.ttf");
+}
+@font-face {
+  font-family: "poppinsB";
+  src: url("/fonts/poppins/Poppins-Bold.ttf");
+}
+@font-face {
+  font-family: "opensansR";
+  src: url("/fonts/opensans/OpenSans-Regular.ttf");
+}
+@font-face {
+  font-family: "opensansB";
+  src: url("/fonts/opensans/OpenSans-Bold.ttf");
+}
+@font-face {
+  font-family: "opensansSB";
+  src: url("/fonts/opensans/OpenSans-SemiBold.ttf");
+}
+@font-face {
+  font-family: "antsvalley";
+  src: url("/fonts/antsvalley/AntsValley.otf");
+}
+@font-face {
+  font-family: "dancingscript";
+  src: url("/fonts/dancing-script/dancing-script.ttf");
+}
+@font-face {
+  font-family: "cinzel";
+  src: url("/fonts/cinzel/cinzel.ttf");
+}
+@font-face {
+  font-family: "waterbrush";
+  src: url("/fonts/water-brush/WaterBrush-Regular.ttf");
+}
+
+/* Yuugure Theme Animations */
+.yuugure-theme .animate-fade-up {
+  animation: yuugure-fade-up 1.5s ease-out both;
+}
+.yuugure-theme .animate-fade-down {
+  animation: yuugure-fade-down 1.5s ease-out both;
+}
+.yuugure-theme .animate-fade-right {
+  animation: yuugure-fade-right 1.5s ease-out both;
+}
+.yuugure-theme .animate-fade-left {
+  animation: yuugure-fade-left 1.5s ease-out both;
+}
+.yuugure-theme .animate-fade-in {
+  animation: yuugure-fade-in 1.5s ease-out both;
+}
+.yuugure-theme .animate-zoom-in {
+  animation: yuugure-zoom-in 1.5s ease-out both;
+}
+.yuugure-theme .animate-zoom-in-left {
+  animation: yuugure-zoom-in-left 1.5s ease-out both;
+}
+.yuugure-theme .animate-zoom-slide-from-top {
+  animation: yuugure-zoom-slide-from-top 1.5s ease-out both;
+}
+.yuugure-theme .animate-zoom-slide-from-bottom {
+  animation: yuugure-zoom-slide-from-bottom 1.5s ease-out both;
+}
+.yuugure-theme .animate-zoom-slide-from-left {
+  animation: yuugure-zoom-slide-from-left 1.5s ease-out both;
+}
+.yuugure-theme .animate-zoom-slide-from-right {
+  animation: yuugure-zoom-slide-from-right 1.5s ease-out both;
+}
+
+@keyframes yuugure-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes yuugure-fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes yuugure-fade-right {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes yuugure-fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes yuugure-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes yuugure-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes yuugure-zoom-in-left {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+@keyframes yuugure-zoom-slide-from-top {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes yuugure-zoom-slide-from-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes yuugure-zoom-slide-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+@keyframes yuugure-zoom-slide-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px) scale(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+html:has([name=yuugure-theme]) ::-webkit-scrollbar {
+  width: 0.25rem;
+}
+html:has([name=yuugure-theme]) ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 0.15rem rgba(0, 0, 0, 0.3);
+}
+html:has([name=yuugure-theme]) ::-webkit-scrollbar-thumb {
+  background-color: #D0B6B5;
+  outline: 1px solid #D0B6B5;
+}
+html:has([name=yuugure-theme]) .swal2-container .swal2-header {
+  display: none !important;
+}
+html:has([name=yuugure-theme]) .swal2-container .swal2-content .alert-icon {
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  animation: zoomAndBubbling 0.75s;
+}
+html:has([name=yuugure-theme]) .swal2-container .swal2-content .alert-title {
+  color: #64564C;
+  font-family: "poppinsM";
+}
+html:has([name=yuugure-theme]) .swal2-container .swal2-content .alert-body {
+  margin-top: 1rem;
+  color: #64564C;
+  font-family: "poppinsR";
+}
+html:has([name=yuugure-theme]) .swal2-container .swal2-content .alert-body.alert-fail {
+  margin-top: 0;
+}
+html:has([name=yuugure-theme]) .swal2-container .swal2-actions button {
+  padding: 0.5rem 1.5rem !important;
+  border-radius: 1.875rem !important;
+  background-color: #64564C !important;
+}
+html:has([name=yuugure-theme]) .swal2-container .swal2-actions button .alert-confirm-button {
+  color: #fff;
+  font-family: "poppinsM";
+}
+html:has([name=yuugure-theme]) .swal2-container .swal2-actions button:focus {
+  box-shadow: unset !important;
+}
+
+[name=yuugure-theme] {
+  background-image: url("/themes/yuugure/global/background-desktop.png");
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+[name=yuugure-theme] * {
+  font-family: "poppinsR";
+}
+
+.mobile [name=yuugure-theme]:before {
+  content: "";
+  background-image: url("/themes/yuugure/global/background-mobile.png");
+  background-attachment: initial;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mobile [name=yuugure-button] .label p {
+  font-size: 0.75rem;
+}
+
+[name=yuugure-button] {
+  padding: 0.94rem 4.87rem;
+  display: flex;
+  align-items: center;
+  gap: 0 0.94rem;
+  border-radius: 1.875rem;
+  background: #64564C;
+  transition: 0.5s;
+}
+[name=yuugure-button].disabled, [name=yuugure-button].loading {
+  opacity: 0.8;
+  pointer-events: none;
+}
+[name=yuugure-button]:hover {
+  box-shadow: #D0B6B5 0px 0px 17px 0px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+[name=yuugure-button] .icon {
+  display: flex;
+  align-items: center;
+}
+[name=yuugure-button] .icon img {
+  width: 1.875rem;
+}
+[name=yuugure-button]:not(:has(.icon)) {
+  justify-content: center;
+}
+[name=yuugure-button] .label {
+  display: flex;
+  gap: 0 0.5rem;
+  align-items: center;
+}
+[name=yuugure-button] .label p {
+  color: #FFF;
+  font-family: "poppinsM";
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-button].white {
+  background: #FFF;
+}
+[name=yuugure-button].white .label p {
+  color: #D0B6B5;
+}
+
+.flip-image.image-wrapper {
+  transform-style: preserve-3d;
+  position: relative;
+}
+.flip-image.image-wrapper:not(.flipped) {
+  animation-name: reverseFlipImage;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+.flip-image.flipped {
+  animation-name: flipImage;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+.flip-image .front, .flip-image .back {
+  width: 100%;
+  height: inherit;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.flip-image .front {
+  z-index: 2;
+  transform: rotateY(0deg);
+  height: 100%;
+}
+.flip-image .back {
+  height: 100%;
+  width: 100%;
+  transform: rotateY(180deg);
+}
+
+[name=yuugure-floating-menu] {
+  position: fixed;
+}
+[name=yuugure-floating-menu].show {
+  animation: 0.5s zoomAndBubbling forwards;
+  bottom: 3rem;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+}
+[name=yuugure-floating-menu].show .menus {
+  padding: 0.62rem 1.56rem;
+  justify-content: center;
+  display: flex;
+  width: fit-content;
+  gap: 0 1.25rem;
+  border-radius: 1.875rem;
+  background: #F7E9E1;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.15);
+}
+[name=yuugure-floating-menu].show .menus .menu {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+[name=yuugure-floating-menu].show .menus .menu img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+[name=yuugure-floating-menu].show .menus .menu.active {
+  animation: 0.5s bubblingOnly forwards;
+}
+
+[name=gt-4P1L].galleries {
+  margin-top: 2.12rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 0 0.4rem;
+  width: 100%;
+  height: 28.125rem;
+}
+[name=gt-4P1L].galleries img {
+  transition: 0.25s;
+  border-radius: 0.625rem;
+}
+[name=gt-4P1L].galleries img:hover {
+  transform: scale(1.02);
+  transition: 0.25s;
+  cursor: zoom-in;
+}
+[name=gt-4P1L].galleries .left-image {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  gap: 0 0.45rem;
+}
+[name=gt-4P1L].galleries .left-image .left-left {
+  width: 60%;
+  height: 100%;
+}
+[name=gt-4P1L].galleries .left-image .left-left .first-image {
+  width: 100%;
+  height: 100%;
+}
+[name=gt-4P1L].galleries .left-image .left-left .first-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+[name=gt-4P1L].galleries .left-image .left-right {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem 0;
+}
+[name=gt-4P1L].galleries .left-image .left-right .second-image, [name=gt-4P1L].galleries .left-image .left-right .third-image {
+  width: 100%;
+}
+[name=gt-4P1L].galleries .left-image .left-right .second-image img, [name=gt-4P1L].galleries .left-image .left-right .third-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+[name=gt-4P1L].galleries .left-image .left-right .second-image {
+  height: 32%;
+}
+[name=gt-4P1L].galleries .left-image .left-right .third-image {
+  height: 68%;
+}
+[name=gt-4P1L].galleries .right-image {
+  width: 55%;
+  height: 100%;
+  display: flex;
+  gap: 0 0.45rem;
+}
+[name=gt-4P1L].galleries .right-image .right-left, [name=gt-4P1L].galleries .right-image .right-right {
+  width: 100%;
+  height: 100%;
+}
+[name=gt-4P1L].galleries .right-image .right-left .fourth-image, [name=gt-4P1L].galleries .right-image .right-left .fifth-image, [name=gt-4P1L].galleries .right-image .right-right .fourth-image, [name=gt-4P1L].galleries .right-image .right-right .fifth-image {
+  width: 100%;
+  height: 100%;
+}
+[name=gt-4P1L].galleries .right-image .right-left .fourth-image img, [name=gt-4P1L].galleries .right-image .right-left .fifth-image img, [name=gt-4P1L].galleries .right-image .right-right .fourth-image img, [name=gt-4P1L].galleries .right-image .right-right .fifth-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+[name=gt-4P1L].mobile-galleries {
+  margin-top: 3.33rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.37rem 0;
+  padding-left: 0.94rem;
+  padding-right: 0.94rem;
+}
+[name=gt-4P1L].mobile-galleries img {
+  transition: 0.25s;
+  border-radius: 0.625rem;
+}
+[name=gt-4P1L].mobile-galleries img:hover {
+  transform: scale(1.02);
+  transition: 0.25s;
+  cursor: zoom-in;
+}
+[name=gt-4P1L].mobile-galleries .top-image {
+  display: flex;
+  gap: 0 0.38rem;
+}
+[name=gt-4P1L].mobile-galleries .top-image .top-left, [name=gt-4P1L].mobile-galleries .top-image .top-right {
+  height: 14.5625rem;
+  width: 100%;
+}
+[name=gt-4P1L].mobile-galleries .top-image .top-left .first-image, [name=gt-4P1L].mobile-galleries .top-image .top-left .second-image, [name=gt-4P1L].mobile-galleries .top-image .top-right .first-image, [name=gt-4P1L].mobile-galleries .top-image .top-right .second-image {
+  width: 100%;
+  height: 100%;
+}
+[name=gt-4P1L].mobile-galleries .top-image .top-left .first-image img, [name=gt-4P1L].mobile-galleries .top-image .top-left .second-image img, [name=gt-4P1L].mobile-galleries .top-image .top-right .first-image img, [name=gt-4P1L].mobile-galleries .top-image .top-right .second-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+[name=gt-4P1L].mobile-galleries .middle-image {
+  height: 13.8125rem;
+  width: 100%;
+}
+[name=gt-4P1L].mobile-galleries .middle-image .third-image {
+  width: 100%;
+  height: 100%;
+}
+[name=gt-4P1L].mobile-galleries .middle-image .third-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+[name=gt-4P1L].mobile-galleries .bottom-image {
+  display: flex;
+  gap: 0 0.38rem;
+}
+[name=gt-4P1L].mobile-galleries .bottom-image .bottom-left, [name=gt-4P1L].mobile-galleries .bottom-image .bottom-right {
+  height: 14.5625rem;
+  width: 100%;
+}
+[name=gt-4P1L].mobile-galleries .bottom-image .bottom-left .fourth-image, [name=gt-4P1L].mobile-galleries .bottom-image .bottom-left .fifth-image, [name=gt-4P1L].mobile-galleries .bottom-image .bottom-right .fourth-image, [name=gt-4P1L].mobile-galleries .bottom-image .bottom-right .fifth-image {
+  width: 100%;
+  height: 100%;
+}
+[name=gt-4P1L].mobile-galleries .bottom-image .bottom-left .fourth-image img, [name=gt-4P1L].mobile-galleries .bottom-image .bottom-left .fifth-image img, [name=gt-4P1L].mobile-galleries .bottom-image .bottom-right .fourth-image img, [name=gt-4P1L].mobile-galleries .bottom-image .bottom-right .fifth-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+[name=gt-5P0L].galleries {
+  margin-top: 2.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 0 0.4rem;
+  width: 100%;
+  height: 28.125rem;
+}
+[name=gt-5P0L].galleries img {
+  transition: 0.25s;
+  border-radius: 0.625rem;
+}
+[name=gt-5P0L].galleries img:hover {
+  transform: scale(1.02);
+  transition: 0.25s;
+  cursor: zoom-in;
+}
+[name=gt-5P0L].galleries .left-image {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  gap: 0 0.45rem;
+}
+[name=gt-5P0L].galleries .left-image .left-left {
+  width: 65%;
+  height: 100%;
+}
+[name=gt-5P0L].galleries .left-image .left-left .first-image {
+  width: 100%;
+  height: 100%;
+}
+[name=gt-5P0L].galleries .left-image .left-left .first-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+[name=gt-5P0L].galleries .left-image .left-right {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem 0;
+}
+[name=gt-5P0L].galleries .left-image .left-right .second-image, [name=gt-5P0L].galleries .left-image .left-right .third-image {
+  width: 100%;
+}
+[name=gt-5P0L].galleries .left-image .left-right .second-image img, [name=gt-5P0L].galleries .left-image .left-right .third-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+[name=gt-5P0L].galleries .left-image .left-right .second-image {
+  height: 50%;
+}
+[name=gt-5P0L].galleries .left-image .left-right .third-image {
+  height: 50%;
+}
+[name=gt-5P0L].galleries .right-image {
+  width: 55%;
+  height: 100%;
+  display: flex;
+  gap: 0 0.45rem;
+}
+[name=gt-5P0L].galleries .right-image .right-left, [name=gt-5P0L].galleries .right-image .right-right {
+  width: 100%;
+  height: 100%;
+}
+[name=gt-5P0L].galleries .right-image .right-left .fourth-image, [name=gt-5P0L].galleries .right-image .right-left .fifth-image, [name=gt-5P0L].galleries .right-image .right-right .fourth-image, [name=gt-5P0L].galleries .right-image .right-right .fifth-image {
+  width: 100%;
+  height: 100%;
+}
+[name=gt-5P0L].galleries .right-image .right-left .fourth-image img, [name=gt-5P0L].galleries .right-image .right-left .fifth-image img, [name=gt-5P0L].galleries .right-image .right-right .fourth-image img, [name=gt-5P0L].galleries .right-image .right-right .fifth-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+[name=gt-5P0L].mobile-galleries {
+  margin-top: 2.58rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.37rem 0;
+  padding-left: 0.94rem;
+  padding-right: 0.94rem;
+}
+[name=gt-5P0L].mobile-galleries img {
+  transition: 0.25s;
+  border-radius: 0.625rem;
+}
+[name=gt-5P0L].mobile-galleries img:hover {
+  transform: scale(1.02);
+  transition: 0.25s;
+  cursor: zoom-in;
+}
+[name=gt-5P0L].mobile-galleries .top-image {
+  display: flex;
+  gap: 0 0.38rem;
+}
+[name=gt-5P0L].mobile-galleries .top-image .top-left, [name=gt-5P0L].mobile-galleries .top-image .top-right {
+  height: 14.5625rem;
+  width: 100%;
+}
+[name=gt-5P0L].mobile-galleries .top-image .top-left .first-image, [name=gt-5P0L].mobile-galleries .top-image .top-left .second-image, [name=gt-5P0L].mobile-galleries .top-image .top-right .first-image, [name=gt-5P0L].mobile-galleries .top-image .top-right .second-image {
+  width: 100%;
+  height: 100%;
+}
+[name=gt-5P0L].mobile-galleries .top-image .top-left .first-image img, [name=gt-5P0L].mobile-galleries .top-image .top-left .second-image img, [name=gt-5P0L].mobile-galleries .top-image .top-right .first-image img, [name=gt-5P0L].mobile-galleries .top-image .top-right .second-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+[name=gt-5P0L].mobile-galleries .middle-image {
+  height: 29.688rem;
+  width: 100%;
+}
+[name=gt-5P0L].mobile-galleries .middle-image .third-image {
+  width: 100%;
+  height: 100%;
+}
+[name=gt-5P0L].mobile-galleries .middle-image .third-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+[name=gt-5P0L].mobile-galleries .bottom-image {
+  display: flex;
+  gap: 0 0.38rem;
+}
+[name=gt-5P0L].mobile-galleries .bottom-image .bottom-left, [name=gt-5P0L].mobile-galleries .bottom-image .bottom-right {
+  height: 14.5625rem;
+  width: 100%;
+}
+[name=gt-5P0L].mobile-galleries .bottom-image .bottom-left .fourth-image, [name=gt-5P0L].mobile-galleries .bottom-image .bottom-left .fifth-image, [name=gt-5P0L].mobile-galleries .bottom-image .bottom-right .fourth-image, [name=gt-5P0L].mobile-galleries .bottom-image .bottom-right .fifth-image {
+  width: 100%;
+  height: 100%;
+}
+[name=gt-5P0L].mobile-galleries .bottom-image .bottom-left .fourth-image img, [name=gt-5P0L].mobile-galleries .bottom-image .bottom-left .fifth-image img, [name=gt-5P0L].mobile-galleries .bottom-image .bottom-right .fourth-image img, [name=gt-5P0L].mobile-galleries .bottom-image .bottom-right .fifth-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+[name=yuugure-theme] [name=input] {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0.9375rem;
+  border: 2px solid rgba(144, 138, 113, 0.2549019608);
+  background: #FFF;
+  transition: 0.5s;
+  padding: 0 1.25rem 0 1.25rem;
+  max-height: 2.8125rem;
+}
+[name=yuugure-theme] [name=input].textarea {
+  max-height: unset;
+  padding: 0 0.5rem 0.5rem 1.25rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+[name=yuugure-theme] [name=input].textarea .input-content textarea {
+  background: transparent;
+  border: 0px solid transparent;
+  padding: 0.75rem 0.25rem 0.25rem 0;
+  width: 100%;
+  color: #908A71;
+  font-family: "opensansR";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  resize: none;
+}
+[name=yuugure-theme] [name=input].textarea .input-content textarea:focus {
+  outline: none;
+}
+[name=yuugure-theme] [name=input].textarea .input-content textarea::placeholder {
+  color: #B1B1B1;
+}
+[name=yuugure-theme] [name=input].textarea:has(textarea:focus) {
+  border-color: #908A71;
+  transition: 0.5s;
+}
+[name=yuugure-theme] [name=input]:has(input:focus) {
+  border-color: #908A71;
+  transition: 0.5s;
+}
+[name=yuugure-theme] [name=input] .input-content {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+[name=yuugure-theme] [name=input] .input-content input {
+  background: transparent;
+  border: 0px solid transparent;
+  padding: 0.75rem 0 0.75rem 0;
+  width: 100%;
+  color: #908A71;
+  font-family: "opensansR";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=input] .input-content input:focus {
+  outline: none;
+}
+[name=yuugure-theme] [name=input] .input-content input::placeholder {
+  color: #B1B1B1;
+}
+[name=yuugure-theme] [name=input][disabled=disabled] {
+  background: rgba(236, 236, 236, 0.875);
+}
+[name=yuugure-theme] [name=input][disabled=disabled]:hover {
+  cursor: not-allowed;
+}
+[name=yuugure-theme] [name=input][disabled=disabled] .input-content:hover {
+  cursor: not-allowed;
+}
+[name=yuugure-theme] [name=input][disabled=disabled] .input-content input:hover {
+  cursor: not-allowed;
+}
+[name=yuugure-theme] [name=input][disabled=disabled] .input-content textarea:hover {
+  cursor: not-allowed;
+}
+
+.mobile [name=yuugure-theme] [name=input].textarea .input-content textarea {
+  color: #B1B1B1;
+  font-family: "opensansR";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.yuugure-modal .modal-dialog .modal-content {
+  border-radius: 0.625rem !important;
+  border-color: transparent !important;
+  background: #908A71;
+  padding: 1.88rem 2.69rem;
+}
+.yuugure-modal .modal-dialog .modal-content .modal-header {
+  padding: 0 !important;
+}
+.yuugure-modal .modal-dialog .modal-content .modal-body {
+  padding: 0 !important;
+}
+
+.mobile [name=yuugure-music-button].show .wrapper {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.mobile [name=yuugure-music-button].show .wrapper .music-button {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+[name=yuugure-music-button] {
+  position: fixed;
+}
+[name=yuugure-music-button].show {
+  animation: 0.5s zoomAndBubbling forwards;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+}
+[name=yuugure-music-button].show:hover {
+  cursor: pointer;
+}
+[name=yuugure-music-button].show .wrapper {
+  border-radius: 2.5rem;
+  padding: 0.5rem;
+  width: 4rem;
+  height: 4rem;
+  background-color: rgba(100, 86, 76, 0.431372549);
+  transition: 0.25s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[name=yuugure-music-button].show .wrapper:hover {
+  background-color: #64564C;
+  transition: 0.25s;
+}
+[name=yuugure-music-button].show .wrapper .music-button {
+  width: 2rem;
+  height: 2rem;
+}
+[name=yuugure-music-button].show .wrapper .music-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ===== YUUGURE PRELOADER — WAVE FILL EFFECT ===== */
+
+[name=yuugure-preloader] {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+[name=yuugure-preloader] .preloader-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #FFF4EF;
+}
+
+[name=yuugure-preloader] .preloader-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Logo Container ---- */
+[name=yuugure-preloader] .logo-wave-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+[name=yuugure-preloader] .logo-svg {
+  width: 14rem;
+  height: 14rem;
+  overflow: visible;
+}
+
+/* Layer abu-abu (base) */
+[name=yuugure-preloader] .logo-svg .logo-gray {
+  fill: #D0C8C3;
+}
+
+/* ---- Wave fill group ---- */
+[name=yuugure-preloader] .logo-svg .wave-fill-group {
+  /* container untuk wave elements yang ter-clip oleh logo shape */
+}
+/* Kotak solid berwarna penuh (di belakang wave) */
+[name=yuugure-preloader] .logo-svg .wave-solid-fill {
+  fill: #64564C;
+  transition: y 0.3s ease-out, height 0.3s ease-out;
+}
+
+/* Wave path — posisi dikontrol lewat JS, animasi oscillasi horizontal */
+[name=yuugure-preloader] .logo-svg .wave-path {
+  fill: #64564C;
+  animation: yuugure-wave-oscillate 2s ease-in-out infinite alternate;
+}
+
+/* Oscillasi horizontal yang membuat ombak terasa hidup */
+@keyframes yuugure-wave-oscillate {
+  0%   { transform: translateX(-8px); }
+  100% { transform: translateX(8px);  }
+}
+
+
+
+.mobile [name=yuugure-radio] .label {
+  margin-bottom: 1rem;
+}
+.mobile [name=yuugure-radio] .label p {
+  color: #64564C;
+  font-family: "poppinsSB";
+  font-size: 0.75rem;
+  font-style: normal;
+  line-height: normal;
+}
+.mobile [name=yuugure-radio] .radios {
+  flex-direction: column;
+  gap: 1rem 0;
+}
+.mobile [name=yuugure-radio] .radios .radio {
+  width: 100%;
+  padding: 0.75rem 1rem;
+}
+.mobile [name=yuugure-radio] .radios .radio .radio-circle {
+  width: 1rem;
+  height: 1rem;
+}
+.mobile [name=yuugure-radio] .radios .radio .radio-text p {
+  color: #64564C;
+  font-family: "opensansR";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-radio] .radios .radio.active, .mobile [name=yuugure-radio] .radios .radio:hover {
+  background-color: #898161;
+  cursor: pointer;
+  transition: 0.25s;
+  border: 1px solid #898161;
+}
+.mobile [name=yuugure-radio] .radios .radio.active .radio-circle, .mobile [name=yuugure-radio] .radios .radio:hover .radio-circle {
+  border-color: #FFF;
+  transition: 0.25s;
+}
+.mobile [name=yuugure-radio] .radios .radio.active .radio-text p, .mobile [name=yuugure-radio] .radios .radio:hover .radio-text p {
+  color: #FFF;
+  font-family: "opensansB";
+  font-style: normal;
+  line-height: normal;
+  transition: 0.25s;
+}
+.mobile [name=yuugure-radio] .radios .radio.active .radio-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile [name=yuugure-radio] .radios .radio.active .radio-circle .radio-circle-inside {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 0.6rem;
+  background-color: #FFF;
+  border: 1px solid #FFF;
+  margin: auto;
+}
+
+[name=yuugure-radio] .label {
+  margin-bottom: 1.25rem;
+}
+[name=yuugure-radio] .label p {
+  color: #64564C;
+  text-align: left;
+  font-family: "poppinsSB";
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-radio] .radios {
+  display: flex;
+  justify-content: center;
+  gap: 0 1.5rem;
+}
+[name=yuugure-radio] .radios .radio {
+  padding: 1rem;
+  width: 50%;
+  background-color: transparent;
+  border: 1px solid #64564C;
+  border-radius: 0.9375rem;
+  transition: 0.25s;
+  display: flex;
+  gap: 0 1rem;
+  align-items: center;
+}
+[name=yuugure-radio] .radios .radio .radio-circle {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 1.25rem;
+  border: 1px solid #64564C;
+  transition: 0.25s;
+}
+[name=yuugure-radio] .radios .radio .radio-text p {
+  color: #64564C;
+  font-family: "opensansR";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  transition: 0.25s;
+}
+[name=yuugure-radio] .radios .radio.active, [name=yuugure-radio] .radios .radio:hover {
+  background-color: #898161;
+  cursor: pointer;
+  transition: 0.25s;
+  border: 1px solid #898161;
+}
+[name=yuugure-radio] .radios .radio.active .radio-circle, [name=yuugure-radio] .radios .radio:hover .radio-circle {
+  border-color: #FFF;
+  transition: 0.25s;
+}
+[name=yuugure-radio] .radios .radio.active .radio-text p, [name=yuugure-radio] .radios .radio:hover .radio-text p {
+  color: #FFF;
+  font-family: "opensansB";
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+  transition: 0.25s;
+}
+[name=yuugure-radio] .radios .radio.active .radio-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+[name=yuugure-radio] .radios .radio.active .radio-circle .radio-circle-inside {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 0.85rem;
+  background-color: #FFF;
+  border: 1px solid #FFF;
+  margin: auto;
+}
+
+[name=yuugure-theme] [name=closing-section] {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  position: relative;
+  max-width: 170rem;
+  margin: 0 auto;
+  z-index: 99;
+}
+[name=yuugure-theme] [name=closing-section] .content {
+  position: relative;
+  z-index: 10;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=closing-section] .content .view-content .desc p {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: #64564C;
+  font-family: "opensansR";
+  line-height: normal;
+  font-style: normal;
+}
+[name=yuugure-theme] [name=closing-section] .content .view-content .label {
+  margin-top: 0.625rem;
+}
+[name=yuugure-theme] [name=closing-section] .content .view-content .label p {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #64564C;
+  font-family: "opensansB";
+  line-height: normal;
+  font-style: normal;
+}
+
+.mobile [name=yuugure-theme] [name=closing-section] {
+  padding-left: 1.875rem;
+  padding-right: 1.875rem;
+}
+.mobile [name=yuugure-theme] [name=closing-section] .content {
+  position: relative;
+  z-index: 10;
+}
+.mobile [name=yuugure-theme] [name=closing-section] .content .view-content .desc {
+  max-width: unset;
+}
+.mobile [name=yuugure-theme] [name=closing-section] .content .view-content .desc p {
+  font-size: 0.75rem;
+}
+.mobile [name=yuugure-theme] [name=closing-section] .content .view-content .label p {
+  font-size: 0.75rem;
+}
+
+[name=yuugure-theme] [name=count-down-and-display-picture-section] {
+  padding: 3.88rem 0 3.5rem 0;
+  position: relative;
+  z-index: 10;
+  max-width: 170rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section].without-display-picture {
+  padding-top: 15rem;
+  padding-bottom: 15rem;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .content {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .display-img-wrapper {
+  padding: 0.81rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 31.25rem 31.25rem 0rem 0rem;
+  border: 1px solid #64564C;
+  width: max-content;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .display-img-wrapper .display-img {
+  width: 24.51688rem;
+  height: 37.94713rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 31.25rem 31.25rem 0rem 0rem;
+  overflow: hidden;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .display-img-wrapper .display-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .icon img {
+  width: 3.125rem;
+  height: 3.125rem;
+  object-fit: contain;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .title {
+  margin-top: 1.89rem;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .title p {
+  color: #64564C;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 3.75rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down {
+  margin-top: 2.19rem;
+  display: flex;
+  gap: 0 2.5rem;
+  justify-content: center;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down .count-down-item {
+  padding-top: 1.31rem;
+  padding-bottom: 0.81rem;
+  width: 8.75rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.56rem 0;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down .count-down-item .label p {
+  color: #64564C;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down .count-down-item .value p {
+  color: #64564C;
+  text-align: center;
+  font-family: "antsvalley";
+  font-size: 3.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .just-married-wrapper .just-married {
+  border-radius: 1.25rem;
+  border: 0.25rem dashed #FFF;
+  padding: 6.25rem 0 8.19rem 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 75rem;
+  margin: auto;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .just-married-wrapper .just-married img {
+  width: 26rem;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .decorations img {
+  pointer-events: none;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .decorations .top-left img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 26.8%;
+  object-fit: contain;
+  z-index: 3;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .decorations .top-right img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 26.8%;
+  object-fit: contain;
+  z-index: 3;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .decorations .bottom-left img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 37.78%;
+  object-fit: contain;
+  z-index: 3;
+}
+[name=yuugure-theme] [name=count-down-and-display-picture-section] .decorations .bottom-right img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 37.78%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section] {
+  padding-top: 4rem;
+  padding-bottom: 1.38rem;
+  position: relative;
+  z-index: 10;
+}
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .display-img-wrapper {
+  padding: 0.56rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .display-img-wrapper .display-img {
+  width: 17rem;
+  height: 26.3125rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .icon img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .title {
+  margin-top: 1.5rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .title p {
+  font-size: 1.5rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down {
+  margin-top: 0.81rem;
+  gap: 0 0.5rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down .count-down-item {
+  width: 4.375rem;
+  height: 5.3125rem;
+  padding: 0.5rem 0.63rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down .count-down-item .label p {
+  font-size: 0.75rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down .count-down-item .value p {
+  font-size: 2rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .just-married-wrapper {
+  padding: 0.62rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .just-married-wrapper .just-married {
+  padding: 3.81rem 3.87rem;
+  border: 0.1rem dashed #FFF;
+}
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section] .content .view-content .just-married-wrapper .just-married img {
+  width: 22.5rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section] .decorations .top img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  object-fit: contain;
+  z-index: -2;
+}
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section].without-display-picture .content .view-content .title {
+  margin-top: 8.5rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-and-display-picture-section].without-display-picture .decorations .top img {
+  top: -1rem;
+}
+
+[name=yuugure-theme] [name=count-down-section] {
+  background: #908A71;
+  padding: 2.5rem 0 3.5rem 0;
+  position: relative;
+  z-index: 10;
+  max-width: 170rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=count-down-section] .content {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=count-down-section] .content .view-content .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[name=yuugure-theme] [name=count-down-section] .content .view-content .icon img {
+  width: 3.125rem;
+  height: 3.125rem;
+  object-fit: contain;
+}
+[name=yuugure-theme] [name=count-down-section] .content .view-content .title {
+  margin-top: 1rem;
+}
+[name=yuugure-theme] [name=count-down-section] .content .view-content .title p {
+  color: #FFF;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=count-down-section] .content .view-content .count-down {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 0 2.5rem;
+  justify-content: center;
+}
+[name=yuugure-theme] [name=count-down-section] .content .view-content .count-down .count-down-item {
+  padding-top: 1.31rem;
+  padding-bottom: 0.81rem;
+  width: 8.75rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.56rem 0;
+}
+[name=yuugure-theme] [name=count-down-section] .content .view-content .count-down .count-down-item .label p {
+  color: #898161;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=count-down-section] .content .view-content .count-down .count-down-item .value p {
+  color: #898161;
+  text-align: center;
+  font-family: "antsvalley";
+  font-size: 3.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=count-down-section] .content .view-content .just-married-wrapper .just-married {
+  border-radius: 1.25rem;
+  border: 0.25rem dashed #FFF;
+  padding: 6.25rem 0 8.19rem 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 75rem;
+  margin: auto;
+}
+[name=yuugure-theme] [name=count-down-section] .content .view-content .just-married-wrapper .just-married img {
+  width: 26rem;
+}
+
+.mobile [name=yuugure-theme] [name=count-down-section] {
+  padding-top: 1rem;
+  padding-bottom: 1.38rem;
+  position: relative;
+  z-index: 10;
+}
+.mobile [name=yuugure-theme] [name=count-down-section] .content .view-content .icon img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-section] .content .view-content .title {
+  margin-top: 0.56rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-section] .content .view-content .title p {
+  color: #FFF;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=count-down-section] .content .view-content .count-down {
+  margin-top: 0.81rem;
+  gap: 0 0.5rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-section] .content .view-content .count-down .count-down-item {
+  width: 4.375rem;
+  height: 5.3125rem;
+  padding: 0.5rem 0.63rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-section] .content .view-content .count-down .count-down-item .label p {
+  color: #908A71;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=count-down-section] .content .view-content .count-down .count-down-item .value p {
+  color: #908A71;
+  text-align: center;
+  font-family: "antsvalley";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=count-down-section] .content .view-content .just-married-wrapper {
+  padding: 0.62rem;
+}
+.mobile [name=yuugure-theme] [name=count-down-section] .content .view-content .just-married-wrapper .just-married {
+  padding: 3.81rem 3.87rem;
+  border: 0.1rem dashed #FFF;
+}
+.mobile [name=yuugure-theme] [name=count-down-section] .content .view-content .just-married-wrapper .just-married img {
+  width: 22.5rem;
+}
+
+[name=yuugure-theme] [name=cover-section] {
+  position: relative;
+  max-width: 170rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 100vh;
+}
+[name=yuugure-theme] [name=cover-section].scroll-cover {
+  margin-top: -100vh;
+  transition: margin-top 1s ease-in-out;
+}
+[name=yuugure-theme] [name=cover-section] .content {
+  height: 100%;
+  display: flex;
+  position: relative;
+  z-index: 10;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .title {
+  margin-bottom: 1.81rem;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .title p {
+  color: #64564C;
+  text-align: center;
+  font-family: "poppinsSB";
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom {
+  margin-bottom: -3.5rem;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom .bride {
+  position: relative;
+  left: -3.5rem;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom .bride p, [name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom .bride span {
+  color: #64564C;
+  text-align: left;
+  font-family: "waterbrush";
+  font-size: 5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom .bride span.and {
+  margin-left: 0.5rem;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom .groom {
+  position: relative;
+  top: -2rem;
+  right: -2rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 0 1.12rem;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom .groom p, [name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom .groom span {
+  color: #64564C;
+  text-align: right;
+  font-family: "waterbrush";
+  font-size: 5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom.cover-and-placed-after-bride .groom {
+  top: -1.5rem;
+  right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .middle-date {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 1.25rem;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .middle-date .middle-date-separator {
+  height: 100%;
+  width: 1.875rem;
+  display: flex;
+  align-items: center;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .middle-date .middle-date-separator .separator-line {
+  height: 0.08rem;
+  width: 100%;
+  background: #64564C;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .middle-date p {
+  color: #64564C;
+  text-align: center;
+  font-family: "poppinsB";
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content:has(.middle-date) .guest-name {
+  margin-top: 2.06rem;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .guest-name {
+  margin-top: 2.81rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.31rem 0;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .guest-name .for p {
+  color: #64564C;
+  text-align: center;
+  font-family: "poppinsR";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .guest-name .name p {
+  color: #64564C;
+  text-align: center;
+  font-family: "poppinsSB";
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content:has(.guest-name) .open-button-wrapper {
+  margin-top: 1.25rem;
+}
+[name=yuugure-theme] [name=cover-section] .content .view-content .open-button-wrapper {
+  margin-top: 2.25rem;
+}
+[name=yuugure-theme] [name=cover-section] .date {
+  position: absolute;
+  top: 37vh;
+  right: 3.19rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  z-index: 2;
+}
+[name=yuugure-theme] [name=cover-section] .date p {
+  color: #64564C;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 6.25rem; /* 250% */
+}
+[name=yuugure-theme] [name=cover-section] .decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+[name=yuugure-theme] [name=cover-section] .decorations img {
+  pointer-events: none;
+}
+[name=yuugure-theme] [name=cover-section] .decorations .bottom-left img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 36.67%;
+  z-index: 3;
+}
+[name=yuugure-theme] [name=cover-section] .decorations .bottom-right img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 71.37%;
+  z-index: 2;
+}
+[name=yuugure-theme] [name=cover-section] .decorations .top-right img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 26.8%;
+  z-index: 2;
+}
+
+body:has([name=yuugure-theme].desktop [name=cover-section].show) {
+  overflow-x: hidden;
+}
+
+.mobile [name=yuugure-theme] [name=cover-section].scroll-cover {
+  margin-top: -100vh;
+  transition: margin-top 1s ease-in-out;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .title {
+  margin-bottom: 1.5rem;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .title p {
+  font-size: 0.875rem;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom {
+  margin-bottom: 0;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom .bride {
+  left: -2rem;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom .bride p, .mobile [name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom .bride span {
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 3.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom .groom {
+  top: -1rem;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom .groom p, .mobile [name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom .groom span {
+  font-family: "waterbrush";
+  font-size: 3.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .bride-groom.cover-and-placed-after-bride .groom {
+  right: -0.5rem;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .middle-date {
+  gap: 0 0.52rem;
+  margin-top: 0rem;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .middle-date p {
+  font-size: 0.875rem;
+  font-family: "poppinsSB";
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content:has(.middle-date) .guest-name {
+  margin-top: 1.5rem;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .guest-name {
+  margin-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.31rem 0;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .guest-name .for p {
+  color: #64564C;
+  text-align: center;
+  font-family: "poppinsR";
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-shadow: 0px 2px 4px rgb(255, 255, 255);
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .guest-name .name p {
+  color: #64564C;
+  text-align: center;
+  font-family: "poppinsSB";
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: normal;
+  text-shadow: 0px 2px 4px rgb(255, 255, 255);
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .open-button-wrapper {
+  margin-top: 1.31rem;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .open-button-wrapper [name=yuugure-button] {
+  padding: 0.62rem 4.75rem;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .open-button-wrapper [name=yuugure-button] .icon img {
+  width: 1.25rem;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .open-button-wrapper [name=yuugure-button] .label p {
+  font-size: 0.75rem;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .date {
+  margin-top: 0.5rem;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .content .view-content .date p {
+  color: #64564C;
+  text-align: center;
+  font-family: "dancingscript";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 3.125rem; /* 250% */
+}
+.mobile [name=yuugure-theme] [name=cover-section] .date {
+  top: unset;
+  bottom: 3rem;
+  right: 2.31rem;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .date p {
+  font-family: "waterbrush";
+  font-size: 1.25rem;
+  line-height: 3.125rem; /* 250% */
+}
+.mobile [name=yuugure-theme] [name=cover-section] .decorations .top-left img {
+  position: absolute;
+  top: 1.11rem;
+  left: 0.89rem;
+  width: 48.05%;
+  z-index: 3;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .decorations .bottom-left img {
+  width: 93.33%;
+  opacity: 0.7;
+}
+.mobile [name=yuugure-theme] [name=cover-section] .decorations .bottom-right img {
+  width: 92%;
+}
+
+[name=yuugure-theme] [name=date-section] {
+  background: rgb(255, 244, 239);
+  padding: 5rem 0 5.06rem 0;
+  position: relative;
+  z-index: 1;
+  max-width: 170rem;
+  margin: -1px auto 0 auto;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper {
+  border-radius: 0 0 62.5rem 62.5rem;
+  margin-left: 7.5rem;
+  margin-right: 7.5rem;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content {
+  text-align: center;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date, [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date {
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .day, [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .day {
+  padding: 0 0.75rem 0 0;
+  width: 15.625rem;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .day p, [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .day p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .month, [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .month {
+  padding: 0;
+  height: 4.44rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 13.5rem;
+  border-left: 0.0625rem solid #64564C;
+  border-right: 0.0625rem solid #64564C;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .month .month-number p, [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .month .month-number p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .month .month-name p, [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .month .month-name p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .year, [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .year {
+  padding: 0 0 0 0.75rem;
+  width: 15.625rem;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .year p, [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .year p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .time:has(.time-prefix), [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .time:has(.time-prefix) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 0.75rem;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date-icon,
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date-icon img,
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date-icon img {
+  width: 3.125rem;
+  height: 3.125rem;
+  object-fit: contain;
+  object-position: top center;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .title {
+  margin-top: 1.25rem;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .title p {
+  color: #64564C;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .time {
+  margin-top: 2rem;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .time p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.2rem;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception {
+  padding-top: 5.75rem;
+  position: relative;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .title p {
+  color: #64564C;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .time {
+  margin-top: 2rem;
+}
+[name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .time p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.2rem;
+}
+[name=yuugure-theme] [name=date-section] .decorations img {
+  pointer-events: none;
+}
+[name=yuugure-theme] [name=date-section] .decorations .top-left img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36.31%;
+  z-index: 2;
+}
+[name=yuugure-theme] [name=date-section] .decorations .bottom-right img {
+  position: absolute;
+  bottom: -12rem;
+  right: 0;
+  width: 40%;
+  z-index: 2;
+}
+
+.mobile [name=yuugure-theme] [name=date-section] {
+  z-index: 10;
+  margin-top: -1px;
+  padding-top: 1.63rem;
+  padding-bottom: 13.56rem;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date-icon img,
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date-icon img {
+  width: 1.875rem;
+  height: 1.875rem;
+  margin: 0 auto;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .title {
+  margin-top: 1.94rem;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .title p {
+  color: #64564C;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date {
+  margin-top: 0.62rem;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .day {
+  padding-right: 0.75rem;
+  padding-left: 0;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .day p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .month {
+  padding-left: 1.56rem;
+  padding-right: 1.56rem;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .month .month-number p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .month .month-name {
+  margin-top: 0.31rem;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .month .month-name p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .year {
+  padding-left: 1.56rem;
+  padding-right: 0;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .year p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .time {
+  margin-top: 1.75rem;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .time p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception {
+  padding-top: 1.75rem;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .title {
+  margin-top: 0;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .title p {
+  color: #64564C;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date {
+  margin-top: 0.62rem;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .day {
+  padding-right: 0.75rem;
+  padding-left: 0;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .day p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .month {
+  padding-left: 1.56rem;
+  padding-right: 1.56rem;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .month .month-number p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .month .month-name {
+  margin-top: 0.31rem;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .month .month-name p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .year {
+  padding-left: 1.56rem;
+  padding-right: 0;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .year p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .time {
+  margin-top: 1.75rem;
+}
+.mobile [name=yuugure-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .time p {
+  color: #64564C;
+  text-align: center;
+  font-family: "cinzel";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+}
+.mobile [name=yuugure-theme] [name=date-section] .decorations img {
+  pointer-events: none;
+}
+.mobile [name=yuugure-theme] [name=date-section] .decorations .top-right img {
+  width: 48%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+.mobile [name=yuugure-theme] [name=date-section] .decorations .bottom-center img {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+[name=yuugure-theme] [name=filter-instagram-section] {
+  background: #908A71;
+  padding: 4.06rem 0 4.12rem 0;
+  position: relative;
+  z-index: 1;
+  max-width: 170rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=filter-instagram-section] .content {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=filter-instagram-section] .separator {
+  height: 4.94rem;
+  width: 100%;
+  background: #EFEAE4;
+}
+[name=yuugure-theme] [name=filter-instagram-section] .content:has(.livestream) {
+  padding-left: 2.5rem;
+}
+[name=yuugure-theme] [name=filter-instagram-section] .content .view-content {
+  display: flex;
+  justify-content: center;
+  gap: 0 10.5rem;
+}
+[name=yuugure-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item {
+  width: 50%;
+}
+[name=yuugure-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .title p, [name=yuugure-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .desc p {
+  text-align: left;
+  max-width: 90%;
+}
+[name=yuugure-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .action-button {
+  justify-content: flex-start;
+}
+[name=yuugure-theme] [name=filter-instagram-section] .content .view-content .title p {
+  color: #FFF;
+  font-family: "waterbrush";
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}
+[name=yuugure-theme] [name=filter-instagram-section] .content .view-content .desc {
+  margin-top: 1.25rem;
+}
+[name=yuugure-theme] [name=filter-instagram-section] .content .view-content .desc p {
+  color: #FFF;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=filter-instagram-section] .content .view-content .filter-button, [name=yuugure-theme] [name=filter-instagram-section] .content .view-content .action-button {
+  margin-top: 3.38rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile [name=yuugure-theme] [name=filter-instagram-section] {
+  padding-top: 1.5rem;
+  padding-bottom: 2.56rem;
+}
+.mobile [name=yuugure-theme] [name=filter-instagram-section]:has(.livestream) {
+  padding-top: 1.5rem;
+}
+.mobile [name=yuugure-theme] [name=filter-instagram-section] .separator {
+  display: none;
+}
+.mobile [name=yuugure-theme] [name=filter-instagram-section] .content:has(.livestream) {
+  padding-top: 0;
+  padding-left: 0;
+}
+.mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  flex-direction: column;
+  gap: 2.69rem 0;
+}
+.mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item {
+  width: unset;
+}
+.mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .title, .mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .desc {
+  display: flex;
+  justify-content: center;
+}
+.mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .title p, .mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .desc p {
+  text-align: center;
+}
+.mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .action-button {
+  justify-content: flex-start;
+}
+.mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content .title p {
+  color: #FFF;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content .desc {
+  margin-top: 1rem;
+}
+.mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content .desc p {
+  color: #FFF;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem; /* 166.667% */
+}
+.mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content .filter-button, .mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content .action-button {
+  margin-top: 1.5rem;
+}
+.mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content .filter-button [name=yuugure-button], .mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content .action-button [name=yuugure-button] {
+  width: 100%;
+  padding: 0.62rem 1.88rem;
+  justify-content: center;
+}
+.mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content .filter-button [name=yuugure-button] .label p, .mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content .action-button [name=yuugure-button] .label p {
+  color: #fff;
+  font-family: "poppinsM";
+  font-size: 0.75rem;
+  font-style: normal;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content .filter-button [name=yuugure-button] .icon img, .mobile [name=yuugure-theme] [name=filter-instagram-section] .content .view-content .action-button [name=yuugure-button] .icon img {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+[name=yuugure-theme] [name=footer-section] {
+  min-height: 21rem;
+  position: relative;
+  max-width: 170rem;
+  margin: 0 auto;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+[name=yuugure-theme] [name=footer-section] .content {
+  position: relative;
+  z-index: 10;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=footer-section] .content .view-content .logo {
+  display: flex;
+  justify-content: center;
+}
+[name=yuugure-theme] [name=footer-section] .content .view-content .logo img {
+  width: 12.5rem;
+  height: 4.01731rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+[name=yuugure-theme] [name=footer-section] .decorations img {
+  pointer-events: none;
+}
+[name=yuugure-theme] [name=footer-section] .decorations .bottom-left img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 33.33%;
+  object-fit: contain;
+  z-index: 2;
+}
+[name=yuugure-theme] [name=footer-section] .decorations .bottom-right img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 33.33%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.mobile [name=yuugure-theme] [name=footer-section] {
+  padding-top: 5.5rem;
+  padding-bottom: 2.5rem;
+  padding-left: 0;
+  padding-right: 0;
+  min-height: unset;
+}
+.mobile [name=yuugure-theme] [name=footer-section] .content .view-content .couple {
+  gap: 0 1.25rem;
+}
+.mobile [name=yuugure-theme] [name=footer-section] .content .view-content .couple .bride-illustration img {
+  width: 7.0625rem;
+  height: 9.125rem;
+}
+.mobile [name=yuugure-theme] [name=footer-section] .content .view-content .couple .groom-illustration img {
+  width: 7.125rem;
+  height: 9.125rem;
+}
+.mobile [name=yuugure-theme] [name=footer-section] .content .view-content .logo {
+  padding-bottom: 5rem;
+}
+.mobile [name=yuugure-theme] [name=footer-section] .content .view-content .logo img {
+  width: 7.77881rem;
+  height: 2.5rem;
+  object-fit: contain;
+}
+.mobile [name=yuugure-theme] [name=footer-section] .decorations img {
+  pointer-events: none;
+}
+.mobile [name=yuugure-theme] [name=footer-section] .decorations .top-right img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 48%;
+  object-fit: contain;
+  z-index: 2;
+}
+.mobile [name=yuugure-theme] [name=footer-section] .decorations .bottom-left img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  object-fit: contain;
+  z-index: 11;
+}
+.mobile [name=yuugure-theme] [name=footer-section] .decorations .bottom-right img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  object-fit: contain;
+  z-index: 11;
+}
+
+[name=yuugure-theme] [name=gallery-section] {
+  background: #EFEAE4;
+  padding: 1.86rem 0 1.87rem 0;
+  position: relative;
+  z-index: 1;
+  max-width: 170rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=gallery-section] .content {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=gallery-section] .content .view-content .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[name=yuugure-theme] [name=gallery-section] .content .view-content .logo img {
+  width: 7.375rem;
+  object-fit: contain;
+  object-position: center;
+}
+[name=yuugure-theme] [name=gallery-section] .decorations img {
+  pointer-events: none;
+}
+[name=yuugure-theme] [name=gallery-section] .decorations .top-left img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 36.2%;
+  object-fit: contain;
+  z-index: -1;
+}
+[name=yuugure-theme] [name=gallery-section] .decorations .bottom-right img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 33%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+.mobile [name=yuugure-theme] [name=gallery-section] {
+  padding-top: 2.49rem;
+  padding-bottom: 6.06rem;
+  position: relative;
+}
+.mobile [name=yuugure-theme] [name=gallery-section] .content {
+  position: relative;
+  z-index: 3;
+}
+.mobile [name=yuugure-theme] [name=gallery-section] .content .view-content .logo img {
+  width: 4.9375rem;
+  height: 3.6875rem;
+  object-fit: contain;
+}
+.mobile [name=yuugure-theme] [name=gallery-section] .decorations img {
+  pointer-events: none;
+}
+.mobile [name=yuugure-theme] [name=gallery-section] .decorations .top-left img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48%;
+  object-fit: contain;
+  z-index: 2;
+}
+.mobile [name=yuugure-theme] [name=gallery-section] .decorations .bottom-right img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 88.88%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+[name=yuugure-theme] [name=gift-section] {
+  padding-bottom: 7.31rem;
+  padding-top: 7.31rem;
+  position: relative;
+  max-width: 170rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=gift-section] .content {
+  max-width: 85rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content {
+  padding: 2rem 4rem;
+  border-radius: 1.25rem;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content:has(.opened-gifts) {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .title p {
+  color: #64564C;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .desc {
+  margin-top: 0.94rem;
+  display: flex;
+  justify-content: center;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .desc p {
+  width: 93%;
+  color: #64564C;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts {
+  display: flex;
+  gap: 0 3.12rem;
+  justify-content: space-between;
+  margin-top: 3.13rem;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  height: fit-content;
+  justify-content: space-between;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-left .gift-bank img {
+  height: 2.5rem;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-left .gift-receipt {
+  margin-top: 0.94rem;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-left .gift-receipt p {
+  color: #64564C;
+  font-family: "poppinsR";
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-left .gift-id {
+  margin-top: 0.31rem;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-left .gift-id p {
+  color: #64564C;
+  font-family: "poppinsSB";
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-right .copy-button [name=yuugure-button] {
+  padding: 0.75rem 1.875rem;
+  gap: 0 0.62rem;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-right .copy-button [name=yuugure-button] .icon img {
+  width: 1.25rem;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-right .copy-button [name=yuugure-button] .label p {
+  font-size: 0.875rem;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .open-button {
+  margin-top: 2.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[name=yuugure-theme] [name=gift-section] .content .view-content .open-button [name=yuugure-button] {
+  padding: 1.13rem 11.75rem;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .header .gift-bank img {
+  width: auto;
+  height: 2.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .header .close-modal-button img {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .header .close-modal-button:hover {
+  cursor: pointer;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .header .close-modal-button:hover img {
+  animation: 0.85s bubbling forwards;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal.address-first-gift .header {
+  justify-content: flex-end;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal.address-first-gift .body {
+  margin-top: -0.75rem;
+  flex-direction: column;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal.address-first-gift .body .body-left {
+  width: 100%;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal.address-first-gift .body .body-left .gift-label p, [name=yuugure-theme] [name=gift-section] .modals .gift-modal.address-first-gift .body .body-left .gift-address p {
+  text-align: center;
+  color: #FFF;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal.address-first-gift .body .body-left .gift-address {
+  margin-top: 1.25rem;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal.address-first-gift .body .body-left .gift-address p {
+  font-family: "poppinsR";
+  font-size: 1rem;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal.address-first-gift .body .body-right {
+  margin: 1.96rem auto auto auto;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal.address-first-gift .body-bottom .info p {
+  text-align: center;
+  color: #fff;
+  font-size: 1rem;
+  font-family: "poppinsR";
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .body {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-end;
+  margin-top: 1.12rem;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .body .body-left .gift-receipt p {
+  color: #fff;
+  text-align: center;
+  font-family: "poppinsR";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .body .body-left .gift-id {
+  margin-top: 0.62rem;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .body .body-left .gift-id p {
+  color: #fff;
+  font-family: "poppinsSB";
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .body .body-left .gift-label p {
+  color: #FFF;
+  text-align: left;
+  font-family: "poppinsSB";
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .body .body-left .gift-address {
+  margin-top: 0.625rem;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .body .body-left .gift-address p {
+  color: #fff;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .body .body-right [name=yuugure-button] {
+  padding: 0.75rem 1.88rem;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .body .body-right [name=yuugure-button] .icon img {
+  width: 1.25rem;
+  height: 1.25rem;
+  object-fit: contain;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .body-bottom {
+  margin-top: 1.94rem;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .body-bottom .info p {
+  color: #fff;
+  font-family: "poppinsR";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=gift-section] .modals .gift-modal .gifts {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem 0;
+  margin-top: 2.25rem;
+}
+[name=yuugure-theme] [name=gift-section] .decorations img {
+  pointer-events: none;
+}
+[name=yuugure-theme] [name=gift-section] .decorations .top-right img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 27.44%;
+  object-fit: contain;
+  z-index: 4;
+}
+
+.mobile [name=yuugure-theme] [name=gift-section] {
+  padding: 2.38rem 0 1.63rem 0;
+  background-color: transparent;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content {
+  padding-left: 3.25rem;
+  padding-right: 3.25rem;
+  background: unset;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .gift-icon img {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .title {
+  margin-top: 1.25rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .title p {
+  color: #64564C;
+  font-family: "waterbrush";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: left;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .desc {
+  margin-top: 0.62rem;
+  justify-content: unset;
+  width: 100%;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .desc p {
+  width: 100%;
+  color: #64564C;
+  font-family: "opensansR";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: left;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts {
+  flex-direction: column;
+  gap: 1.88rem 0;
+  margin-top: 1.87rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-left {
+  width: 50%;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-left .gift-bank img {
+  height: 1.8rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-left .gift-receipt {
+  margin-top: 0.58rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-left .gift-receipt p {
+  font-size: 0.875rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-left .gift-id {
+  margin-top: 0.12rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-left .gift-id p {
+  font-size: 0.875rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-right .copy-button [name=yuugure-button] {
+  padding: 0.375rem 1rem;
+  gap: 0.375rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-right .copy-button [name=yuugure-button] .icon img {
+  width: 0.875rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .opened-gifts .gift-item .gift-right .copy-button [name=yuugure-button] .label p {
+  font-size: 0.75rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .open-button {
+  margin-top: 1.25rem;
+  justify-content: flex-start;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .open-button [name=yuugure-button] {
+  padding: 0.62rem 3rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .content .view-content .open-button [name=yuugure-button] .label p {
+  color: #FFF;
+  text-align: center;
+  font-family: "poppinsM";
+  font-size: 0.75rem;
+  font-style: normal;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content {
+  padding: 1.56rem 1.62rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .modal-header .header .gift-bank {
+  padding-left: 1.5rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .header {
+  justify-content: flex-end;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .header .gift-bank {
+  margin: auto;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .header .gift-bank img {
+  width: 5rem;
+  height: 1.8rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .header .close-modal-button img {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .body {
+  margin-top: 0.62rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .body .body-left {
+  text-align: center;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .body .body-left .gift-receipt p {
+  text-align: center;
+  font-family: "poppinsR";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .body .body-left .gift-id {
+  margin-top: 0.12rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .body .body-left .gift-id p {
+  text-align: center;
+  font-family: "poppinsSB";
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .body .body-left .gift-label p, .mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .body .body-left .gift-address p {
+  text-align: center;
+  font-size: 0.875rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .body .body-left .gift-address {
+  margin-top: 0.12rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .body .body-right {
+  margin-top: 1.25rem;
+  text-align: center;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .body .body-right .copy-button [name=yuugure-button] {
+  padding: 0.38rem 1rem;
+  gap: 0 0.38rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .body .body-right .copy-button [name=yuugure-button] .icon img {
+  width: 0.875rem;
+  height: 0.875rem;
+  object-fit: contain;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .body .body-right .copy-button [name=yuugure-button] .label p {
+  color: #FFF;
+  text-align: center;
+  font-family: "poppinsR";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .body-bottom {
+  margin-top: 1.65rem;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .modals .gift-modal .modal-content .body-bottom .info p {
+  font-size: 0.75rem;
+  text-align: center;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .decorations img {
+  pointer-events: none;
+}
+.mobile [name=yuugure-theme] [name=gift-section] .decorations .bottom-right img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 48%;
+  object-fit: contain;
+  z-index: 4;
+}
+
+[name=yuugure-theme] [name=location-section] {
+  background: #908A71;
+  padding: 1.5rem 0 3.38rem 0;
+  position: relative;
+  z-index: 10;
+  max-width: 170rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=location-section] .content {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=location-section] .content .view-content .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[name=yuugure-theme] [name=location-section] .content .view-content .icon img {
+  width: 3.125rem;
+  height: 3.125rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+[name=yuugure-theme] [name=location-section] .content .view-content .title {
+  margin-top: 2rem;
+}
+[name=yuugure-theme] [name=location-section] .content .view-content .title p {
+  color: #FFF;
+  text-align: center;
+  font-family: "opensansB";
+  font-size: 1.5rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=location-section] .content .view-content .desc {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+[name=yuugure-theme] [name=location-section] .content .view-content .desc p {
+  color: #FFF;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  max-width: 48%;
+}
+[name=yuugure-theme] [name=location-section] .content .view-content .maps {
+  margin-top: 2.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+[name=yuugure-theme] [name=location-section] .content .view-content .maps:has(.maps-button) {
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+[name=yuugure-theme] [name=location-section] .content .view-content .maps iframe.g-maps {
+  width: 100%;
+  height: 24.8125rem;
+  border-radius: 1.25rem;
+}
+
+.mobile [name=yuugure-theme] [name=location-section] {
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
+  margin: -1px auto 0 auto;
+}
+.mobile [name=yuugure-theme] [name=location-section] .content .view-content .icon img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.mobile [name=yuugure-theme] [name=location-section] .content .view-content .title {
+  margin-top: 1rem;
+}
+.mobile [name=yuugure-theme] [name=location-section] .content .view-content .title p {
+  text-align: center;
+  font-family: "opensansB";
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=location-section] .content .view-content .desc {
+  margin-top: 0.31rem;
+  padding-left: 1.88rem;
+  padding-right: 1.88rem;
+}
+.mobile [name=yuugure-theme] [name=location-section] .content .view-content .desc p {
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem; /* 166.667% */
+  max-width: unset;
+}
+.mobile [name=yuugure-theme] [name=location-section] .content .view-content .maps {
+  margin-top: 1.25rem;
+  padding-left: 1.88rem;
+  padding-right: 1.88rem;
+}
+.mobile [name=yuugure-theme] [name=location-section] .content .view-content .maps:has(.maps-button) {
+  max-width: unset;
+  margin-left: unset;
+  margin-right: unset;
+}
+.mobile [name=yuugure-theme] [name=location-section] .content .view-content .maps iframe {
+  height: 12.5rem;
+}
+.mobile [name=yuugure-theme] [name=location-section] .content .view-content .location-button {
+  padding-left: 1.88rem;
+  padding-right: 1.88rem;
+  margin-top: 1.25rem;
+}
+.mobile [name=yuugure-theme] [name=location-section] .content .view-content .location-button [name=yuugure-button] {
+  padding: 0.625rem 2.5rem;
+  justify-content: center;
+}
+.mobile [name=yuugure-theme] [name=location-section] .content .view-content .location-button [name=yuugure-button] .icon img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.mobile [name=yuugure-theme] [name=location-section] .content .view-content .location-button [name=yuugure-button] .label p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=yuugure-theme] [name=opening-section] {
+  padding-top: 1.62rem;
+  padding-bottom: 2rem;
+  background: unset;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .basmalah {
+  font-size: 1.25rem;
+  margin-bottom: 0.875rem;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .basmalah .basmalah-latin {
+  font-size: 0.75rem;
+  margin-top: 0.875rem;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .info-text {
+  margin-top: 0.875rem;
+  font-size: 0.75rem;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .quotes {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  gap: 0.62rem 0;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .quotes .quote-text p {
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 100%;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .quotes .quote-title p {
+  text-align: center;
+  font-family: "opensansB";
+  font-size: 0.6875rem;
+  font-style: normal;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom {
+  position: relative;
+  z-index: 2;
+  margin-top: 1.44rem;
+  padding: 0 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem 0;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom-photo, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride-photo, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom-name, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride-name, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .conj, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .parent {
+  position: relative;
+  z-index: 2;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom {
+  border-radius: 9.375rem 9.375rem 0rem 0rem;
+  box-shadow: 2px 4px 10px 0px rgba(100, 86, 76, 0.3);
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.19rem 0.25rem 1.94rem 0.25rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .bride-photo, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .groom-photo, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .bride-photo, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .groom-photo {
+  width: 8.875rem;
+  height: 11.375rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 18.75rem;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .bride-photo img, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .groom-photo img, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .bride-photo img, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .groom-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .bride-name, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .groom-name, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .bride-name, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .groom-name {
+  margin-top: 0.62rem;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .bride-name p, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .groom-name p, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .bride-name p, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .groom-name p {
+  color: #64564C;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .conj, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .conj {
+  margin-top: 0.5rem;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .conj p, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .conj p {
+  color: #64564C;
+  font-family: "opensansR";
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .parent, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .parent {
+  display: flex;
+  gap: 0.25rem 0;
+  flex-direction: column;
+  margin-top: 0.25rem;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .parent p, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .parent p {
+  color: #64564C;
+  font-family: "opensansR";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .instagram, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .instagram {
+  margin-top: 0.5rem;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .instagram .ig-wrapper, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .instagram .ig-wrapper {
+  display: flex;
+  gap: 0 0.31rem;
+  align-items: center;
+  justify-content: center;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .instagram .ig-wrapper .icon, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .instagram .ig-wrapper .icon {
+  display: flex;
+  align-items: center;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .instagram .ig-wrapper .icon img, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .instagram .ig-wrapper .icon img {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .instagram .ig-wrapper .label p, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .instagram .ig-wrapper .label p {
+  font-family: "opensansSB";
+  font-size: 0.6875rem;
+  color: #64564C;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .decorations img, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .decorations img {
+  pointer-events: none;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .decorations .top-left img, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .decorations .top-left img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 57.15%;
+  object-fit: contain;
+  z-index: 2;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .decorations .top-right img, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .decorations .top-right img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 57.15%;
+  object-fit: contain;
+  z-index: 2;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .mobile-decor-avatar-back, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .mobile-decor-avatar-back {
+  pointer-events: none;
+  position: absolute;
+  opacity: 0.8;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 9.375rem 9.375rem 0rem 0rem;
+  background: rgba(255, 255, 255, 0.5);
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride .mobile-decor-avatar-back:hover, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom .mobile-decor-avatar-back:hover {
+  pointer-events: none;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride.without-bride-groom-photo, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom.without-bride-groom-photo {
+  padding-bottom: 1.313rem;
+  box-shadow: unset;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride.without-bride-groom-photo .bride-name, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride.without-bride-groom-photo .groom-name, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom.without-bride-groom-photo .bride-name, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom.without-bride-groom-photo .groom-name {
+  margin-top: 5.063rem;
+  display: flex;
+  justify-content: center;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride.without-bride-groom-photo .bride-name p, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride.without-bride-groom-photo .groom-name p, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom.without-bride-groom-photo .bride-name p, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom.without-bride-groom-photo .groom-name p {
+  font-size: 1.875rem;
+  text-align: center;
+  width: 75%;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride.without-bride-groom-photo .decorations .top-left img, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom.without-bride-groom-photo .decorations .top-left img {
+  transform: rotate(-23deg);
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .bride.without-bride-groom-photo .decorations .top-right img, .mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .groom.without-bride-groom-photo .decorations .top-right img {
+  right: unset;
+  left: 0;
+  transform: rotate(-23deg) scaleX(-1);
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .and-separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1.25rem;
+  flex-direction: row;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .and-separator .line-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: unset;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .and-separator .line-wrapper:first-of-type {
+  padding-left: 0.87rem;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .and-separator .line-wrapper:last-of-type {
+  padding-right: 0.87rem;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .and-separator .line-wrapper .line {
+  width: 100%;
+  height: 0.0625rem;
+  background-color: rgba(100, 86, 76, 0.7);
+}
+.mobile [name=yuugure-theme] [name=opening-section] .content .view-content .mobile-bride-groom .and-separator .and-text p {
+  text-align: center;
+  font-family: "hightowertext";
+  font-size: 2.5rem;
+  color: rgba(100, 86, 76, 0.7);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .decorations img {
+  pointer-events: none;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .decorations .bottom-right img {
+  width: 45%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.mobile [name=yuugure-theme] [name=opening-section] .decorations .bottom-center img {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+[name=yuugure-theme] [name=opening-section] {
+  padding-top: 4.37rem;
+  padding-bottom: 2rem;
+  position: relative;
+  max-width: 170rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=opening-section] .content {
+  position: relative;
+  z-index: 10;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .basmalah {
+  margin-bottom: 1.25rem;
+  text-align: center;
+  color: #64564C;
+  font-family: "opensansR";
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  flex-direction: column;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .basmalah .basmalah-latin {
+  margin-top: 1.25rem;
+  font-size: 1.25rem;
+  font-family: "opensansB";
+  color: #64564C;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .info-text {
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  font-family: "opensansR";
+  color: #64564C;
+  margin-bottom: 0.625rem;
+  text-align: center;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .quotes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.62rem 0;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .quotes .quote-text {
+  display: flex;
+  justify-content: center;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .quotes .quote-text p {
+  color: #64564C;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 79%;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .quotes .quote-title p {
+  color: #64564C;
+  text-align: center;
+  font-family: "opensansB";
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.37rem;
+  gap: 0 5rem;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride {
+  width: 26.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border-radius: 12.5rem 12.5rem 0rem 0rem;
+  box-shadow: 2px 4px 10px 0px rgba(100, 86, 76, 0.3);
+  overflow: hidden;
+  padding-bottom: 1.87rem;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .groom-photo, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .bride-photo, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .groom-name, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .bride-name, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .conj, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .parent, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .groom-photo, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .bride-photo, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .groom-name, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .bride-name, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .conj, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .parent {
+  position: relative;
+  z-index: 2;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .decor-avatar-back, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .decor-avatar-back {
+  pointer-events: none;
+  position: absolute;
+  opacity: 0.85;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .decor-avatar-back:hover, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .decor-avatar-back:hover {
+  pointer-events: none;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .groom-photo, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .bride-photo, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .groom-photo, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .bride-photo {
+  width: 12.67856rem;
+  height: 16.25rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  margin-top: 3rem;
+  border-radius: 18.75rem;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .groom-photo img, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .bride-photo img, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .groom-photo img, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .bride-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .groom-name, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .bride-name, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .groom-name, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .bride-name {
+  margin-top: 1.12rem;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .groom-name p, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .bride-name p, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .groom-name p, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .bride-name p {
+  color: #64564C;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .conj, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .conj {
+  margin-top: 0.38rem;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .conj p, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .conj p {
+  color: #64564C;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .parent, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.31rem 0;
+  margin-top: 0.62rem;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .parent p, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .parent p {
+  color: #64564C;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 1.125rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .instagram, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .instagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.62rem;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .instagram:hover .ig-wrapper, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .instagram:hover .ig-wrapper {
+  border-bottom: 1px solid #64564C;
+  transition: 0.25s;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .instagram .ig-wrapper, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .instagram .ig-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0 0.31rem;
+  border-bottom: 1px solid transparent;
+  transition: 0.25s;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .instagram .ig-wrapper .icon, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .instagram .ig-wrapper .icon {
+  display: flex;
+  align-items: center;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .instagram .ig-wrapper .icon img, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .instagram .ig-wrapper .icon img {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .instagram .ig-wrapper .label p, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .instagram .ig-wrapper .label p {
+  color: #64564C;
+  font-family: "opensansSB";
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .decorations img, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .decorations img {
+  pointer-events: none;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .decorations .top-left img, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .decorations .top-left img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60%;
+  object-fit: contain;
+  z-index: 2;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom .decorations .top-right img, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride .decorations .top-right img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60%;
+  object-fit: contain;
+  z-index: 2;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom.without-bride-groom-photo, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride.without-bride-groom-photo {
+  padding-bottom: 4rem;
+  box-shadow: unset;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom.without-bride-groom-photo .bride-name, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .groom.without-bride-groom-photo .groom-name, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride.without-bride-groom-photo .bride-name, [name=yuugure-theme] [name=opening-section] .content .view-content .bride-groom .bride.without-bride-groom-photo .groom-name {
+  margin-top: 8.625rem;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .and-separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  column-gap: 2.88rem;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .and-separator .and-separator-line {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  border-left: 1px solid rgba(100, 86, 76, 0.7);
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .and-separator .and-separator-line:first-of-type {
+  margin-top: 4.19rem;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .and-separator .and-separator-line:last-of-type {
+  margin-bottom: 4.19rem;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .and-separator .and-text {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .and-separator .and-text p {
+  color: rgba(100, 86, 76, 0.7);
+  text-align: center;
+  font-family: "hightowertext";
+  font-size: 4.0625rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=opening-section] .content .view-content .and-separator.without-bride-groom-photo .and-separator-line {
+  margin-top: unset;
+  margin-bottom: unset;
+}
+[name=yuugure-theme] [name=opening-section] .decorations img {
+  pointer-events: none;
+}
+[name=yuugure-theme] [name=opening-section] .decorations .bottom-left img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 24.78%;
+  object-fit: contain;
+  z-index: 3;
+}
+[name=yuugure-theme] [name=opening-section] .decorations .bottom-right img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 71.35%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.mobile [name=yuugure-theme] [name=our-story-static-section] {
+  padding: 3.94rem 0.94rem 2.5rem 0.94rem;
+  position: relative;
+}
+.mobile [name=yuugure-theme] [name=our-story-static-section] .content .view-content .title {
+  margin-bottom: 1.25rem;
+}
+.mobile [name=yuugure-theme] [name=our-story-static-section] .content .view-content .title p {
+  font-size: 2rem;
+}
+.mobile [name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories {
+  padding: 1.63rem 0.94rem 2.22rem 0.94rem;
+}
+.mobile [name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories .story-item .story-content .title p {
+  font-size: 1rem;
+  text-align: center;
+}
+.mobile [name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories .story-item .story-content .desc {
+  margin-top: 0.62rem;
+}
+.mobile [name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories .story-item .story-content .desc p {
+  font-size: 0.75rem;
+  text-align: justify;
+}
+.mobile [name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories .story-separator {
+  margin: 1.88rem 1.97rem;
+  gap: 0 0.75rem;
+}
+.mobile [name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories .story-separator .line-wrapper {
+  height: 0.84325rem;
+}
+.mobile [name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories .story-separator .story-icon {
+  width: unset;
+  height: 0.84325rem;
+}
+.mobile [name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories .story-separator .story-icon img {
+  width: unset;
+  height: 0.84325rem;
+}
+
+[name=yuugure-theme] [name=our-story-static-section] {
+  background: #908A71;
+  padding: 1.69rem 0 4.12rem 0;
+  position: relative;
+  z-index: 1;
+  max-width: 170rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=our-story-static-section] .content {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=our-story-static-section] .content .view-content .title {
+  margin-bottom: 2.5rem;
+}
+[name=yuugure-theme] [name=our-story-static-section] .content .view-content .title p {
+  color: #FFF;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories {
+  padding: 2.1rem 6.25rem 3.12rem 6.25rem;
+  border-radius: 0.625rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+[name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories .story-item .story-content .title p {
+  color: #FFF;
+  font-family: "poppinsB";
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+  text-align: left;
+}
+[name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories .story-item .story-content .desc {
+  margin-top: 1rem;
+}
+[name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories .story-item .story-content .desc p {
+  color: #FFF;
+  font-family: "poppinsR";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories .story-item .story-separator {
+  margin: 2.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 2.19rem;
+}
+[name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories .story-item .story-separator .line-wrapper {
+  width: 100%;
+  height: 1.34rem;
+  display: flex;
+  align-items: center;
+}
+[name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories .story-item .story-separator .line-wrapper .line {
+  width: 100%;
+  height: 0.0625rem;
+  background: #fff;
+}
+[name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories .story-item .story-separator .story-icon {
+  width: 1.68281rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+[name=yuugure-theme] [name=our-story-static-section] .content .view-content .our-stories .story-item .story-separator .story-icon img {
+  width: 1.68281rem;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.mobile [name=yuugure-theme] [name=our-story-section] {
+  padding-top: 3.06rem;
+  padding-bottom: 1.61rem;
+  position: relative;
+}
+.mobile [name=yuugure-theme] [name=our-story-section] .content {
+  padding-top: 0;
+}
+.mobile [name=yuugure-theme] [name=our-story-section] .content .view-content .title {
+  margin-bottom: 1.56rem;
+}
+.mobile [name=yuugure-theme] [name=our-story-section] .content .view-content .title p {
+  color: #64564C;
+  text-align: center;
+  font-family: "benguiatstdBook";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=our-story-section] .content .view-content .our-stories {
+  margin-top: 0;
+  display: unset;
+  height: unset;
+  overflow-y: unset;
+  box-sizing: unset;
+}
+.mobile [name=yuugure-theme] [name=our-story-section] .content .view-content .our-stories .mobile-story-item {
+  display: flex !important;
+  align-items: center;
+  width: 100vw !important;
+}
+.mobile [name=yuugure-theme] [name=our-story-section] .content .view-content .our-stories .mobile-story-item .bridge {
+  width: 12%;
+}
+.mobile [name=yuugure-theme] [name=our-story-section] .content .view-content .our-stories .mobile-story-item .bridge img {
+  width: 100%;
+  height: unset !important;
+  object-fit: contain;
+}
+.mobile [name=yuugure-theme] [name=our-story-section] .content .view-content .our-stories .mobile-story-item .bridge-dummy {
+  width: 12vw;
+}
+.mobile [name=yuugure-theme] [name=our-story-section] .content .view-content .our-stories .mobile-story-item .story-wrapper {
+  padding-left: 1.88rem;
+  padding-right: 1.88rem;
+  width: 76%;
+  height: 11.5rem;
+  background-image: url("/themes/yuugure/our-story/mobile-story-bg.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.9375rem;
+}
+.mobile [name=yuugure-theme] [name=our-story-section] .content .view-content .our-stories .mobile-story-item .story-wrapper .story-text {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.mobile [name=yuugure-theme] [name=our-story-section] .content .view-content .our-stories .mobile-story-item .story-wrapper .story-text p {
+  color: #FFF;
+  text-align: center;
+  font-family: "poppinsM";
+  font-size: 0.75rem;
+  font-style: normal;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=our-story-section] .decorations img {
+  pointer-events: none;
+}
+.mobile [name=yuugure-theme] [name=our-story-section] .decorations .top-left img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 35.55%;
+  object-fit: contain;
+  z-index: 11;
+}
+
+[name=yuugure-theme] [name=our-story-section] {
+  background: #EFEAE4;
+  padding: 1.69rem 0 0 0;
+  position: relative;
+  z-index: 1;
+  max-width: 170rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=our-story-section] .content {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=our-story-section] .content .view-content .title p {
+  color: #64564C;
+  text-align: center;
+  font-family: "benguiatstdBook";
+  font-size: 2.8125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=our-story-section] .content .view-content .our-stories {
+  margin-top: 1.69rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 37rem;
+  overflow-y: auto;
+  box-sizing: content-box;
+  max-width: 70%;
+  margin: auto;
+}
+[name=yuugure-theme] [name=our-story-section] .content .view-content .our-stories .story-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 95%;
+}
+[name=yuugure-theme] [name=our-story-section] .content .view-content .our-stories .story-item .bridge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[name=yuugure-theme] [name=our-story-section] .content .view-content .our-stories .story-item .bridge img {
+  width: 2.5rem;
+  height: 7.5rem;
+  object-fit: cover;
+  object-position: top;
+}
+[name=yuugure-theme] [name=our-story-section] .content .view-content .our-stories .story-item .story-wrapper {
+  padding: 1.88rem;
+  background-image: url("/themes/yuugure/our-story/story-bg.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.9375rem;
+  min-width: 100%;
+}
+[name=yuugure-theme] [name=our-story-section] .content .view-content .our-stories .story-item .story-wrapper .story-text p {
+  color: #FFF;
+  text-align: center;
+  font-family: "poppinsM";
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.guest [name=yuugure-theme] [name=our-story-section] .content {
+  padding-top: 4.94rem;
+}
+
+.mobile [name=yuugure-theme] [name=rsvp-section] {
+  margin-top: 0;
+  padding-top: 5.88rem;
+  padding-bottom: 1.44rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content {
+  padding-bottom: 0;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content {
+  min-height: unset;
+  padding: 1.5rem 1.19rem 1.44rem 1.19rem;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .title p {
+  color: #64564C;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .desc {
+  margin-top: 1rem;
+  justify-content: flex-start;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .desc p {
+  width: unset;
+  color: #64564C;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .desc p span.bold {
+  color: #64564C;
+  font-family: "opensansB";
+  font-size: 0.75rem;
+  font-style: normal;
+  line-height: normal;
+  text-align: left;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .rsvp-input-container {
+  margin-top: 1.5rem;
+  width: 100%;
+  gap: 1.5rem 0;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input, .mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input .label, .mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input .label {
+  margin-bottom: 0.5rem;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input .label p, .mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input .label p {
+  color: #64564C;
+  font-family: "poppinsSB";
+  font-size: 0.75rem;
+  font-style: normal;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input [name=input], .mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input [name=input] {
+  height: unset;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input input, .mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input textarea, .mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input input, .mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input textarea {
+  font-size: 0.75rem;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .message-counter {
+  position: absolute !important;
+  right: 0.69rem !important;
+  bottom: 0.44rem !important;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .message-counter p {
+  color: #64564C !important;
+  font-family: "opensansR";
+  font-size: 0.75rem !important;
+  font-style: normal !important;
+  line-height: normal !important;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .confirm-button, .mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .change-button {
+  margin-top: 1.5rem;
+  padding-bottom: unset;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .confirm-button [name=yuugure-button], .mobile [name=yuugure-theme] [name=rsvp-section] .content .view-content .change-button [name=yuugure-button] {
+  min-width: 100%;
+  padding: 0.62rem 1.5rem;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .decorations img {
+  pointer-events: none;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .decorations .top-right img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 48.1%;
+  object-fit: contain;
+  z-index: 4;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .decorations .top-center img {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  object-fit: contain;
+  z-index: 4;
+}
+.mobile [name=yuugure-theme] [name=rsvp-section] .decorations .bottom-left img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 93.33%;
+  object-fit: contain;
+  z-index: 4;
+}
+
+[name=yuugure-theme] [name=rsvp-section] {
+  position: relative;
+  max-width: 170rem;
+  margin: 3.31rem auto 0 auto;
+}
+[name=yuugure-theme] [name=rsvp-section] .content {
+  position: relative;
+  z-index: 10;
+  padding-bottom: 3.69rem;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content {
+  padding: 2.5rem 3.13rem 4.06rem 3.13rem;
+  min-height: 47rem;
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content:has(.rsvp-sent) {
+  min-height: unset;
+  padding-bottom: 8rem;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .title p {
+  color: #64564C;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .desc {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .desc p {
+  width: 90%;
+  color: #64564C;
+  text-align: center;
+  font-family: "poppinsR";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.5rem; /* 166.667% */
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .desc p span.bold {
+  color: #64564C;
+  font-family: "poppinsB";
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: 2.5rem;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .rsvp-input-container {
+  margin-top: 2.5rem;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 3.75rem 0;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .rsvp-input-container .attendance-radio {
+  animation: bubbling 0.5s forwards;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3.75rem;
+  animation: bubbling 0.5s forwards;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input .label {
+  margin-bottom: 1.5rem;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input .label p {
+  color: #64564C;
+  font-family: "poppinsSB";
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input [name=input] {
+  width: 100%;
+  max-height: unset;
+  height: 3.5rem;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .group-member-input [name=input] input {
+  font-size: 1.25rem;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3.75rem;
+  animation: bubbling 0.5s forwards;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input .label {
+  margin-bottom: 1.5rem;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input .label p {
+  color: #64564C;
+  font-family: "poppinsSB";
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input textarea {
+  font-size: 1.25rem;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input .message-counter {
+  position: absolute;
+  right: 0.81rem;
+  bottom: 0.75rem;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper .reason-input .message-counter p {
+  color: #64564C;
+  text-align: right;
+  font-family: "opensansR";
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .confirm-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.75rem;
+  background-color: transparent;
+  animation: bubbling 0.5s forwards;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .confirm-button [name=yuugure-button] {
+  min-width: 25rem;
+  padding: 1.12rem 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .change-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.75rem;
+  background-color: transparent;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .change-button [name=yuugure-button] {
+  min-width: 25rem;
+  padding: 1.12rem 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .title, [name=yuugure-theme] [name=rsvp-section] .content .view-content .desc, [name=yuugure-theme] [name=rsvp-section] .content .view-content .change-button, [name=yuugure-theme] [name=rsvp-section] .content .view-content .rsvp-input-wrapper, [name=yuugure-theme] [name=rsvp-section] .content .view-content .confirm-button {
+  position: relative;
+  z-index: 6;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .decor-container-back {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+  z-index: 5;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  height: 100%;
+  background-position: top center;
+  background-size: cover;
+}
+[name=yuugure-theme] [name=rsvp-section] .content .view-content .decor-container-back:hover {
+  pointer-events: none;
+}
+[name=yuugure-theme] [name=rsvp-section] .decorations img {
+  pointer-events: none;
+}
+[name=yuugure-theme] [name=rsvp-section] .decorations .top-left img {
+  position: absolute;
+  left: 0;
+  top: -3.31rem;
+  width: 35%;
+  object-fit: contain;
+  z-index: 4;
+}
+[name=yuugure-theme] [name=rsvp-section] .decorations .top-right img {
+  position: absolute;
+  right: 0;
+  top: -3.31rem;
+  width: 35%;
+  object-fit: contain;
+  z-index: 4;
+}
+
+.mobile [name=yuugure-theme] [name=wish-section] {
+  background: transparent;
+  padding-top: 1.5rem;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content {
+  min-height: unset;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .title p {
+  color: #64564C;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .bottom-border {
+  width: 7.375rem;
+  border-bottom: 1px solid #64564C;
+  margin: 0.62rem auto 0 auto;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper {
+  flex-direction: column-reverse;
+  margin-top: 1rem;
+  padding-left: 0.94rem;
+  padding-right: 0.94rem;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 0.9375rem;
+  padding: 1.25rem 1.5rem;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input {
+  margin-bottom: 0.62rem;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input .label {
+  margin-bottom: 0.25rem;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input .label p {
+  color: #64564C;
+  text-align: left;
+  font-family: "poppinsSB";
+  font-size: 0.75rem;
+  font-style: normal;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input [name=input] {
+  max-height: 2.5rem;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input [name=input] input {
+  font-size: 0.75rem;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input {
+  margin-bottom: 0.94rem;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input .label {
+  margin-bottom: 0.25rem;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input .label p {
+  color: #64564C;
+  font-family: "poppinsSB";
+  font-size: 0.75rem;
+  font-style: normal;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input [name=input].textarea {
+  padding-left: 1.12rem;
+  padding-right: 1.12rem;
+  border-color: rgba(144, 138, 113, 0.2549019608);
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input [name=input].textarea:hover, .mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input [name=input].textarea:focus {
+  border-color: #908A71;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input [name=input].textarea textarea {
+  color: #908A71;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input .message-counter p {
+  color: #64564C;
+  font-family: "opensansR";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .send-button [name=yuugure-button] {
+  min-width: unset;
+  width: 100%;
+  border-radius: 0.9375rem;
+  padding: 0.69rem 2.5rem;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .send-button [name=yuugure-button] .label p {
+  color: #FFF;
+  font-family: "poppinsM";
+  font-size: 0.75rem;
+  font-style: normal;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .bottom-border {
+  width: 7.375rem;
+  border-bottom: 1px solid #64564C;
+  margin: 0.62rem auto 0 auto;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .left {
+  background: unset;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes {
+  margin-top: 0.63rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-height: 31rem;
+  scrollbar-width: auto !important;
+  scrollbar-color: inherit !important;
+  border-radius: 0.9375rem;
+  background: rgba(255, 255, 255, 0.8);
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .no-data p {
+  font-size: 0.75rem;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .top .name p {
+  color: #64564C;
+  text-align: left;
+  font-family: "opensansB";
+  font-size: 0.75rem;
+  font-style: normal;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .top .date p {
+  color: #64564C;
+  text-align: right;
+  font-family: "opensansR";
+  font-size: 0.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .bottom .message p {
+  color: #64564C;
+  font-family: "opensansR";
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .decorations img {
+  pointer-events: none;
+}
+.mobile [name=yuugure-theme] [name=wish-section] .decorations .bottom-left img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  object-fit: contain;
+  z-index: 1;
+  width: 93.33%;
+}
+
+[name=yuugure-theme] [name=wish-section] {
+  padding-top: 2.5rem;
+  padding-bottom: 2.06rem;
+  position: relative;
+  max-width: 170rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=wish-section].without-gift {
+  margin-bottom: 8rem;
+}
+[name=yuugure-theme] [name=wish-section] .content {
+  position: relative;
+  z-index: 10;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .title p {
+  color: #64564C;
+  text-align: center;
+  font-family: "waterbrush";
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0 3.12rem;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .left {
+  width: 100%;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.5);
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes {
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+  padding: 1rem 1.19rem;
+  position: relative;
+  border-radius: 1.25rem;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes:has(.no-data) {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #D0B6B5;
+  position: relative;
+  z-index: 15;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .top {
+  display: flex;
+  justify-content: space-between;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .top .name p {
+  color: #64564C;
+  text-align: center;
+  font-family: "opensansB";
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .top .date p {
+  color: #64564C;
+  text-align: right;
+  font-family: "opensansR";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .bottom {
+  margin-top: 0.25rem;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .bottom .message p {
+  color: #64564C;
+  font-family: "opensansR";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right {
+  width: 100%;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish {
+  padding: 2.81rem 2.5rem 2.94rem 2.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 1.25rem;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input {
+  margin-bottom: 1.88rem;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input .label {
+  margin-bottom: 0.37rem;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input .label p {
+  color: #64564C;
+  font-family: "poppinsSB";
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input {
+  margin-bottom: 3.69rem;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input .label {
+  margin-bottom: 0.62rem;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input .label p {
+  color: #64564C;
+  font-family: "poppinsSB";
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input .message-counter {
+  margin-top: 0.62rem;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input .message-counter p {
+  color: #64564C;
+  text-align: right;
+  font-family: "opensansR";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .send-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[name=yuugure-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .send-button [name=yuugure-button] {
+  padding: 1.12rem 2.25rem;
+  min-width: 20.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[name=yuugure-theme] [name=wish-section] .decorations img {
+  pointer-events: none;
+}
+[name=yuugure-theme] [name=wish-section] .decorations .top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+[name=yuugure-theme] [name=wish-section] .decorations .top-left img {
+  width: 27.5%;
+  object-fit: contain;
+}
+[name=yuugure-theme] [name=wish-section] .decorations .bottom-right img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  width: 33.33%;
+  z-index: 4;
+}
+
+/*# sourceMappingURL=yuugure.css.map */
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes downIn {
+    0% {
+        top: -20%;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes downOut {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: -20%;
+    }
+}
+
+@keyframes bubblingRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(0.5rem);
+    }
+    
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounceUp {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes bubbling {
+    0% {
+      transform: scale(0.85);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes blowed {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes flipImage {
+    0% {
+      transform: rotateY(0);
+    }
+    
+    50%, 100% {
+      transform: rotateY(180deg);
+    }
+  }
+  
+  @keyframes reverseFlipImage {
+    0% {
+      transform: rotateY(180deg);
+    }
+    
+    50%, 100% {
+      transform: rotateY(0deg);
+    }
+  }
+  
+  @keyframes zoomAndBubbling {
+    0% {
+      transform: scale(0);
+    }
+  
+    50% {
+      transform: scale(1.25);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes bubblingOnly {
+    0% {
+      transform: scale(1);
+    }
+  
+    50% {
+      transform: scale(1.25);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes reverseZoomAndBubbling {
+    0% {
+      transform: scale(1);
+    }
+  
+    50% {
+      transform: scale(1.25);
+    }
+    
+    100% {
+      transform: scale(0);
+    }
+  }
+  
+  @keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes bounceLeft {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes rotationAndBubbling {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+  
+    50% {
+      transform: rotate(180deg) scale(1.25);
+    }
+  
+    100% {
+      transform: rotate(360deg) scale(1);
+    }
+  }
+
+  @keyframes slidingLeft {
+    0% {
+      position: absolute;
+      right: -100vw;
+    }
+
+    100% {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  @keyframes slidingRight {
+    0% {
+      position: absolute;
+      right: 0;
+    }
+
+    100% {
+      position: absolute;
+      right: -100vw;
+      display: none;
+    }
+  }
+
+  @keyframes slidingTop {
+    0% {
+      position: absolute;
+      bottom: -100%;
+    }
+
+    100% {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+
+  @keyframes moveFromLeft {
+    0% {
+      position: relative;
+      left: -100vw;
+      opacity: 0;
+    }
+
+    100% {
+      position: relative;
+      left: 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes moveFromRight {
+    0% {
+      position: relative;
+      right: -100vw;
+      opacity: 0;
+    }
+
+    100% {
+      position: relative;
+      right: 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes giggling {
+    25% {
+      transform: rotate(5deg);
+    }
+
+    75% {
+      transform: rotate(-5deg);
+    }
+  }
+
+  @keyframes reverseGiggling {
+    25% {
+      transform: rotate(-5deg);
+    }
+
+    75% {
+      transform: rotate(5deg);
+    }
+  }
+
+  @keyframes flippedReverseGiggling {
+    25% {
+      transform: rotate(5deg) scaleX(-1);
+    }
+
+    75% {
+      transform: rotate(-5deg) scaleX(-1);
+    }
+  }
+
+  @keyframes flippedGiggling {
+    25% {
+      transform: rotate(-5deg) scaleX(-1);
+    }
+
+    50% {
+      transform: scale(1) scaleX(-1);
+    }
+
+    75% {
+      transform: rotate(5deg) scaleX(-1)
+    }
+  }
+
+  @keyframes capsuleMumbling {
+    0% {
+        max-width: 80rem;
+    }
+
+    50% {
+        max-width: 80.5rem;
+    }
+
+    100% {
+        max-width: 80rem;
+    }
+}
+
+@keyframes forwardBubbling {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes moveFromLeftToRight {
+  0% {
+    position: absolute;
+    left: -25vw;
+  }
+
+  100% {
+    position: absolute;
+    left: 125vw;
+  }
+}
+
+@keyframes tiltFromLeftToRight {
+  0% {
+    position: absolute;
+    left: -15vw;
+  }
+
+  100% {
+    top: -10vh;
+    position: absolute;
+    left: 25vw;
+  }
+}
+
+@keyframes tiltHalfFromLeftToRight {
+  0% {
+    position: absolute;
+    left: -15vw;
+  }
+
+  100% {
+    top: -20vh;
+    position: absolute;
+    left: 50vw;
+  }
+}
+
+@keyframes tiltOverflowFromLeftToRight {
+  0% {
+    position: absolute;
+    left: -15vw;
+  }
+
+  100% {
+    top: -20%;
+    position: absolute;
+    left: 200vw;
+  }
+}

@@ -13,7 +13,12 @@ export default function ImageViewer({ images = [], src, alt, isOpen, onClose, in
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
+  const [isLoading, setIsLoading] = useState(true);
   const imageRef = useRef(null);
+
+  useEffect(() => {
+    setIsLoading(true);
+  }, [currentIndex, isOpen]);
 
   // Normalize images to array of objects
   const normalizedImages = useMemo(() => {
@@ -30,38 +35,6 @@ export default function ImageViewer({ images = [], src, alt, isOpen, onClose, in
     const frame = requestAnimationFrame(() => setMounted(true));
     return () => cancelAnimationFrame(frame);
   }, []);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      setScale(1);
-      setPosition({ x: 0, y: 0 });
-      setRotation(0);
-      
-      // Find index if src was provided instead of initialIndex
-      if (src && normalizedImages.length > 1) {
-        const idx = normalizedImages.findIndex(img => img.src === src);
-        if (idx !== -1) setCurrentIndex(idx);
-      } else {
-        setCurrentIndex(initialIndex);
-      }
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-
-    const handleKeyDown = (e) => {
-      if (!isOpen) return;
-      if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowLeft') handlePrev();
-      if (e.key === 'ArrowRight') handleNext();
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen, onClose, src, normalizedImages, initialIndex]);
 
   const handleNext = useCallback((e) => {
     if (e) e.stopPropagation();
@@ -80,6 +53,42 @@ export default function ImageViewer({ images = [], src, alt, isOpen, onClose, in
     setPosition({ x: 0, y: 0 });
     setRotation(0);
   }, [normalizedImages.length]);
+
+  useEffect(() => {
+    let timerId;
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      timerId = setTimeout(() => {
+        setScale(1);
+        setPosition({ x: 0, y: 0 });
+        setRotation(0);
+        
+        // Find index if src was provided instead of initialIndex
+        if (src && normalizedImages.length > 1) {
+          const idx = normalizedImages.findIndex(img => img.src === src);
+          if (idx !== -1) setCurrentIndex(idx);
+        } else {
+          setCurrentIndex(initialIndex);
+        }
+      }, 0);
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    const handleKeyDown = (e) => {
+      if (!isOpen) return;
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'ArrowRight') handleNext();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      if (timerId) clearTimeout(timerId);
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen, onClose, src, normalizedImages, initialIndex, handleNext, handlePrev]);
 
   const handleZoomIn = (e) => {
     e.stopPropagation();
@@ -228,12 +237,17 @@ export default function ImageViewer({ images = [], src, alt, isOpen, onClose, in
         onMouseDown={handleMouseDown}
         onDoubleClick={toggleZoom}
       >
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center z-20 bg-black/60 backdrop-blur-sm pointer-events-none animate-in fade-in duration-200">
+            <div className="w-12 h-12 border-4 border-white/10 border-t-[#d4af37] rounded-full animate-spin"></div>
+          </div>
+        )}
         <div 
           ref={imageRef}
-          className="relative w-full h-[70vh] md:h-[80vh] pointer-events-none"
+          className={`relative w-full h-[70vh] md:h-[80vh] pointer-events-none transition-all duration-300 ${isLoading ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}
           style={{
             transform: `translate(${position.x}px, ${position.y}px) scale(${scale}) rotate(${rotation}deg)`,
-            transition: isDragging ? 'none' : 'transform 0.2s ease-out'
+            transition: isDragging ? 'none' : 'transform 0.2s ease-out, opacity 0.2s ease-in-out'
           }}
         >
           <Image
@@ -243,6 +257,8 @@ export default function ImageViewer({ images = [], src, alt, isOpen, onClose, in
             className="object-contain"
             priority
             quality={100}
+            onLoad={() => setIsLoading(false)}
+            onError={() => setIsLoading(false)}
           />
         </div>
       </div>

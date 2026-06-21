@@ -57,15 +57,18 @@ export default function BotanGift({ invitation }) {
   };
 
   useEffect(() => {
+    let timer;
     if (giftModalState) {
       document.body.style.overflow = "hidden";
-      const timer = setTimeout(() => setShowModal(true), 10);
-      return () => clearTimeout(timer);
+      timer = setTimeout(() => setShowModal(true), 10);
     } else {
-      setShowModal(false);
       document.body.style.overflow = "";
+      timer = setTimeout(() => setShowModal(false), 0);
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      if (timer) clearTimeout(timer);
+      document.body.style.overflow = "";
+    };
   }, [giftModalState]);
 
   const closeGiftModal = () => {

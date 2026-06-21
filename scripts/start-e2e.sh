@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-BACKEND_DIR="/Users/apple/Documents/Codes/Laravel/momento-be"
+BACKEND_DIR="${ROOT_DIR}/../momento-be"
 DB_PATH="/tmp/momento-playwright.sqlite"
 
 rm -f "$DB_PATH"

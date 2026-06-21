@@ -1406,65 +1406,76 @@
   animation: botan-zoom-slide-from-bottom 1s ease-out both;
 }
 
+/* ===== BOTAN PRELOADER — WAVE FILL EFFECT ===== */
+
 .botan-theme [name="botan-preloader"] {
   position: fixed;
   inset: 0;
-  z-index: 9999;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
-  background-color: #efeae4;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  z-index: 9999;
+  overflow: hidden;
 }
 
-.botan-theme [name="botan-preloader"] .loading-spin {
+.botan-theme [name="botan-preloader"] .preloader-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #EFEAE4;
+}
+
+.botan-theme [name="botan-preloader"] .preloader-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Logo Container ---- */
+.botan-theme [name="botan-preloader"] .logo-wave-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.botan-theme [name="botan-preloader"] .loading-spin img {
-  width: 5rem;
-  animation: 1.5s rotationAndBubbling infinite linear;
+.botan-theme [name="botan-preloader"] .logo-svg {
+  width: 14rem;
+  height: 14rem;
+  overflow: visible;
 }
 
-.botan-theme [name="botan-preloader"] .loading-bar-wrapper {
-  width: 20vw;
-  height: 0.8rem;
-  background: #d0b6b5;
-  margin: 4rem auto 0 auto;
-  border-radius: 0.75rem;
-  padding: 0.2rem;
-  overflow: hidden;
+/* Layer abu-abu (base) */
+.botan-theme [name="botan-preloader"] .logo-svg .logo-gray {
+  fill: #C8BFB8;
 }
 
-.botan-theme [name="botan-preloader"] .loading-bar {
-  width: 0%;
-  height: 100%;
-  border-radius: 1rem;
-  background-color: #efeae4;
-  animation: botan-progress 2s ease-in-out forwards;
+/* ---- Wave fill group ---- */
+.botan-theme [name="botan-preloader"] .logo-svg .wave-fill-group {
+  /* container untuk wave elements yang ter-clip oleh logo shape */
 }
 
-@media (max-width: 600px) {
-  .botan-theme [name="botan-preloader"] .loading-bar-wrapper {
-    width: 80vw;
-    height: 1rem;
-    padding: 0.25rem;
-  }
+/* Kotak solid berwarna penuh (di belakang wave) */
+.botan-theme [name="botan-preloader"] .logo-svg .wave-solid-fill {
+  fill: url(#botan-wave-gradient);
+  transition: y 0.3s ease-out, height 0.3s ease-out;
 }
 
-@keyframes botan-progress {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 100%;
-  }
+/* Wave path — posisi dikontrol lewat JS, animasi oscillasi horizontal */
+.botan-theme [name="botan-preloader"] .logo-svg .wave-path {
+  fill: url(#botan-wave-gradient);
+  animation: botan-wave-oscillate 2s ease-in-out infinite alternate;
 }
+
+/* Oscillasi horizontal yang membuat ombak terasa hidup */
+@keyframes botan-wave-oscillate {
+  0%   { transform: translateX(-8px); }
+  100% { transform: translateX(8px);  }
+}
+
 
 .botan-theme {
   --botan-bg: #efeae4;

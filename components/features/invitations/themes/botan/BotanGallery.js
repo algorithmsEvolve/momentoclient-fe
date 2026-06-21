@@ -40,9 +40,10 @@ export default function BotanGallery({ invitation, galleryType }) {
     };
   }, []);
 
+  const invitationGalleries = invitation?.galleries;
   const galleries = useMemo(() => {
-    return Array.isArray(invitation?.galleries) ? invitation.galleries : [];
-  }, [invitation?.galleries]);
+    return Array.isArray(invitationGalleries) ? invitationGalleries : [];
+  }, [invitationGalleries]);
 
   const images = useMemo(() => {
     const imagesLength = galleries.length < 10 ? galleries.length : Math.floor(galleries.length / 2);
