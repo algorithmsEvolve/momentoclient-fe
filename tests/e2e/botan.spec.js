@@ -22,8 +22,8 @@ test.describe("Botan invitation flow", () => {
   test("renders invitation cover and core sections", async ({ page }) => {
     await page.goto("/aira-bima?tamu=keluarga-pratama");
 
-    await expect(page.getByText("Aira")).toBeVisible();
-    await expect(page.getByText("Bima")).toBeVisible();
+    await expect(page.getByText("Aira").first()).toBeVisible();
+    await expect(page.getByText("Bima").first()).toBeVisible();
     await expect(page.getByTestId("botan-open-button")).toBeVisible();
 
     await page.getByTestId("botan-open-button").click();

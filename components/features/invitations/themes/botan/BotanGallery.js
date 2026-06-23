@@ -111,7 +111,7 @@ export default function BotanGallery({ invitation, galleryType }) {
       <div className="content">
         <div className="view-content">
           <div className={`logo ${isVisible ? "animate-zoom-in" : "opacity-0"}`} style={{ animationDelay: "250ms" }}>
-            <img src={invitation?.quote?.nickLogo || "/themes/botan/gallery/nick-logo.png"} alt="nick-logo" />
+            <img src={invitation?.nickLogo || "/themes/botan/gallery/nick-logo.png"} alt="nick-logo" />
           </div>
 
           {galleryType === '4P1L' && galleries.length >= 5 && (

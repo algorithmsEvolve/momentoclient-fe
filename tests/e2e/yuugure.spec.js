@@ -22,8 +22,8 @@ test.describe("Yuugure invitation flow", () => {
   test("renders invitation cover and core sections", async ({ page }) => {
     await page.goto("/sora-aoi?tamu=keluarga-pratama");
 
-    await expect(page.getByText("Sora")).toBeVisible();
-    await expect(page.getByText("Aoi")).toBeVisible();
+    await expect(page.getByText("Sora").first()).toBeVisible();
+    await expect(page.getByText("Aoi").first()).toBeVisible();
     await expect(page.getByTestId("yuugure-open-button")).toBeVisible();
 
     await page.getByTestId("yuugure-open-button").click();
