@@ -17,6 +17,7 @@ export default function ImageViewer({ images = [], src, alt, isOpen, onClose, in
   const imageRef = useRef(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsLoading(true);
   }, [currentIndex, isOpen]);
 

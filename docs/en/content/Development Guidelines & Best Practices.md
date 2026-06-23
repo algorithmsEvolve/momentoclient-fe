@@ -38,351 +38,159 @@
 This document defines development guidelines and best practices for the Momento Client Frontend. It consolidates code organization standards, component development patterns, architectural principles, tooling configurations (ESLint, TypeScript/JavaScript, PostCSS/Tailwind), state management approaches, performance optimization strategies, testing practices, and contribution workflows. The guidance is grounded in the project’s current setup and established repository standards.
 
 ## Project Structure
-The project follows Next.js App Router conventions with a clear separation of concerns:
-- app/: Application shell, metadata, and page components
-- components/: Feature and UI component libraries
-- public/: Static assets (images/icons)
-- Tooling configs: ESLint, Next.js, PostCSS, and JS path aliases
+The project follows Next.js App Router route group conventions:
+- **`app/`**: Route groups `(site)` and `(invitation)`.
+- **`components/`**: Divided into shared `ui/` primitives and domain `features/landing/` sections.
+- **`lib/`**: Contains API clients (`lib/api/`) and default fallback schemas (`lib/site-content/`).
+- **`tests/e2e/`**: Contains Playwright test suites (e.g. `yuugure.spec.js`).
 
 ```mermaid
 graph TB
-A["app/layout.js"] --> B["app/page.js"]
-B --> C["components/ui/Navbar.js"]
-B --> D["components/ui/Footer.js"]
-B --> E["components/features/landing/OpeningSection.js"]
-B --> F["components/features/home/ServiceShowcase.js"]
+A["app/layout.js"] --> B["app/(site)/layout.js (SiteLayout)"]
+B --> C["app/(site)/page.js"]
+C --> D["components/ui/Navbar.js"]
+C --> E["components/ui/Footer.js"]
+C --> F["components/features/landing/OpeningSection.js"]
 G["app/globals.css"] --> A
 H["jsconfig.json"] --> A
-H --> B
-H --> C
-H --> D
-H --> E
-H --> F
 ```
 
-**Diagram sources**
-- [app/layout.js](file://app/layout.js)
-- [app/page.js](file://app/page.js)
-- [components/ui/Navbar.js](file://components/ui/Navbar.js)
-- [components/ui/Footer.js](file://components/ui/Footer.js)
-- [components/features/landing/OpeningSection.js](file://components/features/landing/OpeningSection.js)
-- [components/features/home/ServiceShowcase.js](file://components/features/home/ServiceShowcase.js)
-- [app/globals.css](file://app/globals.css)
-- [jsconfig.json](file://jsconfig.json)
-
-**Section sources**
-- [app/layout.js](file://app/layout.js)
-- [app/page.js](file://app/page.js)
-- [jsconfig.json](file://jsconfig.json)
+**Diagram & Section sources**
+- [app/layout.js:1-58](file://app/layout.js#L1-L58)
+- [app/(site)/layout.js:1-30](file://app/(site)/layout.js#L1-L30)
+- [app/(site)/page.js:1-50](file://app/(site)/page.js#L1-L50)
+- [components/ui/Navbar.js:1-86](file://components/ui/Navbar.js#L1-L86)
+- [components/ui/Footer.js:1-51](file://components/ui/Footer.js#L1-L51)
+- [components/features/landing/OpeningSection.js:1-100](file://components/features/landing/OpeningSection.js#L1-L100)
+- [app/globals.css:1-394](file://app/globals.css#L1-L394)
+- [jsconfig.json:1-8](file://jsconfig.json#L1-L8)
 
 ## Core Components
-- UI primitives live under components/ui/ and are reusable across pages.
-- Feature components live under components/features/<area>/ and encapsulate domain-specific layouts and sections.
-- The root layout configures fonts, metadata, and global styles.
-- Global CSS centralizes theme tokens, component utilities, and animations.
-
-Key patterns observed:
-- Server Components by default with explicit client directives where interactivity is needed.
-- next/font for optimized fonts and next/image for asset optimization.
-- Tailwind-based vanilla CSS for design tokens and utilities.
-
-**Section sources**
-- [app/layout.js](file://app/layout.js)
-- [app/globals.css](file://app/globals.css)
-- [components/ui/Navbar.js](file://components/ui/Navbar.js)
-- [components/ui/Footer.js](file://components/ui/Footer.js)
-- [components/features/landing/OpeningSection.js](file://components/features/landing/OpeningSection.js)
-- [components/features/home/ServiceShowcase.js](file://components/features/home/ServiceShowcase.js)
+- Shared UI controls (Navbar, Footer, ExtraBanner, ImageViewer) are housed inside `components/ui/`.
+- Domain feature sections live under `components/features/<module>/`.
+- Server Components are utilized by default (including the Home Page which fetches content). Client Components (`use client`) are scoped only to interactive wrappers (typewriter animations, mobile overlays).
 
 ## Architecture Overview
-The frontend architecture emphasizes:
-- App Router with Server Components by default
-- Strict separation of UI primitives and feature components
-- Centralized design system via Tailwind theme tokens and global CSS utilities
-- Optimized asset delivery with next/image and next/font
-- Minimal runtime state via React hooks and selective client components
+The styling is defined inside `@theme` in `app/globals.css`, and static schemas (e.g., `lib/site-content/homeDefaults.js`) provide fallback content.
 
 ```mermaid
 graph TB
 subgraph "Runtime"
-RC["Root Layout (Server Component)"]
-HP["Home Page (Server Component)"]
-NAV["Navbar (Client Component)"]
-FOOT["Footer (Server Component)"]
-OP["OpeningSection (Client Component)"]
-SS["ServiceShowcase (Server Component)"]
+RC["Root Layout (Server)"]
+SL["Site Layout (Server)"]
+HP["Home Page (Server)"]
+NAV["Navbar (Client)"]
+FOOT["Footer (Server)"]
+OP["OpeningSection (Client)"]
 end
-subgraph "Styling"
-GCSS["app/globals.css"]
-THEME["Tailwind Theme Tokens"]
-end
-RC --> HP
+RC --> SL
+SL --> HP
 HP --> NAV
 HP --> OP
-HP --> SS
 HP --> FOOT
-GCSS --> THEME
 ```
-
-**Diagram sources**
-- [app/layout.js](file://app/layout.js)
-- [app/page.js](file://app/page.js)
-- [components/ui/Navbar.js](file://components/ui/Navbar.js)
-- [components/ui/Footer.js](file://components/ui/Footer.js)
-- [components/features/landing/OpeningSection.js](file://components/features/landing/OpeningSection.js)
-- [components/features/home/ServiceShowcase.js](file://components/features/home/ServiceShowcase.js)
-- [app/globals.css](file://app/globals.css)
 
 ## Detailed Component Analysis
 
-### UI Component Pattern: Navbar
-- Client-side interactivity for scroll-aware styling and mobile toggle
-- Uses next/navigation for route awareness and next/link for navigation
-- Integrates with global theme tokens and responsive breakpoints
-
-```mermaid
-flowchart TD
-Start(["Navbar mount"]) --> ScrollWatch["Subscribe to scroll events"]
-ScrollWatch --> IsScrolled{"Scroll Y > 0?"}
-IsScrolled --> |Yes| ApplyStyles["Apply scrolled styles"]
-IsScrolled --> |No| ApplyBase["Apply base styles"]
-ApplyStyles --> Render["Render with backdrop blur and border"]
-ApplyBase --> Render
-Render --> End(["Unmount on cleanup"])
-```
-
-**Diagram sources**
-- [components/ui/Navbar.js](file://components/ui/Navbar.js)
+### Client-Side Typing Animation (OpeningSection)
+Encapsulates typewriter effects with local state hooks and lifecycle hooks for frame timing.
 
 **Section sources**
-- [components/ui/Navbar.js](file://components/ui/Navbar.js)
+- [components/features/landing/OpeningSection.js:1-100](file://components/features/landing/OpeningSection.js#L1-L100)
 
-### Feature Component Pattern: Landing Hero
-- Client directive for dynamic typing effect with controlled state lifecycle
-- next/image for optimized hero imagery and floating CTA decoration
-- Responsive typography and layout with Tailwind utilities
+### Data Fetching Patterns (lib/api/)
+Server Components invoke backend API client functions:
+- `lib/api/siteContent.js` -> `getHomeContent()` retrieves published landing data.
+- `lib/api/invitations.js` -> queries dynamic themes based on slug.
+- Data fetching handles error boundaries with fallback defaults loaded from `lib/site-content/`.
 
 ```mermaid
 sequenceDiagram
-participant Comp as "OpeningSection"
-participant Timer as "Effect Timer"
-participant DOM as "DOM"
-Comp->>Comp : Initialize state (text, loop, speed)
-Comp->>Timer : Start timer with typingSpeed
-Timer-->>Comp : Trigger effect handler
-Comp->>Comp : Update text (append/delete)
-Comp->>DOM : Re-render with updated text
-Comp->>Timer : Schedule next tick
-Comp->>Comp : Cleanup on unmount
+participant S as "Server Component (page.js)"
+participant API as "lib/api/siteContent"
+participant BE as "Laravel Backend"
+participant Def as "lib/site-content/homeDefaults"
+S->>API : Call getHomeContent()
+API->>BE : Fetch /site-pages/home
+alt Fetch Success
+    BE-->>API : Returns published json
+    API-->>S : Returns content
+else Fetch Fails
+    API->>Def : Load fallback
+    Def-->>API : Default schemas
+    API-->>S : Returns fallback content
+end
 ```
-
-**Diagram sources**
-- [components/features/landing/OpeningSection.js](file://components/features/landing/OpeningSection.js)
-
-**Section sources**
-- [components/features/landing/OpeningSection.js](file://components/features/landing/OpeningSection.js)
-
-### Feature Component Pattern: Service Showcase
-- Reusable layout with alternating reverse rows
-- next/image with hover transforms and gradient overlays
-- Semantic section IDs and responsive grid behavior
-
-```mermaid
-flowchart TD
-Entry(["ServiceShowcase render"]) --> MapServices["Map services array"]
-MapServices --> RowLayout["Render row per service"]
-RowLayout --> ImageSlot["Image slot with overlay"]
-RowLayout --> TextSlot["Text slot with title/description"]
-ImageSlot --> HoverEffects["Hover scale and grayscale transitions"]
-TextSlot --> CTACall["Call-to-action button"]
-HoverEffects --> Exit(["Exit"])
-CTACall --> Exit
-```
-
-**Diagram sources**
-- [components/features/home/ServiceShowcase.js](file://components/features/home/ServiceShowcase.js)
-
-**Section sources**
-- [components/features/home/ServiceShowcase.js](file://components/features/home/ServiceShowcase.js)
-
-### Global Styles and Theming
-- Centralized theme tokens in app/globals.css
-- Layered CSS (base, components, utilities) for predictable overrides
-- Animations and gradient utilities for motion design
-
-```mermaid
-flowchart TD
-Tokens["Theme Tokens (--color-*)"] --> BaseLayer["Base Layer (body, headings)"]
-Tokens --> ComponentsLayer["Components Layer (.btn-gold, .nav-link)"]
-Tokens --> UtilitiesLayer["Utilities Layer (.grad-gold, .mask-wavy)"]
-BaseLayer --> Output["Final rendered styles"]
-ComponentsLayer --> Output
-UtilitiesLayer --> Output
-```
-
-**Diagram sources**
-- [app/globals.css](file://app/globals.css)
-
-**Section sources**
-- [app/globals.css](file://app/globals.css)
 
 ## Dependency Analysis
-Tooling and configuration dependencies:
-- Next.js runtime and compiler options
-- ESLint with Next.js core-web-vitals preset and custom overrides
-- Tailwind PostCSS plugin for CSS authoring
-- Path aliasing via jsconfig.json
-
-```mermaid
-graph LR
-Pkg["package.json"] --> Next["next.config.mjs"]
-Pkg --> ESL["eslint.config.mjs"]
-Pkg --> Post["postcss.config.mjs"]
-JSC["jsconfig.json"] --> Next
-JSC --> ESL
-JSC --> Post
-```
-
-**Diagram sources**
-- [package.json](file://package.json)
-- [next.config.mjs](file://next.config.mjs)
-- [eslint.config.mjs](file://eslint.config.mjs)
-- [postcss.config.mjs](file://postcss.config.mjs)
-- [jsconfig.json](file://jsconfig.json)
+- **PostCSS compilation**: Binds `@tailwindcss/postcss` with Tailwind CSS v4.
+- **Playwright Test Runner**: Registered in `package.json` for E2E validation.
 
 **Section sources**
-- [package.json](file://package.json)
-- [next.config.mjs](file://next.config.mjs)
-- [eslint.config.mjs](file://eslint.config.mjs)
-- [postcss.config.mjs](file://postcss.config.mjs)
-- [jsconfig.json](file://jsconfig.json)
+- [package.json:1-27](file://package.json#L1-L27)
+- [next.config.mjs:1-24](file://next.config.mjs#L1-L24)
+- [eslint.config.mjs:1-17](file://eslint.config.mjs#L1-L17)
+- [postcss.config.mjs:1-8](file://postcss.config.mjs#L1-L8)
+- [jsconfig.json:1-8](file://jsconfig.json#L1-L8)
 
 ## Performance Considerations
-- Prefer Server Components for initial HTML and SEO benefits
-- Use next/image with fill and priority for hero imagery; constrain aspect ratios
-- next/font with font-display swap and minimal subset loading
-- Limit client components to areas requiring interactivity
-- Minimize heavy JavaScript bundles; leverage React Compiler
-- Optimize CSS via Tailwind utilities and avoid ad-hoc large blocks
-- Keep animations lightweight; use transform and opacity for GPU acceleration
+- **Dynamic revalidation**: Uses `revalidatePath('/')` server-side when CMS edits are published.
+- **Variable Font scaling**: Variable weight parameters configured within layout preloads Cinzel/Montserrat fonts.
 
-## Testing Strategies
-Recommended practices:
-- Unit tests for pure functions and small utilities
-- Component tests for UI primitives and feature sections using React Testing Library
-- Visual regression testing for critical pages and hero sections
-- Accessibility checks with axe or similar tools
-- Linting and type checks in CI to enforce quality gates
-
-[No sources needed since this section provides general guidance]
+## Testing Strategies (Playwright E2E)
+E2E browser tests are integrated using **Playwright**:
+- **Config**: `playwright.config.js` sets browser matrix and base testing variables.
+- **Scripts**: `scripts/start-e2e.sh` starts the backend/frontend servers and triggers test scripts. Runs via `pnpm run test:e2e` or `npm run test:e2e`.
+- **Theme E2E suites**: Dynamic invitation themes (e.g. Botan, Yuugure) have full E2E suites under `tests/e2e/`.
 
 ## Code Review & Contribution Workflows
-Repository standards and workflows:
-- Read and follow AGENTS.md and CLAUDE.md before starting work
-- Surgical precision: modify only necessary lines; preserve original intent
-- Conduct blast radius analysis for shared components
-- Validate with linting after changes
-- Maintain pixel-perfect fidelity to Figma designs
-- Keep code modular, readable, and aligned with App Router patterns
+- **Surgical Precision**: Only modify line ranges targeting specific items.
+- **Blast Radius Analysis**: Validate styling impact against route group layouts before merging.
+- **Zero Git**: Never execute git actions within CLI scripts.
+- **AGENTS.md rules**: Consolidates guidelines globally.
 
 ```mermaid
 flowchart TD
-ReadDocs["Read AGENTS.md and CLAUDE.md"] --> Analyze["Perform blast radius analysis"]
-Analyze --> Implement["Implement changes with surgical precision"]
-Implement --> Lint["Run npm run lint"]
-Lint --> Review["Submit for code review"]
-Review --> Merge["Merge when approved"]
+ReadDocs["Read AGENTS.md rules"] --> Analyze["Conduct blast radius analysis"]
+Analyze --> Implement["Surgical code changes"]
+Implement --> Test["Run pnpm test:e2e / pnpm lint"]
+Test --> Review["Submit code changes"]
 ```
 
 **Section sources**
-- [AGENTS.md](file://AGENTS.md)
-- [CLAUDE.md](file://CLAUDE.md)
+- [AGENTS.md:1-82](file://AGENTS.md#L1-L82)
 
 ## Troubleshooting Guide
-Common issues and resolutions:
-- ESLint errors: resolve rule violations or adjust eslint.config.mjs overrides sparingly
-- Build failures: verify next.config.mjs settings (React Compiler, images.remotePatterns)
-- Styling inconsistencies: ensure Tailwind plugin is enabled and theme tokens are defined in app/globals.css
-- Path resolution errors: confirm jsconfig.json paths and module resolution
+- **E2E tests hanging**: Make sure the backend endpoint is active and `.env.local` API url matches.
+- **Dynamic images blocked**: Register host protocols under `remotePatterns` in `next.config.mjs`.
 
 **Section sources**
-- [eslint.config.mjs](file://eslint.config.mjs)
-- [next.config.mjs](file://next.config.mjs)
-- [postcss.config.mjs](file://postcss.config.mjs)
-- [jsconfig.json](file://jsconfig.json)
-- [app/globals.css](file://app/globals.css)
+- [eslint.config.mjs:1-17](file://eslint.config.mjs#L1-L17)
+- [next.config.mjs:1-24](file://next.config.mjs#L1-L24)
+- [postcss.config.mjs:1-8](file://postcss.config.mjs#L1-L8)
+- [jsconfig.json:1-8](file://jsconfig.json#L1-L8)
 
 ## Conclusion
-These guidelines consolidate the current development practices and toolchain for the Momento Client Frontend. By adhering to component separation, App Router patterns, centralized theming, and rigorous linting/testing, the team can maintain a scalable, consistent, and high-quality codebase aligned with the project’s design and performance goals.
+Development guidelines prioritize layout routing, decoupled server components with fallback defaults, robust Playwright E2E tests, and modular styling to achieve production stability.
 
 ## Appendices
 
-### A. ESLint Configuration
-- Uses eslint-config-next/core-web-vitals preset
-- Overrides default ignores to include app directory files
-- Run linting via npm script
+### A. Playwright Testing Config
+Playwright tests are configured in `playwright.config.js` and E2E start scripts are written in `scripts/start-e2e.sh`.
+
+### B. Path Aliasing
+Configured inside `jsconfig.json` to resolve `@/*` paths to the project root.
 
 **Section sources**
-- [eslint.config.mjs](file://eslint.config.mjs)
-- [package.json](file://package.json)
+- [jsconfig.json:1-8](file://jsconfig.json#L1-L8)
 
-### B. Next.js Configuration
-- Enables React Compiler
-- Configures next/image remotePatterns for external assets
-- Ensures optimal SSR and static generation behavior
-
-**Section sources**
-- [next.config.mjs](file://next.config.mjs)
-
-### C. PostCSS and Tailwind Setup
-- Tailwind PostCSS plugin enabled
-- Centralized design tokens and utilities in app/globals.css
-- Layered CSS approach for predictable cascade
+### C. Component Naming Guidelines
+- Shared UI Primitives: `components/ui/*`
+- Invitation dynamic templates: `components/features/invitations/*`
+- Public features: `components/features/landing/*` / `components/features/pricing/*`
 
 **Section sources**
-- [postcss.config.mjs](file://postcss.config.mjs)
-- [app/globals.css](file://app/globals.css)
-
-### D. Path Aliasing
-- @/* resolves to project root for concise imports
-- Improves readability and reduces brittle relative paths
-
-**Section sources**
-- [jsconfig.json](file://jsconfig.json)
-
-### E. Component Naming and Organization
-- UI primitives: components/ui/*
-- Feature sections: components/features/<area>/*
-- Pages: app/*.js
-- Follows “one component per file” and descriptive naming conventions
-
-**Section sources**
-- [components/ui/Navbar.js](file://components/ui/Navbar.js)
-- [components/ui/Footer.js](file://components/ui/Footer.js)
-- [components/features/landing/OpeningSection.js](file://components/features/landing/OpeningSection.js)
-- [components/features/home/ServiceShowcase.js](file://components/features/home/ServiceShowcase.js)
-
-### F. State Management Patterns
-- Local state via React hooks for UI interactions
-- Client components for interactivity; avoid unnecessary client directives
-- Keep global state minimal; prefer local component state
-
-**Section sources**
-- [components/ui/Navbar.js](file://components/ui/Navbar.js)
-- [components/features/landing/OpeningSection.js](file://components/features/landing/OpeningSection.js)
-
-### G. Accessibility and SEO
-- next/head metadata configured in root layout
-- Semantic HTML and ARIA attributes where applicable
-- next/font and next/image for performance and SEO
-
-**Section sources**
-- [app/layout.js](file://app/layout.js)
-
-### H. Getting Started
-- Development server, build, and start scripts defined in package.json
-- See README for environment setup and local development steps
-
-**Section sources**
-- [package.json](file://package.json)
-- [README.md](file://README.md)
+- [components/ui/Navbar.js:1-86](file://components/ui/Navbar.js#L1-L86)
+- [components/ui/Footer.js:1-51](file://components/ui/Footer.js#L1-L51)
+- [components/features/landing/OpeningSection.js:1-100](file://components/features/landing/OpeningSection.js#L1-L100)
+- [components/ui/ExtraBanner.js:1-64](file://components/ui/ExtraBanner.js#L1-L64)

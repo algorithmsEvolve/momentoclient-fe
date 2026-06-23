@@ -3,10 +3,10 @@
 <cite>
 **Referenced Files in This Document**
 - [README.md](file://README.md)
-- [DOCS_OVERVIEW.md](file://DOCS_OVERVIEW.md)
 - [package.json](file://package.json)
 - [app/layout.js](file://app/layout.js)
-- [app/page.js](file://app/page.js)
+- [app/(site)/layout.js](file://app/(site)/layout.js)
+- [app/(site)/page.js](file://app/(site)/page.js)
 - [components/features/landing/OpeningSection.js](file://components/features/landing/OpeningSection.js)
 - [components/features/landing/WhySection.js](file://components/features/landing/WhySection.js)
 - [components/features/landing/SeserahanSection.js](file://components/features/landing/SeserahanSection.js)
@@ -14,7 +14,7 @@
 - [components/features/landing/InvitationSection.js](file://components/features/landing/InvitationSection.js)
 - [components/features/landing/HighlightSection.js](file://components/features/landing/HighlightSection.js)
 - [components/features/landing/TestimonySection.js](file://components/features/landing/TestimonySection.js)
-- [components/features/landing/ExtraBanner.js](file://components/features/landing/ExtraBanner.js)
+- [components/ui/ExtraBanner.js](file://components/ui/ExtraBanner.js)
 - [components/ui/Navbar.js](file://components/ui/Navbar.js)
 - [components/ui/Footer.js](file://components/ui/Footer.js)
 </cite>
@@ -62,43 +62,34 @@ How this frontend serves as a digital ambassador
 - The footer reinforces brand messaging and provides essential navigation and legal links
 
 ## Project Structure
-The project follows a Next.js 16+ App Router structure with a clear separation between UI primitives, feature components, and page-level composition. The root layout defines global fonts and metadata, while the home page composes a series of landing feature sections to form a complete premium narrative.
+The project follows a Next.js 16+ App Router structure organized with route groups `(site)` for the public-facing pages and `(invitation)` for dynamic digital invitation themes. It uses components categorized under reusable `components/ui/` primitives and feature-specific directories.
 
 ```mermaid
-graph TB
-A["app/layout.js<br/>Root layout and metadata"] --> B["app/page.js<br/>Home page composition"]
-B --> C["components/ui/Navbar.js<br/>Navigation"]
-B --> D["components/features/landing/OpeningSection.js"]
-B --> E["components/features/landing/WhySection.js"]
-B --> F["components/features/landing/SeserahanSection.js"]
-B --> G["components/features/landing/MaharSection.js"]
-B --> H["components/features/landing/InvitationSection.js"]
-B --> I["components/features/landing/HighlightSection.js"]
-B --> J["components/features/landing/TestimonySection.js"]
-B --> K["components/features/landing/ExtraBanner.js"]
-B --> L["components/ui/Footer.js<br/>Footer"]
+graph TD
+A["app/layout.js<br/>Root Layout & Metadata"] --> B["app/(site)/layout.js<br/>SiteLayout & FloatingWhatsApp"]
+A --> C["app/(invitation)/[slug]/page.js<br/>Invitation Dynamic Route"]
+B --> D["app/(site)/page.js<br/>Home Page Composition"]
+B --> E["app/(site)/harga/page.js<br/>Pricing Page"]
+B --> F["app/(site)/estimasi/page.js<br/>Estimation Page"]
+D --> G["components/ui/Navbar.js"]
+D --> H["components/features/landing/... (Sections)"]
+D --> I["components/ui/ExtraBanner.js"]
+D --> J["components/ui/Footer.js"]
 ```
 
 **Diagram sources**
-- [app/layout.js:1-35](file://app/layout.js#L1-L35)
-- [app/page.js:1-42](file://app/page.js#L1-L42)
+- [app/layout.js:1-58](file://app/layout.js#L1-L58)
+- [app/(site)/layout.js:1-30](file://app/(site)/layout.js#L1-L30)
+- [app/(site)/page.js:1-50](file://app/(site)/page.js#L1-L50)
 - [components/ui/Navbar.js:1-86](file://components/ui/Navbar.js#L1-L86)
-- [components/features/landing/OpeningSection.js:1-100](file://components/features/landing/OpeningSection.js#L1-L100)
-- [components/features/landing/WhySection.js:1-53](file://components/features/landing/WhySection.js#L1-L53)
-- [components/features/landing/SeserahanSection.js:1-45](file://components/features/landing/SeserahanSection.js#L1-L45)
-- [components/features/landing/MaharSection.js:1-55](file://components/features/landing/MaharSection.js#L1-L55)
-- [components/features/landing/InvitationSection.js:1-82](file://components/features/landing/InvitationSection.js#L1-L82)
-- [components/features/landing/HighlightSection.js:1-81](file://components/features/landing/HighlightSection.js#L1-L81)
-- [components/features/landing/TestimonySection.js:1-184](file://components/features/landing/TestimonySection.js#L1-L184)
-- [components/features/landing/ExtraBanner.js:1-30](file://components/features/landing/ExtraBanner.js#L1-L30)
+- [components/ui/ExtraBanner.js:1-64](file://components/ui/ExtraBanner.js#L1-L64)
 - [components/ui/Footer.js:1-51](file://components/ui/Footer.js#L1-L51)
 
 **Section sources**
 - [README.md:1-37](file://README.md#L1-L37)
-- [DOCS_OVERVIEW.md:1-38](file://DOCS_OVERVIEW.md#L1-L38)
-- [package.json:1-25](file://package.json#L1-L25)
-- [app/layout.js:1-35](file://app/layout.js#L1-L35)
-- [app/page.js:1-42](file://app/page.js#L1-L42)
+- [package.json:1-27](file://package.json#L1-L27)
+- [app/layout.js:1-58](file://app/layout.js#L1-L58)
+- [app/(site)/page.js:1-50](file://app/(site)/page.js#L1-L50)
 
 ## Core Components
 This section outlines the premium landing page components and their roles in communicating the brand and services.
@@ -128,17 +119,21 @@ These components collectively position Momento as a high-end digital and physica
 - [components/ui/Footer.js:1-51](file://components/ui/Footer.js#L1-L51)
 
 ## Architecture Overview
-The frontend architecture centers around a single-page application built with Next.js App Router. The root layout configures fonts and metadata globally, while the home page composes multiple landing feature sections. Navigation anchors enable smooth scrolling to relevant sections, and the footer provides consistent brand presence and navigation.
+The frontend architecture centers around Next.js App Router route groups. The root layout configures fonts, SEO, and OpenGraph metadata globally. The `(site)` group shares a layout featuring navigation and the Floating WhatsApp action button, while wrapping the main landing pages. Dynamically resolved digital invitations live in the `(invitation)` route group with custom theme structures.
 
 ```mermaid
 graph TB
 subgraph "Global"
-L["app/layout.js<br/>Fonts, metadata, html wrapper"]
+L["app/layout.js<br/>Fonts, metadata, global html wrapper"]
 end
-subgraph "Page"
-P["app/page.js<br/>Home page layout"]
+subgraph "(site) Route Group"
+SL["app/(site)/layout.js<br/>SiteLayout & FloatingWhatsApp"]
+P["app/(site)/page.js<br/>Home page composition"]
 N["components/ui/Navbar.js<br/>Navigation anchors"]
 F["components/ui/Footer.js<br/>Footer"]
+end
+subgraph "(invitation) Route Group"
+INV["app/(invitation)/[slug]/page.js<br/>Dynamic invitation theme page"]
 end
 subgraph "Landing Features"
 O["OpeningSection.js"]
@@ -148,9 +143,11 @@ M["MaharSection.js"]
 I["InvitationSection.js"]
 H["HighlightSection.js"]
 T["TestimonySection.js"]
-EB["ExtraBanner.js"]
+EB["components/ui/ExtraBanner.js"]
 end
-L --> P
+L --> SL
+L --> INV
+SL --> P
 P --> N
 P --> O
 P --> W
@@ -164,10 +161,12 @@ P --> F
 ```
 
 **Diagram sources**
-- [app/layout.js:1-35](file://app/layout.js#L1-L35)
-- [app/page.js:1-42](file://app/page.js#L1-L42)
+- [app/layout.js:1-58](file://app/layout.js#L1-L58)
+- [app/(site)/layout.js:1-30](file://app/(site)/layout.js#L1-L30)
+- [app/(site)/page.js:1-50](file://app/(site)/page.js#L1-L50)
 - [components/ui/Navbar.js:1-86](file://components/ui/Navbar.js#L1-L86)
 - [components/ui/Footer.js:1-51](file://components/ui/Footer.js#L1-L51)
+- [components/ui/ExtraBanner.js:1-64](file://components/ui/ExtraBanner.js#L1-L64)
 - [components/features/landing/OpeningSection.js:1-100](file://components/features/landing/OpeningSection.js#L1-L100)
 - [components/features/landing/WhySection.js:1-53](file://components/features/landing/WhySection.js#L1-L53)
 - [components/features/landing/SeserahanSection.js:1-45](file://components/features/landing/SeserahanSection.js#L1-L45)
@@ -175,7 +174,6 @@ P --> F
 - [components/features/landing/InvitationSection.js:1-82](file://components/features/landing/InvitationSection.js#L1-L82)
 - [components/features/landing/HighlightSection.js:1-81](file://components/features/landing/HighlightSection.js#L1-L81)
 - [components/features/landing/TestimonySection.js:1-184](file://components/features/landing/TestimonySection.js#L1-L184)
-- [components/features/landing/ExtraBanner.js:1-30](file://components/features/landing/ExtraBanner.js#L1-L30)
 
 ## Detailed Component Analysis
 
@@ -186,7 +184,8 @@ The home page composes a series of premium-focused sections that tell the Moment
 sequenceDiagram
 participant U as "User"
 participant L as "layout.js"
-participant H as "page.js"
+participant SL as "(site)/layout.js"
+participant H as "(site)/page.js"
 participant N as "Navbar"
 participant O as "OpeningSection"
 participant W as "WhySection"
@@ -195,11 +194,13 @@ participant M as "MaharSection"
 participant I as "InvitationSection"
 participant HL as "HighlightSection"
 participant T as "TestimonySection"
-participant EB as "ExtraBanner"
+participant EB as "components/ui/ExtraBanner"
 participant F as "Footer"
 U->>L : Load page
-L-->>U : Render html with fonts/metadata
-U->>H : Enter home route
+L-->>U : Render HTML wrapper & fonts
+U->>SL : Enter route
+SL-->>U : Render FloatingWhatsApp button
+U->>H : Resolve home page
 H->>N : Render navigation
 H->>O : Render hero and CTA
 H->>W : Render value cards
@@ -214,8 +215,9 @@ H-->>U : Fully composed premium landing
 ```
 
 **Diagram sources**
-- [app/layout.js:1-35](file://app/layout.js#L1-L35)
-- [app/page.js:1-42](file://app/page.js#L1-L42)
+- [app/layout.js:1-58](file://app/layout.js#L1-L58)
+- [app/(site)/layout.js:1-30](file://app/(site)/layout.js#L1-L30)
+- [app/(site)/page.js:1-50](file://app/(site)/page.js#L1-L50)
 - [components/ui/Navbar.js:1-86](file://components/ui/Navbar.js#L1-L86)
 - [components/features/landing/OpeningSection.js:1-100](file://components/features/landing/OpeningSection.js#L1-L100)
 - [components/features/landing/WhySection.js:1-53](file://components/features/landing/WhySection.js#L1-L53)
@@ -224,11 +226,11 @@ H-->>U : Fully composed premium landing
 - [components/features/landing/InvitationSection.js:1-82](file://components/features/landing/InvitationSection.js#L1-L82)
 - [components/features/landing/HighlightSection.js:1-81](file://components/features/landing/HighlightSection.js#L1-L81)
 - [components/features/landing/TestimonySection.js:1-184](file://components/features/landing/TestimonySection.js#L1-L184)
-- [components/features/landing/ExtraBanner.js:1-30](file://components/features/landing/ExtraBanner.js#L1-L30)
+- [components/ui/ExtraBanner.js:1-64](file://components/ui/ExtraBanner.js#L1-L64)
 - [components/ui/Footer.js:1-51](file://components/ui/Footer.js#L1-L51)
 
 **Section sources**
-- [app/page.js:1-42](file://app/page.js#L1-L42)
+- [app/(site)/page.js:1-50](file://app/(site)/page.js#L1-L50)
 
 ### Special Event Services Showcase
 The landing features are structured to highlight the three core service categories: seserahan, mahar, and digital invitations, with supporting extras and testimonials.
@@ -254,7 +256,7 @@ CTA --> End(["Conversion to pricing/contact"])
 - [components/features/landing/InvitationSection.js:1-82](file://components/features/landing/InvitationSection.js#L1-L82)
 - [components/features/landing/HighlightSection.js:1-81](file://components/features/landing/HighlightSection.js#L1-L81)
 - [components/features/landing/TestimonySection.js:1-184](file://components/features/landing/TestimonySection.js#L1-L184)
-- [components/features/landing/ExtraBanner.js:1-30](file://components/features/landing/ExtraBanner.js#L1-L30)
+- [components/ui/ExtraBanner.js:1-64](file://components/ui/ExtraBanner.js#L1-L64)
 
 **Section sources**
 - [components/features/landing/SeserahanSection.js:1-45](file://components/features/landing/SeserahanSection.js#L1-L45)
@@ -270,7 +272,7 @@ The navbar anchors users to key sections, while the footer reiterates brand mess
 sequenceDiagram
 participant U as "User"
 participant N as "Navbar"
-participant P as "page.js"
+participant P as "(site)/page.js"
 participant S as "SeserahanSection"
 participant M as "MaharSection"
 participant I as "InvitationSection"
@@ -287,25 +289,26 @@ U-->>P : Click Estimasi Harga
 
 **Diagram sources**
 - [components/ui/Navbar.js:1-86](file://components/ui/Navbar.js#L1-L86)
-- [app/page.js:1-42](file://app/page.js#L1-L42)
+- [app/(site)/page.js:1-50](file://app/(site)/page.js#L1-L50)
 - [components/features/landing/SeserahanSection.js:1-45](file://components/features/landing/SeserahanSection.js#L1-L45)
 - [components/features/landing/MaharSection.js:1-55](file://components/features/landing/MaharSection.js#L1-L55)
 - [components/features/landing/InvitationSection.js:1-82](file://components/features/landing/InvitationSection.js#L1-L82)
-- [components/features/landing/ExtraBanner.js:1-30](file://components/features/landing/ExtraBanner.js#L1-L30)
+- [components/ui/ExtraBanner.js:1-64](file://components/ui/ExtraBanner.js#L1-L64)
 
 **Section sources**
 - [components/ui/Navbar.js:1-86](file://components/ui/Navbar.js#L1-L86)
 - [components/ui/Footer.js:1-51](file://components/ui/Footer.js#L1-L51)
 
 ## Dependency Analysis
-The frontend relies on Next.js 16+, Tailwind 4, and Lucide React for icons. Fonts are configured globally via the root layout, and the home page composes feature components and UI primitives. There are no detected circular dependencies; the structure maintains clean separation between layout, page, and feature components.
+The frontend relies on Next.js 16+, Tailwind 4, and Lucide React for icons. Fonts are configured globally via the root layout. The site layout resolves routing under route groups and composes feature components and UI primitives.
 
 ```mermaid
 graph LR
 PJ["package.json<br/>Dependencies"] --> NX["Next.js 16+"]
 PJ --> TW["Tailwind 4"]
 PJ --> LC["Lucide React"]
-LYT["app/layout.js<br/>Fonts & metadata"] --> PG["app/page.js"]
+LYT["app/layout.js<br/>Fonts & metadata"] --> SL["app/(site)/layout.js<br/>Site layout & wrapper"]
+SL --> PG["app/(site)/page.js"]
 PG --> NAV["components/ui/Navbar.js"]
 PG --> OPS["components/features/landing/OpeningSection.js"]
 PG --> WYS["components/features/landing/WhySection.js"]
@@ -314,14 +317,15 @@ PG --> MAH["components/features/landing/MaharSection.js"]
 PG --> INV["components/features/landing/InvitationSection.js"]
 PG --> HIL["components/features/landing/HighlightSection.js"]
 PG --> TST["components/features/landing/TestimonySection.js"]
-PG --> EBA["components/features/landing/ExtraBanner.js"]
+PG --> EBA["components/ui/ExtraBanner.js"]
 PG --> FTR["components/ui/Footer.js"]
 ```
 
 **Diagram sources**
-- [package.json:1-25](file://package.json#L1-L25)
-- [app/layout.js:1-35](file://app/layout.js#L1-L35)
-- [app/page.js:1-42](file://app/page.js#L1-L42)
+- [package.json:1-27](file://package.json#L1-L27)
+- [app/layout.js:1-58](file://app/layout.js#L1-L58)
+- [app/(site)/layout.js:1-30](file://app/(site)/layout.js#L1-L30)
+- [app/(site)/page.js:1-50](file://app/(site)/page.js#L1-L50)
 - [components/ui/Navbar.js:1-86](file://components/ui/Navbar.js#L1-L86)
 - [components/features/landing/OpeningSection.js:1-100](file://components/features/landing/OpeningSection.js#L1-L100)
 - [components/features/landing/WhySection.js:1-53](file://components/features/landing/WhySection.js#L1-L53)
@@ -330,13 +334,24 @@ PG --> FTR["components/ui/Footer.js"]
 - [components/features/landing/InvitationSection.js:1-82](file://components/features/landing/InvitationSection.js#L1-L82)
 - [components/features/landing/HighlightSection.js:1-81](file://components/features/landing/HighlightSection.js#L1-L81)
 - [components/features/landing/TestimonySection.js:1-184](file://components/features/landing/TestimonySection.js#L1-L184)
-- [components/features/landing/ExtraBanner.js:1-30](file://components/features/landing/ExtraBanner.js#L1-L30)
+- [components/ui/ExtraBanner.js:1-64](file://components/ui/ExtraBanner.js#L1-L64)
 - [components/ui/Footer.js:1-51](file://components/ui/Footer.js#L1-L51)
 
 **Section sources**
-- [package.json:1-25](file://package.json#L1-L25)
-- [app/layout.js:1-35](file://app/layout.js#L1-L35)
-- [app/page.js:1-42](file://app/page.js#L1-L42)
+- [package.json:1-27](file://package.json#L1-L27)
+- [app/layout.js:1-58](file://app/layout.js#L1-L58)
+- [app/(site)/page.js:1-50](file://app/(site)/page.js#L1-L50)
+
+## Data Layer & Utilities (lib/)
+The `lib/` directory manages state-less utility functions, default content schemas, and API client layers:
+- **`lib/api/`**:
+  - `siteContent.js`: Fetches content drafts or published versions from the backend (e.g., `getHomeContent()`, `getPricingContent()`).
+  - `estimationOrders.js`: Post new estimation order requests to the backend.
+  - `invitations.js`: Resolves dynamic invitation details by slug.
+- **`lib/site-content/`**:
+  - `homeDefaults.js` & `pricingDefaults.js`: Static fallback content structured in the page JSON schemas.
+  - `image.js`: Resolves absolute/remote paths for image previews.
+- **`lib/invitations/`**: Theme metadata handling, preload progress, and path normalization.
 
 ## Performance Considerations
 - Server Components and App Router: The page leverages Next.js App Router to optimize rendering and SEO, aligning with the technical standards for maintainability and performance.
@@ -356,10 +371,10 @@ Common areas to review when diagnosing issues:
 - Footer links: Validate footer navigation and brand messaging alignment.
 
 **Section sources**
-- [app/layout.js:1-35](file://app/layout.js#L1-L35)
+- [app/layout.js:1-58](file://app/layout.js#L1-L58)
 - [components/ui/Navbar.js:1-86](file://components/ui/Navbar.js#L1-L86)
 - [components/features/landing/OpeningSection.js:1-100](file://components/features/landing/OpeningSection.js#L1-L100)
-- [components/ui/Footer.js:1-51](file://components/ui/Footer.js#L1-L51)
+- [components/ui/Footer.js:1-51](file://components/ui/Footer.js#L1-L51)ter.js#L1-L51)
 
 ## Conclusion
 Momento Client Frontend is a premium, purpose-built digital ambassador that communicates the brand’s commitment to authentic, professional, and customizable experiences for special events. Through a carefully orchestrated combination of hero storytelling, value-driven sections, service showcases, and social proof, the site positions Momento as the ideal partner for seserahan, mahar, and digital invitations. The technical foundation, visual identity, and user flow work together to deliver a seamless, high-end experience that converts interest into action.

@@ -52,8 +52,10 @@ export default function YuugureOpening({ invitation }) {
   const groom = invitation?.couple?.groom;
   const settings = invitation?.settings || {};
 
-  const withOpeningBasmalah = settings.openingBasmalah !== false;
-  const openingInfoText = settings.openingInfoText || "Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri pernikahan kami:";
+  const withOpeningBasmalah =
+    settings.openingBasmalah === true ||
+    settings.custom?.opening_basmalah === true;
+  const openingInfoText = settings.openingInfoText || null;
   const withInfo = Boolean(openingInfoText);
 
   return (

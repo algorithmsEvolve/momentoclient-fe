@@ -82,16 +82,19 @@ export default function YuugureMusicButton({ enabled, musicUrl }) {
   return (
     <div
       name="yuugure-music-button"
-      className={isPlaying ? "play" : "pause"}
+      className="show"
       onClick={toggleMusic}
-      style={{ cursor: "pointer" }}
     >
-      <img
-        src={`/themes/yuugure/component/${
-          isPlaying ? "volume-on.svg" : "volume-off.svg"
-        }`}
-        alt="music-control"
-      />
+      <div className="wrapper">
+        <div className="music-button">
+          <img
+            src={`/themes/yuugure/component/${
+              isPlaying ? "volume-on.svg" : "volume-off.svg"
+            }`}
+            alt="music-button"
+          />
+        </div>
+      </div>
     </div>
   );
 }

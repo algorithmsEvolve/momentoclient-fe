@@ -14,6 +14,7 @@
 - [app/globals.css](file://app/globals.css)
 - [components/ui/Navbar.js](file://components/ui/Navbar.js)
 - [components/ui/Footer.js](file://components/ui/Footer.js)
+- [app/api/revalidate/route.js](file://app/api/revalidate/route.js)
 </cite>
 
 ## Table of Contents
@@ -115,33 +116,41 @@ CDN --> Users["End Users"]
 
 ### Next.js Build Configuration
 - React Compiler is enabled to improve runtime performance.
-- Remote image optimization is restricted to a single approved hostname pattern.
+- Remote image optimization is configured for three approved hostname patterns:
+  - `images.unsplash.com` (Unsplash stock imagery)
+  - `*.public.blob.vercel-storage.com` (Vercel Blob Storage for uploaded CMS images)
+  - `firebasestorage.googleapis.com` (Firebase Storage for legacy/invitation images)
 - Additional Next.js settings can be added in next.config.mjs as needed.
 
 ```mermaid
 flowchart TD
 Start(["Load next.config.mjs"]) --> RC["Enable React Compiler"]
-RC --> Images["Configure Remote Image Patterns"]
+RC --> Images["Configure Remote Image Patterns:<br/>images.unsplash.com<br/>*.public.blob.vercel-storage.com<br/>firebasestorage.googleapis.com"]
 Images --> Export(["Export NextConfig"])
 ```
 
 **Diagram sources**
-- [next.config.mjs:4-12](file://next.config.mjs#L4-L12)
+- [next.config.mjs:4-21](file://next.config.mjs#L4-L21)
 
 **Section sources**
-- [next.config.mjs:1-16](file://next.config.mjs#L1-L16)
+- [next.config.mjs:1-24](file://next.config.mjs#L1-L24)
 
 ### Environment Variables Management
 - Environment variables are intentionally ignored by Git to prevent secrets exposure.
-- Committing .env files is explicitly allowed only if explicitly opted-in.
 - For Vercel, use project settings to manage environment variables per deployment environment (preview, production).
+
+Key environment variables used across environments:
+- `MOMENTO_API_URL`: The server-side API URL endpoint (e.g. backend service url). Used by Server Components to load dynamic content.
+- `NEXT_PUBLIC_MOMENTO_API_URL`: Client-side API fallback URL (visible in client-side queries).
+- `MOMENTO_REVALIDATE_SECRET`: The shared security token used to authenticate calls to `/api/revalidate`.
+- `NEXT_PUBLIC_MOMENTO_PUBLIC_SITE_URL`: The public hostname of this frontend portal, used for resolving preview assets/links dynamically.
 
 ```mermaid
 flowchart TD
 A[".gitignore entries"] --> B["Ignore node_modules, .next, out, build"]
 B --> C["Ignore .env* files"]
-C --> D["Allow opt-in for .env* if needed"]
-D --> E["Vercel: Set environment variables in project settings"]
+C --> D["Vercel: Set environment variables in project settings"]
+D --> EnvVars["Configure variables:<br/>MOMENTO_API_URL<br/>NEXT_PUBLIC_MOMENTO_API_URL<br/>MOMENTO_REVALIDATE_SECRET<br/>NEXT_PUBLIC_MOMENTO_PUBLIC_SITE_URL"]
 ```
 
 **Diagram sources**
@@ -150,6 +159,32 @@ D --> E["Vercel: Set environment variables in project settings"]
 **Section sources**
 - [.gitignore:1-41](file://.gitignore#L1-41)
 - [README.md:32-36](file://README.md#L32-L36)
+
+### On-Demand Revalidation
+- The frontend exposes a webhook route at `/api/revalidate` for programmatic revalidation of statically rendered routes.
+- This allows the CMS (Admin Frontend) to trigger instant cache updates on the public portal when site content changes.
+
+```mermaid
+sequenceDiagram
+participant Admin as "Admin CMS"
+participant RevRoute as "app/api/revalidate/route.js"
+participant NextCache as "Next.js Cache Tag/Path"
+Admin->>RevRoute: POST /api/revalidate (body: { secret, slug })
+Note over RevRoute: Verify secret against MOMENTO_REVALIDATE_SECRET
+alt Unauthorized
+    RevRoute-->>Admin: 401 Unauthorized
+else Authorized
+    RevRoute->>NextCache: revalidateTag(tag) & revalidatePath(path)
+    RevRoute-->>Admin: 200 { revalidated: true, slug }
+end
+```
+
+Supported slugs and their associated cache details:
+- **`home`**: revalidates path `/` and cache tags `["site-page:home", "site-pages"]`
+- **`pricing`**: revalidates path `/harga` and cache tags `["site-page:pricing", "site-pages"]`
+
+**Section sources**
+- [app/api/revalidate/route.js:1-46](file://app/api/revalidate/route.js#L1-L46)
 
 ### Path Aliasing and Imports
 - Path alias @/* resolves to project root for concise imports.
@@ -350,12 +385,12 @@ The Momento Client Frontend is configured for efficient builds and production-re
 
 ### Security Best Practices
 - Never commit secrets; use Vercel project settings for environment variables.
-- Restrict remote image hosts to trusted domains.
+- Restrict remote image hosts to trusted domains: `images.unsplash.com`, `*.public.blob.vercel-storage.com`, and `firebasestorage.googleapis.com`.
 - Keep dependencies updated and review security advisories regularly.
 
 **Section sources**
 - [.gitignore:33-34](file://.gitignore#L33-L34)
-- [next.config.mjs:5-12](file://next.config.mjs#L5-L12)
+- [next.config.mjs:5-20](file://next.config.mjs#L5-L20)
 
 ### Rollback Procedures and Emergency Response Protocols
 - Maintain versioned releases and deployment logs.

@@ -8,12 +8,13 @@
 - [postcss.config.mjs](file://postcss.config.mjs)
 - [jsconfig.json](file://jsconfig.json)
 - [app/layout.js](file://app/layout.js)
-- [app/page.js](file://app/page.js)
+- [app/(site)/page.js](file://app/(site)/page.js)
 - [app/globals.css](file://app/globals.css)
 - [components/ui/Navbar.js](file://components/ui/Navbar.js)
 - [components/ui/Footer.js](file://components/ui/Footer.js)
 - [components/features/landing/OpeningSection.js](file://components/features/landing/OpeningSection.js)
-- [components/features/home/ServiceShowcase.js](file://components/features/home/ServiceShowcase.js)
+- [playwright.config.js](file://playwright.config.js)
+- [pnpm-workspace.yaml](file://pnpm-workspace.yaml)
 - [README.md](file://README.md)
 </cite>
 
@@ -32,24 +33,25 @@
 This document provides comprehensive technology stack documentation for the Momento Client Frontend. It covers the core technologies (Next.js 16 with App Router, React 19, and Tailwind CSS v4), major dependencies (lucide-react, Google Fonts integration via Next/font, and React Compiler), build configuration, ESLint setup, and PostCSS configuration. It also explains version compatibility, performance implications, and the rationale behind the tech stack choices, along with development tools, optimization strategies, and integration patterns used throughout the project.
 
 ## Project Structure
-The frontend follows Next.js App Router conventions with a clear separation of concerns:
-- app/: Application shell, metadata, global styles, and page components
-- components/: Reusable UI components organized by feature and shared UI
-- public/: Static assets (images, icons)
-- Configuration files at the repository root manage build, linting, fonts, and styling
+The frontend follows Next.js App Router conventions with a route group separation of concerns:
+- app/ layout & page structures nested inside route groups `(site)` and `(invitation)`
+- components/ organized by feature modules and shared UI
+- public/ folder for assets, icons, and invitation-specific local fonts
+- Configuration files at the repository root managing build, routing, testing, and linting
 
 ```mermaid
 graph TB
 subgraph "App Router"
 LAYOUT["app/layout.js"]
-PAGE["app/page.js"]
+SITELAYOUT["app/(site)/layout.js"]
+PAGE["app/(site)/page.js"]
 GLOBALS["app/globals.css"]
 end
 subgraph "Components"
 NAVBAR["components/ui/Navbar.js"]
 FOOTER["components/ui/Footer.js"]
 OPENING["components/features/landing/OpeningSection.js"]
-SHOWCASE["components/features/home/ServiceShowcase.js"]
+EXTRABANNER["components/ui/ExtraBanner.js"]
 end
 subgraph "Config"
 PKG["package.json"]
@@ -59,10 +61,11 @@ POSTCSS["postcss.config.mjs"]
 JSCFG["jsconfig.json"]
 end
 LAYOUT --> GLOBALS
+SITELAYOUT --> PAGE
 PAGE --> NAVBAR
 PAGE --> FOOTER
 PAGE --> OPENING
-PAGE --> SHOWCASE
+PAGE --> EXTRABANNER
 PKG --> NEXT
 PKG --> ESLINT
 PKG --> POSTCSS
@@ -70,23 +73,24 @@ JSCFG --> LAYOUT
 ```
 
 **Diagram sources**
-- [app/layout.js:1-35](file://app/layout.js#L1-L35)
-- [app/page.js:1-42](file://app/page.js#L1-L42)
-- [app/globals.css:1-118](file://app/globals.css#L1-L118)
+- [app/layout.js:1-58](file://app/layout.js#L1-L58)
+- [app/(site)/layout.js:1-30](file://app/(site)/layout.js#L1-L30)
+- [app/(site)/page.js:1-50](file://app/(site)/page.js#L1-L50)
+- [app/globals.css:1-394](file://app/globals.css#L1-L394)
 - [components/ui/Navbar.js:1-86](file://components/ui/Navbar.js#L1-L86)
 - [components/ui/Footer.js:1-51](file://components/ui/Footer.js#L1-L51)
 - [components/features/landing/OpeningSection.js:1-100](file://components/features/landing/OpeningSection.js#L1-L100)
-- [components/features/home/ServiceShowcase.js:1-77](file://components/features/home/ServiceShowcase.js#L1-L77)
-- [package.json:1-25](file://package.json#L1-L25)
-- [next.config.mjs:1-16](file://next.config.mjs#L1-L16)
+- [components/ui/ExtraBanner.js:1-64](file://components/ui/ExtraBanner.js#L1-L64)
+- [package.json:1-27](file://package.json#L1-L27)
+- [next.config.mjs:1-24](file://next.config.mjs#L1-L24)
 - [eslint.config.mjs:1-17](file://eslint.config.mjs#L1-L17)
 - [postcss.config.mjs:1-8](file://postcss.config.mjs#L1-L8)
-- [jsconfig.json:1-8](file://jsconfig.json#L1-L8)
+- [jsconfig.json:1-8](file://jsconfig.json#L1-8)
 
 **Section sources**
 - [README.md:1-37](file://README.md#L1-L37)
-- [package.json:1-25](file://package.json#L1-L25)
-- [next.config.mjs:1-16](file://next.config.mjs#L1-L16)
+- [package.json:1-27](file://package.json#L1-L27)
+- [next.config.mjs:1-24](file://next.config.mjs#L1-L24)
 - [eslint.config.mjs:1-17](file://eslint.config.mjs#L1-L17)
 - [postcss.config.mjs:1-8](file://postcss.config.mjs#L1-L8)
 - [jsconfig.json:1-8](file://jsconfig.json#L1-L8)
@@ -105,17 +109,17 @@ Key integration highlights:
 - Next.js image optimization and remote pattern configuration enable secure external image loading.
 
 **Section sources**
-- [app/layout.js:1-35](file://app/layout.js#L1-L35)
-- [app/globals.css:1-118](file://app/globals.css#L1-L118)
-- [next.config.mjs:1-16](file://next.config.mjs#L1-L16)
-- [package.json:11-23](file://package.json#L11-L23)
+- [app/layout.js:1-58](file://app/layout.js#L1-L58)
+- [app/globals.css:1-394](file://app/globals.css#L1-L394)
+- [next.config.mjs:1-24](file://next.config.mjs#L1-L24)
+- [package.json:11-27](file://package.json#L11-L27)
 
 ## Architecture Overview
 The frontend architecture centers around the App Router, with a focus on:
-- Metadata-driven layout and global styling
-- Component composition with shared UI and feature modules
-- Optimized asset delivery and font loading
-- Build-time and runtime optimizations
+- Metadata-driven layout and global styling (supporting OpenGraph and responsive variables)
+- Component composition with route group layouts, shared UI, and feature modules
+- Optimized asset delivery and font loading (integrating local custom fonts for invitation themes)
+- Build-time and runtime optimizations (React Compiler and Vercel Blob integrations)
 
 ```mermaid
 graph TB
@@ -123,15 +127,17 @@ CLIENT["Browser"]
 NEXT["Next.js Runtime"]
 ROUTER["App Router"]
 LAYOUT["Root Layout<br/>Metadata + Fonts"]
-PAGE["Page Component<br/>Home"]
-UI["UI Components<br/>Navbar, Footer"]
-FEATURES["Feature Components<br/>OpeningSection, ServiceShowcase"]
+SITELAYOUT["Site Layout<br/>FloatingWhatsApp"]
+PAGE["Page Component<br/>(site)/page.js"]
+UI["UI Components<br/>Navbar, Footer, ExtraBanner"]
+FEATURES["Feature Components<br/>OpeningSection"]
 TAILWIND["Tailwind v4<br/>PostCSS Layering"]
 ICONS["lucide-react Icons"]
 CLIENT --> NEXT
 NEXT --> ROUTER
 ROUTER --> LAYOUT
-ROUTER --> PAGE
+LAYOUT --> SITELAYOUT
+SITELAYOUT --> PAGE
 PAGE --> UI
 PAGE --> FEATURES
 LAYOUT --> TAILWIND
@@ -140,14 +146,15 @@ FEATURES --> ICONS
 ```
 
 **Diagram sources**
-- [app/layout.js:1-35](file://app/layout.js#L1-L35)
-- [app/page.js:1-42](file://app/page.js#L1-L42)
+- [app/layout.js:1-58](file://app/layout.js#L1-L58)
+- [app/(site)/layout.js:1-30](file://app/(site)/layout.js#L1-L30)
+- [app/(site)/page.js:1-50](file://app/(site)/page.js#L1-L50)
 - [components/ui/Navbar.js:1-86](file://components/ui/Navbar.js#L1-L86)
 - [components/ui/Footer.js:1-51](file://components/ui/Footer.js#L1-L51)
 - [components/features/landing/OpeningSection.js:1-100](file://components/features/landing/OpeningSection.js#L1-L100)
-- [components/features/home/ServiceShowcase.js:1-77](file://components/features/home/ServiceShowcase.js#L1-L77)
-- [app/globals.css:1-118](file://app/globals.css#L1-L118)
-- [package.json:11-23](file://package.json#L11-L23)
+- [components/ui/ExtraBanner.js:1-64](file://components/ui/ExtraBanner.js#L1-64)
+- [app/globals.css:1-394](file://app/globals.css#L1-L394)
+- [package.json:11-27](file://package.json#L11-L27)
 
 ## Detailed Component Analysis
 
@@ -170,15 +177,16 @@ UI-->>Browser : Rendered HTML/CSS
 ```
 
 **Diagram sources**
-- [app/layout.js:1-35](file://app/layout.js#L1-L35)
-- [app/page.js:1-42](file://app/page.js#L1-L42)
+- [app/layout.js:1-58](file://app/layout.js#L1-L58)
+- [app/(site)/layout.js:1-30](file://app/(site)/layout.js#L1-L30)
+- [app/(site)/page.js:1-50](file://app/(site)/page.js#L1-L50)
 - [components/ui/Navbar.js:1-86](file://components/ui/Navbar.js#L1-L86)
 - [components/ui/Footer.js:1-51](file://components/ui/Footer.js#L1-L51)
 
 **Section sources**
-- [app/layout.js:1-35](file://app/layout.js#L1-L35)
-- [app/page.js:1-42](file://app/page.js#L1-L42)
-- [app/globals.css:1-118](file://app/globals.css#L1-L118)
+- [app/layout.js:1-58](file://app/layout.js#L1-L58)
+- [app/(site)/page.js:1-50](file://app/(site)/page.js#L1-L50)
+- [app/globals.css:1-394](file://app/globals.css#L1-L394)
 
 ### Tailwind CSS v4 Integration and Design Tokens
 - Theme tokens define brand colors, typography families, and component defaults.
@@ -198,11 +206,11 @@ BaseLayer --> Compiled
 ```
 
 **Diagram sources**
-- [app/globals.css:1-118](file://app/globals.css#L1-L118)
+- [app/globals.css:1-394](file://app/globals.css#L1-L394)
 - [postcss.config.mjs:1-8](file://postcss.config.mjs#L1-L8)
 
 **Section sources**
-- [app/globals.css:1-118](file://app/globals.css#L1-L118)
+- [app/globals.css:1-394](file://app/globals.css#L1-L394)
 - [postcss.config.mjs:1-8](file://postcss.config.mjs#L1-L8)
 
 ### React Compiler and Build Optimization
@@ -217,12 +225,12 @@ Optimize --> Bundle["Smaller runtime footprint"]
 ```
 
 **Diagram sources**
-- [next.config.mjs:4-4](file://next.config.mjs#L4-L4)
-- [package.json:19-19](file://package.json#L19-L19)
+- [next.config.mjs:1-24](file://next.config.mjs#L1-L24)
+- [package.json:1-27](file://package.json#L1-L27)
 
 **Section sources**
-- [next.config.mjs:1-16](file://next.config.mjs#L1-L16)
-- [package.json:17-23](file://package.json#L17-L23)
+- [next.config.mjs:1-24](file://next.config.mjs#L1-L24)
+- [package.json:1-27](file://package.json#L1-L27)
 
 ### Google Fonts Integration (Next/font)
 - Inter, Cinzel, and Montserrat are configured as font variables and applied globally.
@@ -240,12 +248,12 @@ CSS-->>Layout : Typography applied across app
 ```
 
 **Diagram sources**
-- [app/layout.js:1-35](file://app/layout.js#L1-L35)
-- [app/globals.css:13-15](file://app/globals.css#L13-L15)
+- [app/layout.js:1-58](file://app/layout.js#L1-L58)
+- [app/globals.css:1-394](file://app/globals.css#L1-L394)
 
 **Section sources**
-- [app/layout.js:1-35](file://app/layout.js#L1-L35)
-- [app/globals.css:13-15](file://app/globals.css#L13-L15)
+- [app/layout.js:1-58](file://app/layout.js#L1-L58)
+- [app/globals.css:1-394](file://app/globals.css#L1-L394)
 
 ### Iconography with lucide-react
 - lucide-react is integrated for premium, consistent iconography across UI components.
@@ -259,27 +267,27 @@ class IconLibrary {
 }
 class UIComponents {
 +"Navbar"
-+"ServiceShowcase"
++"ExtraBanner"
 }
 IconLibrary <.. UIComponents : "used by"
 ```
 
 **Diagram sources**
-- [package.json:12-12](file://package.json#L12-L12)
+- [package.json:1-27](file://package.json#L1-L27)
 - [components/ui/Navbar.js:1-86](file://components/ui/Navbar.js#L1-L86)
-- [components/features/home/ServiceShowcase.js:1-77](file://components/features/home/ServiceShowcase.js#L1-L77)
+- [components/ui/ExtraBanner.js:1-64](file://components/ui/ExtraBanner.js#L1-L64)
 
 **Section sources**
-- [package.json:11-23](file://package.json#L11-L23)
+- [package.json:1-27](file://package.json#L1-L27)
 - [components/ui/Navbar.js:1-86](file://components/ui/Navbar.js#L1-L86)
-- [components/features/home/ServiceShowcase.js:1-77](file://components/features/home/ServiceShowcase.js#L1-L77)
+- [components/ui/ExtraBanner.js:1-64](file://components/ui/ExtraBanner.js#L1-L64)
 
 ### ESLint and Code Quality
 - ESLint is configured with eslint-config-next and overrides default ignores to enforce quality and performance standards aligned with Core Web Vitals.
 
 ```mermaid
 flowchart TD
-Lint["npm run lint"] --> ESLintCfg["eslint.config.mjs"]
+Lint["pnpm lint"] --> ESLintCfg["eslint.config.mjs"]
 ESLintCfg --> NextConfig["eslint-config-next"]
 NextConfig --> Rules["Core Web Vitals + Project Rules"]
 Rules --> Report["Linting Report"]
@@ -287,14 +295,14 @@ Rules --> Report["Linting Report"]
 
 **Diagram sources**
 - [eslint.config.mjs:1-17](file://eslint.config.mjs#L1-L17)
-- [package.json:20-21](file://package.json#L20-L21)
+- [package.json:1-27](file://package.json#L1-L27)
 
 **Section sources**
 - [eslint.config.mjs:1-17](file://eslint.config.mjs#L1-L17)
-- [package.json:5-10](file://package.json#L5-L10)
+- [package.json:1-27](file://package.json#L1-L27)
 
 ### Asset Optimization and Remote Images
-- Remote image patterns are configured to allow images from specific hosts, enabling dynamic image loading while maintaining security.
+- Remote image patterns are configured to allow images from specific hosts (including Unsplash, Vercel Blob Storage, and Firebase Storage), enabling dynamic image loading while maintaining security.
 - Next/image is used across components for optimized image rendering.
 
 ```mermaid
@@ -309,17 +317,15 @@ ImageComp-->>Page : Optimized image render
 ```
 
 **Diagram sources**
-- [next.config.mjs:5-12](file://next.config.mjs#L5-L12)
+- [next.config.mjs:1-24](file://next.config.mjs#L1-L24)
 - [components/features/landing/OpeningSection.js:42-53](file://components/features/landing/OpeningSection.js#L42-L53)
-- [components/features/home/ServiceShowcase.js:43-53](file://components/features/home/ServiceShowcase.js#L43-L53)
 
 **Section sources**
-- [next.config.mjs:1-16](file://next.config.mjs#L1-L16)
+- [next.config.mjs:1-24](file://next.config.mjs#L1-L24)
 - [components/features/landing/OpeningSection.js:1-100](file://components/features/landing/OpeningSection.js#L1-L100)
-- [components/features/home/ServiceShowcase.js:1-77](file://components/features/home/ServiceShowcase.js#L1-L77)
 
 ## Dependency Analysis
-The project’s dependency graph emphasizes a modern, performance-focused stack with clear boundaries between runtime and build-time tools.
+The project’s dependency graph emphasizes a modern, performance-focused stack with clear boundaries between runtime, build-time, and testing tools.
 
 ```mermaid
 graph TB
@@ -331,6 +337,7 @@ POSTCSS["@tailwindcss/postcss"]
 LUCIDE["lucide-react"]
 ESLINT["eslint + eslint-config-next"]
 COMPILER["babel-plugin-react-compiler"]
+PLAYWRIGHT["@playwright/test (dev)"]
 PKG --> NEXT
 PKG --> REACT
 PKG --> TAILWIND
@@ -338,13 +345,14 @@ PKG --> POSTCSS
 PKG --> LUCIDE
 PKG --> ESLINT
 PKG --> COMPILER
+PKG --> PLAYWRIGHT
 ```
 
 **Diagram sources**
-- [package.json:11-23](file://package.json#L11-L23)
+- [package.json:1-27](file://package.json#L1-L27)
 
 **Section sources**
-- [package.json:1-25](file://package.json#L1-L25)
+- [package.json:1-27](file://package.json#L1-L27)
 
 ## Performance Considerations
 - React 19: Improves concurrent rendering and reduces re-renders through built-in optimizations.
@@ -361,14 +369,16 @@ PKG --> COMPILER
 - React Compiler not active: Ensure the flag is enabled in Next.js configuration and that the babel plugin is installed locally if needed.
 - Missing icons: Verify lucide-react installation and import paths in components.
 - ESLint errors: Review eslint.config.mjs overrides and ensure ignored paths are intentional.
-- Remote image errors: Confirm remotePatterns allow the intended hostnames and protocols.
+- Remote image errors: Confirm remotePatterns allow the intended hostnames and protocols in `next.config.mjs`.
 - Tailwind utilities missing: Ensure PostCSS plugin is present and Tailwind directives are included in global CSS.
+- Playwright testing issues: Ensure you run `pnpm exec playwright install` to install necessary browsers before running e2e tests.
 
 **Section sources**
-- [next.config.mjs:1-16](file://next.config.mjs#L1-L16)
-- [package.json:17-23](file://package.json#L17-L23)
+- [next.config.mjs:1-24](file://next.config.mjs#L1-L24)
+- [package.json:1-27](file://package.json#L1-L27)
 - [eslint.config.mjs:1-17](file://eslint.config.mjs#L1-L17)
 - [postcss.config.mjs:1-8](file://postcss.config.mjs#L1-L8)
+- [playwright.config.js:1-40](file://playwright.config.js#L1-L40)
 
 ## Conclusion
 The Momento Client Frontend leverages a modern, performance-oriented stack centered on Next.js 16 with App Router, React 19, and Tailwind CSS v4. The integration of lucide-react, Next/font, and React Compiler aligns with best practices for developer experience, maintainability, and user performance. The configuration files demonstrate a clean separation of concerns, strong optimization strategies, and scalable patterns suitable for iterative feature development and production deployments.

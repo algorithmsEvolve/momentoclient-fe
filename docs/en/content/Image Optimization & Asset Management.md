@@ -4,6 +4,7 @@
 **Referenced Files in This Document**
 - [next.config.mjs](file://next.config.mjs)
 - [package.json](file://package.json)
+- [lib/site-content/image.js](file://lib/site-content/image.js)
 - [app/page.js](file://app/page.js)
 - [components/features/landing/MaharSection.js](file://components/features/landing/MaharSection.js)
 - [components/features/landing/SeserahanSection.js](file://components/features/landing/SeserahanSection.js)
@@ -37,6 +38,7 @@ The frontend organizes static assets under the public directory with a clear sep
 - public/images/seserahan-items/: rental seserahan visuals
 - public/images/testimonies/: client testimonials and related assets
 - public/images/undangan-items/: digital invitation visuals grouped into left and right sides
+- public/fonts/: custom font families loaded locally for invitation themes (contains 7 subfolders: `antsvalley`, `cinzel`, `dancing-script`, `itc-benguiat-std`, `opensans`, `poppins`, `water-brush`)
 
 Icons are stored under public/icons/why/. These locations are referenced directly via absolute paths in components.
 
@@ -147,24 +149,31 @@ Browser-->>Comp : Rendered image
 ## Detailed Component Analysis
 
 ### Next.js Image Configuration
-- Remote image optimization is enabled for a specific HTTPS hostname pattern.
+- Remote image optimization is enabled for these HTTPS hostname patterns:
+  - `images.unsplash.com` (Unsplash stock imagery)
+  - `*.public.blob.vercel-storage.com` (Vercel Blob Storage for uploaded CMS images)
+  - `firebasestorage.googleapis.com` (Firebase Storage for legacy/invitation images)
 - React Compiler is enabled to improve runtime performance.
 
 ```mermaid
 flowchart TD
 Start(["Load next.config.mjs"]) --> CheckRemote["Check remotePatterns"]
-CheckRemote --> AllowUnsplash["Allow images from configured hostname"]
+CheckRemote --> AllowUnsplash["Allow images.unsplash.com"]
+CheckRemote --> AllowVercel["Allow *.public.blob.vercel-storage.com"]
+CheckRemote --> AllowFirebase["Allow firebasestorage.googleapis.com"]
 Start --> EnableCompiler["Enable React Compiler"]
 EnableCompiler --> RuntimeOpt["Improved runtime performance"]
 AllowUnsplash --> Build["Build and serve optimized images"]
+AllowVercel --> Build
+AllowFirebase --> Build
 RuntimeOpt --> Build
 ```
 
 **Diagram sources**
-- [next.config.mjs:1-16](file://next.config.mjs#L1-L16)
+- [next.config.mjs:1-24](file://next.config.mjs#L1-L24)
 
 **Section sources**
-- [next.config.mjs:1-16](file://next.config.mjs#L1-L16)
+- [next.config.mjs:1-24](file://next.config.mjs#L1-L24)
 - [package.json:1-25](file://package.json#L1-L25)
 
 ### MaharSection: Framed Mahr Showcase
@@ -414,6 +423,25 @@ The Momento Client Frontend leverages Next.js Image effectively to optimize and 
 - public/images/testimonies/: client testimonials and related assets
 - public/images/undangan-items/: digital invitation visuals grouped into left and right sides
 - public/icons/why/: icon assets used in UI
+- public/fonts/: 7 custom font families for invitation themes (antsvalley, cinzel, dancing-script, itc-benguiat-std, opensans, poppins, water-brush)
+
+### Image URL Resolution Utility
+For CMS-driven content where image fields can contain either a full URL (like Vercel Blob Storage) or a relative fallback path (for local development/defaults), the client frontend uses the helper function `getImageSrc` defined in [lib/site-content/image.js](file://lib/site-content/image.js):
+- If the image field is null or undefined, it returns the provided fallback path.
+- If it is a string, it returns that string (or the fallback if empty).
+- If it is an object (e.g., `{ src: "..." }`), it returns the `src` attribute.
+
+### Local Font Preloading for Dynamic Invitation Themes
+To prevent font-flicker and ensure layout integrity for premium custom invitations, the repository serves 7 font families locally from `public/fonts/`:
+- `antsvalley`
+- `cinzel`
+- `dancing-script`
+- `itc-benguiat-std`
+- `opensans`
+- `poppins`
+- `water-brush`
+
+These fonts are loaded by specific invitation themes to preserve typographer layout designs.
 
 **Section sources**
 - [components/features/landing/MaharSection.js:1-55](file://components/features/landing/MaharSection.js#L1-L55)
@@ -424,3 +452,4 @@ The Momento Client Frontend leverages Next.js Image effectively to optimize and 
 - [components/features/home/ExtrasGrid.js:1-38](file://components/features/home/ExtrasGrid.js#L1-L38)
 - [components/features/home/Testimonials.js:1-40](file://components/features/home/Testimonials.js#L1-L40)
 - [components/features/landing/ExtraBanner.js:1-30](file://components/features/landing/ExtraBanner.js#L1-L30)
+- [lib/site-content/image.js:1-16](file://lib/site-content/image.js#L1-L16)

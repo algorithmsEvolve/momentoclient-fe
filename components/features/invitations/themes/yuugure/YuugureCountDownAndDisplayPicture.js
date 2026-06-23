@@ -48,7 +48,11 @@ export default function YuugureCountDownAndDisplayPicture({ invitation }) {
     return () => window.clearInterval(timer);
   }, [targetDate]);
 
-  const displayPicture = invitation?.settings?.displayPicture;
+  const hideDisplayPicture =
+    invitation?.settings?.hideDisplayPicture === true ||
+    invitation?.settings?.custom?.hide_display_picture === true ||
+    invitation?.settings?.custom?.hideDisplayPicture === true;
+  const displayPicture = hideDisplayPicture ? null : invitation?.settings?.displayPicture;
 
   return (
     <div

@@ -18,7 +18,7 @@ Tujuan dokumen ini bukan menjelaskan semua detail teknis lagi, tetapi memberi pe
 
 Repo backend:
 
-- `/Users/apple/Documents/Codes/Laravel/momento-be`
+- `/Users/apple/Documents/Codes/momento/momento-new/momento-be`
 
 File yang perlu dipahami sebelum memindahkan tema kedua:
 
@@ -47,7 +47,7 @@ Titik yang biasanya berubah untuk tema baru:
 
 Repo frontend:
 
-- `/Users/apple/Documents/Codes/NextJS/momentoclient-fe`
+- `/Users/apple/Documents/Codes/momento/momento-new/momentoclient-fe`
 
 Routing dan shell:
 
@@ -181,3 +181,14 @@ Saat tema kedua selesai, kita harus punya:
 - 1 theme component baru di frontend.
 - 1 set e2e tests baru.
 - 1 dokumentasi singkat cara menambah theme berikutnya.
+
+---
+
+## 10. Status Implementasi Tema Kedua (Yuugure)
+
+Tema kedua, **Yuugure**, telah selesai diimplementasikan secara penuh dengan detail sebagai berikut:
+- **Registry & Config**: Tema terdaftar dengan key `"yuugure"` di frontend dan database backend.
+- **Komponen Frontend**: Tersedia 19 file pendukung di [components/features/invitations/themes/yuugure/](file:///Users/apple/Documents/Codes/momento/momento-new/momentoclient-fe/components/features/invitations/themes/yuugure/).
+- **Aset Statis**: Aset tema telah diorganisasi di bawah [public/themes/yuugure/](file:///Users/apple/Documents/Codes/momento/momento-new/momentoclient-fe/public/themes/yuugure/).
+- **E2E Test**: Test skenario lengkap untuk verifikasi visual dan alur tema Yuugure tersedia di `tests/e2e/yuugure.spec.js`.
+
