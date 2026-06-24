@@ -270,7 +270,7 @@ html:has([name=yuugure-theme]) .swal2-container .swal2-actions button:focus {
   background: #64564C;
   transition: 0.5s;
 }
-[name=yuugure-button].disabled, [name=yuugure-button].loading {
+[name=yuugure-button].disabled, [name=yuugure-button].loading, [name=yuugure-button]:disabled {
   opacity: 0.8;
   pointer-events: none;
 }

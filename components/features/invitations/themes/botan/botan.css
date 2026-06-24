@@ -1579,6 +1579,11 @@
   border-color: var(--botan-accent-strong);
 }
 
+.botan-theme .botan-button:disabled {
+  opacity: 0.8;
+  pointer-events: none;
+}
+
 .botan-theme .botan-input {
   width: 100%;
   border-radius: 18px;

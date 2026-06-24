@@ -16,6 +16,7 @@ export default function AozoraGift({ invitation }) {
   const sectionRef = useRef(null);
 
   const [giftModalState, setGiftModalState] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [copiedId, setCopiedId] = useState("");
   const [copiedType, setCopiedType] = useState(""); // "number" or "address"
   const [isDesktop, setIsDesktop] = useState(false);
@@ -48,6 +49,26 @@ export default function AozoraGift({ invitation }) {
       }
     };
   }, []);
+
+  useEffect(() => {
+    let timer;
+    if (giftModalState) {
+      document.body.style.overflow = "hidden";
+      timer = setTimeout(() => setShowModal(true), 10);
+    } else {
+      document.body.style.overflow = "";
+      timer = setTimeout(() => setShowModal(false), 0);
+    }
+    return () => {
+      if (timer) clearTimeout(timer);
+      document.body.style.overflow = "";
+    };
+  }, [giftModalState]);
+
+  const closeGiftModal = () => {
+    setShowModal(false);
+    setTimeout(() => setGiftModalState(false), 300);
+  };
 
   const gifts = Array.isArray(invitation?.gifts) ? invitation.gifts : [];
   if (!gifts.length) return null;
@@ -86,8 +107,8 @@ export default function AozoraGift({ invitation }) {
             top: "1.5rem",
             left: "50%",
             transform: "translateX(-50%)",
-            backgroundColor: "#EFEAE4",
-            color: "#64564C",
+            backgroundColor: "#AFCBDD",
+            color: "#263556",
             padding: "0.75rem 1.5rem",
             borderRadius: "1.875rem",
             boxShadow: "0px 4px 10px rgba(0,0,0,0.15)",
@@ -143,7 +164,7 @@ export default function AozoraGift({ invitation }) {
                     <div className="gift-left">
                       <div className="gift-bank">
                         {isAddress ? (
-                          <span style={{ fontSize: "1rem", fontFamily: "poppinsM", color: "#64564C" }}>Alamat</span>
+                          <span style={{ fontSize: "1rem", fontFamily: "poppinsM", color: "#263556" }}>Alamat</span>
                         ) : (
                           <img src={fetchGiftImage(item.providerName)} alt="gift-icon" />
                         )}
@@ -199,8 +220,8 @@ export default function AozoraGift({ invitation }) {
       {/* Modal overlay */}
       {giftModalState && (
         <div
-          className="modal-backdrop"
-          onClick={() => setGiftModalState(false)}
+          className={`modal-backdrop ${showModal ? 'active' : ''}`}
+          onClick={closeGiftModal}
           style={{
             position: "fixed",
             top: 0,
@@ -218,11 +239,9 @@ export default function AozoraGift({ invitation }) {
             className="modal-content gift-modal"
             onClick={(e) => e.stopPropagation()}
             style={{
-              backgroundColor: "#EFEAE4",
-              backgroundImage: "url('/themes/aozora/global/modal-back.png')",
-              backgroundSize: "cover",
+              backgroundColor: "#AFCBDD",
               padding: "2rem",
-              borderRadius: "1.5rem",
+              borderRadius: "0.625rem",
               width: "90%",
               maxWidth: "500px",
               boxShadow: "0px 10px 30px rgba(0,0,0,0.2)",
@@ -238,13 +257,13 @@ export default function AozoraGift({ invitation }) {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                borderBottom: "1px solid rgba(100, 86, 76, 0.15)",
+                borderBottom: "1px solid rgba(38, 53, 86, 0.15)",
                 paddingBottom: "1rem"
               }}
             >
               <div className="gift-bank">
                 {gifts[0].type === "address" ? (
-                  <span style={{ fontSize: "1.2rem", fontFamily: "poppinsM", color: "#64564C" }}>Alamat Kirim</span>
+                  <span style={{ fontSize: "1.2rem", fontFamily: "poppinsM", color: "#263556" }}>Alamat Kirim</span>
                 ) : (
                   <img
                     src={fetchGiftImage(gifts[0].providerName)}
@@ -255,7 +274,7 @@ export default function AozoraGift({ invitation }) {
               </div>
               <div
                 className="close-modal-button"
-                onClick={() => setGiftModalState(false)}
+                onClick={closeGiftModal}
                 style={{ cursor: "pointer", width: "1.5rem" }}
               >
                 <img src="/themes/aozora/component/close-modal.svg" alt="close-modal-icon" />
@@ -265,10 +284,10 @@ export default function AozoraGift({ invitation }) {
             <div className="modal-body body" style={{ margin: "1.5rem 0", display: "flex", flexDirection: "column", gap: "1.5rem" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div className="body-left">
-                  <div className="gift-receipt" style={{ fontSize: "1.2rem", fontFamily: "poppinsM", color: "#64564C" }}>
+                  <div className="gift-receipt" style={{ fontSize: "1.2rem", fontFamily: "poppinsM", color: "#263556" }}>
                     <p>{gifts[0].accountName || gifts[0].note || ""}</p>
                   </div>
-                  <div className="gift-id" style={{ fontSize: "1.1rem", fontFamily: "poppinsR", color: "#64564C", marginTop: "0.25rem" }}>
+                  <div className="gift-id" style={{ fontSize: "1.1rem", fontFamily: "poppinsR", color: "#263556", marginTop: "0.25rem" }}>
                     <p>{gifts[0].accountNumber || gifts[0].address || ""}</p>
                   </div>
                 </div>
@@ -301,7 +320,7 @@ export default function AozoraGift({ invitation }) {
                         key={`gift-modal-${index}`}
                         className="gift-item"
                         style={{
-                          borderTop: "1px dashed rgba(100,86,76,0.2)",
+                          borderTop: "1px dashed rgba(38, 53, 86, 0.2)",
                           paddingTop: "1.5rem",
                           display: "flex",
                           justifyContent: "space-between",
@@ -312,7 +331,7 @@ export default function AozoraGift({ invitation }) {
                           <div className="header" style={{ marginBottom: "0.5rem" }}>
                             <div className="gift-bank">
                               {isAddress ? (
-                                <span style={{ fontSize: "1rem", fontFamily: "poppinsM", color: "#64564C" }}>Alamat Kirim</span>
+                                <span style={{ fontSize: "1rem", fontFamily: "poppinsM", color: "#263556" }}>Alamat Kirim</span>
                               ) : (
                                 <img
                                   src={fetchGiftImage(gift_item.providerName)}
@@ -324,10 +343,10 @@ export default function AozoraGift({ invitation }) {
                           </div>
 
                           <div className="body">
-                            <div className="gift-receipt" style={{ fontSize: "1.2rem", fontFamily: "poppinsM", color: "#64564C" }}>
+                            <div className="gift-receipt" style={{ fontSize: "1.2rem", fontFamily: "poppinsM", color: "#263556" }}>
                               <p>{gift_item.accountName || gift_item.note || ""}</p>
                             </div>
-                            <div className="gift-id" style={{ fontSize: "1.1rem", fontFamily: "poppinsR", color: "#64564C", marginTop: "0.25rem" }}>
+                            <div className="gift-id" style={{ fontSize: "1.1rem", fontFamily: "poppinsR", color: "#263556", marginTop: "0.25rem" }}>
                               <p>{code}</p>
                             </div>
                           </div>
@@ -359,12 +378,12 @@ export default function AozoraGift({ invitation }) {
             <div
               className="modal-footer body-bottom"
               style={{
-                borderTop: "1px solid rgba(100, 86, 76, 0.15)",
+                borderTop: "1px solid rgba(38, 53, 86, 0.15)",
                 paddingTop: "1rem",
                 textAlign: "center"
               }}
             >
-              <div className="info" style={{ fontFamily: "poppinsR", fontSize: "1rem", color: "#64564C" }}>
+              <div className="info" style={{ fontFamily: "poppinsR", fontSize: "1rem", color: "#263556" }}>
                 <p>Terimakasih banyak atas hadiah yang dikirimkan kepada kami</p>
               </div>
             </div>

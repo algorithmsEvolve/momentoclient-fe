@@ -237,7 +237,7 @@ export default function AozoraWishSection({ invitation, guest, withoutGift }) {
                       name="aozora-button"
                       className="aozora-button"
                       disabled={submitLoading || !formValidated}
-                      style={{ cursor: "pointer", width: "100%", border: "none", background: "none" }}
+                      style={{ cursor: "pointer", border: "none" }}
                       data-testid="aozora-wish-submit"
                     >
                       <div className="label">

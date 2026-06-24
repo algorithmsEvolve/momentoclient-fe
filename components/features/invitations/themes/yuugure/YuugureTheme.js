@@ -95,9 +95,9 @@ export default function YuugureTheme({ invitation, guest }) {
           {hasStories && <YuugureStory invitation={invitation} />}
           {hasGallery && <YuugureGallery invitation={invitation} />}
           {hasGuest && <YuugureRsvpForm invitation={invitation} guest={guest} />}
+          <YuugureFilterInstagram invitation={invitation} />
           <YuugureWishSection invitation={invitation} guest={guest} withoutGift={withoutGift} />
           {!withoutGift && <YuugureGift invitation={invitation} />}
-          <YuugureFilterInstagram invitation={invitation} />
           <YuugureClosing invitation={invitation} />
           <YuugureFooter invitation={invitation} />
 

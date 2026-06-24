@@ -96,9 +96,9 @@ export default function AozoraTheme({ invitation, guest }) {
           {hasStories && <AozoraStory invitation={invitation} />}
           {hasGallery && <AozoraGallery invitation={invitation} />}
           {hasGuest && <AozoraRsvpForm invitation={invitation} guest={guest} />}
+          <AozoraFilterInstagram invitation={invitation} />
           <AozoraWishSection invitation={invitation} guest={guest} withoutGift={withoutGift} />
           {!withoutGift && <AozoraGift invitation={invitation} />}
-          <AozoraFilterInstagram invitation={invitation} />
           {hasNotes && <AozoraNotes invitation={invitation} />}
           <AozoraFooter invitation={invitation} />
 

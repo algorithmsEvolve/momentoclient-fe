@@ -629,7 +629,7 @@ html:has(.aozora-theme) .swal2-container .swal2-actions button:focus {
   background: #263556;
   transition: 0.5s;
 }
-[name=aozora-button].disabled, [name=aozora-button].loading {
+[name=aozora-button].disabled, [name=aozora-button].loading, [name=aozora-button]:disabled {
   opacity: 0.8;
   pointer-events: none;
 }
@@ -2781,6 +2781,9 @@ body:has(.aozora-theme.desktop [name=cover-section].show) {
 .mobile .aozora-theme [name=our-story-section] .content .view-content .our-story-wrapper .carousel-our-story .our-stories .story-item .story-wrapper:has(.story-with-image) {
   height: unset;
 }
+.mobile .aozora-theme [name=our-story-section] .content .view-content .our-story-wrapper .carousel-our-story {
+  max-width: 100%;
+}
 .mobile .aozora-theme [name=our-story-section] .content .view-content .our-story-wrapper .carousel-our-story .our-stories .story-item .story-wrapper .story-text p {
   font-size: 0.75rem;
 }
@@ -3130,9 +3133,19 @@ body:has(.aozora-theme.desktop [name=cover-section].show) {
   padding: 9.19rem 1.87rem 13rem 1.87rem;
   border-radius: 18.75rem;
 }
-.mobile .aozora-theme [name=filter-instagram-section] .content .view-content .filter-live-wrapper .filter .filter-icon img {
+.mobile .aozora-theme [name=filter-instagram-section] .content .view-content .filter-live-wrapper .filter .filter-icon {
   width: 3.125rem;
   height: 3.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.mobile .aozora-theme [name=filter-instagram-section] .content .view-content .filter-live-wrapper .filter .filter-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
 }
 .mobile .aozora-theme [name=filter-instagram-section] .content .view-content .filter-live-wrapper .filter .title {
   margin-top: 1.25rem;
@@ -3172,6 +3185,10 @@ body:has(.aozora-theme.desktop [name=cover-section].show) {
 }
 .mobile .aozora-theme [name=filter-instagram-section] .content .view-content .filter-live-wrapper .action-button {
   margin-top: 1.5rem;
+}
+.mobile .aozora-theme [name=filter-instagram-section] .content .view-content .filter-live-wrapper .action-button a {
+  display: block;
+  width: 100%;
 }
 .mobile .aozora-theme [name=filter-instagram-section] .content .view-content .filter-live-wrapper .animated-decorations {
   transform: scale(0.9);
@@ -3670,6 +3687,28 @@ body:has(.aozora-theme.desktop [name=cover-section].show) {
   flex-direction: column;
   gap: 2.25rem 0;
   margin-top: 2.25rem;
+}
+
+/* --- Gift Modal Animation --- */
+.aozora-theme [name=gift-section] .modal-backdrop {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, backdrop-filter 0.3s ease;
+  backdrop-filter: blur(0px);
+}
+.aozora-theme [name=gift-section] .modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+  backdrop-filter: blur(4px);
+}
+.aozora-theme [name=gift-section] .modal-backdrop .gift-modal {
+  transform: scale(0.9);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+.aozora-theme [name=gift-section] .modal-backdrop.active .gift-modal {
+  transform: scale(1);
+  opacity: 1;
 }
 
 /* --- Source: mobile-gift.scss --- */
