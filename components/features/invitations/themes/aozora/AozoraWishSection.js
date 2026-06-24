@@ -6,6 +6,46 @@ import {
   getInvitationWishes,
 } from "@/lib/api/invitations";
 
+function WishDecoration({ isDesktop }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const decorationRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (decorationRef.current) {
+      observer.observe(decorationRef.current);
+    }
+
+    return () => {
+      if (decorationRef.current) {
+        observer.unobserve(decorationRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div className="decorations" ref={decorationRef}>
+      <div className="bottom">
+        <img
+          className={isVisible ? "animate-zoom-in" : "opacity-0"}
+          style={{ animationDelay: "500ms" }}
+          src={isDesktop ? "/themes/aozora/wish/decor-bottom.png" : "/themes/aozora/wish/mobile-decor-bottom.png"}
+          alt="decor-bottom"
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function AozoraWishSection({ invitation, guest, withoutGift }) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -252,25 +292,7 @@ export default function AozoraWishSection({ invitation, guest, withoutGift }) {
         </div>
       </div>
 
-      <div className="decorations">
-        <div className="bottom">
-          {isDesktop ? (
-            <img
-              className={isVisible ? "animate-zoom-in" : "opacity-0"}
-              style={{ animationDelay: "500ms" }}
-              src="/themes/aozora/wish/decor-bottom.png"
-              alt="decor-bottom"
-            />
-          ) : (
-            <img
-              className={isVisible ? "animate-zoom-in" : "opacity-0"}
-              style={{ animationDelay: "500ms" }}
-              src="/themes/aozora/wish/mobile-decor-bottom.png"
-              alt="mobile-decor-bottom"
-            />
-          )}
-        </div>
-      </div>
+      <WishDecoration isDesktop={isDesktop} />
     </div>
   );
 }

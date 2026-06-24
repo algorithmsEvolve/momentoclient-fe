@@ -2,6 +2,105 @@
 
 import { useEffect, useState, useRef } from "react";
 
+function FlowerDecoration({ isDesktop }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const decorationRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (decorationRef.current) {
+      observer.observe(decorationRef.current);
+    }
+
+    return () => {
+      if (decorationRef.current) {
+        observer.unobserve(decorationRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div className="decorations" ref={decorationRef}>
+      <div className="animated-bottom-left flowers-stacked">
+        <div
+          className={`top ${isVisible ? "animate-fade-right" : "opacity-0"}`}
+          style={{ animationDelay: "500ms" }}
+        >
+          <img
+            src="/themes/aozora/global/animated/flowers-stacked/top-flower.png"
+            alt="flowers-stacked-top-flower"
+          />
+        </div>
+        <div className={`middle ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
+          <img
+            src="/themes/aozora/global/animated/flowers-stacked/middle-flower.png"
+            alt="flowers-stacked-middle-flower"
+          />
+        </div>
+        <div className={`upper-mid ${isVisible ? "animate-zoom-in" : "opacity-0"}`}>
+          <img
+            src="/themes/aozora/global/animated/flowers-stacked/upper-mid-flower.png"
+            alt="flowers-stacked-upper-mid-flower"
+          />
+        </div>
+        <div
+          className={`bottom ${isVisible ? "animate-fade-up" : "opacity-0"}`}
+          style={{ animationDelay: "1000ms" }}
+        >
+          <img
+            src="/themes/aozora/global/animated/flowers-stacked/bottom-flower.png"
+            alt="flowers-stacked-bottom-flower"
+          />
+        </div>
+      </div>
+
+      <div className="animated-bottom-right flowers-stacked">
+        <div
+          className={`top ${isVisible ? "animate-fade-left" : "opacity-0"}`}
+          style={{ animationDelay: "500ms" }}
+        >
+          <img
+            src="/themes/aozora/global/animated/flowers-stacked/top-flower.png"
+            alt="flowers-stacked-top-flower"
+          />
+        </div>
+        <div className={`middle ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
+          <img
+            src="/themes/aozora/global/animated/flowers-stacked/middle-flower.png"
+            alt="flowers-stacked-middle-flower"
+          />
+        </div>
+        <div className={`upper-mid ${isVisible ? "animate-zoom-in" : "opacity-0"}`}>
+          <img
+            src="/themes/aozora/global/animated/flowers-stacked/upper-mid-flower.png"
+            alt="flowers-stacked-upper-mid-flower"
+          />
+        </div>
+        {isDesktop && (
+          <div
+            className={`bottom ${isVisible ? "animate-fade-up" : "opacity-0"}`}
+            style={{ animationDelay: "1000ms" }}
+          >
+            <img
+              src="/themes/aozora/global/animated/flowers-stacked/bottom-flower.png"
+              alt="flowers-stacked-bottom-flower"
+            />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function AozoraFooter() {
   const [isVisible, setIsVisible] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -66,75 +165,7 @@ export default function AozoraFooter() {
         </div>
       </div>
 
-      <div className="decorations">
-        <div className="animated-bottom-left flowers-stacked">
-          <div
-            className="top animate-fade-right"
-            style={{ animationDelay: "500ms" }}
-          >
-            <img
-              src="/themes/aozora/global/animated/flowers-stacked/top-flower.png"
-              alt="flowers-stacked-top-flower"
-            />
-          </div>
-          <div className="middle animate-fade-up">
-            <img
-              src="/themes/aozora/global/animated/flowers-stacked/middle-flower.png"
-              alt="flowers-stacked-middle-flower"
-            />
-          </div>
-          <div className="upper-mid animate-zoom-in">
-            <img
-              src="/themes/aozora/global/animated/flowers-stacked/upper-mid-flower.png"
-              alt="flowers-stacked-upper-mid-flower"
-            />
-          </div>
-          <div
-            className="bottom animate-fade-up"
-            style={{ animationDelay: "1000ms" }}
-          >
-            <img
-              src="/themes/aozora/global/animated/flowers-stacked/bottom-flower.png"
-              alt="flowers-stacked-bottom-flower"
-            />
-          </div>
-        </div>
-
-        <div className="animated-bottom-right flowers-stacked">
-          <div
-            className="top animate-fade-left"
-            style={{ animationDelay: "500ms" }}
-          >
-            <img
-              src="/themes/aozora/global/animated/flowers-stacked/top-flower.png"
-              alt="flowers-stacked-top-flower"
-            />
-          </div>
-          <div className="middle animate-fade-up">
-            <img
-              src="/themes/aozora/global/animated/flowers-stacked/middle-flower.png"
-              alt="flowers-stacked-middle-flower"
-            />
-          </div>
-          <div className="upper-mid animate-zoom-in">
-            <img
-              src="/themes/aozora/global/animated/flowers-stacked/upper-mid-flower.png"
-              alt="flowers-stacked-upper-mid-flower"
-            />
-          </div>
-          {isDesktop && (
-            <div
-              className="bottom animate-fade-up"
-              style={{ animationDelay: "1000ms" }}
-            >
-              <img
-                src="/themes/aozora/global/animated/flowers-stacked/bottom-flower.png"
-                alt="flowers-stacked-bottom-flower"
-              />
-            </div>
-          )}
-        </div>
-      </div>
+      <FlowerDecoration isDesktop={isDesktop} />
     </div>
   );
 }

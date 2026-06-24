@@ -3025,6 +3025,12 @@ body:has(.aozora-theme.desktop [name=cover-section].show) {
   font-weight: 400;
   line-height: 2.5rem;
 }
+.aozora-theme [name=filter-instagram-section] .content .view-content .filter-live-wrapper .filter .filter-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
 .aozora-theme [name=filter-instagram-section] .content .view-content .filter-live-wrapper .filter .filter-icon img {
   width: 5rem;
   height: 5rem;

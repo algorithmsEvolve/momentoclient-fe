@@ -1,11 +1,38 @@
 "use client";
 
+import { useEffect, useState, useRef } from "react";
+
 function AvatarDecoration() {
+  const [isVisible, setIsVisible] = useState(false);
+  const decorationRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (decorationRef.current) {
+      observer.observe(decorationRef.current);
+    }
+
+    return () => {
+      if (decorationRef.current) {
+        observer.unobserve(decorationRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div name="avatar-decoration" className="avatar-decorations">
+    <div name="avatar-decoration" className="avatar-decorations" ref={decorationRef}>
       <div className="animated-bottom-left flowers-stacked">
         <div
-          className="top animate-fade-right"
+          className={`top ${isVisible ? "animate-fade-right" : "opacity-0"}`}
           style={{ animationDelay: "500ms" }}
         >
           <img
@@ -13,20 +40,20 @@ function AvatarDecoration() {
             alt="flowers-stacked-top-flower"
           />
         </div>
-        <div className="middle animate-fade-up">
+        <div className={`middle ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
           <img
             src="/themes/aozora/global/animated/flowers-stacked/middle-flower.png"
             alt="flowers-stacked-middle-flower"
           />
         </div>
-        <div className="upper-mid animate-zoom-in">
+        <div className={`upper-mid ${isVisible ? "animate-zoom-in" : "opacity-0"}`}>
           <img
             src="/themes/aozora/global/animated/flowers-stacked/upper-mid-flower.png"
             alt="flowers-stacked-upper-mid-flower"
           />
         </div>
         <div
-          className="bottom animate-fade-up"
+          className={`bottom ${isVisible ? "animate-fade-up" : "opacity-0"}`}
           style={{ animationDelay: "1000ms" }}
         >
           <img
@@ -38,7 +65,7 @@ function AvatarDecoration() {
 
       <div className="animated-bottom-right flowers-stacked">
         <div
-          className="top animate-fade-left"
+          className={`top ${isVisible ? "animate-fade-left" : "opacity-0"}`}
           style={{ animationDelay: "500ms" }}
         >
           <img
@@ -46,13 +73,13 @@ function AvatarDecoration() {
             alt="flowers-stacked-top-flower"
           />
         </div>
-        <div className="middle animate-fade-up">
+        <div className={`middle ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
           <img
             src="/themes/aozora/global/animated/flowers-stacked/middle-flower.png"
             alt="flowers-stacked-middle-flower"
           />
         </div>
-        <div className="upper-mid animate-zoom-in">
+        <div className={`upper-mid ${isVisible ? "animate-zoom-in" : "opacity-0"}`}>
           <img
             src="/themes/aozora/global/animated/flowers-stacked/upper-mid-flower.png"
             alt="flowers-stacked-upper-mid-flower"
@@ -78,6 +105,9 @@ function formatDisplayName(fullname) {
 }
 
 export default function AozoraOpening({ invitation }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
   const quoteText = invitation?.quote?.text;
   const quoteTitle = invitation?.quote?.title;
 
@@ -102,23 +132,46 @@ export default function AozoraOpening({ invitation }) {
     return `https://www.instagram.com/${username.replace("@", "")}`;
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div
       id="opening"
       name="opening-section"
+      ref={sectionRef}
     >
       <div className="content">
         <div className="view-content">
           <div className="quotes">
             <div
-              className="quote-text animate-zoom-in"
+              className={`quote-text ${isVisible ? "animate-zoom-in" : "opacity-0"}`}
               style={{ animationDelay: "500ms" }}
             >
               <p>{quoteText}</p>
             </div>
 
             <div
-              className="quote-title animate-zoom-in"
+              className={`quote-title ${isVisible ? "animate-zoom-in" : "opacity-0"}`}
               style={{ animationDelay: "600ms" }}
             >
               <p>{quoteTitle}</p>
@@ -127,7 +180,7 @@ export default function AozoraOpening({ invitation }) {
 
           <div className="bride-groom">
             <div
-              className="bride animate-zoom-in"
+              className={`bride ${isVisible ? "animate-zoom-in" : "opacity-0"}`}
               style={{ animationDelay: "750ms" }}
             >
               <div className="bride-wrapper">
@@ -171,7 +224,7 @@ export default function AozoraOpening({ invitation }) {
             </div>
 
             <div
-              className="groom animate-zoom-in"
+              className={`groom ${isVisible ? "animate-zoom-in" : "opacity-0"}`}
               style={{ animationDelay: "750ms" }}
             >
               <div className="groom-wrapper">

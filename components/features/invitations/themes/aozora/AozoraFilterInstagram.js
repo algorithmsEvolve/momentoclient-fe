@@ -2,6 +2,52 @@
 
 import { useEffect, useRef, useState } from "react";
 
+function AnimatedDecoration({ animationDelay = "250ms", className = "" }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const decorationRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (decorationRef.current) {
+      observer.observe(decorationRef.current);
+    }
+
+    return () => {
+      if (decorationRef.current) {
+        observer.unobserve(decorationRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div className={`animated-decorations ${className}`} ref={decorationRef}>
+      <div
+        className={`animated-middle-section ${isVisible ? "animate-zoom-in" : "opacity-0"}`}
+        style={{ animationDelay }}
+      >
+        <div className="ams-left">
+          <img src="/themes/aozora/global/animated/middle-section/left.png" alt="left-decor-ams" />
+        </div>
+        <div className="ams-middle">
+          <img src="/themes/aozora/global/animated/middle-section/middle.png" alt="middle-decor-ams" />
+        </div>
+        <div className="ams-right">
+          <img src="/themes/aozora/global/animated/middle-section/right.png" alt="right-decor-ams" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function AozoraFilterInstagram({ invitation }) {
   const [isVisible, setIsVisible] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -155,39 +201,9 @@ export default function AozoraFilterInstagram({ invitation }) {
               </>
             )}
 
-            <div className="animated-decorations">
-              <div
-                className={`animated-middle-section ${isVisible ? "animate-zoom-in" : "opacity-0"}`}
-                style={{ animationDelay: "250ms" }}
-              >
-                <div className="ams-left">
-                  <img src="/themes/aozora/global/animated/middle-section/left.png" alt="left-decor-ams" />
-                </div>
-                <div className="ams-middle">
-                  <img src="/themes/aozora/global/animated/middle-section/middle.png" alt="middle-decor-ams" />
-                </div>
-                <div className="ams-right">
-                  <img src="/themes/aozora/global/animated/middle-section/right.png" alt="right-decor-ams" />
-                </div>
-              </div>
-            </div>
+            <AnimatedDecoration />
 
-            <div className="animated-decorations ad-bottom">
-              <div
-                className={`animated-middle-section ${isVisible ? "animate-zoom-in" : "opacity-0"}`}
-                style={{ animationDelay: "250ms" }}
-              >
-                <div className="ams-left">
-                  <img src="/themes/aozora/global/animated/middle-section/left.png" alt="left-decor-ams" />
-                </div>
-                <div className="ams-middle">
-                  <img src="/themes/aozora/global/animated/middle-section/middle.png" alt="middle-decor-ams" />
-                </div>
-                <div className="ams-right">
-                  <img src="/themes/aozora/global/animated/middle-section/right.png" alt="right-decor-ams" />
-                </div>
-              </div>
-            </div>
+            <AnimatedDecoration className="ad-bottom" />
           </div>
         </div>
       </div>

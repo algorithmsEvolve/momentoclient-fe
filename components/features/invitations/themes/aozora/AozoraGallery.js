@@ -3,12 +3,14 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import ImageViewer from "@/components/ui/ImageViewer";
 
-function AvatarDecoration() {
+function GalleryDesktopDecoration({ isDesktop, isVisible }) {
+  if (!isDesktop) return <AvatarDecoration isVisible={isVisible} />;
+
   return (
-    <div name="avatar-decoration" className="avatar-decorations">
+    <div className="decorations">
       <div className="animated-bottom-left flowers-stacked">
         <div
-          className="top animate-fade-right"
+          className={`top ${isVisible ? "animate-fade-right" : "opacity-0"}`}
           style={{ animationDelay: "500ms" }}
         >
           <img
@@ -16,20 +18,107 @@ function AvatarDecoration() {
             alt="flowers-stacked-top-flower"
           />
         </div>
-        <div className="middle animate-fade-up">
+
+        <div className={`middle ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
           <img
             src="/themes/aozora/global/animated/flowers-stacked/middle-flower.png"
             alt="flowers-stacked-middle-flower"
           />
         </div>
-        <div className="upper-mid animate-zoom-in">
+
+        <div className={`upper-mid ${isVisible ? "animate-zoom-in" : "opacity-0"}`}>
+          <img
+            src="/themes/aozora/global/animated/flowers-stacked/upper-mid-flower.png"
+            alt="flowers-stacked-upper-mid-flower"
+          />
+        </div>
+
+        <div className="mid-around">
+          <div className="ma-wrapper">
+            <div className="ma-left">
+              <img
+                className={isVisible ? "animate-fade-up" : "opacity-0"}
+                src="/themes/aozora/gallery/mid-left.png"
+                alt="mid-around-left"
+              />
+            </div>
+
+            <div className="ma-mid">
+              <img
+                id="ma-mid"
+                className={isVisible ? "animate-fade-up" : "opacity-0"}
+                src="/themes/aozora/gallery/mid-mid.png"
+                alt="mid-around-mid"
+              />
+            </div>
+
+            <div className="ma-right">
+              <img
+                className={isVisible ? "animate-fade-up" : "opacity-0"}
+                src="/themes/aozora/gallery/mid-right.png"
+                alt="mid-around-right"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="animated-bottom-right flowers-stacked">
+        <div
+          className={`top ${isVisible ? "animate-fade-left" : "opacity-0"}`}
+          style={{ animationDelay: "500ms" }}
+        >
+          <img
+            src="/themes/aozora/global/animated/flowers-stacked/top-flower.png"
+            alt="flowers-stacked-top-flower"
+          />
+        </div>
+
+        <div className={`middle ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
+          <img
+            src="/themes/aozora/global/animated/flowers-stacked/middle-flower.png"
+            alt="flowers-stacked-middle-flower"
+          />
+        </div>
+
+        <div className={`upper-mid ${isVisible ? "animate-zoom-in" : "opacity-0"}`}>
+          <img
+            src="/themes/aozora/global/animated/flowers-stacked/upper-mid-flower.png"
+            alt="flowers-stacked-upper-mid-flower"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AvatarDecoration({ isVisible }) {
+  return (
+    <div name="avatar-decoration" className="avatar-decorations">
+      <div className="animated-bottom-left flowers-stacked">
+        <div
+          className={`top ${isVisible ? "animate-fade-right" : "opacity-0"}`}
+          style={{ animationDelay: "500ms" }}
+        >
+          <img
+            src="/themes/aozora/global/animated/flowers-stacked/top-flower.png"
+            alt="flowers-stacked-top-flower"
+          />
+        </div>
+        <div className={`middle ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
+          <img
+            src="/themes/aozora/global/animated/flowers-stacked/middle-flower.png"
+            alt="flowers-stacked-middle-flower"
+          />
+        </div>
+        <div className={`upper-mid ${isVisible ? "animate-zoom-in" : "opacity-0"}`}>
           <img
             src="/themes/aozora/global/animated/flowers-stacked/upper-mid-flower.png"
             alt="flowers-stacked-upper-mid-flower"
           />
         </div>
         <div
-          className="bottom animate-fade-up"
+          className={`bottom ${isVisible ? "animate-fade-up" : "opacity-0"}`}
           style={{ animationDelay: "1000ms" }}
         >
           <img
@@ -41,7 +130,7 @@ function AvatarDecoration() {
 
       <div className="animated-bottom-right flowers-stacked">
         <div
-          className="top animate-fade-left"
+          className={`top ${isVisible ? "animate-fade-left" : "opacity-0"}`}
           style={{ animationDelay: "500ms" }}
         >
           <img
@@ -49,13 +138,13 @@ function AvatarDecoration() {
             alt="flowers-stacked-top-flower"
           />
         </div>
-        <div className="middle animate-fade-up">
+        <div className={`middle ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
           <img
             src="/themes/aozora/global/animated/flowers-stacked/middle-flower.png"
             alt="flowers-stacked-middle-flower"
           />
         </div>
-        <div className="upper-mid animate-zoom-in">
+        <div className={`upper-mid ${isVisible ? "animate-zoom-in" : "opacity-0"}`}>
           <img
             src="/themes/aozora/global/animated/flowers-stacked/upper-mid-flower.png"
             alt="flowers-stacked-upper-mid-flower"
@@ -281,94 +370,7 @@ export default function AozoraGallery({ invitation }) {
         </div>
       </div>
 
-      <div className="decorations">
-        {isDesktop ? (
-          <>
-            <div className="animated-bottom-left flowers-stacked">
-              <div
-                className="top animate-fade-right"
-                style={{ animationDelay: "500ms" }}
-              >
-                <img
-                  src="/themes/aozora/global/animated/flowers-stacked/top-flower.png"
-                  alt="flowers-stacked-top-flower"
-                />
-              </div>
-
-              <div className="middle animate-fade-up">
-                <img
-                  src="/themes/aozora/global/animated/flowers-stacked/middle-flower.png"
-                  alt="flowers-stacked-middle-flower"
-                />
-              </div>
-
-              <div className="upper-mid animate-zoom-in">
-                <img
-                  src="/themes/aozora/global/animated/flowers-stacked/upper-mid-flower.png"
-                  alt="flowers-stacked-upper-mid-flower"
-                />
-              </div>
-
-              <div className="mid-around">
-                <div className="ma-wrapper">
-                  <div className="ma-left">
-                    <img
-                      className="animate-fade-up"
-                      src="/themes/aozora/gallery/mid-left.png"
-                      alt="mid-around-left"
-                    />
-                  </div>
-
-                  <div className="ma-mid">
-                    <img
-                      id="ma-mid"
-                      className="animate-fade-up"
-                      src="/themes/aozora/gallery/mid-mid.png"
-                      alt="mid-around-mid"
-                    />
-                  </div>
-
-                  <div className="ma-right">
-                    <img
-                      className="animate-fade-up"
-                      src="/themes/aozora/gallery/mid-right.png"
-                      alt="mid-around-right"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="animated-bottom-right flowers-stacked">
-              <div
-                className="top animate-fade-left"
-                style={{ animationDelay: "500ms" }}
-              >
-                <img
-                  src="/themes/aozora/global/animated/flowers-stacked/top-flower.png"
-                  alt="flowers-stacked-top-flower"
-                />
-              </div>
-
-              <div className="middle animate-fade-up">
-                <img
-                  src="/themes/aozora/global/animated/flowers-stacked/middle-flower.png"
-                  alt="flowers-stacked-middle-flower"
-                />
-              </div>
-
-              <div className="upper-mid animate-zoom-in">
-                <img
-                  src="/themes/aozora/global/animated/flowers-stacked/upper-mid-flower.png"
-                  alt="flowers-stacked-upper-mid-flower"
-                />
-              </div>
-            </div>
-          </>
-        ) : (
-          <AvatarDecoration />
-        )}
-      </div>
+      <GalleryDesktopDecoration isDesktop={isDesktop} isVisible={isVisible} />
 
       <ImageViewer 
         isOpen={viewerOpen}
