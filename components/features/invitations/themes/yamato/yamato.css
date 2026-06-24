@@ -1,0 +1,3236 @@
+/* ========================================
+   YAMATO THEME - Complete CSS
+   ======================================== */
+
+/* Font Faces */
+@font-face {
+  font-family: "poppinsR";
+  src: url("/fonts/poppins/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "poppinsSB";
+  src: url("/fonts/poppins/Poppins-SemiBold.ttf");
+}
+@font-face {
+  font-family: "poppinsM";
+  src: url("/fonts/poppins/Poppins-Medium.ttf");
+}
+@font-face {
+  font-family: "poppinsB";
+  src: url("/fonts/poppins/Poppins-Bold.ttf");
+}
+@font-face {
+  font-family: "poppinsEL";
+  src: url("/fonts/poppins/Poppins-ExtraLight.ttf");
+}
+@font-face {
+  font-family: "opensansR";
+  src: url("/fonts/opensans/OpenSans-Regular.ttf");
+}
+@font-face {
+  font-family: "opensansB";
+  src: url("/fonts/opensans/OpenSans-Bold.ttf");
+}
+@font-face {
+  font-family: "opensansSB";
+  src: url("/fonts/opensans/OpenSans-SemiBold.ttf");
+}
+@font-face {
+  font-family: "metamorphous";
+  src: url("/fonts/metamorphous/Metamorphous-Regular.ttf");
+}
+@font-face {
+  font-family: "modelista-signature";
+  src: url("/fonts/modelista-signature/ModelistaSignature-Regular.otf");
+}
+@font-face {
+  font-family: "brigethasignature";
+  src: url("/fonts/brigetha-signature/BrigethaSignature-Regular.otf");
+}
+@font-face {
+  font-family: "lovelaceTextRegular";
+  src: url("/fonts/lovelace-text/LovelaceText-Regular.otf");
+}
+@font-face {
+  font-family: "cinzel";
+  src: url("/fonts/cinzel/cinzel.ttf");
+}
+@font-face {
+  font-family: "antsvalley";
+  src: url("/fonts/antsvalley/AntsValley.otf");
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes zoomAndBubbling {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bubbling {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bubblingOnly {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+@keyframes waveAnim {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Animation classes */
+.animate-zoom-in {
+  animation: zoomAndBubbling 1s both;
+}
+
+.animate-fade-up {
+  animation: fadeUp 1s both;
+}
+
+.animate-fade-down {
+  animation: fadeDown 1s both;
+}
+
+.animate-fade-right {
+  animation: fadeRight 1s both;
+}
+
+.animate-fade-left {
+  animation: fadeLeft 1s both;
+}
+
+.animate-zoom-in-down {
+  animation: zoomInDown 1s both;
+}
+
+.animate-zoom-in-up {
+  animation: zoomInUp 1s both;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s both;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomInDown {
+  from { opacity: 0; transform: scale(0.8) translateY(-20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes zoomInUp {
+  from { opacity: 0; transform: scale(0.8) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+html:has([name=yamato-theme]) {
+  body {
+    background-color: #D3C8B9;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0.15rem rgba(0,0,0,0.3);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #D0B6B5;
+    outline: 1px solid #D0B6B5;
+  }
+}
+
+/* ========================================
+   THEME ROOT
+   ======================================== */
+[name=yamato-theme] {
+  background-image: url('/themes/yamato/global/background-desktop.png');
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+
+  * {
+    font-family: 'poppinsR';
+    box-sizing: border-box;
+  }
+}
+
+.mobile [name=yamato-theme] {
+  background-image: url('/themes/yamato/global/background-mobile.png');
+  background-attachment: initial;
+  background-size: auto;
+  background-repeat: repeat-y;
+}
+
+/* ========================================
+   BUTTON
+   ======================================== */
+[name=yamato-button] {
+  padding: 0.94rem 4.87rem;
+  display: flex;
+  align-items: center;
+  gap: 0 0.94rem;
+  border-radius: 1.875rem;
+  background: #796752;
+  transition: 0.5s;
+  border: none;
+  cursor: pointer;
+}
+
+[name=yamato-button]:disabled,
+[name=yamato-button].disabled,
+[name=yamato-button].loading {
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+[name=yamato-button]:hover {
+  box-shadow: #D0B6B5 0px 0px 17px 0px;
+  transition: 0.25s;
+}
+
+[name=yamato-button] .icon {
+  display: flex;
+  align-items: center;
+}
+
+[name=yamato-button] .icon img {
+  width: 1.875rem;
+}
+
+[name=yamato-button] .label {
+  display: flex;
+  gap: 0 0.5rem;
+  align-items: center;
+}
+
+[name=yamato-button] .label p {
+  color: #FFF;
+  font-family: 'poppinsR';
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.mobile [name=yamato-button] {
+  padding: 0.62rem 3rem;
+}
+
+.mobile [name=yamato-button] .icon img {
+  width: 1.25rem;
+}
+
+.mobile [name=yamato-button] .label p {
+  font-size: 0.75rem;
+}
+
+/* ========================================
+   PRELOADER
+   ======================================== */
+[name=yamato-preloader] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #EFEAE4;
+  background-image: url('/themes/yamato/global/background-desktop.png');
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.mobile [name=yamato-preloader] {
+  background-image: url('/themes/yamato/global/background-mobile.png');
+  background-size: auto;
+  background-repeat: repeat-y;
+}
+
+[name=yamato-preloader] .preloader-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=yamato-preloader] .logo-wave-wrapper {
+  width: 10rem;
+  height: 10rem;
+}
+
+[name=yamato-preloader] .logo-svg {
+  width: 100%;
+  height: 100%;
+}
+
+[name=yamato-preloader] .logo-gray {
+  fill: rgba(255, 255, 255, 0.3);
+}
+
+[name=yamato-preloader] .wave-solid-fill {
+  fill: #D0B6B5;
+}
+
+[name=yamato-preloader] .wave-path {
+  fill: #D0B6B5;
+  animation: waveAnim 1.5s ease-in-out infinite alternate;
+}
+
+/* ========================================
+   MUSIC BUTTON
+   ======================================== */
+[name=yamato-music-button] {
+  position: fixed;
+}
+
+[name=yamato-music-button].show {
+  animation: 0.5s zoomAndBubbling forwards;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+  cursor: pointer;
+}
+
+[name=yamato-music-button] .wrapper {
+  border-radius: 2.5rem;
+  padding: 0.5rem;
+  width: 4rem;
+  height: 4rem;
+  background-color: #50453586;
+  transition: 0.25s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=yamato-music-button] .wrapper:hover {
+  background-color: #504535;
+  transition: 0.25s;
+}
+
+[name=yamato-music-button] .music-button {
+  width: 2rem;
+  height: 2rem;
+}
+
+[name=yamato-music-button] .music-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ========================================
+   FLOATING MENU
+   ======================================== */
+[name=yamato-floating-menu] {
+  position: fixed;
+}
+
+[name=yamato-floating-menu].show {
+  animation: 0.5s zoomAndBubbling forwards;
+  bottom: 3rem;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+}
+
+[name=yamato-floating-menu] .menus {
+  display: flex;
+  gap: 0 1.25rem;
+  background: #FFF6F5;
+  border-radius: 1.875rem;
+  padding: 0.62rem 1.56rem;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.15);
+  width: fit-content;
+}
+
+[name=yamato-floating-menu] .menu {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+[name=yamato-floating-menu] .menu img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+[name=yamato-floating-menu] .menu.active {
+  animation: 0.5s bubblingOnly forwards;
+}
+
+/* ========================================
+   COVER SECTION
+   ======================================== */
+[name=yamato-theme] [name=cover-section] {
+  position: relative;
+  max-width: 170rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 100vh;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+[name=yamato-theme] [name=cover-section].scroll-cover {
+  margin-top: -100vh;
+  transition: margin-top 1s ease-in-out;
+}
+
+[name=yamato-theme] [name=cover-section] .content {
+  height: 100%;
+  display: flex;
+  position: relative;
+  z-index: 10;
+}
+
+[name=yamato-theme] [name=cover-section] .content .view-content {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+[name=yamato-theme] [name=cover-section] .content .view-content .title {
+  margin-bottom: 1.88rem;
+}
+
+[name=yamato-theme] [name=cover-section] .content .view-content .title p {
+  color: #fff;
+  text-align: center;
+  font-family: 'poppinsM';
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.125rem;
+  text-transform: capitalize;
+}
+
+[name=yamato-theme] [name=cover-section] .bride-groom .bride p,
+[name=yamato-theme] [name=cover-section] .bride-groom .groom p {
+  color: #EFEAE4;
+  font-family: "metamorphous";
+  font-size: 5rem;
+  font-style: normal;
+  line-height: normal;
+  text-align: center;
+}
+
+[name=yamato-theme] [name=cover-section] .bride-groom .and p {
+  text-align: center;
+  color: #EFEAE4;
+  font-family: 'modelista-signature';
+  font-size: 3.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=cover-section] .guest-name {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.31rem 0;
+}
+
+[name=yamato-theme] [name=cover-section] .guest-name .for p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsR';
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=cover-section] .guest-name .name p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsSB';
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=cover-section] .open-button-wrapper {
+  margin-top: 2.5rem;
+}
+
+[name=yamato-theme] [name=cover-section] .cover-date-wrapper {
+  margin-top: 1.88rem;
+}
+
+[name=yamato-theme] [name=cover-section] .cover-date p {
+  color: #EFEAE4;
+  text-align: center;
+  font-family: "metamorphous";
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: 3.125rem;
+}
+
+[name=yamato-theme] [name=cover-section] .decorations img {
+  pointer-events: none;
+}
+
+[name=yamato-theme] [name=cover-section] .decorations .top img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+body:has([name=yamato-theme].desktop [name=cover-section].show) {
+  overflow-x: hidden;
+}
+
+/* Cover Mobile */
+.mobile [name=yamato-theme] [name=cover-section] .content .view-content .title {
+  margin-bottom: 1.5rem;
+}
+
+.mobile [name=yamato-theme] [name=cover-section] .content .view-content .title p {
+  font-size: 0.875rem;
+  letter-spacing: normal;
+  font-family: 'poppinsEL';
+}
+
+.mobile [name=yamato-theme] [name=cover-section] .bride-groom .bride p,
+.mobile [name=yamato-theme] [name=cover-section] .bride-groom .groom p {
+  font-size: 3.125rem;
+}
+
+.mobile [name=yamato-theme] [name=cover-section] .bride-groom .and p {
+  font-size: 2.5rem;
+}
+
+.mobile [name=yamato-theme] [name=cover-section] .bride-groom {
+  margin-bottom: 0;
+}
+
+.mobile [name=yamato-theme] [name=cover-section] .guest-name {
+  margin-top: 1.75rem;
+}
+
+.mobile [name=yamato-theme] [name=cover-section] .guest-name .for p {
+  font-size: 0.6875rem;
+}
+
+.mobile [name=yamato-theme] [name=cover-section] .guest-name .name p {
+  font-size: 0.875rem;
+}
+
+.mobile [name=yamato-theme] [name=cover-section] .open-button-wrapper {
+  margin-top: 1.88rem;
+}
+
+.mobile [name=yamato-theme] [name=cover-section] .cover-date-wrapper {
+  margin-top: 2.31rem;
+}
+
+.mobile [name=yamato-theme] [name=cover-section] .decorations .top img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.mobile [name=yamato-theme] [name=cover-section] .decorations .bottom img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+/* ========================================
+   COUNT DOWN AND DISPLAY PICTURE
+   ======================================== */
+[name=yamato-theme] [name=count-down-and-display-picture-section] {
+  padding: 3.88rem 0 3.5rem 0;
+  position: relative;
+  z-index: 10;
+  max-width: 170rem;
+  margin: 0 auto;
+  background-color: #D3C8B9;
+}
+
+[name=yamato-theme] [name=count-down-and-display-picture-section] .display-img-wrapper {
+  padding: 0.81rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 31.25rem 31.25rem 0 0;
+  width: max-content;
+  margin: 0 auto;
+}
+
+[name=yamato-theme] [name=count-down-and-display-picture-section] .display-img {
+  width: 26.1875rem;
+  height: 35.875rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 31.25rem 31.25rem 0 0;
+  overflow: hidden;
+}
+
+[name=yamato-theme] [name=count-down-and-display-picture-section] .display-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+[name=yamato-theme] [name=count-down-and-display-picture-section] .title {
+  margin-top: 3.06rem;
+}
+
+[name=yamato-theme] [name=count-down-and-display-picture-section] .title p {
+  color: #504535;
+  text-align: center;
+  font-family: "metamorphous";
+  font-size: 2.8125rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=count-down-and-display-picture-section] .count-down {
+  margin-top: 2.69rem;
+  display: flex;
+  gap: 0 2.5rem;
+  justify-content: center;
+}
+
+[name=yamato-theme] [name=count-down-and-display-picture-section] .count-down-item {
+  padding-top: 1.31rem;
+  padding-bottom: 0.81rem;
+  width: 8.75rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: #F8F7F3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.56rem 0;
+}
+
+[name=yamato-theme] [name=count-down-and-display-picture-section] .count-down-item .label p {
+  color: #504535;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=count-down-and-display-picture-section] .count-down-item .value p {
+  color: #504535;
+  text-align: center;
+  font-family: "antsvalley";
+  font-size: 3.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=count-down-and-display-picture-section] .decorations img {
+  pointer-events: none;
+}
+
+[name=yamato-theme] [name=count-down-and-display-picture-section] .decorations .top img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  object-fit: contain;
+  z-index: 3;
+}
+
+/* CountDown Mobile */
+.mobile [name=yamato-theme] [name=count-down-and-display-picture-section] {
+  padding-top: 4.5rem;
+  padding-bottom: 1.38rem;
+}
+
+.mobile [name=yamato-theme] [name=count-down-and-display-picture-section] .display-img-wrapper {
+  padding: 0.56rem;
+}
+
+.mobile [name=yamato-theme] [name=count-down-and-display-picture-section] .display-img {
+  width: 16.75rem;
+  height: 23.75rem;
+}
+
+.mobile [name=yamato-theme] [name=count-down-and-display-picture-section] .title {
+  margin-top: 2.88rem;
+}
+
+.mobile [name=yamato-theme] [name=count-down-and-display-picture-section] .title p {
+  font-size: 1.5rem;
+}
+
+.mobile [name=yamato-theme] [name=count-down-and-display-picture-section] .count-down {
+  margin-top: 1.25rem;
+  gap: 0 0.5rem;
+}
+
+.mobile [name=yamato-theme] [name=count-down-and-display-picture-section] .count-down-item {
+  width: 4.375rem;
+  height: 5.3125rem;
+  padding: 0.5rem 0.63rem;
+}
+
+.mobile [name=yamato-theme] [name=count-down-and-display-picture-section] .count-down-item .label p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=yamato-theme] [name=count-down-and-display-picture-section] .count-down-item .value p {
+  font-size: 2rem;
+}
+
+.mobile [name=yamato-theme] [name=count-down-and-display-picture-section] .decorations .top img {
+  position: absolute;
+  left: 0.63rem;
+  right: 0.63rem;
+  top: 1.5rem;
+  width: calc(100% - 1.26rem);
+  object-fit: contain;
+  z-index: 10;
+}
+
+/* ========================================
+   OPENING SECTION
+   ======================================== */
+[name=yamato-theme] [name=opening-section] {
+  padding-top: 8.13rem;
+  padding-bottom: 14.69rem;
+  position: relative;
+  max-width: 170rem;
+  margin: 0 auto;
+  min-height: 67.5rem;
+}
+
+[name=yamato-theme] [name=opening-section] .content {
+  position: relative;
+  z-index: 10;
+}
+
+[name=yamato-theme] [name=opening-section] .quotes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.62rem 0;
+}
+
+[name=yamato-theme] [name=opening-section] .quote-text {
+  display: flex;
+  justify-content: center;
+}
+
+[name=yamato-theme] [name=opening-section] .quote-text p {
+  color: #504535;
+  text-align: center;
+  font-family: "brigethasignature";
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 250%;
+  width: 79%;
+}
+
+[name=yamato-theme] [name=opening-section] .quote-title p {
+  color: #504535;
+  text-align: center;
+  font-family: "opensansB";
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=opening-section] .bride-groom {
+  display: flex;
+  justify-content: center;
+  margin-top: 5.63rem;
+  gap: 0;
+}
+
+[name=yamato-theme] [name=opening-section] .bride-groom .groom {
+  padding-left: 3.44rem;
+}
+
+[name=yamato-theme] [name=opening-section] .bride-groom .bride {
+  padding-right: 3.44rem;
+}
+
+[name=yamato-theme] [name=opening-section] .bride-groom .groom,
+[name=yamato-theme] [name=opening-section] .bride-groom .bride {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+[name=yamato-theme] [name=opening-section] .bride-groom .groom-photo,
+[name=yamato-theme] [name=opening-section] .bride-groom .bride-photo {
+  width: 12.55rem;
+  height: 16.5rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 1.25rem;
+}
+
+[name=yamato-theme] [name=opening-section] .bride-groom .groom-photo img,
+[name=yamato-theme] [name=opening-section] .bride-groom .bride-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+}
+
+[name=yamato-theme] [name=opening-section] .bride-groom .groom-name,
+[name=yamato-theme] [name=opening-section] .bride-groom .bride-name {
+  margin-top: 2.5rem;
+}
+
+[name=yamato-theme] [name=opening-section] .bride-groom .groom-name p,
+[name=yamato-theme] [name=opening-section] .bride-groom .bride-name p {
+  color: #504535;
+  text-align: center;
+  font-family: "lovelaceTextRegular";
+  font-size: 2rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=opening-section] .conj {
+  margin-top: 0.94rem;
+}
+
+[name=yamato-theme] [name=opening-section] .conj p {
+  color: #504535;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 1.125rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=opening-section] .parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem 0;
+  margin-top: 0.62rem;
+}
+
+[name=yamato-theme] [name=opening-section] .parent p {
+  color: #504535;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=opening-section] .instagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.62rem;
+}
+
+[name=yamato-theme] [name=opening-section] .instagram:hover .ig-wrapper {
+  border-bottom: 1px solid #504535;
+  transition: 0.25s;
+}
+
+[name=yamato-theme] [name=opening-section] .ig-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0 0.31rem;
+  border-bottom: 1px solid transparent;
+  transition: 0.25s;
+}
+
+[name=yamato-theme] [name=opening-section] .ig-wrapper .icon {
+  display: flex;
+  align-items: center;
+}
+
+[name=yamato-theme] [name=opening-section] .ig-wrapper .icon img {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+[name=yamato-theme] [name=opening-section] .ig-wrapper .label p {
+  color: #504535;
+  font-family: "opensansSB";
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=opening-section] .and-separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2.88rem;
+}
+
+[name=yamato-theme] [name=opening-section] .and-separator .line-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=yamato-theme] [name=opening-section] .and-separator .line {
+  width: 3.125rem;
+  height: 0.0625rem;
+  background-color: rgba(80, 69, 53, 0.5);
+}
+
+[name=yamato-theme] [name=opening-section] .and-separator .and-text p {
+  color: rgba(80, 69, 53, 0.5);
+  text-align: center;
+  font-family: 'modelista-signature';
+  font-size: 5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=opening-section] .decorations img {
+  pointer-events: none;
+}
+
+[name=yamato-theme] [name=opening-section] .decorations .left img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: 30.5%;
+  object-fit: contain;
+  z-index: 3;
+  max-height: -webkit-fill-available;
+}
+
+[name=yamato-theme] [name=opening-section] .decorations .right img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  max-width: 30.5%;
+  object-fit: contain;
+  z-index: 3;
+  max-height: -webkit-fill-available;
+}
+
+/* Opening Mobile */
+.mobile [name=yamato-theme] [name=opening-section] {
+  padding-top: 2.44rem;
+  padding-bottom: 0;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .quotes {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  gap: 0.62rem 0;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .quote-text p {
+  font-size: 0.75rem;
+  width: 100%;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .quote-title p {
+  font-size: 0.6875rem;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom {
+  position: relative;
+  z-index: 2;
+  margin-top: 1.44rem;
+  padding: 0 1.06rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem 0;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .bride {
+  margin-top: 4.19rem;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .groom {
+  margin-top: 0.62rem;
+  padding-bottom: 6.78rem;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .bride,
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .groom {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .bride-photo,
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .groom-photo {
+  width: 9.375rem;
+  height: 12.8125rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 1.25rem;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .bride-photo img,
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .groom-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .bride-name,
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .groom-name {
+  margin-top: 1.2rem;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .bride-name p,
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .groom-name p {
+  color: #504535;
+  text-align: center;
+  font-family: "lovelaceTextRegular";
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .conj {
+  margin-top: 0.62rem;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .conj p {
+  color: #504535;
+  font-family: "opensansR";
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .parent {
+  display: flex;
+  gap: 0;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .parent p {
+  color: #504535;
+  font-family: "opensansR";
+  font-size: 0.75rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .instagram {
+  margin-top: 0.5rem;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .ig-wrapper {
+  display: flex;
+  gap: 0 0.31rem;
+  align-items: center;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .ig-wrapper .icon img {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .ig-wrapper .label p {
+  font-family: "opensansSB";
+  font-size: 0.6875rem;
+  color: #504535;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .and-separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1.25rem;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .and-separator .line-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 3.125rem;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .and-separator .line {
+  width: 100%;
+  height: 0.0625rem;
+  background-color: rgba(80, 69, 53, 0.5);
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .and-separator .and-text p {
+  color: rgba(80, 69, 53, 0.5);
+  text-align: center;
+  font-family: 'modelista-signature';
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .decorations img {
+  pointer-events: none;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .decorations .top img {
+  position: absolute;
+  left: 0.62rem;
+  right: 0.62rem;
+  top: 0;
+  width: calc(100% - 1.24rem);
+  object-fit: contain;
+  z-index: 2;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .decorations .bottom img {
+  position: absolute;
+  left: 0.62rem;
+  right: 0.62rem;
+  bottom: 0;
+  width: calc(100% - 1.24rem);
+  object-fit: contain;
+  z-index: 2;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .decorations .left img {
+  position: absolute;
+  left: 1.1rem;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  object-fit: contain;
+  z-index: 2;
+  width: 0.08rem;
+}
+
+.mobile [name=yamato-theme] [name=opening-section] .mobile-bride-groom .decorations .right img {
+  position: absolute;
+  right: 1.1rem;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  object-fit: contain;
+  z-index: 2;
+  width: 0.08rem;
+}
+
+/* ========================================
+   DATE SECTION
+   ======================================== */
+[name=yamato-theme] [name=date-section] {
+  background: #D3C8B9;
+  padding: 9.19rem 0 5.13rem 0;
+  position: relative;
+  z-index: 11;
+  max-width: 170rem;
+  margin: -1px auto 0 auto;
+}
+
+[name=yamato-theme] [name=date-section] .date-section-wrapper {
+  border-radius: 0 0 62.5rem 62.5rem;
+  margin-left: 7.5rem;
+  margin-right: 7.5rem;
+}
+
+[name=yamato-theme] [name=date-section] .content .view-content {
+  text-align: center;
+}
+
+[name=yamato-theme] [name=date-section] .akad,
+[name=yamato-theme] [name=date-section] .reception {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+[name=yamato-theme] [name=date-section] .date-icon img {
+  width: 3.125rem;
+  height: 3.125rem;
+  object-fit: contain;
+  object-position: top center;
+}
+
+[name=yamato-theme] [name=date-section] .title p {
+  color: #504535;
+  text-align: center;
+  font-family: 'metamorphous';
+  font-size: 2.8125rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=date-section] .date {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+[name=yamato-theme] [name=date-section] .day {
+  padding: 0 0.75rem 0 0;
+  width: 15.625rem;
+}
+
+[name=yamato-theme] [name=date-section] .day p {
+  color: #504535;
+  text-align: center;
+  font-family: 'cinzel';
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=date-section] .month {
+  padding: 0;
+  height: 4.44rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 13.5rem;
+  border-left: 0.0625rem solid #504535;
+  border-right: 0.0625rem solid #504535;
+}
+
+[name=yamato-theme] [name=date-section] .month-number p {
+  color: #504535;
+  text-align: center;
+  font-family: 'cinzel';
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=date-section] .month-name p {
+  color: #504535;
+  text-align: center;
+  font-family: 'cinzel';
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=date-section] .year {
+  padding: 0 0 0 0.75rem;
+  width: 15.625rem;
+}
+
+[name=yamato-theme] [name=date-section] .year p {
+  color: #504535;
+  text-align: center;
+  font-family: 'cinzel';
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=date-section] .time {
+  margin-top: 2rem;
+}
+
+[name=yamato-theme] [name=date-section] .time p {
+  color: #504535;
+  text-align: center;
+  font-family: 'cinzel';
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.2rem;
+}
+
+[name=yamato-theme] [name=date-section] .reception {
+  padding-top: 6.38rem;
+  position: relative;
+}
+
+[name=yamato-theme] [name=date-section] .reception .date-icon {
+  margin-bottom: 1.81rem;
+}
+
+[name=yamato-theme] [name=date-section] .decorations img {
+  pointer-events: none;
+}
+
+[name=yamato-theme] [name=date-section] .decorations .top img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+/* Date Mobile */
+.mobile [name=yamato-theme] [name=date-section] {
+  z-index: 10;
+  margin-top: -1px;
+  padding-top: 5.75rem;
+  padding-bottom: 1.5rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .date-section-wrapper {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .date-icon img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .akad .title {
+  margin-top: 1.44rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .title p {
+  font-size: 1.5rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .date {
+  margin-top: 1.5rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .day {
+  padding-right: 0.75rem;
+  padding-left: 0;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .day p {
+  font-size: 1rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .month {
+  padding-left: 1.56rem;
+  padding-right: 1.56rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .month-number p {
+  font-size: 1.5rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .month-name {
+  margin-top: 0.31rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .month-name p {
+  font-size: 0.875rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .year {
+  padding-left: 1.56rem;
+  padding-right: 0;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .year p {
+  font-size: 1rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .time {
+  margin-top: 1rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .time p {
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .reception {
+  padding-top: 2.25rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .reception .date-icon {
+  margin-bottom: 1.44rem;
+}
+
+.mobile [name=yamato-theme] [name=date-section] .decorations .top img {
+  width: calc(100% - 1.24rem);
+  position: absolute;
+  top: 1.5rem;
+  right: 0.62rem;
+  left: 0.62rem;
+  z-index: 2;
+}
+
+/* ========================================
+   LOCATION SECTION
+   ======================================== */
+[name=yamato-theme] [name=location-section] {
+  background: #D3C8B9;
+  padding: 1.5rem 0 3.38rem 0;
+  position: relative;
+  z-index: 10;
+  max-width: 170rem;
+}
+
+[name=yamato-theme] [name=location-section] .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=yamato-theme] [name=location-section] .icon img {
+  width: 3.125rem;
+  height: 3.125rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+[name=yamato-theme] [name=location-section] .title {
+  margin-top: 2rem;
+}
+
+[name=yamato-theme] [name=location-section] .title p {
+  color: #504535;
+  text-align: center;
+  font-family: "opensansB";
+  font-size: 1.5rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=location-section] .desc {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+[name=yamato-theme] [name=location-section] .desc p {
+  color: #504535;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  max-width: 48%;
+}
+
+[name=yamato-theme] [name=location-section] .maps {
+  margin-top: 2.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+[name=yamato-theme] [name=location-section] .maps iframe {
+  width: 100%;
+  height: 24.8125rem;
+  border-radius: 1.25rem;
+}
+
+/* Location Mobile */
+.mobile [name=yamato-theme] [name=location-section] {
+  padding-top: 1.87rem;
+  padding-bottom: 1.62rem;
+  margin: -1px auto 0 auto;
+}
+
+.mobile [name=yamato-theme] [name=location-section] .icon img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.mobile [name=yamato-theme] [name=location-section] .title {
+  margin-top: 1.25rem;
+}
+
+.mobile [name=yamato-theme] [name=location-section] .title p {
+  font-size: 1rem;
+}
+
+.mobile [name=yamato-theme] [name=location-section] .desc {
+  margin-top: 0.31rem;
+  padding-left: 1.88rem;
+  padding-right: 1.88rem;
+}
+
+.mobile [name=yamato-theme] [name=location-section] .desc p {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  max-width: unset;
+}
+
+.mobile [name=yamato-theme] [name=location-section] .maps {
+  margin-top: 2rem;
+  padding-left: 1.88rem;
+  padding-right: 1.88rem;
+}
+
+.mobile [name=yamato-theme] [name=location-section] .maps iframe {
+  height: 12.5rem;
+}
+
+/* ========================================
+   RSVP SECTION
+   ======================================== */
+[name=yamato-theme] [name=rsvp-section] {
+  position: relative;
+  max-width: 170rem;
+  margin: 0 auto;
+}
+
+[name=yamato-theme] [name=rsvp-section] .content {
+  position: relative;
+  z-index: 10;
+  padding-bottom: 8.06rem;
+}
+
+[name=yamato-theme] [name=rsvp-section] .view-content {
+  padding: 7.62rem 3.13rem 4.06rem 3.13rem;
+  min-height: 47rem;
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+
+[name=yamato-theme] [name=rsvp-section] .view-content:has(.rsvp-sent) {
+  min-height: unset;
+  padding-bottom: 8rem;
+}
+
+[name=yamato-theme] [name=rsvp-section] .title p {
+  color: #504535;
+  text-align: center;
+  font-family: "metamorphous";
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=rsvp-section] .desc {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+[name=yamato-theme] [name=rsvp-section] .desc p {
+  width: 90%;
+  color: #504535;
+  text-align: center;
+  font-family: 'poppinsR';
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.5rem;
+}
+
+[name=yamato-theme] [name=rsvp-section] .desc .bold {
+  color: #504535;
+  font-family: 'poppinsB';
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: 2.5rem;
+}
+
+[name=yamato-theme] [name=rsvp-section] .rsvp-input-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+[name=yamato-theme] [name=rsvp-section] .rsvp-input-container {
+  margin-top: 2.5rem;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 3.75rem 0;
+}
+
+[name=yamato-theme] [name=rsvp-section] .group-member-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3.75rem;
+  animation: bubbling 0.5s forwards;
+}
+
+[name=yamato-theme] [name=rsvp-section] .group-member-input .label {
+  margin-bottom: 1.5rem;
+}
+
+[name=yamato-theme] [name=rsvp-section] .group-member-input .label p {
+  color: #64564C;
+  font-family: 'poppinsSB';
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=rsvp-section] [name=input] {
+  width: 100%;
+  max-height: unset;
+  height: 3.5rem;
+}
+
+[name=yamato-theme] [name=rsvp-section] [name=input] input {
+  font-size: 1.25rem;
+}
+
+[name=yamato-theme] [name=rsvp-section] .attendance-radio {
+  animation: bubbling 0.5s forwards;
+}
+
+[name=yamato-theme] [name=rsvp-section] .reason-input {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3.75rem;
+  animation: bubbling 0.5s forwards;
+}
+
+[name=yamato-theme] [name=rsvp-section] .reason-input .label {
+  margin-bottom: 1.5rem;
+}
+
+[name=yamato-theme] [name=rsvp-section] .reason-input .label p {
+  color: #504535;
+  font-family: 'poppinsSB';
+  font-size: 1.5rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=rsvp-section] .confirm-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.75rem;
+  background-color: transparent;
+  animation: bubbling 0.5s forwards;
+}
+
+[name=yamato-theme] [name=rsvp-section] .confirm-button [name=yamato-button] {
+  min-width: 25rem;
+  padding: 1.12rem 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+[name=yamato-theme] [name=rsvp-section] .change-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.75rem;
+  background-color: transparent;
+}
+
+[name=yamato-theme] [name=rsvp-section] .change-button [name=yamato-button] {
+  min-width: 25rem;
+  padding: 1.12rem 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+[name=yamato-theme] [name=rsvp-section] .decor-container-back {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+  z-index: 5;
+  background-image: url('/themes/yamato/rsvp/decor-container-back.png');
+  width: 100%;
+  height: 100%;
+  background-position: top center;
+  background-size: cover;
+}
+
+[name=yamato-theme] [name=rsvp-section] .decorations img {
+  pointer-events: none;
+}
+
+[name=yamato-theme] [name=rsvp-section] .decorations .top-left img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 26.44%;
+  object-fit: contain;
+  z-index: 4;
+}
+
+[name=yamato-theme] [name=rsvp-section] .decorations .top-right img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 26.44%;
+  object-fit: contain;
+  z-index: 4;
+}
+
+/* RSVP Mobile */
+.mobile [name=yamato-theme] [name=rsvp-section] {
+  margin-top: 0;
+  padding-top: 8.19rem;
+  padding-bottom: 1.44rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.mobile [name=yamato-theme] [name=rsvp-section] .content {
+  padding-bottom: 0;
+}
+
+.mobile [name=yamato-theme] [name=rsvp-section] .view-content {
+  min-height: unset;
+  padding: 1.5rem 1.19rem 1.44rem 1.19rem;
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mobile [name=yamato-theme] [name=rsvp-section] .title p {
+  font-size: 1.5rem;
+}
+
+.mobile [name=yamato-theme] [name=rsvp-section] .desc {
+  margin-top: 1rem;
+  justify-content: flex-start;
+}
+
+.mobile [name=yamato-theme] [name=rsvp-section] .desc p {
+  color: #504535;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: unset;
+}
+
+.mobile [name=yamato-theme] [name=rsvp-section] .desc .bold {
+  color: #504535;
+  font-family: "opensansB";
+  font-size: 0.75rem;
+  font-style: normal;
+  line-height: normal;
+  text-align: left;
+}
+
+.mobile [name=yamato-theme] [name=rsvp-section] .rsvp-input-container {
+  margin-top: 1.87rem;
+  width: 100%;
+  gap: 1.5rem 0;
+}
+
+.mobile [name=yamato-theme] [name=rsvp-section] .reason-input,
+.mobile [name=yamato-theme] [name=rsvp-section] .group-member-input {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.mobile [name=yamato-theme] [name=rsvp-section] .group-member-input .label {
+  margin-bottom: 0.5rem;
+}
+
+.mobile [name=yamato-theme] [name=rsvp-section] .group-member-input .label p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=yamato-theme] [name=rsvp-section] .confirm-button {
+  margin-top: 1.5rem;
+}
+
+.mobile [name=yamato-theme] [name=rsvp-section] .confirm-button [name=yamato-button] {
+  min-width: unset;
+  padding: 0.69rem 2.5rem;
+}
+
+.mobile [name=yamato-theme] [name=rsvp-section] .change-button {
+  margin-top: 1.5rem;
+}
+
+.mobile [name=yamato-theme] [name=rsvp-section] .change-button [name=yamato-button] {
+  min-width: unset;
+  padding: 0.69rem 2.5rem;
+}
+
+.mobile [name=yamato-theme] [name=rsvp-section] .decorations .top img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  object-fit: contain;
+  z-index: 4;
+}
+
+/* ========================================
+   OUR STORY SECTION
+   ======================================== */
+[name=yamato-theme] [name=our-story-section] {
+  background: #D3C8B9;
+  padding: 3.12rem 0 14rem 0;
+  position: relative;
+  z-index: 1;
+  max-width: 150rem;
+  margin: 0 auto;
+}
+
+[name=yamato-theme] [name=our-story-section] .title {
+  margin-top: 3.12rem;
+  margin-bottom: 3.31rem;
+}
+
+[name=yamato-theme] [name=our-story-section] .title p {
+  color: #504535;
+  text-align: center;
+  font-family: "metamorphous";
+  font-size: 2.8125rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=our-story-section] .our-story-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 3.4rem;
+}
+
+[name=yamato-theme] [name=our-story-section] .story-left-line img {
+  height: 14.80581rem;
+}
+
+[name=yamato-theme] [name=our-story-section] .carousel-our-story {
+  width: 100%;
+}
+
+[name=yamato-theme] [name=our-story-section] .story-item .story-wrapper {
+  height: 11.5rem;
+  overflow: hidden;
+}
+
+[name=yamato-theme] [name=our-story-section] .story-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+[name=yamato-theme] [name=our-story-section] .story-text p {
+  color: #161616;
+  text-align: center;
+  font-family: 'poppinsR';
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=our-story-section] .decorations img {
+  pointer-events: none;
+}
+
+[name=yamato-theme] [name=our-story-section] .decorations .bottom-left img {
+  position: absolute;
+  left: 0;
+  bottom: -8.25rem;
+  max-width: 30%;
+  height: 100%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+[name=yamato-theme] [name=our-story-section] .decorations .bottom-right img {
+  position: absolute;
+  right: 0;
+  bottom: -8.25rem;
+  max-width: 30%;
+  height: 100%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+/* Our Story Static */
+[name=yamato-theme] [name=our-story-static-section] {
+  background: #908A71;
+  padding: 1.69rem 0 4.12rem 0;
+  position: relative;
+  z-index: 1;
+  max-width: 170rem;
+  margin: 0 auto;
+}
+
+[name=yamato-theme] [name=our-story-static-section] .title {
+  margin-bottom: 2.5rem;
+}
+
+[name=yamato-theme] [name=our-story-static-section] .title p {
+  color: #FFF;
+  text-align: center;
+  font-family: "metamorphous";
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=our-story-static-section] .our-stories {
+  padding: 2.1rem 6.25rem 3.12rem 6.25rem;
+  border-radius: 0.625rem;
+  background: rgba(255, 255, 255, 0.10);
+}
+
+[name=yamato-theme] [name=our-story-static-section] .story-content .title p {
+  color: #FFF;
+  font-family: 'poppinsB';
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+  text-align: left;
+}
+
+[name=yamato-theme] [name=our-story-static-section] .story-content .desc {
+  margin-top: 1rem;
+}
+
+[name=yamato-theme] [name=our-story-static-section] .story-content .desc p {
+  color: #FFF;
+  font-family: 'poppinsR';
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=our-story-static-section] .story-separator {
+  margin: 2.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 2.19rem;
+}
+
+[name=yamato-theme] [name=our-story-static-section] .story-separator .line-wrapper {
+  width: 100%;
+  height: 1.34rem;
+  display: flex;
+  align-items: center;
+}
+
+[name=yamato-theme] [name=our-story-static-section] .story-separator .line {
+  width: 100%;
+  height: 0.0625rem;
+  background: #fff;
+}
+
+[name=yamato-theme] [name=our-story-static-section] .story-separator .story-icon {
+  width: 1.68281rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[name=yamato-theme] [name=our-story-static-section] .story-separator .story-icon img {
+  width: 1.68281rem;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.guest [name=yamato-theme] [name=our-story-section] .content {
+  padding-top: 4.94rem;
+}
+
+/* ========================================
+   GALLERY SECTION
+   ======================================== */
+[name=yamato-theme] [name=gallery-section] {
+  padding: 3.13rem 0 3.44rem 0;
+  position: relative;
+  z-index: 1;
+  max-width: 170rem;
+  margin: 0 auto;
+}
+
+[name=yamato-theme] [name=gallery-section] .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=yamato-theme] [name=gallery-section] .logo img {
+  width: 7.375rem;
+  object-fit: contain;
+  object-position: center;
+}
+
+[name=yamato-theme] [name=gallery-section] .decorations img {
+  pointer-events: none;
+}
+
+[name=yamato-theme] [name=gallery-section] .decorations .top-left img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: 26.45%;
+  height: 100%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+[name=yamato-theme] [name=gallery-section] .decorations .top-right img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  max-width: 26.45%;
+  height: 100%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+/* ========================================
+   GALLERY LAYOUT (Desktop)
+   ======================================== */
+[name=gt-4P1L].galleries,
+[name=gt-5P0L].galleries {
+  margin-top: 2.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 0 0.4rem;
+  width: 100%;
+  height: 28.125rem;
+}
+
+[name=gt-4P1L].galleries img,
+[name=gt-5P0L].galleries img {
+  transition: 0.25s;
+  border-radius: 0.625rem;
+}
+
+[name=gt-4P1L].galleries img:hover,
+[name=gt-5P0L].galleries img:hover {
+  transform: scale(1.02);
+  transition: 0.25s;
+  cursor: zoom-in;
+}
+
+[name=gt-4P1L].galleries .left-image,
+[name=gt-5P0L].galleries .left-image {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  gap: 0 0.45rem;
+}
+
+[name=gt-4P1L].galleries .left-image .left-left,
+[name=gt-5P0L].galleries .left-image .left-left {
+  width: 60%;
+  height: 100%;
+}
+
+[name=gt-5P0L].galleries .left-image .left-left {
+  width: 65%;
+}
+
+[name=gt-4P1L].galleries .left-image .left-right,
+[name=gt-5P0L].galleries .left-image .left-right {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem 0;
+}
+
+[name=gt-5P0L].galleries .left-image .left-right {
+  width: 35%;
+}
+
+[name=gt-4P1L].galleries .left-image .left-right > div,
+[name=gt-5P0L].galleries .left-image .left-right > div {
+  width: 100%;
+}
+
+[name=gt-5P0L].galleries .left-image .left-right > div {
+  height: 50%;
+}
+
+[name=gt-4P1L].galleries .left-image .left-right > div:first-child {
+  height: 32%;
+}
+
+[name=gt-4P1L].galleries .left-image .left-right > div:last-child {
+  height: 68%;
+}
+
+[name=gt-4P1L].galleries .right-image,
+[name=gt-5P0L].galleries .right-image {
+  width: 55%;
+  height: 100%;
+  display: flex;
+  gap: 0 0.45rem;
+}
+
+[name=gt-4P1L].galleries .right-image > div,
+[name=gt-5P0L].galleries .right-image > div {
+  width: 100%;
+  height: 100%;
+}
+
+[name=gt-4P1L].galleries .right-image .right-left,
+[name=gt-5P0L].galleries .right-image .right-left {
+  width: 50%;
+  height: 100%;
+}
+
+[name=gt-4P1L].galleries .right-image .right-right,
+[name=gt-5P0L].galleries .right-image .right-right {
+  width: 50%;
+  height: 100%;
+}
+
+[name=gt-4P1L].galleries .left-image .left-left > .flip-image,
+[name=gt-5P0L].galleries .left-image .left-left > .flip-image,
+[name=gt-4P1L].galleries .left-image .left-right > .flip-image,
+[name=gt-5P0L].galleries .left-image .left-right > .flip-image,
+[name=gt-4P1L].galleries .right-image .right-left > .flip-image,
+[name=gt-5P0L].galleries .right-image .right-left > .flip-image,
+[name=gt-4P1L].galleries .right-image .right-right > .flip-image,
+[name=gt-5P0L].galleries .right-image .right-right > .flip-image {
+  width: 100%;
+  height: 100%;
+}
+
+.flip-image.image-wrapper {
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flip-image.image-wrapper:not(.flipped) {
+  animation-name: reverseFlipImage;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.flip-image.image-wrapper.flipped {
+  animation-name: flipImage;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.flip-image .front,
+.flip-image .back {
+  width: 100%;
+  height: inherit;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.flip-image .front {
+  z-index: 2;
+  transform: rotateY(0deg);
+  height: 100%;
+}
+
+.flip-image .back {
+  height: 100%;
+  width: 100%;
+  transform: rotateY(180deg);
+}
+
+.flip-image .front img,
+.flip-image .back img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+@keyframes flipImage {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(180deg); }
+}
+
+@keyframes reverseFlipImage {
+  0% { transform: rotateY(180deg); }
+  100% { transform: rotateY(0deg); }
+}
+
+/* ========================================
+   GALLERY LAYOUT (Mobile)
+   ======================================== */
+.mobile [name=yamato-theme] [name=gallery-section] {
+  padding-top: 4.88rem;
+  padding-bottom: 3.87rem;
+  position: relative;
+}
+
+.mobile [name=yamato-theme] [name=gallery-section] .content {
+  position: relative;
+  z-index: 3;
+}
+
+.mobile [name=yamato-theme] [name=gallery-section] .content .view-content .logo img {
+  width: 5.87119rem;
+  height: 5.9375rem;
+  object-fit: contain;
+}
+
+.mobile [name=yamato-theme] [name=gallery-section] .decorations .top img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.mobile [name=yamato-theme] [name=gallery-section] .decorations .bottom img {
+  position: absolute;
+  left: 1.69rem;
+  right: 1.69rem;
+  bottom: 1.37rem;
+  width: calc(100% - (2 * 1.69rem));
+  object-fit: contain;
+  z-index: 2;
+}
+
+.mobile-galleries,
+.mobile [name=gt-4P1L].mobile-galleries,
+.mobile [name=gt-5P0L].mobile-galleries {
+  margin-top: 3.33rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.37rem 0;
+  padding-left: 0.94rem;
+  padding-right: 0.94rem;
+}
+
+.mobile-galleries img {
+  transition: 0.25s;
+  border-radius: 0.625rem;
+}
+
+.mobile-galleries img:hover {
+  transform: scale(1.02);
+  transition: 0.25s;
+  cursor: zoom-in;
+}
+
+.mobile-galleries .top-image {
+  display: flex;
+  gap: 0 0.38rem;
+}
+
+.mobile-galleries .top-image .top-left,
+.mobile-galleries .top-image .top-right {
+  height: 14.5625rem;
+  width: 100%;
+}
+
+.mobile-galleries .middle-image {
+  height: 29.688rem;
+  width: 100%;
+}
+
+.mobile [name=gt-4P1L].mobile-galleries .middle-image {
+  height: 13.8125rem;
+}
+
+.mobile-galleries .bottom-image {
+  display: flex;
+  gap: 0 0.38rem;
+}
+
+.mobile-galleries .bottom-image .bottom-left,
+.mobile-galleries .bottom-image .bottom-right {
+  height: 14.5625rem;
+  width: 100%;
+}
+
+.mobile-galleries .top-image > div,
+.mobile-galleries .middle-image > div,
+.mobile-galleries .bottom-image > div {
+  width: 100%;
+  height: 100%;
+}
+
+.mobile-galleries .top-image > div img,
+.mobile-galleries .middle-image > div img,
+.mobile-galleries .bottom-image > div img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mobile-galleries .top-image > div > .flip-image,
+.mobile-galleries .middle-image > div > .flip-image,
+.mobile-galleries .bottom-image > div > .flip-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* ========================================
+   FILTER INSTAGRAM SECTION
+   ======================================== */
+[name=yamato-theme] [name=filter-instagram-section] {
+  background: #D3C8B9;
+  padding: 4.25rem 0 3.75rem 0;
+  position: relative;
+  z-index: 1;
+  max-width: 170rem;
+  margin: 0 auto;
+}
+
+[name=yamato-theme] [name=filter-instagram-section] .content .view-content {
+  display: flex;
+  justify-content: center;
+  gap: 0 10.5rem;
+}
+
+[name=yamato-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item {
+  width: 50%;
+}
+
+[name=yamato-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .title,
+[name=yamato-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .desc {
+  display: flex;
+  justify-content: center;
+}
+
+[name=yamato-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .title p,
+[name=yamato-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .desc p {
+  text-align: center;
+  max-width: 100%;
+}
+
+[name=yamato-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .action-button {
+  justify-content: center;
+}
+
+[name=yamato-theme] [name=filter-instagram-section] .title p {
+  color: #504535;
+  font-family: "metamorphous";
+  font-size: 2.8125rem;
+  font-style: normal;
+  line-height: normal;
+  text-align: center;
+}
+
+[name=yamato-theme] [name=filter-instagram-section] .desc {
+  margin-top: 1.38rem;
+}
+
+[name=yamato-theme] [name=filter-instagram-section] .desc p {
+  color: #504535;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=filter-instagram-section] .filter-button,
+[name=yamato-theme] [name=filter-instagram-section] .action-button {
+  margin-top: 3.38rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========================================
+   WISH SECTION
+   ======================================== */
+[name=yamato-theme] [name=wish-section] {
+  padding-top: 7.5rem;
+  padding-bottom: 5.12rem;
+  position: relative;
+  max-width: 170rem;
+  margin: 0 auto;
+}
+
+[name=yamato-theme] [name=wish-section].without-gift {
+  margin-bottom: 8rem;
+}
+
+[name=yamato-theme] [name=wish-section] .title p {
+  color: #504535;
+  text-align: center;
+  font-family: "metamorphous";
+  font-size: 2.8125rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=wish-section] .wish-wrapper {
+  margin-top: 2.25rem;
+  display: flex;
+  gap: 0 3.12rem;
+}
+
+[name=yamato-theme] [name=wish-section] .left {
+  width: 100%;
+}
+
+[name=yamato-theme] [name=wish-section] .wishes {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+  padding: 1rem 1.19rem;
+  position: relative;
+  border-radius: 1.25rem;
+  min-height: 10rem;
+  scrollbar-width: thin;
+  scrollbar-color: #D0B6B5 transparent;
+}
+
+[name=yamato-theme] [name=wish-section] .wishes::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+[name=yamato-theme] [name=wish-section] .wishes::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[name=yamato-theme] [name=wish-section] .wishes::-webkit-scrollbar-thumb {
+  background-color: #D0B6B5;
+  border-radius: 0.125rem;
+}
+
+[name=yamato-theme] [name=wish-section] .wishes:has(.no-data) {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=yamato-theme] [name=wish-section] .wish {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #D0B6B5;
+  position: relative;
+  z-index: 15;
+}
+
+[name=yamato-theme] [name=wish-section] .wish .top {
+  display: flex;
+  justify-content: space-between;
+}
+
+[name=yamato-theme] [name=wish-section] .wish .name p {
+  color: #504535;
+  text-align: center;
+  font-family: "opensansB";
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=wish-section] .wish .date p {
+  color: #504535;
+  text-align: right;
+  font-family: "opensansR";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=wish-section] .wish .bottom {
+  margin-top: 0.25rem;
+}
+
+[name=yamato-theme] [name=wish-section] .wish .message p {
+  color: #504535;
+  font-family: "opensansR";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=wish-section] .right {
+  width: 100%;
+}
+
+[name=yamato-theme] [name=wish-section] .form-wish {
+  padding: 2.81rem 2.5rem 2.94rem 2.5rem;
+  background-size: cover;
+  background-image: url('/themes/yamato/wish/wish-back.png');
+  background-position: top center;
+  background-repeat: no-repeat;
+  border-radius: 1.25rem;
+}
+
+[name=yamato-theme] [name=wish-section] .name-input {
+  margin-bottom: 1.88rem;
+}
+
+[name=yamato-theme] [name=wish-section] .name-input .label {
+  margin-bottom: 0.37rem;
+}
+
+[name=yamato-theme] [name=wish-section] .name-input .label p {
+  color: #504535;
+  font-family: 'poppinsSB';
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=wish-section] .message-input {
+  margin-bottom: 3.69rem;
+}
+
+[name=yamato-theme] [name=wish-section] .message-input .label {
+  margin-bottom: 0.62rem;
+}
+
+[name=yamato-theme] [name=wish-section] .message-input .label p {
+  color: #504535;
+  font-family: 'poppinsSB';
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=wish-section] .message-counter {
+  margin-top: 0.62rem;
+}
+
+[name=yamato-theme] [name=wish-section] .message-counter p {
+  color: #504535;
+  text-align: right;
+  font-family: "opensansR";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=wish-section] .send-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=yamato-theme] [name=wish-section] .send-button [name=yamato-button] {
+  padding: 1.12rem 2.25rem;
+  min-width: 20.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=yamato-theme] [name=wish-section] .decorations img {
+  pointer-events: none;
+}
+
+[name=yamato-theme] [name=wish-section] .decorations .top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  width: 100%;
+}
+
+[name=yamato-theme] [name=wish-section] .decorations .top img {
+  width: 100%;
+  object-fit: contain;
+}
+
+/* Wish Mobile */
+.mobile [name=yamato-theme] [name=wish-section] {
+  background: transparent;
+  padding-top: 5.44rem;
+  margin-bottom: -4rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .title p {
+  font-size: 1.5rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .wish-wrapper {
+  flex-direction: column-reverse;
+  margin-top: 1.75rem;
+  padding-left: 0.94rem;
+  padding-right: 0.94rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .form-wish {
+  border-radius: 0.9375rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .name-input {
+  margin-bottom: 0.62rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .name-input .label {
+  margin-bottom: 0.25rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .name-input .label p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .message-input {
+  margin-bottom: 0.94rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .message-input .label {
+  margin-bottom: 0.25rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .message-input .label p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .message-counter p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .send-button [name=yamato-button] {
+  min-width: unset;
+  width: 100%;
+  border-radius: 0.9375rem;
+  padding: 0.69rem 2.5rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .send-button [name=yamato-button] .label p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .wishes {
+  margin-top: 0.63rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-height: 31rem;
+  scrollbar-width: auto !important;
+  scrollbar-color: #D0B6B5 transparent !important;
+  background-image: url('/themes/yamato/wish/mobile-wishes-back.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  border-radius: 0.9375rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .wish .name p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .wish .date p {
+  font-size: 0.5rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .wish .message p {
+  font-size: 0.625rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .name-input .label p {
+  text-align: left;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] [name=input] {
+  max-height: 2.5rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] [name=input] input {
+  font-size: 0.75rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] [name=input] input::placeholder,
+.mobile [name=yamato-theme] [name=wish-section] [name=input] textarea::placeholder {
+  font-size: 0.75rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] [name=input].textarea {
+  border-color: transparent;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] [name=input].textarea textarea {
+  font-size: 0.75rem;
+  color: #9E9D8A;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] [name=input].textarea:hover,
+.mobile [name=yamato-theme] [name=wish-section] [name=input].textarea:focus {
+  border-color: #9E9D8A;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .no-data p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .bottom-separator {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .bottom-separator img {
+  width: 100%;
+}
+
+.mobile [name=yamato-theme] [name=wish-section] .decorations .bottom-left img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  object-fit: contain;
+  z-index: 1;
+  width: 93.33%;
+}
+
+/* ========================================
+   GIFT SECTION
+   ======================================== */
+[name=yamato-theme] [name=gift-section] {
+  padding-bottom: 7.31rem;
+  padding-top: 7.25rem;
+  position: relative;
+  background: #D3C8B9;
+}
+
+[name=yamato-theme] [name=gift-section] .content .view-content {
+  padding: 0 4rem;
+  border-radius: 1.25rem;
+}
+
+[name=yamato-theme] [name=gift-section] .content .view-content:has(.opened-gifts) {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+[name=yamato-theme] [name=gift-section] .title p {
+  color: #504535;
+  text-align: center;
+  font-family: "metamorphous";
+  font-size: 2.8125rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=gift-section] .desc {
+  margin-top: 1.75rem;
+  display: flex;
+  justify-content: center;
+}
+
+[name=yamato-theme] [name=gift-section] .desc p {
+  width: 93%;
+  color: #504535;
+  text-align: center;
+  font-family: "opensansR";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=gift-section] .opened-gifts {
+  display: flex;
+  gap: 0 3.12rem;
+  justify-content: space-between;
+  margin-top: 3.13rem;
+}
+
+[name=yamato-theme] [name=gift-section] .gift-item {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  height: fit-content;
+  justify-content: space-between;
+}
+
+[name=yamato-theme] [name=gift-section] .gift-bank img {
+  height: 2.5rem;
+}
+
+[name=yamato-theme] [name=gift-section] .gift-receipt {
+  margin-top: 0.94rem;
+}
+
+[name=yamato-theme] [name=gift-section] .gift-receipt p {
+  color: #504535;
+  font-family: 'poppinsR';
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=gift-section] .gift-id {
+  margin-top: 0.31rem;
+}
+
+[name=yamato-theme] [name=gift-section] .gift-id p {
+  color: #504535;
+  font-family: 'poppinsSB';
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=yamato-theme] [name=gift-section] .gift-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+[name=yamato-theme] [name=gift-section] .copy-button [name=yamato-button] {
+  padding: 0.75rem 1.875rem;
+  gap: 0 0.62rem;
+}
+
+[name=yamato-theme] [name=gift-section] .copy-button [name=yamato-button] .icon img {
+  width: 1.25rem;
+}
+
+[name=yamato-theme] [name=gift-section] .copy-button [name=yamato-button] .label p {
+  font-size: 0.875rem;
+}
+
+[name=yamato-theme] [name=gift-section] .open-button {
+  margin-top: 2.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=yamato-theme] [name=gift-section] .open-button [name=yamato-button] {
+  padding: 1.13rem 11.75rem;
+}
+
+[name=yamato-theme] [name=gift-section] .decorations img {
+  pointer-events: none;
+}
+
+[name=yamato-theme] [name=gift-section] .decorations .bottom-right img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  max-width: 30.67%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 4;
+}
+
+[name=yamato-theme] [name=gift-section] .decorations .bottom-left img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-width: 30.67%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 4;
+}
+
+/* Gift Mobile */
+.mobile [name=yamato-theme] [name=gift-section] {
+  padding: 5.88rem 0 2.19rem 0;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .content .view-content {
+  padding-left: 3.25rem;
+  padding-right: 3.25rem;
+  background: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .gift-icon img {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .title {
+  margin-top: 1.25rem;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .title p {
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .desc {
+  margin-top: 0.62rem;
+  justify-content: unset;
+  width: 100%;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .desc p {
+  width: 100%;
+  font-size: 0.75rem;
+  text-align: left;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .opened-gifts {
+  flex-direction: column;
+  gap: 1.88rem 0;
+  margin-top: 1.87rem;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .gift-left {
+  width: 50%;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .gift-bank img {
+  height: 1.8rem;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .gift-receipt {
+  margin-top: 0.58rem;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .gift-receipt p {
+  font-size: 0.875rem;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .gift-id {
+  margin-top: 0.12rem;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .gift-id p {
+  font-size: 0.875rem;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .copy-button [name=yamato-button] {
+  padding: 0.375rem 1rem;
+  gap: 0.375rem;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .copy-button [name=yamato-button] .icon img {
+  width: 0.875rem;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .copy-button [name=yamato-button] .label p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .open-button {
+  margin-top: 1.25rem;
+  justify-content: flex-start;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .open-button [name=yamato-button] {
+  padding: 0.62rem 3rem;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .open-button [name=yamato-button] .label p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=yamato-theme] [name=gift-section] .decorations .top img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  object-fit: contain;
+  z-index: 4;
+}
+
+/* ========================================
+   FOOTER SECTION
+   ======================================== */
+[name=yamato-theme] [name=footer-section] {
+  min-height: 21rem;
+  position: relative;
+  max-width: 170rem;
+  background: #D3C8B9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+[name=yamato-theme] [name=footer-section] .content {
+  position: relative;
+  z-index: 10;
+  padding-top: 1.5rem;
+}
+
+[name=yamato-theme] [name=footer-section] .logo {
+  display: flex;
+  justify-content: center;
+}
+
+[name=yamato-theme] [name=footer-section] .logo img {
+  width: 12.5rem;
+  height: 4.01731rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+[name=yamato-theme] [name=footer-section] .decorations img {
+  pointer-events: none;
+}
+
+[name=yamato-theme] [name=footer-section] .decorations .top img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+[name=yamato-theme] [name=footer-section] .decorations .bottom img {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+/* Footer Mobile */
+.mobile [name=yamato-theme] [name=footer-section] {
+  padding: 3.5rem 0;
+  min-height: unset;
+  overflow-y: hidden;
+}
+
+.mobile [name=yamato-theme] [name=footer-section] .content .view-content .logo {
+  padding-bottom: 5rem;
+}
+
+.mobile [name=yamato-theme] [name=footer-section] .content .view-content .logo img {
+  width: 7.77881rem;
+  height: 2.5rem;
+  object-fit: contain;
+}
+
+.mobile [name=yamato-theme] [name=footer-section] .decorations .top-left img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 48%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.mobile [name=yamato-theme] [name=footer-section] .decorations .bottom-center img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  object-fit: contain;
+  z-index: 11;
+}
+
+/* ========================================
+   INPUT
+   ======================================== */
+[name=input] {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 0.9375rem;
+  border: 0.5px solid #CCC;
+  background: #FFF;
+  transition: 0.5s;
+  padding: 0 1.25rem;
+  max-height: 2.8125rem;
+}
+
+[name=input]:has(input:focus) {
+  border-color: #9E9D8A;
+  transition: 0.5s;
+}
+
+[name=input] input {
+  background: transparent;
+  border: 0px solid transparent;
+  padding: 0.75rem 0;
+  width: 100%;
+  color: #9E9D8A;
+  font-family: "opensansR";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=input] input:focus {
+  outline: none;
+}
+
+[name=input] input::placeholder {
+  color: #B1B1B1;
+}
+
+[name=input].textarea {
+  max-height: unset;
+  padding: 0 0.5rem 0.5rem 1.25rem;
+}
+
+[name=input].textarea textarea {
+  background: transparent;
+  border: 0px solid transparent;
+  padding: 0.75rem 0.25rem 0.25rem 0;
+  width: 100%;
+  color: #9E9D8A;
+  font-family: "opensansR";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  resize: none;
+}
+
+[name=input].textarea textarea:focus {
+  outline: none;
+}
+
+[name=input].textarea textarea::placeholder {
+  color: #B1B1B1;
+}
+
+[name=input].textarea:has(textarea:focus) {
+  border-color: #9E9D8A;
+  transition: 0.5s;
+}
+
+[name=input][disabled=disabled] {
+  background: rgba(236, 236, 236, 0.875);
+  cursor: not-allowed;
+}
+
+[name=input][disabled=disabled] input,
+[name=input][disabled=disabled] textarea {
+  cursor: not-allowed;
+}
+
+/* ========================================
+   RADIO
+   ======================================== */
+[name=radio] .radio-group {
+  display: flex;
+  gap: 1.5rem;
+}
+
+[name=radio] label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+[name=radio] input[type="radio"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: #504535;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.md\:hidden {
+  display: block;
+}
+
+[name=yamato-theme] .content {
+  max-width: 80rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .md\:hidden {
+    display: none !important;
+  }
+}
