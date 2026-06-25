@@ -364,6 +364,17 @@ html:has([name=yamato-theme]) {
   object-fit: contain;
 }
 
+/* Music Button Mobile */
+.mobile [name=yamato-music-button].show .wrapper {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.mobile [name=yamato-music-button].show .wrapper .music-button {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 /* ========================================
    FLOATING MENU
    ======================================== */
@@ -2425,6 +2436,48 @@ body:has([name=yamato-theme].desktop [name=cover-section].show) {
   align-items: center;
 }
 
+/* Filter Instagram Mobile */
+.mobile [name=yamato-theme] [name=filter-instagram-section] {
+  padding-top: 1.5rem;
+  padding-bottom: 2.56rem;
+}
+
+.mobile [name=yamato-theme] [name=filter-instagram-section] .separator {
+  display: none;
+}
+
+.mobile [name=yamato-theme] [name=filter-instagram-section] .content .view-content {
+  flex-direction: column;
+  gap: 2.69rem 0;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.mobile [name=yamato-theme] [name=filter-instagram-section] .title p {
+  font-size: 1.5rem;
+}
+
+.mobile [name=yamato-theme] [name=filter-instagram-section] .desc {
+  margin-top: 1rem;
+}
+
+.mobile [name=yamato-theme] [name=filter-instagram-section] .desc p {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+}
+
+.mobile [name=yamato-theme] [name=filter-instagram-section] .filter-button,
+.mobile [name=yamato-theme] [name=filter-instagram-section] .action-button {
+  margin-top: 1.5rem;
+}
+
+.mobile [name=yamato-theme] [name=filter-instagram-section] .filter-button [name=yamato-button],
+.mobile [name=yamato-theme] [name=filter-instagram-section] .action-button [name=yamato-button] {
+  width: 100%;
+  padding: 0.62rem 1.88rem;
+  justify-content: center;
+}
+
 /* ========================================
    WISH SECTION
    ======================================== */
@@ -2497,6 +2550,10 @@ body:has([name=yamato-theme].desktop [name=cover-section].show) {
   border-bottom: 1px solid #D0B6B5;
   position: relative;
   z-index: 15;
+}
+
+[name=yamato-theme] [name=wish-section] .wish:last-child {
+  border-bottom: none;
 }
 
 [name=yamato-theme] [name=wish-section] .wish .top {
