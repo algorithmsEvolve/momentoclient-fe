@@ -3755,6 +3755,29 @@
     line-height: normal;
 }
 
+.botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input [name=input] {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0.9375rem;
+    border: 2px solid #fff;
+    background: #FFF;
+    padding: 0 1.25rem;
+    max-height: 2.8125rem;
+    transition: 0.5s;
+}
+
+.botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input [name=input]:has(.botan-input:focus) {
+    border-color: #CB877E;
+    transition: 0.5s;
+}
+
+.botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input [name=input] .botan-input {
+    border: 0px solid transparent;
+    border-radius: 0;
+    padding: 0.75rem 0;
+    background: transparent;
+}
+
 .botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input {
     margin-bottom: 3.69rem;
 }
@@ -3769,6 +3792,34 @@
     font-size: 1rem;
     font-style: normal;
     line-height: normal;
+}
+
+.botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input [name=input].textarea {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0.9375rem;
+    border: 2px solid #fff;
+    background: #FFF;
+    transition: 0.5s;
+    padding: 0 0.5rem 0.5rem 1.25rem;
+    max-height: unset;
+}
+
+.botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input [name=input].textarea:has(.botan-input:focus) {
+    border-color: #CB877E;
+    transition: 0.5s;
+}
+
+.botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input [name=input].textarea .botan-input {
+    border: 0px solid transparent;
+    border-radius: 0;
+    padding: 0.75rem 0.25rem 0.25rem 0;
+    background: transparent;
+    resize: none;
+}
+
+.botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input [name=input].textarea .botan-input:focus {
+    outline: none;
 }
 
 .botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input .message-counter {
@@ -3879,11 +3930,13 @@
         max-height: 2.5rem;
     }
 
-    .botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input [name=input] input {
+    .botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input [name=input] .botan-input {
         font-size: 0.75rem;
+        padding: 0.5rem 0;
     }
 
     .botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input [name=input] input::placeholder,
+    .botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input [name=input] .botan-input::placeholder,
     .botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input [name=input] textarea::placeholder {
         font-size: 0.75rem;
     }
@@ -3898,14 +3951,18 @@
 
     .botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input [name=input].textarea {
         border-color: transparent;
+        padding-left: 1.12rem;
+        padding-right: 1.12rem;
     }
 
-    .botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input [name=input].textarea textarea {
+    .botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input [name=input].textarea .botan-input {
         font-size: 0.75rem;
+        padding: 0.5rem 0;
+        color: #CB877E;
     }
 
     .botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input [name=input].textarea:hover,
-    .botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input [name=input].textarea:focus {
+    .botan-theme [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input [name=input].textarea:focus-within {
         border-color: var(--botan-accent);
     }
 
