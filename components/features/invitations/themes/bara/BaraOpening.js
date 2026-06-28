@@ -240,10 +240,10 @@ export default function BaraOpening({ invitation }) {
         </div>
         {isDesktop && (
           <>
-            <div className={`bottom-left ${isVisible ? "animate-fade-left" : "opacity-0"}`} style={{ animationDelay: "1500ms" }}>
+            <div className={`bottom-left ${isVisible ? "animate-fade-right" : "opacity-0"}`} style={{ animationDelay: "1500ms" }}>
               <img src="/themes/bara/opening/decor-bottom-left.png" alt="decor-bottom-left" />
             </div>
-            <div className={`bottom-right ${isVisible ? "animate-fade-right" : "opacity-0"}`} style={{ animationDelay: "1800ms" }}>
+            <div className={`bottom-right ${isVisible ? "animate-fade-left" : "opacity-0"}`} style={{ animationDelay: "1800ms" }}>
               <img src="/themes/bara/opening/decor-bottom-right.png" alt="decor-bottom-right" />
             </div>
           </>

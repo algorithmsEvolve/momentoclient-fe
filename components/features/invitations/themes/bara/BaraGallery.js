@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef } from "react";
+import ImageViewer from "@/components/ui/ImageViewer";
 
 export default function BaraGallery({ invitation, galleryType = "4P1L" }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,6 +15,8 @@ export default function BaraGallery({ invitation, galleryType = "4P1L" }) {
     fifth: false,
   });
   const [flipAll, setFlipAll] = useState(false);
+  const [viewerOpen, setViewerOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   useEffect(() => {
     const handleResize = () => setIsDesktop(window.innerWidth > 600);
@@ -79,12 +82,23 @@ export default function BaraGallery({ invitation, galleryType = "4P1L" }) {
     });
   }, [flipAll]);
 
+  const handleImageClick = (src) => {
+    if (!src) return;
+    const index = galleries.findIndex((img) => img.imageUrl === src);
+    setSelectedImageIndex(index !== -1 ? index : 0);
+    setViewerOpen(true);
+  };
+
   const renderImage = (index, className, flippedState) => {
     const imgData = images[index];
     if (!imgData) return null;
 
     return (
-      <div className={`flip-image ${className} ${flippedState ? "flipped" : ""}`}>
+      <div
+        className={`flip-image ${className} ${flippedState ? "flipped" : ""}`}
+        onClick={() => handleImageClick(flippedState ? imgData.back : imgData.front)}
+        style={{ cursor: "pointer" }}
+      >
         <div className="front">
           <img src={imgData.front} alt={`gallery-front-${index + 1}`} />
         </div>
@@ -170,6 +184,13 @@ export default function BaraGallery({ invitation, galleryType = "4P1L" }) {
           </>
         )}
       </div>
+
+      <ImageViewer
+        isOpen={viewerOpen}
+        onClose={() => setViewerOpen(false)}
+        images={galleries}
+        initialIndex={selectedImageIndex}
+      />
     </div>
   );
 }
