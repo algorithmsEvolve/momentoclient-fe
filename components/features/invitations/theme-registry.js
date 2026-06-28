@@ -3,6 +3,7 @@ import YuugureTheme from "@/components/features/invitations/themes/yuugure/Yuugu
 import AozoraTheme from "@/components/features/invitations/themes/aozora/AozoraTheme";
 import YamatoTheme from "@/components/features/invitations/themes/yamato/YamatoTheme";
 import YonakaTheme from "@/components/features/invitations/themes/yonaka/YonakaTheme";
+import BaraTheme from "@/components/features/invitations/themes/bara/BaraTheme";
 import UnsupportedTheme from "@/components/features/invitations/UnsupportedTheme";
 
 export const invitationThemeRegistry = {
@@ -11,6 +12,7 @@ export const invitationThemeRegistry = {
   aozora: AozoraTheme,
   yamato: YamatoTheme,
   yonaka: YonakaTheme,
+  bara: BaraTheme,
 };
 
 export function resolveInvitationTheme(themeKey) {

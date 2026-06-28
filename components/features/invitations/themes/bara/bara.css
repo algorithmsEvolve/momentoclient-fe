@@ -1,0 +1,827 @@
+/* start::poppins fonts */
+@font-face {
+    font-family: 'poppinsR';
+    src: url('/fonts/poppins/Poppins-Regular.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsBl';
+    src: url('/fonts/poppins/Poppins-Black.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsBlI';
+    src: url('/fonts/poppins/Poppins-BlackItalic.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsB';
+    src: url('/fonts/poppins/Poppins-Bold.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsBI';
+    src: url('/fonts/poppins/Poppins-BoldItalic.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsEB';
+    src: url('/fonts/poppins/Poppins-ExtraBold.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsEBI';
+    src: url('/fonts/poppins/Poppins-ExtraBoldItalic.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsEL';
+    src: url('/fonts/poppins/Poppins-ExtraLight.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsELI';
+    src: url('/fonts/poppins/Poppins-ExtraLightItalic.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsI';
+    src: url('/fonts/poppins/Poppins-Italic.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsL';
+    src: url('/fonts/poppins/Poppins-Light.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsLI';
+    src: url('/fonts/poppins/Poppins-LightItalic.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsM';
+    src: url('/fonts/poppins/Poppins-Medium.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsMI';
+    src: url('/fonts/poppins/Poppins-MediumItalic.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsSB';
+    src: url('/fonts/poppins/Poppins-SemiBold.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsSBI';
+    src: url('/fonts/poppins/Poppins-SemiBoldItalic.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsT';
+    src: url('/fonts/poppins/Poppins-Thin.ttf');
+}
+ 
+@font-face {
+    font-family: 'poppinsTI';
+    src: url('/fonts/poppins/Poppins-ThinItalic.ttf');
+}
+/* end::poppins fonts */
+
+/* start::opensans fonts */
+@font-face {
+    font-family: 'opensansR';
+    src: url('/fonts/opensans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'opensansB';
+    src: url('/fonts/opensans/OpenSans-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'opensansBI';
+    src: url('/fonts/opensans/OpenSans-BoldItalic.ttf');
+}
+
+@font-face {
+    font-family: 'opensansEB';
+    src: url('/fonts/opensans/OpenSans-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'opensansEBI';
+    src: url('/fonts/opensans/OpenSans-ExtraBoldItalic.ttf');
+}
+
+@font-face {
+    font-family: 'opensansL';
+    src: url('/fonts/opensans/OpenSans-Light.ttf');
+}
+
+@font-face {
+    font-family: 'opensansLI';
+    src: url('/fonts/opensans/OpenSans-LightItalic.ttf');
+}
+
+@font-face {
+    font-family: 'opensansI';
+    src: url('/fonts/opensans/OpenSans-Italic.ttf');
+}
+
+@font-face {
+    font-family: 'opensansSB';
+    src: url('/fonts/opensans/OpenSans-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'opensansSBI';
+    src: url('/fonts/opensans/OpenSans-SemiBoldItalic.ttf');
+}
+/* end::opensans fonts */
+
+/* start::handycheera font */
+@font-face {
+    font-family: 'handycheera';
+    src: url('/fonts/handycheera/handycheera.otf');
+}
+/* end::handycheera font */
+
+/* start::hightowertext font */
+@font-face {
+    font-family: 'hightowertext';
+    src: url('/fonts/high-tower-text/hightowertext.ttf');
+}
+/* end::hightowertext font */
+
+/* start::cinzel font */
+@font-face {
+    font-family: 'cinzel';
+    src: url('/fonts/cinzel/cinzel.ttf');
+}
+/* end::cinzel font */
+
+html:has([name=bara-theme]) ::-webkit-scrollbar { width: 0.25rem; }
+html:has([name=bara-theme]) ::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 0.15rem rgba(0,0,0,0.3); }
+html:has([name=bara-theme]) ::-webkit-scrollbar-thumb { background-color: #D0B6B5; outline: 1px solid #D0B6B5; }
+
+html:has([name=bara-theme]) .swal2-container .swal2-header { display: none !important; }
+html:has([name=bara-theme]) .swal2-container .swal2-content .alert-icon { width: 5rem; height: 5rem; object-fit: contain; margin-bottom: 0.5rem; animation: zoomAndBubbling 0.75s; }
+html:has([name=bara-theme]) .swal2-container .swal2-content .alert-title { color: #66646F; font-family: 'poppinsM'; }
+html:has([name=bara-theme]) .swal2-container .swal2-content .alert-body { margin-top: 1rem; color: #66646F; font-family: 'poppinsR'; }
+html:has([name=bara-theme]) .swal2-container .swal2-content .alert-body.alert-fail { margin-top: 0; }
+html:has([name=bara-theme]) .swal2-container .swal2-actions button { padding: 0.5rem 1.5rem !important; border-radius: 1.875rem !important; }
+html:has([name=bara-theme]) .swal2-container .swal2-actions button .alert-confirm-button { color: #fff; font-family: 'poppinsM'; }
+html:has([name=bara-theme]) .swal2-container .swal2-actions button:focus { box-shadow: unset !important; }
+
+[name=bara-theme] { background-image: url('/themes/bara/global/background-desktop.png'); background-position: top center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; }
+[name=bara-theme] * { font-family: 'poppinsR'; }
+[name=bara-theme] [name=bara-button] { padding: 0.94rem 4.87rem; display: flex; align-items: center; gap: 0 0.94rem; border-radius: 1.875rem; border: none; background: #CD9E92; color: #fff; font-family: 'poppinsM'; font-size: 0.875rem; cursor: pointer; transition: 0.5s; }
+[name=bara-theme] [name=bara-button]:hover { box-shadow: #CD9E92 0px 0px 17px 0px; cursor: pointer; transition: 0.25s; }
+[name=bara-theme] [name=bara-button]:disabled { opacity: 0.8; cursor: not-allowed; pointer-events: none; }
+[name=bara-theme] [name=bara-button].white { background: #fff; color: #CD9E92; }
+[name=bara-theme] [name=bara-button].white:hover { background: #f0f0f0; }
+[name=bara-theme] [name=bara-button] .icon { display: flex; align-items: center; }
+[name=bara-theme] [name=bara-button] .icon img { width: 1.875rem; }
+[name=bara-theme] [name=bara-button] .label p { color: #fff; font-family: 'poppinsM'; font-size: 1rem; font-style: normal; line-height: normal; }
+
+
+.mobile [name=bara-theme] { background-image: url('/themes/bara/global/background-mobile.png'); background-attachment: initial; background-size: auto; background-repeat: repeat-y; }
+.mobile [name=bara-theme] [name=bara-button] { border-radius: 0.9375rem; padding: 0.62rem 4.75rem; }
+.mobile [name=bara-theme] [name=bara-button] .label p { font-size: 0.75rem; }
+.mobile [name=bara-theme] [name=bara-button] .icon img { width: 1.25rem; }
+
+
+@keyframes zoomAndBubbling {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bubbling {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom animations matching AOS behavior */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(100px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  0% { opacity: 0; transform: translate3d(100px, 0, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes fadeInRight {
+  0% { opacity: 0; transform: translate3d(-100px, 0, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes zoomIn {
+  0% { opacity: 0; transform: scale(0.6); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1200ms ease both;
+}
+.animate-fade-in-left {
+  animation: fadeInLeft 1200ms ease both;
+}
+.animate-fade-in-right {
+  animation: fadeInRight 1200ms ease both;
+}
+.animate-fade-left {
+  animation: fadeInLeft 1200ms ease 300ms both;
+}
+.animate-fade-right {
+  animation: fadeInRight 1200ms ease 1000ms both;
+}
+.animate-zoom-in {
+  animation: zoomIn 1200ms ease 200ms both;
+}
+
+@keyframes zoomInDown {
+  0% { opacity: 0; transform: scale(0.6) translate3d(0, -100px, 0); }
+  100% { opacity: 1; transform: scale(1) translate3d(0, 0, 0); }
+}
+
+.animate-zoom-in-down {
+  animation: zoomInDown 1200ms ease 200ms both;
+}
+
+/* === PRELOADER === */
+[name=bara-preloader] {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+[name=bara-preloader] .preloader-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #EFEAE4;
+}
+
+[name=bara-preloader] .preloader-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Logo Container ---- */
+[name=bara-preloader] .logo-wave-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+[name=bara-preloader] .logo-svg {
+  width: 14rem;
+  height: 14rem;
+  overflow: visible;
+}
+
+/* Layer abu-abu (base) */
+[name=bara-preloader] .logo-svg .logo-gray {
+  fill: #D0B6B5;
+}
+
+/* ---- Wave fill group ---- */
+[name=bara-preloader] .logo-svg .wave-fill-group {
+  /* container untuk wave elements yang ter-clip oleh logo shape */
+}
+
+/* Kotak solid berwarna penuh (di belakang wave) */
+[name=bara-preloader] .logo-svg .wave-solid-fill {
+  fill: #995B62;
+  transition: y 0.3s ease-out, height 0.3s ease-out;
+}
+
+/* Wave path — posisi dikontrol lewat JS, animasi oscillasi horizontal */
+[name=bara-preloader] .logo-svg .wave-path {
+  fill: #995B62;
+  animation: bara-wave-oscillate 2s ease-in-out infinite alternate;
+}
+
+/* Oscillasi horizontal yang membuat ombak terasa hidup */
+@keyframes bara-wave-oscillate {
+  0%   { transform: translateX(-8px); }
+  100% { transform: translateX(8px);  }
+}
+
+/* === COVER === */
+[name=bara-theme] [name=cover-section] { position: relative; max-width: 160rem; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; min-height: 100vh; }
+[name=bara-theme] [name=cover-section].scroll-cover { margin-top: -100vh; transition: margin-top 1s ease-in-out; }
+[name=bara-theme] [name=cover-section] .content { height: 100%; display: flex; position: relative; z-index: 10; }
+[name=bara-theme] [name=cover-section] .content .view-content { margin: auto; display: flex; flex-direction: column; align-items: center; }
+[name=bara-theme] [name=cover-section] .content .view-content .bride-groom .bride { display: flex; align-items: flex-end; gap: 0 1.5rem; }
+[name=bara-theme] [name=cover-section] .content .view-content .bride-groom .bride p { color: #995B62; text-align: center; font-family: 'handycheera'; font-size: 6.25rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=cover-section] .content .view-content .bride-groom .bride .and p { color: #CD9E92; text-align: left; font-family: 'handycheera'; font-size: 5rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=cover-section] .content .view-content .bride-groom .groom { margin-top: -1.24rem; }
+[name=bara-theme] [name=cover-section] .content .view-content .bride-groom .groom p { color: #995B62; text-align: center; font-family: 'handycheera'; font-size: 6.25rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=cover-section] .content .view-content .guest-name { margin-top: 0.44rem; display: flex; flex-direction: column; gap: 0.31rem 0; }
+[name=bara-theme] [name=cover-section] .content .view-content .guest-name .for p { color: #995B62; text-align: center; font-family: 'poppinsR'; font-size: 0.875rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=cover-section] .content .view-content .guest-name .name p { color: #995B62; text-align: center; font-family: 'poppinsSB'; font-size: 1.25rem; font-style: normal; line-height: normal; }
+[name=bara-theme] [name=cover-section] .content .view-content .open-button-wrapper { margin-top: 1.75rem; }
+[name=bara-theme] [name=cover-section] .date { position: absolute; top: 0; right: 6rem; bottom: 5.06rem; display: flex; justify-content: flex-end; flex-direction: column; z-index: 10; }
+[name=bara-theme] [name=cover-section] .date p { color: #995B62; text-align: center; font-family: 'handycheera'; font-size: 2.5rem; font-style: normal; font-weight: 400; line-height: 5rem; }
+[name=bara-theme] [name=cover-section] .decorations { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 1; z-index: 5; }
+[name=bara-theme] [name=cover-section] .decorations img { pointer-events: none; }
+[name=bara-theme] [name=cover-section] .decorations .bottom-left img { position: absolute; bottom: 0; left: 0; width: 43%; z-index: 5; }
+[name=bara-theme] [name=cover-section] .decorations .bottom-right img { position: absolute; bottom: 0; right: 0; width: 50%; z-index: 5; }
+[name=bara-theme] [name=cover-section] .decorations .top-right img { position: absolute; top: 0; right: 0; width: 32%; z-index: 5; }
+[name=bara-theme] [name=cover-section] .decorations .top-left img { position: absolute; top: 0; left: 0; width: 28.7%; z-index: 5; }
+
+body:has([name=bara-theme].desktop [name=cover-section].show) { overflow-x: hidden; }
+
+.mobile [name=bara-theme] [name=cover-section] .content .view-content :has(.guest-name) .open-button-wrapper { margin-top: 0.75rem; }
+.mobile [name=bara-theme] [name=cover-section] .content .view-content .bride-groom .bride { gap: 0 0.69rem; }
+.mobile [name=bara-theme] [name=cover-section] .content .view-content .bride-groom .bride p { font-size: 3.75rem; }
+.mobile [name=bara-theme] [name=cover-section] .content .view-content .bride-groom .bride .and p { font-size: 2.5rem; }
+.mobile [name=bara-theme] [name=cover-section] .content .view-content .bride-groom .groom p { font-size: 3.75rem; }
+.mobile [name=bara-theme] [name=cover-section] .content .view-content .guest-name { margin-top: 1.31rem; display: flex; flex-direction: column; gap: 0.31rem 0; }
+.mobile [name=bara-theme] [name=cover-section] .content .view-content .guest-name .for p { font-size: 0.6875rem; }
+.mobile [name=bara-theme] [name=cover-section] .content .view-content .guest-name .name p { font-size: 0.875rem; }
+.mobile [name=bara-theme] [name=cover-section] .content .view-content .open-button-wrapper { margin-top: 1.25rem; }
+.mobile [name=bara-theme] [name=cover-section] .date { left: 1.75rem; top: 0.94rem; bottom: unset; right: unset; }
+.mobile [name=bara-theme] [name=cover-section] .date p { font-size: 1.75rem; line-height: 2.5rem; }
+.mobile [name=bara-theme] [name=cover-section] .decorations .top-right img { width: 62%; }
+.mobile [name=bara-theme] [name=cover-section] .decorations .bottom-left img { width: 74%; }
+
+/* === OPENING === */
+[name=bara-theme] [name=opening-section] { position: relative; max-width: 160rem; margin: 0 auto; }
+[name=bara-theme] [name=opening-section] .opening-wrapper { border-radius: 62.5rem 62.5rem 0rem 0rem; background: #995B62; padding-top: 13.19rem; padding-bottom: 3.1rem; margin-left: auto; margin-right: auto; max-width: 90rem; position: relative; overflow: hidden; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content { position: relative; z-index: 10; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .quotes { display: flex; flex-direction: column; gap: 0.62rem 0; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .quotes .quote-text { display: flex; justify-content: center; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .quotes .quote-text p { color: #fff; text-align: center; font-family: 'opensansR'; font-size: 1rem; font-style: normal; font-weight: 400; line-height: normal; width: 60%; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .quotes .quote-title p { color: #fff; text-align: center; font-family: 'opensansB'; font-size: 1rem; font-style: normal; line-height: normal; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom { display: flex; justify-content: center; margin-top: 1.88rem; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .groom, [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .bride { padding: 4.25rem 4.625rem 4.25006rem 4.625rem; display: flex; flex-direction: column; align-items: center; width: 100%; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .groom-photo, [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .bride-photo { width: 12.93031rem; height: 16.5rem; flex-shrink: 0; border-radius: 6.25rem; overflow: hidden; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .groom-photo img, [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .bride-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; overflow: hidden; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .groom-name, [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .bride-name { margin-top: 1.75rem; width: 100%; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .groom-name p, [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .bride-name p { color: #fff; text-align: center; font-family: 'handycheera'; font-size: 2rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .conj { margin-top: 1.06rem; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .conj p { color: #FFF; text-align: center; font-family: 'opensansL'; font-size: 1.125rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .parent { display: flex; flex-direction: column; align-items: center; gap: 0.31rem 0; margin-top: 0.63rem; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .parent p { color: #fff; text-align: center; font-family: 'opensansL'; font-size: 1.25rem; font-style: normal; font-weight: 400; line-height: 1.875rem; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .instagram { display: flex; align-items: center; justify-content: center; margin-top: 1.31rem; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .instagram:hover .ig-wrapper { border-bottom: 1px solid #CB877E; transition: 0.25s; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .instagram .ig-wrapper { display: flex; align-items: center; gap: 0 0.31rem; border-bottom: 1px solid transparent; transition: 0.25s; text-decoration: none; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .instagram .ig-wrapper .icon { display: flex; align-items: center; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .instagram .ig-wrapper .icon img { width: 1.5rem; height: 1.5rem; flex-shrink: 0; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .instagram .ig-wrapper .label p { color: #CB877E; font-family: "opensansSB"; font-size: 1rem; font-style: normal; line-height: normal; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .and-separator { display: flex; justify-content: center; align-items: center; column-gap: 2.5rem; width: 40%; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .and-separator .line-wrapper { height: 100%; display: flex; justify-content: center; align-items: center; }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .and-separator .line-wrapper .line { width: 3.125rem; height: 0.0625rem; background-color: rgba(255,255,255,0.5); }
+[name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom .and-separator .and-text p { color: rgba(255,255,255,0.5); text-align: center; font-family: 'hightowertext'; font-size: 6.25rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=opening-section] .decorations { position: absolute; inset: 0; z-index: 3; }
+[name=bara-theme] [name=opening-section] .decorations img { pointer-events: none; }
+[name=bara-theme] [name=opening-section] .decorations .top { display: flex; justify-content: center; }
+[name=bara-theme] [name=opening-section] .decorations .top img { position: absolute; top: 0; object-fit: contain; width: 38.392%; max-width: 36rem; z-index: 10; }
+[name=bara-theme] [name=opening-section] .decorations .bottom-left { position: absolute; left: 0; bottom: -16rem; width: 29%; }
+[name=bara-theme] [name=opening-section] .decorations .bottom-left img { width: 100%; object-fit: contain; z-index: 10; }
+[name=bara-theme] [name=opening-section] .decorations .bottom-right { position: absolute; right: 0; bottom: -16rem; width: 29%; }
+[name=bara-theme] [name=opening-section] .decorations .bottom-right img { width: 100%; object-fit: contain; z-index: 10; }
+
+.mobile [name=bara-theme] [name=opening-section] { padding-top: 6rem; padding-bottom: 0; background: unset; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .bride-groom { display: none; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper { padding: 0; margin: 0; background: transparent; border-radius: 0; margin-top: 0.94rem; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .quotes { padding-left: 1.25rem; padding-right: 1.25rem; gap: 0.62rem 0; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .quotes .quote-text p { color: #995B62; font-size: 0.75rem; width: 100%; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .quotes .quote-title p { color: #995B62; text-align: center; font-size: 0.6875rem; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom { position: relative; z-index: 2; margin-top: 0.94rem; padding: 1.5rem 1.88rem 3.56rem 1.88rem; border-radius: 18.75rem 18.75rem 0rem 0rem; background: #995B62; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .bride-photo { width: 10.1875rem; height: 13.78569rem; flex-shrink: 0; border-radius: 6.25rem; overflow: hidden; margin: auto; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .bride-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; overflow: hidden; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .bride-name { margin-top: 1.19rem; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .bride-name p { color: #FFF; text-align: center; font-family: 'handycheera'; font-size: 1.875rem; font-style: normal; font-weight: 400; line-height: normal; width: 72%; margin-left: auto; margin-right: auto; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .conj { margin-top: 0.63rem; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .conj p { color: #fff; font-family: "opensansL"; font-size: 0.625rem; font-style: normal; font-weight: 400; line-height: normal; text-align: center; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .parent { display: flex; gap: 0.31rem 0; flex-direction: column; margin-top: 0.25rem; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .parent p { color: #fff; font-family: "opensansL"; font-size: 0.75rem; font-style: normal; font-weight: 400; line-height: normal; text-align: center; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .instagram { margin-top: 0.5rem; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .instagram .ig-wrapper { display: flex; gap: 0 0.31rem; align-items: center; text-decoration: none; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .instagram .ig-wrapper .icon { display: flex; align-items: center; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .instagram .ig-wrapper .icon img { width: 1.125rem; height: 1.125rem; flex-shrink: 0; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .instagram .ig-wrapper .label p { color: #CB877E; font-family: "opensansSB"; font-size: 0.6875rem; font-style: normal; line-height: normal; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .and-separator { display: flex; justify-content: center; align-items: center; column-gap: 1.64rem; margin-top: 3.06rem; margin-bottom: 3.06rem; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .and-separator .line-wrapper { height: 100%; display: flex; justify-content: center; align-items: center; width: 100%; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .and-separator .line-wrapper .line { width: 100%; height: 0.0625rem; background-color: rgba(255,255,255,0.5); }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .and-separator .and-text p { color: rgba(255,255,255,0.5); text-align: center; font-family: 'hightowertext'; font-size: 2.5rem; font-style: normal; font-weight: 400; line-height: normal; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .groom { display: flex; flex-direction: column; align-items: center; margin: 3.19rem auto 0 auto; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .groom-photo { width: 10.1875rem; height: 13.78569rem; flex-shrink: 0; border-radius: 6.25rem; overflow: hidden; margin: auto; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .groom-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; overflow: hidden; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .groom-name { margin-top: 1.19rem; }
+.mobile [name=bara-theme] [name=opening-section] .opening-wrapper .content .view-content .mobile-bride-groom .groom-name p { color: #FFF; text-align: center; font-family: 'handycheera'; font-size: 1.875rem; font-style: normal; font-weight: 400; line-height: normal; width: 72%; margin-left: auto; margin-right: auto; }
+.mobile [name=bara-theme] [name=opening-section] .decorations img { pointer-events: none; position: absolute; }
+.mobile [name=bara-theme] [name=opening-section] .decorations .top img { width: 100%; left: 0; right: 0; top: 0; }
+.mobile [name=bara-theme] [name=opening-section] .decorations .middle-left img { left: 0; top: 18.26rem; width: 22.5%; }
+.mobile [name=bara-theme] [name=opening-section] .decorations .middle-right img { right: 0; top: 18.26rem; width: 22.5%; }
+
+/* === DATE SECTION === */
+[name=bara-theme] [name=date-section] { position: relative; z-index: 2; max-width: 160rem; margin: -1px auto 0 auto; }
+[name=bara-theme] [name=date-section] .date-section-wrapper { border-radius: 0 0 62.5rem 62.5rem; background: #995B62; padding: 7.7rem 0 16.75rem 0; margin-left: auto; margin-right: auto; max-width: 90rem; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content { text-align: center; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date-icon { display: flex; justify-content: center; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date-icon img { width: 3.125rem; height: 3.125rem; object-fit: contain; object-position: top center; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .title { margin-top: 3.12rem; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .title p, [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .title p { color: #fff; text-align: center; font-family: 'handycheera'; font-size: 2.8125rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date, [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date { margin-top: 2.31rem; display: flex; justify-content: center; align-items: center; position: relative; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .day, [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .day { padding: 0 0.75rem 0 0; width: 15.625rem; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .day p, [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .day p { color: #fff; text-align: center; font-family: 'cinzel'; font-size: 2.5rem; font-style: normal; font-weight: 700; line-height: normal; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .month, [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .month { padding: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 13.5rem; border-left: 0.0625rem solid #fff; border-right: 0.0625rem solid #fff; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .month .month-number p, [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .month .month-number p { color: #fff; text-align: center; font-family: 'cinzel'; font-size: 3rem; font-style: normal; font-weight: 700; line-height: normal; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .month .month-name p, [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .month .month-name p { color: #fff; text-align: center; font-family: 'cinzel'; font-size: 1.75rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .year, [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .year { padding: 0 0 0 0.75rem; width: 15.625rem; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .year p, [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .year p { color: #fff; text-align: center; font-family: 'cinzel'; font-size: 2.5rem; font-style: normal; font-weight: 700; line-height: normal; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .time, [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .time { margin-top: 2rem; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .time p, [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .time p { color: #fff; text-align: center; font-family: 'cinzel'; font-size: 2rem; font-style: normal; font-weight: 700; line-height: normal; letter-spacing: 0.2rem; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception { padding-top: 4.19rem; position: relative; }
+[name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .title { margin-top: 2.06rem; }
+[name=bara-theme] [name=date-section] .decorations img { pointer-events: none; position: absolute; z-index: 10; }
+[name=bara-theme] [name=date-section] .decorations .bottom-left img { bottom: -11rem; left: 0; object-fit: contain; width: 41.38%; }
+[name=bara-theme] [name=date-section] .decorations .bottom-right img { bottom: -11rem; right: 0; object-fit: contain; width: 41.38%; }
+
+.mobile [name=bara-theme] [name=date-section] { position: relative; z-index: 10; margin-top: -1px; padding-top: 1.63rem; padding-bottom: 13rem; border-radius: 0 0 18.75rem 18.75rem; background: #995B62; overflow: visible; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper { padding: 0; margin: 0; background: transparent; position: relative; z-index: 1; }
+.mobile [name=bara-theme] [name=date-section] .decorations { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; height: 0; overflow: visible; }
+.mobile [name=bara-theme] [name=date-section] .decorations .bottom img { width: 100%; position: relative; bottom: 0; left: 0; right: 0; display: block; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date-icon { display: flex; justify-content: center; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date-icon img { width: 2.5rem; height: 2.5rem; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .title { margin-top: 1.13rem; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .title p, .mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .title p { font-size: 1.75rem; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date, .mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date { margin-top: 1.12rem; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .day, .mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .day { width: 5.8125rem; padding-right: 0.75rem; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .day p, .mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .day p { font-size: 1.125rem; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .month, .mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .month { width: 6.75rem; height: 3rem; padding: 0 0.75rem; display: flex; align-items: center; flex-direction: column; justify-content: center; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .month .month-number p, .mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .month .month-number p { font-size: 1.75rem; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .month .month-name p, .mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .month .month-name p { font-size: 0.875rem; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .year, .mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .year { width: 5.8125rem; padding-left: 0.75rem; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .date .year p, .mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .date .year p { font-size: 1.125rem; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .akad .time p, .mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .time p { font-size: 1rem; letter-spacing: 0.1rem; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception { padding-top: 3.12rem; }
+.mobile [name=bara-theme] [name=date-section] .date-section-wrapper .content .view-content .reception .title { margin-top: 0; }
+.mobile [name=bara-theme] [name=date-section] .decorations .bottom img { width: 100%; position: absolute; bottom: 0; left: 0; right: 0; }
+
+/* === COUNTDOWN AND DISPLAY PICTURE === */
+[name=bara-theme] [name=count-down-and-display-picture-section] { padding: 4.37rem 0 4.44rem 0; position: relative; z-index: 10; max-width: 160rem; margin: 0 auto; }
+[name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .display-img-wrapper { padding: 0.81rem; display: flex; justify-content: center; border-radius: 62.5rem; border: 1px solid #995B62; width: max-content; margin: 0 auto; }
+[name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .display-img-wrapper .display-img { width: 26.25rem; height: 33.625rem; display: flex; justify-content: center; align-items: center; border-radius: 62.5rem; overflow: hidden; }
+[name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .display-img-wrapper .display-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+[name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .title { margin-top: 1.89rem; }
+[name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .title p { color: #995B62; text-align: center; font-family: "handycheera"; font-size: 2.8125rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down { margin-top: 3.5rem; display: flex; gap: 0 2.5rem; justify-content: center; }
+[name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down .count-down-item { padding-top: 1.31rem; padding-bottom: 0.81rem; width: 8.75rem; flex-shrink: 0; border-radius: 1rem; background: #995B62; display: flex; flex-direction: column; align-items: center; gap: 0.56rem 0; }
+[name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down .count-down-item .label p { color: #fff; text-align: center; font-family: "opensansR"; font-size: 1.125rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down .count-down-item .value p { color: #fff; text-align: center; font-family: "antsvalley"; font-size: 3.75rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=count-down-and-display-picture-section] .decorations { position: absolute; inset: 0; width: 100%; height: 100%; }
+[name=bara-theme] [name=count-down-and-display-picture-section] .decorations img { pointer-events: none; }
+[name=bara-theme] [name=count-down-and-display-picture-section] .decorations .top { display: none; }
+[name=bara-theme] [name=count-down-and-display-picture-section] .decorations .top-left img { position: absolute; left: 0; top: 0; width: 26.8%; object-fit: contain; z-index: 3; }
+[name=bara-theme] [name=count-down-and-display-picture-section] .decorations .top-right img { position: absolute; right: 0; top: 0; width: 26.8%; object-fit: contain; z-index: 3; }
+
+.mobile [name=bara-theme] [name=count-down-and-display-picture-section] { padding-top: 4rem; padding-bottom: 1.38rem; }
+.mobile [name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .display-img-wrapper { padding: 0.56rem; }
+.mobile [name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .display-img-wrapper .display-img { width: 17rem; height: 26.3125rem; }
+.mobile [name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .title { margin-top: 1.5rem; }
+.mobile [name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .title p { font-size: 1.5rem; }
+.mobile [name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down { margin-top: 1.69rem; gap: 0 0.5rem; }
+.mobile [name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down .count-down-item { width: 4.375rem; height: 5.3125rem; padding: 0.5rem 0.63rem; }
+.mobile [name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down .count-down-item .label p { font-size: 0.75rem; }
+.mobile [name=bara-theme] [name=count-down-and-display-picture-section] .content .view-content .count-down .count-down-item .value p { font-size: 2rem; }
+.mobile [name=bara-theme] [name=count-down-and-display-picture-section] .decorations .top { display: block; }
+.mobile [name=bara-theme] [name=count-down-and-display-picture-section] .decorations .top img { position: absolute; left: 0; right: 0; top: 0; width: 100%; object-fit: contain; z-index: 2; }
+
+/* === COUNTDOWN === */
+[name=bara-theme] [name=count-down-section] { padding: 4.44rem 0; position: relative; z-index: 10; max-width: 160rem; margin: 0 auto; }
+[name=bara-theme] [name=count-down-section] .content .view-content .icon { display: flex; justify-content: center; align-items: center; }
+[name=bara-theme] [name=count-down-section] .content .view-content .icon img { width: 3.125rem; height: 3.125rem; object-fit: contain; }
+[name=bara-theme] [name=count-down-section] .content .view-content .title { margin-top: 1.89rem; }
+[name=bara-theme] [name=count-down-section] .content .view-content .title p { color: #995B62; text-align: center; font-family: "handycheera"; font-size: 2.8125rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=count-down-section] .content .view-content .count-down { margin-top: 3.5rem; display: flex; gap: 0 2.5rem; justify-content: center; }
+[name=bara-theme] [name=count-down-section] .content .view-content .count-down .count-down-item { padding-top: 1.31rem; padding-bottom: 0.81rem; width: 8.75rem; flex-shrink: 0; border-radius: 1rem; background: #995B62; display: flex; flex-direction: column; align-items: center; gap: 0.56rem 0; }
+[name=bara-theme] [name=count-down-section] .content .view-content .count-down .count-down-item .label p { color: #fff; text-align: center; font-family: "opensansR"; font-size: 1.125rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=count-down-section] .content .view-content .count-down .count-down-item .value p { color: #fff; text-align: center; font-family: "antsvalley"; font-size: 3.75rem; font-style: normal; font-weight: 400; line-height: normal; }
+
+.mobile [name=bara-theme] [name=count-down-section] { padding-top: 1.38rem; padding-bottom: 4.44rem; }
+.mobile [name=bara-theme] [name=count-down-section] .content .view-content .icon img { width: 2.5rem; height: 2.5rem; }
+.mobile [name=bara-theme] [name=count-down-section] .content .view-content .title { margin-top: 1.5rem; }
+.mobile [name=bara-theme] [name=count-down-section] .content .view-content .title p { font-size: 1.5rem; }
+.mobile [name=bara-theme] [name=count-down-section] .content .view-content .count-down { margin-top: 1.69rem; gap: 0 0.5rem; }
+.mobile [name=bara-theme] [name=count-down-section] .content .view-content .count-down .count-down-item { width: 4.375rem; height: 5.3125rem; padding: 0.5rem 0.63rem; }
+.mobile [name=bara-theme] [name=count-down-section] .content .view-content .count-down .count-down-item .label p { font-size: 0.75rem; }
+.mobile [name=bara-theme] [name=count-down-section] .content .view-content .count-down .count-down-item .value p { font-size: 2rem; }
+
+/* === LOCATION === */
+[name=bara-theme] [name=location-section] { background: transparent; padding: 4.62rem 0 3.38rem 0; position: relative; z-index: 1; max-width: 160rem; margin: 0 auto; }
+[name=bara-theme] [name=location-section] .content .view-content .icon { display: flex; justify-content: center; align-items: center; }
+[name=bara-theme] [name=location-section] .content .view-content .icon img { width: 3.125rem; height: 3.125rem; flex-shrink: 0; object-fit: contain; }
+[name=bara-theme] [name=location-section] .content .view-content .title { margin-top: 2rem; }
+[name=bara-theme] [name=location-section] .content .view-content .title p { color: #995B62; text-align: center; font-family: "opensansB"; font-size: 1.5rem; font-style: normal; line-height: normal; }
+[name=bara-theme] [name=location-section] .content .view-content .desc { margin-top: 1rem; display: flex; justify-content: center; }
+[name=bara-theme] [name=location-section] .content .view-content .desc p { color: #995B62; text-align: center; font-family: "opensansR"; font-size: 1.25rem; font-style: normal; font-weight: 400; line-height: normal; max-width: 50%; }
+[name=bara-theme] [name=location-section] .content .view-content .maps { margin-top: 2.5rem; padding-left: 2.5rem; padding-right: 2.5rem; max-width: 75rem; margin-left: auto; margin-right: auto; }
+[name=bara-theme] [name=location-section] .content .view-content .maps iframe { width: 100%; height: 24.8125rem; border-radius: 1.25rem; border: 0; }
+
+.mobile [name=bara-theme] [name=location-section] { padding-top: 2rem; padding-bottom: 2.19rem; }
+.mobile [name=bara-theme] [name=location-section] .content .view-content .icon img { width: 2.5rem; height: 2.5rem; }
+.mobile [name=bara-theme] [name=location-section] .content .view-content .title { margin-top: 1rem; }
+.mobile [name=bara-theme] [name=location-section] .content .view-content .title p { font-size: 1rem; }
+.mobile [name=bara-theme] [name=location-section] .content .view-content .desc { margin-top: 0.31rem; padding-left: 1.88rem; padding-right: 1.88rem; }
+.mobile [name=bara-theme] [name=location-section] .content .view-content .desc p { font-size: 0.75rem; line-height: 1.25rem; max-width: unset; }
+.mobile [name=bara-theme] [name=location-section] .content .view-content .maps { margin-top: 1.25rem; padding-left: 1.88rem; padding-right: 1.88rem; }
+.mobile [name=bara-theme] [name=location-section] .content .view-content .maps iframe { height: 12.5rem; }
+
+/* === RSVP === */
+[name=bara-theme] [name=rsvp-section] { position: relative; max-width: 160rem; margin: 0 auto; }
+[name=bara-theme] [name=rsvp-section] .rsvp-wrapper { border-radius: 62.5rem 62.5rem 0rem 0rem; background: #995B62; padding-top: 7.62rem; padding-bottom: 3.1rem; margin-left: auto; margin-right: auto; max-width: 90rem; }
+[name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content { position: relative; z-index: 10; }
+[name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .title p { color: #fff; text-align: center; font-family: "handycheera"; font-size: 2.8125rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .desc { margin-top: 1.5rem; display: flex; justify-content: center; }
+[name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .desc p { width: 70%; color: #fff; text-align: center; font-family: 'poppinsR'; font-size: 1.25rem; font-style: normal; font-weight: 400; line-height: 2.5rem; }
+[name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .desc p span.bold { color: #fff; font-family: 'poppinsB'; font-size: 1.25rem; font-style: normal; line-height: 2.5rem; }
+[name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .rsvp-input-wrapper { display: flex; align-items: center; flex-direction: column; }
+[name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .rsvp-input-wrapper .rsvp-input-container { margin-top: 3.13rem; width: 95%; display: flex; flex-direction: column; gap: 3.75rem 0; }
+[name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .rsvp-input-wrapper .reason-input { width: 95%; display: flex; flex-direction: column; margin-top: 3.75rem; animation: bubbling 0.5s forwards; }
+[name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .rsvp-input-wrapper .reason-input .label { margin-bottom: 1.5rem; }
+[name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .rsvp-input-wrapper .reason-input .label p { color: #fff; font-family: 'poppinsSB'; font-size: 1.25rem; font-style: normal; line-height: normal; }
+[name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .confirm-button { display: flex; justify-content: center; margin-top: 4.91rem; animation: bubbling 0.5s forwards; padding-bottom: 8rem; }
+[name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .change-button { display: flex; justify-content: center; margin-top: 2.38rem; }
+[name=bara-theme] [name=rsvp-section] .decorations img { pointer-events: none; }
+[name=bara-theme] [name=rsvp-section] .decorations .top-left img { position: absolute; left: 0; top: -6rem; width: 28%; object-fit: contain; z-index: 11; }
+[name=bara-theme] [name=rsvp-section] .decorations .top-right img { position: absolute; right: 0; top: -6rem; width: 29%; object-fit: contain; z-index: 11; }
+
+.mobile [name=bara-theme] [name=rsvp-section] .rsvp-wrapper { padding: 3.75rem 1.5rem 1.88rem 1.5rem; margin-left: 0; margin-right: 0; }
+.mobile [name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .title p { font-size: 2rem; }
+.mobile [name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .desc { width: 95%; margin-left: auto; margin-right: auto; margin-top: 1.25rem; justify-content: flex-start; }
+.mobile [name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .desc p { line-height: normal; font-size: 0.75rem; width: 100%; margin: auto; }
+.mobile [name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .desc p span.bold { font-family: "opensansB"; font-size: 0.75rem; }
+.mobile [name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .rsvp-input-wrapper .rsvp-input-container { margin-top: 1.87rem; width: 100%; gap: 1.5rem 0; }
+.mobile [name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .rsvp-input-wrapper .reason-input { width: 100%; margin-top: 1.5rem; }
+.mobile [name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .rsvp-input-wrapper .reason-input .label { margin-bottom: 0.5rem; }
+.mobile [name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .rsvp-input-wrapper .reason-input .label p { font-size: 0.75rem; }
+.mobile [name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .confirm-button, [name=bara-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content .change-button { margin-top: 1.5rem; padding-bottom: unset; }
+.mobile [name=bara-theme] [name=rsvp-section] .decorations .top-right img { position: absolute; right: 0; top: 0; width: 66.67%; object-fit: contain; z-index: 11; }
+
+/* === OUR STORY === */
+[name=bara-theme] [name=our-story-section] { position: relative; max-width: 160rem; margin: 0 auto; }
+[name=bara-theme] [name=our-story-section] .our-story-wrapper { border-radius: 62.5rem 62.5rem 0 0; background: #995B62; padding-top: 7.62rem; padding-bottom: 3.1rem; margin-left: auto; margin-right: auto; max-width: 90rem; }
+[name=bara-theme] [name=our-story-section] .our-story-wrapper .content { position: relative; z-index: 10; }
+[name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .title p { color: #fff; text-align: center; font-family: "handycheera"; font-size: 2.8125rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories { margin-top: 4.38rem; max-height: 50rem; overflow-y: auto; padding-bottom: 2rem; scrollbar-width: thin; scrollbar-color: #D0B6B5 transparent; }
+[name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories::-webkit-scrollbar { width: 0.25rem; }
+[name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories::-webkit-scrollbar-thumb { background-color: #D0B6B5; border-radius: 0.125rem; }
+[name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories .story-item { display: flex; flex-direction: column; align-items: center; }
+[name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories .story-item .story-text { width: 100%; max-width: 50rem; }
+[name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories .story-item .story-text .date p { color: rgba(255,255,255,0.5); text-align: center; font-family: 'opensansSB'; font-size: 0.875rem; font-style: normal; line-height: normal; }
+[name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories .story-item .story-text .story p { color: #fff; text-align: center; font-family: 'opensansR'; font-size: 1rem; font-style: normal; font-weight: 400; line-height: 1.875rem; margin-top: 1rem; }
+[name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories .story-item .story-image { margin-top: 1.5rem; width: 100%; max-width: 40rem; }
+[name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories .story-item .story-image img { width: 100%; border-radius: 1rem; object-fit: cover; }
+[name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories .bridge-image { display: flex; justify-content: center; margin: 1.5rem 0; }
+[name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories .bridge-image img { height: 6rem; object-fit: contain; }
+
+.mobile [name=bara-theme] [name=our-story-section] .our-story-wrapper { padding: 3.75rem 1.5rem 1.88rem 1.5rem; margin-left: 0; margin-right: 0; }
+.mobile [name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .title p { font-size: 2rem; }
+.mobile [name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories { margin-top: 1.88rem; overflow-x: auto; overflow-y: hidden; display: flex; gap: 0; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.mobile [name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories::-webkit-scrollbar { display: none; }
+.mobile [name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories .story-item { min-width: 100%; scroll-snap-align: start; flex-shrink: 0; }
+.mobile [name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories .story-item .story-text .date p { font-size: 0.6875rem; }
+.mobile [name=bara-theme] [name=our-story-section] .our-story-wrapper .content .view-content .our-stories .story-item .story-text .story p { font-size: 0.75rem; line-height: 1.5rem; }
+
+/* === GALLERY === */
+[name=bara-theme] [name=gallery-section] { padding: 3.12rem 0 3.44rem 0; position: relative; max-width: 160rem; margin: 0 auto; }
+[name=bara-theme] [name=gallery-section] .content { max-width: 85rem; margin: 0 auto; }
+[name=bara-theme] [name=gallery-section] .content .view-content .nick-logo { display: flex; justify-content: center; align-items: center; }
+[name=bara-theme] [name=gallery-section] .content .view-content .nick-logo img { width: 7.375rem; object-fit: contain; object-position: center; }
+[name=bara-theme] [name=gallery-section] .content .view-content .galleries { margin-top: 2.12rem; margin-left: auto; margin-right: auto; display: flex; gap: 0 0.4rem; width: 100%; height: 28.125rem; }
+[name=bara-theme] [name=gallery-section] .content .view-content .galleries .flip-image { width: 100%; height: 100%; cursor: zoom-in; }
+[name=bara-theme] [name=gallery-section] .content .view-content .galleries img { transition: 0.25s; border-radius: 0.625rem; object-fit: cover; object-position: center; width: 100%; height: 100%; flex-shrink: 0; }
+[name=bara-theme] [name=gallery-section] .content .view-content .galleries .flip-image:hover img { transform: scale(1.02); transition: 0.25s; }
+[name=bara-theme] [name=gallery-section] .content .view-content .galleries .left-image { width: 45%; height: 100%; display: flex; gap: 0 0.45rem; }
+[name=bara-theme] [name=gallery-section] .content .view-content .galleries .left-image .left-left { width: 60%; height: 100%; }
+[name=bara-theme] [name=gallery-section] .content .view-content .galleries .left-image .left-left .first-image { width: 100%; height: 100%; }
+[name=bara-theme] [name=gallery-section] .content .view-content .galleries .left-image .left-right { width: 40%; height: 100%; display: flex; flex-direction: column; gap: 0.45rem 0; }
+[name=bara-theme] [name=gallery-section] .content .view-content .galleries .left-image .left-right .second-image, [name=bara-theme] [name=gallery-section] .content .view-content .galleries .left-image .left-right .third-image { width: 100%; }
+[name=bara-theme] [name=gallery-section] .content .view-content .galleries .right-image { width: 55%; height: 100%; display: flex; gap: 0 0.45rem; }
+[name=bara-theme] [name=gallery-section] .content .view-content .galleries .right-image .right-left, [name=bara-theme] [name=gallery-section] .content .view-content .galleries .right-image .right-right { width: 100%; height: 100%; }
+[name=bara-theme] [name=gallery-section] .content .view-content .galleries .right-image .right-left .fourth-image, [name=bara-theme] [name=gallery-section] .content .view-content .galleries .right-image .right-right .fifth-image { width: 100%; height: 100%; }
+[name=bara-theme] [name=gallery-section] .content .view-content .mobile-galleries { margin-top: 2.13rem; display: flex; flex-direction: column; gap: 0.37rem 0; padding-left: 0.94rem; padding-right: 0.94rem; }
+[name=bara-theme] [name=gallery-section] .content .view-content .mobile-galleries .flip-image { width: 100%; height: 100%; cursor: zoom-in; }
+[name=bara-theme] [name=gallery-section] .content .view-content .mobile-galleries img { transition: 0.25s; border-radius: 0.625rem; object-fit: cover; object-position: center; width: 100%; height: 100%; flex-shrink: 0; }
+[name=bara-theme] [name=gallery-section] .content .view-content .mobile-galleries .flip-image:hover img { transform: scale(1.02); transition: 0.25s; }
+[name=bara-theme] [name=gallery-section] .content .view-content .mobile-galleries .top-image, [name=bara-theme] [name=gallery-section] .content .view-content .mobile-galleries .bottom-image { display: flex; gap: 0 0.38rem; }
+[name=bara-theme] [name=gallery-section] .content .view-content .mobile-galleries .top-left, [name=bara-theme] [name=gallery-section] .content .view-content .mobile-galleries .top-right, [name=bara-theme] [name=gallery-section] .content .view-content .mobile-galleries .bottom-left, [name=bara-theme] [name=gallery-section] .content .view-content .mobile-galleries .bottom-right { height: 14.5625rem; width: 100%; }
+[name=bara-theme] [name=gallery-section] .content .view-content .mobile-galleries .middle-image { height: 29.688rem; width: 100%; }
+[name=bara-theme] [name=gallery-section] .decorations img { pointer-events: none; }
+[name=bara-theme] [name=gallery-section] .decorations .bottom-left img { position: absolute; left: 0; bottom: -12rem; width: 27.16%; object-fit: contain; z-index: 3; }
+[name=bara-theme] [name=gallery-section] .decorations .bottom-right img { position: absolute; right: 0; bottom: -12rem; width: 27.16%; object-fit: contain; z-index: 2; }
+[name=bara-theme] .flip-image { transform-style: preserve-3d; position: relative; perspective: 1000px; }
+[name=bara-theme] .flip-image .front, [name=bara-theme] .flip-image .back { width: 100%; height: 100%; backface-visibility: hidden; position: absolute; top: 0; left: 0; }
+[name=bara-theme] .flip-image .front { z-index: 2; transform: rotateY(0deg); }
+[name=bara-theme] .flip-image .back { transform: rotateY(180deg); }
+[name=bara-theme] .flip-image:not(.flipped) { animation: reverseFlipImage 1s forwards; }
+[name=bara-theme] .flip-image.flipped { animation: flipImage 1s forwards; }
+@keyframes flipImage { 0% { transform: rotateY(0); } 50%, 100% { transform: rotateY(180deg); } }
+@keyframes reverseFlipImage { 0% { transform: rotateY(180deg); } 50%, 100% { transform: rotateY(0); } }
+[name=bara-theme] [name=gallery-section] [name=gt-5P0L].galleries { margin-top: 2.5rem; }
+[name=bara-theme] [name=gallery-section] [name=gt-5P0L].galleries .left-image .left-left { width: 65%; }
+[name=bara-theme] [name=gallery-section] [name=gt-5P0L].galleries .left-image .left-right { width: 35%; }
+[name=bara-theme] [name=gallery-section] [name=gt-5P0L].galleries .left-image .left-right .second-image { height: 50%; }
+[name=bara-theme] [name=gallery-section] [name=gt-5P0L].galleries .left-image .left-right .third-image { height: 50%; }
+[name=bara-theme] [name=gallery-section] [name=gt-5P0L].mobile-galleries { margin-top: 2.58rem; }
+[name=bara-theme] [name=gallery-section] [name=gt-5P0L].mobile-galleries .middle-image { height: 29.688rem; width: 100%; }
+[name=bara-theme] [name=gallery-section] [name=gt-4P1L].galleries .left-image .left-right .second-image { height: 32%; }
+[name=bara-theme] [name=gallery-section] [name=gt-4P1L].galleries .left-image .left-right .third-image { height: 68%; }
+
+.mobile [name=bara-theme] [name=gallery-section] { padding-top: 1.56rem; position: relative; }
+.mobile [name=bara-theme] [name=gallery-section] .content { position: relative; z-index: 3; }
+.mobile [name=bara-theme] [name=gallery-section] .content .view-content .nick-logo img { width: 4.3125rem; }
+.mobile [name=bara-theme] [name=gallery-section] .decorations .bottom img { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; object-fit: contain; z-index: 3; }
+
+/* === FILTER INSTAGRAM === */
+[name=bara-theme] [name=filter-instagram-section] { background: #995B62; padding: 2.5rem 0 3.63rem 0; position: relative; z-index: 10; max-width: 160rem; margin: 0 auto; }
+[name=bara-theme] [name=filter-instagram-section] .content .view-content { display: flex; justify-content: center; gap: 0 10.5rem; }
+[name=bara-theme] [name=filter-instagram-section] .content .view-content .item { text-align: center; }
+[name=bara-theme] [name=filter-instagram-section] .content .view-content .title p { color: #FFF; text-align: center; font-family: 'handycheera'; font-size: 2.8125rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=filter-instagram-section] .content .view-content .desc { margin-top: 1.25rem; }
+[name=bara-theme] [name=filter-instagram-section] .content .view-content .desc p { color: #FFF; text-align: center; font-family: 'opensansR'; font-size: 1.25rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=filter-instagram-section] .content:has(.livestream) .view-content .item { width: 50%; }
+[name=bara-theme] [name=filter-instagram-section] .content:has(.livestream) .view-content .item .title p, [name=bara-theme] [name=filter-instagram-section] .content:has(.livestream) .view-content .item .desc p { text-align: left; max-width: 90%; }
+[name=bara-theme] [name=filter-instagram-section] .content:has(.livestream) .view-content .item .action-button { justify-content: flex-start; }
+[name=bara-theme] [name=filter-instagram-section] .content .view-content .filter-button, [name=bara-theme] [name=filter-instagram-section] .content .view-content .action-button { margin-top: 3.06rem; display: flex; justify-content: center; align-items: center; }
+[name=bara-theme] [name=filter-instagram-section] .content .view-content .filter-button a, [name=bara-theme] [name=filter-instagram-section] .content .view-content .action-button a { text-decoration: none; }
+[name=bara-theme] [name=bara-button] { padding: 0.94rem 4.87rem; display: flex; align-items: center; gap: 0 0.94rem; border-radius: 1.875rem; background: #CD9E92; transition: 0.5s; cursor: pointer; border: none; }
+[name=bara-theme] [name=bara-button]:hover { box-shadow: #CD9E92 0px 0px 17px 0px; transition: 0.25s; }
+[name=bara-theme] [name=bara-button] .icon { display: flex; align-items: center; }
+[name=bara-theme] [name=bara-button] .icon img { width: 1.875rem; }
+[name=bara-theme] [name=bara-button] .label { display: flex; gap: 0 0.5rem; align-items: center; }
+[name=bara-theme] [name=bara-button] .label p { color: #FFF; font-family: 'poppinsM'; font-size: 1rem; font-style: normal; line-height: normal; }
+[name=bara-theme] [name=bara-button].white { background: #FFF; }
+[name=bara-theme] [name=bara-button].white .label p { color: #CD9E92; }
+
+.mobile [name=bara-theme] [name=filter-instagram-section] { padding: 1.69rem 0 1.87rem 0; }
+.mobile [name=bara-theme] [name=filter-instagram-section] .content .view-content { flex-direction: column; gap: 2.94rem 0; padding-left: 2.5rem; padding-right: 2.5rem; }
+.mobile [name=bara-theme] [name=filter-instagram-section] .content .view-content .title p { font-size: 1.75rem; }
+.mobile [name=bara-theme] [name=filter-instagram-section] .content .view-content .desc { margin-top: 1.13rem; }
+.mobile [name=bara-theme] [name=filter-instagram-section] .content .view-content .desc p { font-size: 0.75rem; line-height: 1.25rem; }
+.mobile [name=bara-theme] [name=filter-instagram-section] .content .view-content .filter-button, [name=bara-theme] [name=filter-instagram-section] .content .view-content .action-button { margin-top: 1.5rem; width: 100%; display: flex; justify-content: center; }
+.mobile [name=bara-theme] [name=bara-button] { width: 100%; padding: 0.62rem 1.88rem; justify-content: center; border-radius: 0.9375rem; }
+.mobile [name=bara-theme] [name=bara-button] .label p { font-size: 0.75rem; }
+.mobile [name=bara-theme] [name=bara-button] .icon img { width: 1.25rem; height: 1.25rem; flex-shrink: 0; object-fit: contain; }
+
+/* === WISH === */
+[name=bara-theme] [name=wish-section] { padding-top: 2.5rem; position: relative; max-width: 160rem; margin: 0 auto; border-radius: 0rem 0rem 62.5rem 62.5rem; }
+[name=bara-theme] [name=wish-section].without-gift { margin-bottom: 8rem; }
+[name=bara-theme] [name=wish-section] .content { position: relative; z-index: 10; padding-bottom: 25.94rem; max-width: 85rem; margin: 0 auto; }
+[name=bara-theme] [name=wish-section] .content .view-content .title p { color: #995B62; text-align: center; font-family: "handycheera"; font-size: 2.8125rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper { margin-top: 2rem; display: flex; gap: 0 0.31rem; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left { width: 100%; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes { flex-direction: column; gap: 0; max-height: 28rem; overflow-y: auto; padding: 0; border-radius: 0; background: transparent; scrollbar-width: thin; scrollbar-color: #D0B6B5 transparent; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes::-webkit-scrollbar { width: 0.25rem; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes::-webkit-scrollbar-thumb { background-color: #D0B6B5; border-radius: 0.125rem; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish { padding: 0.75rem 1rem; border-bottom: 1px solid #D0B6B5; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .top { display: flex; justify-content: space-between; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .top .name p { color: #995B62; text-align: center; font-family: "opensansB"; font-size: 0.875rem; font-style: normal; line-height: normal; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .top .date p { color: #995B62; text-align: right; font-family: "opensansR"; font-size: 0.75rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .bottom { margin-top: 0.25rem; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .bottom .message p { color: #995B62; font-family: "opensansR"; font-size: 0.875rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .no-data { display: flex; justify-content: center; align-items: center; height: 100%; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .no-data p { color: #995B62; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right { width: 100%; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish { padding: 2.81rem 2.5rem 2.94rem 2.5rem; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input { margin-bottom: 1.88rem; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input .label { margin-bottom: 0.37rem; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input .label p { color: #995B62; font-family: 'poppinsSB'; font-size: 1rem; font-style: normal; line-height: normal; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input input { width: 100%; padding: 0.75rem 1rem; border-radius: 0.9375rem; border: 1px solid #fff; background: #FFF; color: #CB877E; font-family: 'opensansR'; font-size: 0.875rem; outline: none; max-height: 2.8125rem; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input input::placeholder { color: #B1B1B1; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input input:focus { border-color: #CB877E; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input { margin-bottom: 3.69rem; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input .label { margin-bottom: 0.62rem; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input .label p { color: #995B62; font-family: 'poppinsSB'; font-size: 1rem; font-style: normal; line-height: normal; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input textarea { width: 100%; padding: 0.75rem 1rem; border-radius: 0.9375rem; border: 1px solid #fff; background: #FFF; color: #CB877E; font-family: 'opensansR'; font-size: 0.875rem; outline: none; resize: none; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input textarea::placeholder { color: #B1B1B1; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input textarea:focus { border-color: #CB877E; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input .message-counter { margin-top: 0.62rem; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input .message-counter p { color: #995B62; text-align: right; font-family: "opensansR"; font-size: 0.875rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .send-button { display: flex; justify-content: center; align-items: center; }
+[name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .send-button [name=bara-button] { padding: 1.12rem 2.25rem; min-width: 20.625rem; display: flex; justify-content: center; align-items: center; }
+[name=bara-theme] [name=wish-section] .decorations img { pointer-events: none; }
+[name=bara-theme] [name=wish-section] .decorations .bottom { position: absolute; bottom: -10rem; left: 0; right: 0; width: 100%; z-index: 2; display: flex; justify-content: center; }
+[name=bara-theme] [name=wish-section] .decorations .bottom img { width: 100%; object-fit: contain; }
+
+.mobile [name=bara-theme] [name=wish-section] { padding-top: 1.31rem; padding-bottom: 0; border-radius: 0 0 18.75rem 18.75rem; margin-bottom: 1.62rem; }
+.mobile [name=bara-theme] [name=wish-section] .content { min-height: unset; padding-bottom: unset; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .title p { font-size: 1.5rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper { flex-direction: column-reverse; margin-top: 0.87rem; padding-left: 0.97rem; padding-right: 0.97rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish { padding: 1.25rem 1.5rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input { margin-bottom: 0.62rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input .label { margin-bottom: 0.25rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input .label p { font-size: 0.75rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .name-input input { max-height: 2.5rem; font-size: 0.75rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input { margin-bottom: 0.94rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input .label { margin-bottom: 0.25rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input .label p { font-size: 0.75rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input textarea { border: 0.5px solid #66646F; background: #FFF; color: #B1B1B1; font-size: 0.75rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input textarea:hover, .mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input textarea:focus { border-color: #CB877E; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .message-input .message-counter p { font-size: 0.75rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .send-button [name=bara-button] { min-width: unset; width: 100%; border-radius: 0.9375rem; padding: 0.69rem 2.5rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .form-wish .send-button [name=bara-button] .label p { font-size: 0.75rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .right .bottom-border { width: 7.375rem; border-bottom: 1px solid #995B62; margin: 0.62rem auto 0 auto; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes { margin-top: 0.63rem; padding-left: 1rem; padding-right: 1rem; max-height: 31rem; scrollbar-width: auto !important; scrollbar-color: inherit !important; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .no-data p { font-size: 0.75rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .top .name p { text-align: left; font-size: 0.75rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .top .date p { font-size: 0.5rem; }
+.mobile [name=bara-theme] [name=wish-section] .content .view-content .wish-wrapper .left .wishes .wish .bottom .message p { font-size: 0.625rem; }
+.mobile [name=bara-theme] [name=wish-section] .decorations .bottom img { position: absolute; bottom: -3.8rem; right: 0; object-fit: contain; z-index: 1; width: 100%; }
+
+/* === GIFT === */
+[name=bara-theme] [name=gift-section] { position: relative; max-width: 160rem; margin: 0 auto; }
+[name=bara-theme] [name=gift-section] .content .view-content .gift-icon { display: none; }
+[name=bara-theme] [name=gift-section] .content .view-content .title { display: flex; justify-content: center; }
+[name=bara-theme] [name=gift-section] .content .view-content .title p { color: #995B62; text-align: center; font-family: 'handycheera'; font-size: 2.8125rem; font-style: normal; font-weight: 400; line-height: normal; }
+[name=bara-theme] [name=gift-section] .content .view-content .desc { margin-top: 1.25rem; display: flex; justify-content: center; }
+[name=bara-theme] [name=gift-section] .content .view-content .desc p { color: #995B62; text-align: center; font-family: 'opensansR'; font-size: 1.25rem; font-style: normal; font-weight: 400; line-height: normal; max-width: 50%; }
+[name=bara-theme] [name=gift-section] .content .view-content .open-button { margin-top: 2.25rem; display: flex; justify-content: center; }
+[name=bara-theme] [name=gift-section] .decorations img { pointer-events: none; }
+[name=bara-theme] [name=gift-section] .decorations .top-right img { position: absolute; right: 0; top: -10.44rem; max-width: 42.77%; height: 100%; object-fit: contain; z-index: 4; }
+[name=bara-theme] [name=gift-section] .decorations .top-left img { position: absolute; left: 0; top: -10.44rem; max-width: 42.77%; height: 100%; object-fit: contain; z-index: 4; }
+
+.mobile [name=bara-theme] [name=gift-section] { padding-top: 0; padding-bottom: 0; margin-top: 0.5rem; }
+.mobile [name=bara-theme] [name=gift-section] .content .view-content { padding-left: 0; padding-right: 0; margin-left: 1rem; margin-right: 1rem; padding-top: 5.88rem; display: flex; flex-direction: column; align-items: center; }
+.mobile [name=bara-theme] [name=gift-section] .content .view-content .gift-icon { display: flex; justify-content: center; margin-bottom: 1rem; }
+.mobile [name=bara-theme] [name=gift-section] .content .view-content .gift-icon img { width: 5rem; height: 5rem; }
+.mobile [name=bara-theme] [name=gift-section] .content .view-content .title { margin-top: 1.25rem; margin-left: 2.25rem; margin-right: 2.25rem; border-left: 1px solid #995B62; border-right: 1px solid #995B62; width: 100%; box-sizing: border-box; }
+.mobile [name=bara-theme] [name=gift-section] .content .view-content .title p { font-size: 1rem; }
+.mobile [name=bara-theme] [name=gift-section] .content .view-content .desc { margin-top: 0; padding-top: 0.62rem; margin-left: 2.25rem; margin-right: 2.25rem; border-left: 1px solid #995B62; border-right: 1px solid #995B62; width: 100%; box-sizing: border-box; }
+.mobile [name=bara-theme] [name=gift-section] .content .view-content .desc p { width: 80%; font-size: 0.75rem; }
+.mobile [name=bara-theme] [name=gift-section] .content .view-content .open-button { margin-top: 0; padding-top: 1.25rem; padding-bottom: 2.19rem; margin-left: 2.25rem; margin-right: 2.25rem; border-left: 1px solid #995B62; border-right: 1px solid #995B62; width: 100%; box-sizing: border-box; }
+
+/* === GIFT MODAL === */
+.gift-modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; justify-content: center; align-items: center; }
+.gift-modal { background: #EFEAE4; border-radius: 1.25rem; padding: 2rem; max-width: 32rem; width: 90%; max-height: 80vh; overflow-y: auto; }
+.gift-modal .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.gift-modal .modal-header h3 { color: #995B62; font-family: 'poppinsM'; font-size: 1.25rem; }
+.gift-modal .modal-header .close-btn { background: none; border: none; cursor: pointer; padding: 0.25rem; }
+.gift-modal .modal-header .close-btn img { width: 1.5rem; height: 1.5rem; }
+.gift-modal .gift-item { display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 1px solid #D0B6B5; border-radius: 0.625rem; margin-bottom: 1rem; }
+.gift-modal .gift-item .bank-logo { width: 4rem; height: 2.5rem; object-fit: contain; }
+.gift-modal .gift-item .gift-info { flex: 1; }
+.gift-modal .gift-item .gift-info .account-name { color: #66646F; font-family: 'opensansR'; font-size: 0.875rem; }
+.gift-modal .gift-item .gift-info .account-number { color: #995B62; font-family: 'poppinsM'; font-size: 1.125rem; margin-top: 0.25rem; display: flex; align-items: center; gap: 0.5rem; }
+.gift-modal .gift-item .gift-info .account-number .copy-btn { background: none; border: none; cursor: pointer; padding: 0.25rem; }
+.gift-modal .gift-item .gift-info .account-number .copy-btn img { width: 1.25rem; height: 1.25rem; }
+.gift-modal .gift-item .gift-info .copied-toast { color: #4CAF50; font-family: 'opensansR'; font-size: 0.75rem; margin-top: 0.25rem; }
+
+/* === FOOTER === */
+[name=bara-theme] [name=footer-section] { padding-top: 7.94rem; padding-bottom: 10.67rem; position: relative; z-index: 1; max-width: 160rem; margin: 0 auto -28rem auto; }
+[name=bara-theme] [name=footer-section] .content { position: relative; z-index: 10; }
+[name=bara-theme] [name=footer-section] .content .view-content { position: relative; height: 34rem; margin-bottom: 0; }
+[name=bara-theme] [name=footer-section] .content .view-content .logo { display: flex; justify-content: center; margin-top: 5.75rem; position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+[name=bara-theme] [name=footer-section] .content .view-content .logo img { width: 12.5rem; height: 4.01731rem; flex-shrink: 0; object-fit: contain; }
+[name=bara-theme] [name=footer-section] .decorations img { pointer-events: none; }
+[name=bara-theme] [name=footer-section] .decorations .bottom-left img { position: absolute; left: 0; bottom: 17rem; width: 37.55%; object-fit: contain; z-index: 2; }
+[name=bara-theme] [name=footer-section] .decorations .bottom-right img { position: absolute; right: 0; bottom: 17rem; width: 37.55%; object-fit: contain; z-index: 2; }
+
+.desktop[name=bara-theme] { overflow-y: hidden; }
+.mobile [name=bara-theme] { overflow-x: hidden; }
+.mobile [name=bara-theme] [name=footer-section] { padding: 2.5rem 0; margin: 0 auto; }
+.mobile [name=bara-theme] [name=footer-section] .content .view-content { height: unset; }
+.mobile [name=bara-theme] [name=footer-section] .content .view-content .logo { position: unset; margin-top: 2.5rem; padding-bottom: 5rem; }
+.mobile [name=bara-theme] [name=footer-section] .content .view-content .logo img { width: 7.77881rem; height: 2.5rem; object-fit: contain; }
+.mobile [name=bara-theme] [name=footer-section] .decorations { position: absolute; bottom: 0; left: 0; right: 0; }
+.mobile [name=bara-theme] [name=footer-section] .decorations .bottom-center img { position: absolute; right: 0; bottom: 0; width: 100%; object-fit: contain; z-index: 11; }
+
+/* === FLOATING MENU === */
+@keyframes baraZoomAndBubbling { 0% { transform: scale(0); } 50% { transform: scale(1.25); } 100% { transform: scale(1); } }
+@keyframes baraBubblingOnly { 0% { transform: scale(1); } 50% { transform: scale(1.25); } 100% { transform: scale(1); } }
+[name=bara-theme] [name=bara-floating-menu] { position: fixed; }
+[name=bara-theme] [name=bara-floating-menu].show { animation: baraZoomAndBubbling 0.5s forwards; bottom: 3rem; left: 0; right: 0; z-index: 999; display: flex; justify-content: center; }
+[name=bara-theme] [name=bara-floating-menu] .menus { display: flex; gap: 0 1.25rem; padding: 0.62rem 1.56rem; border-radius: 1.875rem; background: #FFF6F5; box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.15); pointer-events: auto; }
+[name=bara-theme] [name=bara-floating-menu] .menus .menu { width: 2.5rem; height: 2.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+[name=bara-theme] [name=bara-floating-menu] .menus .menu.active { animation: baraBubblingOnly 0.5s forwards; }
+[name=bara-theme] [name=bara-floating-menu] .menus .menu img { width: 100%; height: 100%; object-fit: contain; }
+
+/* === MUSIC BUTTON === */
+[name=bara-theme] [name=bara-music-button] { position: fixed; top: 1rem; right: 1rem; z-index: 999; }
+[name=bara-theme] [name=bara-music-button].show { animation: zoomAndBubbling 0.5s forwards; }
+[name=bara-theme] [name=bara-music-button] .wrapper { border-radius: 2.5rem; padding: 0.5rem; width: 4rem; height: 4rem; background-color: rgba(205, 158, 146, 0.65); transition: 0.25s; display: flex; justify-content: center; align-items: center; cursor: pointer; }
+[name=bara-theme] [name=bara-music-button] .wrapper:hover { background-color: rgba(205, 158, 146, 1); transition: 0.25s; }
+[name=bara-theme] [name=bara-music-button] .wrapper .music-button { width: 2rem; height: 2rem; }
+
+.mobile [name=bara-theme] [name=bara-music-button] .wrapper { width: 2.5rem; height: 2.5rem; }
+.mobile [name=bara-theme] [name=bara-music-button] .wrapper .music-button { width: 1.5rem; height: 1.5rem; }
