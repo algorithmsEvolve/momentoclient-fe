@@ -1,0 +1,4727 @@
+/* ===== REN THEME CSS ===== */
+/* Migrated from Vue.js SCSS to monolithic CSS for Next.js */
+
+/* ===== FONTS ===== */
+@font-face {
+  font-family: 'poppinsR';
+  src: url('/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'poppinsM';
+  src: url('/fonts/poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'poppinsSB';
+  src: url('/fonts/poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'poppinsB';
+  src: url('/fonts/poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'galardino';
+  src: url('/fonts/galardino/Galardino.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'cinzel';
+  src: url('/fonts/cinzel/cinzel.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'cinzel';
+  src: url('/fonts/cinzel/cinzel.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'opensansR';
+  src: url('/fonts/opensans/OpenSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'opensansB';
+  src: url('/fonts/opensans/OpenSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'opensansSB';
+  src: url('/fonts/opensans/OpenSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'opensansL';
+  src: url('/fonts/opensans/OpenSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'hightowertext';
+  src: url('/fonts/high-tower-text/hightowertext.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes ren-zoom-in {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes ren-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ren-fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ren-fade-down {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ren-fade-left {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes ren-fade-right {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes ren-zoom-in-up {
+  from { opacity: 0; transform: scale(0.5) translateY(30px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes ren-zoom-in-down {
+  from { opacity: 0; transform: scale(0.5) translateY(-30px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes ren-zoom-slide-from-top {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ren-zoom-slide-from-left {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes ren-tilt-from-left-to-right {
+  0% { transform: rotate(-5deg) translateX(-10px); }
+  50% { transform: rotate(5deg) translateX(10px); }
+  100% { transform: rotate(-5deg) translateX(-10px); }
+}
+
+@keyframes ren-tilt-half-from-left-to-right {
+  0% { transform: rotate(-2deg) translateX(-5px); }
+  50% { transform: rotate(2deg) translateX(5px); }
+  100% { transform: rotate(-2deg) translateX(-5px); }
+}
+
+@keyframes tiltFromLeftToRight {
+  0% {
+    position: absolute;
+    left: -15vw;
+  }
+  100% {
+    top: -10vh;
+    position: absolute;
+    left: 25vw;
+  }
+}
+
+/* Legacy keyframes (referenced by count-down animations without ren- prefix) */
+@keyframes tiltHalfFromLeftToRight {
+  0% {
+    position: absolute;
+    left: -15vw;
+  }
+  100% {
+    top: -20vh;
+    position: absolute;
+    left: 50vw;
+  }
+}
+
+@keyframes tiltOverflowFromLeftToRight {
+  0% {
+    position: absolute;
+    left: -15vw;
+  }
+  100% {
+    top: -20%;
+    position: absolute;
+    left: 200vw;
+  }
+}
+
+@keyframes ren-zoom-and-bubbling {
+  0% { transform: scale(0.5); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes zoomAndBubbling {
+  0% { opacity: 0; transform: scale(0.6); }
+  50% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bubblingOnly {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bubbling {
+  0% { transform: scale(0.85); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes giggling {
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+@keyframes reverseGiggling {
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+@keyframes flippedReverseGiggling {
+  25% { transform: rotate(5deg) scaleX(-1); }
+  75% { transform: rotate(-5deg) scaleX(-1); }
+}
+
+@keyframes flippedGiggling {
+  25% { transform: rotate(-5deg) scaleX(-1); }
+  50% { transform: scale(1) scaleX(-1); }
+  75% { transform: rotate(5deg) scaleX(-1); }
+}
+
+@keyframes forwardBubbling {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* ===== BULK FLOWERS COMPOSITE COMPONENT ===== */
+[name=ren-theme] [name=bulk-flowers] {
+  position: relative;
+  width: 29rem;
+  height: 48rem;
+}
+
+[name=ren-theme] [name=bulk-flowers] img {
+  pointer-events: none;
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.8) translateY(30px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+[name=ren-theme] [name=bulk-flowers] img.deco-enter {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+[name=ren-theme] [name=bulk-flowers] .base-flower img {
+  width: 29rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 8;
+}
+
+[name=ren-theme] [name=bulk-flowers] .upper-base img {
+  width: 7.61319rem;
+  bottom: 15rem;
+  left: 8rem;
+  z-index: 8;
+}
+
+[name=ren-theme] [name=bulk-flowers] .upper-base img {
+  animation: 5s reverseGiggling infinite linear;
+}
+
+[name=ren-theme] [name=bulk-flowers] .below-middle img {
+  width: 11.78394rem;
+  left: 0.5rem;
+  bottom: 17rem;
+  z-index: 9;
+}
+
+[name=ren-theme] [name=bulk-flowers] .below-middle img {
+  animation: 5s forwardBubbling infinite linear;
+}
+
+[name=ren-theme] [name=bulk-flowers] .middle-flower img {
+  width: 10.05575rem;
+  left: 1.5rem;
+  bottom: 23rem;
+  z-index: 10;
+}
+
+[name=ren-theme] [name=bulk-flowers] .middle-flower img {
+  animation: 5s giggling infinite linear;
+}
+
+[name=ren-theme] [name=bulk-flowers] .middle-leaf-bottom img {
+  width: 16.02956rem;
+  left: 1.5rem;
+  bottom: 8.25rem;
+  z-index: 8;
+}
+
+[name=ren-theme] [name=bulk-flowers] .middle-leaf-bottom img {
+  animation: 5s reverseGiggling infinite linear;
+}
+
+[name=ren-theme] [name=bulk-flowers] .middle-leaf-top img {
+  width: 16.02956rem;
+  left: 1.5rem;
+  bottom: 18rem;
+  z-index: 8;
+}
+
+[name=ren-theme] [name=bulk-flowers] .middle-leaf-top img {
+  animation: 5s giggling infinite linear;
+}
+
+[name=ren-theme] [name=bulk-flowers] .top-flower img {
+  width: 8.26619rem;
+  left: 2.5rem;
+  bottom: 28.7rem;
+  z-index: 10;
+}
+
+[name=ren-theme] [name=bulk-flowers] .top-flower img {
+  animation: 5s forwardBubbling infinite linear;
+}
+
+[name=ren-theme] [name=bulk-flowers] .top-leaf img {
+  width: 10.75625rem;
+  left: -1rem;
+  bottom: 28.4rem;
+  z-index: 9;
+}
+
+[name=ren-theme] [name=bulk-flowers] .top-leaf img {
+  animation: 5s giggling infinite linear;
+}
+
+[name=ren-theme] [name=bulk-flowers] .upper-top-leaf img {
+  width: 6.10806rem;
+  left: 5.55rem;
+  bottom: 24.5rem;
+  z-index: 8;
+}
+
+[name=ren-theme] [name=bulk-flowers] .upper-top-leaf img {
+  animation: 5s reverseGiggling infinite linear;
+}
+
+/* ===== BUTTERFLIES COMPOSITE COMPONENT ===== */
+[name=ren-theme] [name=butterflies] {
+  position: relative;
+  width: 7rem;
+  height: 6.2rem;
+}
+
+[name=ren-theme] [name=butterflies] img {
+  pointer-events: none;
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.8) translateY(30px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+[name=ren-theme] [name=butterflies] img.deco-enter {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+[name=ren-theme] [name=butterflies] .front-butterfly img {
+  width: 4.5rem;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+[name=ren-theme] [name=butterflies] .back-butterfly img {
+  width: 2.7rem;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+/* ===== SIDE FLOWERS COMPOSITE COMPONENT ===== */
+[name=ren-theme] [name=side-flowers] {
+  position: relative;
+  width: 21rem;
+  height: 43.3125rem;
+}
+
+[name=ren-theme] [name=side-flowers] img {
+  pointer-events: none;
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.8) translateY(30px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+[name=ren-theme] [name=side-flowers] img.deco-enter {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+[name=ren-theme] [name=side-flowers] .bottom-leaf img {
+  width: 6.67575rem;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+}
+
+[name=ren-theme] [name=side-flowers] .bottom-flower img {
+  width: 9.86731rem;
+  bottom: 0;
+  left: 1rem;
+  z-index: 5;
+}
+
+[name=ren-theme] [name=side-flowers] .bottom-flower img {
+  animation: 5s giggling infinite linear;
+}
+
+[name=ren-theme] [name=side-flowers] .upper-bottom-leaf img {
+  width: 15.99875rem;
+  bottom: 3.5rem;
+  left: 1.8rem;
+  z-index: 3;
+}
+
+[name=ren-theme] [name=side-flowers] .middle-pink-flower img {
+  width: 13.08688rem;
+  bottom: 5.5rem;
+  left: -1.5rem;
+  z-index: 6;
+}
+
+[name=ren-theme] [name=side-flowers] .middle-pink-flower img {
+  animation: 5s forwardBubbling infinite linear;
+}
+
+[name=ren-theme] [name=side-flowers] .middle-right-leaf img {
+  width: 14.99875rem;
+  bottom: 7.25rem;
+  left: 1.5rem;
+  z-index: 5;
+}
+
+[name=ren-theme] [name=side-flowers] .middle-red-flower img {
+  width: 11.16756rem;
+  bottom: 12.25rem;
+  left: -0.35rem;
+  z-index: 6;
+}
+
+[name=ren-theme] [name=side-flowers] .middle-red-flower img {
+  animation: 5s reverseGiggling infinite linear;
+}
+
+[name=ren-theme] [name=side-flowers] .middle-left-leaf img {
+  width: 11.81381rem;
+  bottom: 18rem;
+  left: -2rem;
+  z-index: 5;
+}
+
+[name=ren-theme] [name=side-flowers] .top-pink-flower img {
+  width: 10.29069rem;
+  bottom: 18.2rem;
+  left: 1.5rem;
+  z-index: 5;
+}
+
+[name=ren-theme] [name=side-flowers] .top-pink-flower img {
+  animation: 5s forwardBubbling infinite linear;
+}
+
+[name=ren-theme] [name=side-flowers] .top-leaf img {
+  width: 6.58338rem;
+  bottom: 14.2rem;
+  left: 5rem;
+  z-index: 4;
+}
+
+.ren-theme .animate-zoom-in {
+  animation: ren-zoom-in 1.5s ease-out both;
+}
+
+.ren-theme .animate-fade-in {
+  animation: ren-fade-in 1.5s ease-out both;
+}
+
+.ren-theme .animate-fade-up {
+  animation: ren-fade-up 1.5s ease-out both;
+}
+
+.ren-theme .animate-fade-down {
+  animation: ren-fade-down 1.5s ease-out both;
+}
+
+.ren-theme .animate-fade-left {
+  animation: ren-fade-left 1.5s ease-out both;
+}
+
+.ren-theme .animate-fade-right {
+  animation: ren-fade-right 1.5s ease-out both;
+}
+
+.ren-theme .animate-zoom-in-up {
+  animation: ren-zoom-in-up 1.5s ease-out both;
+}
+
+.ren-theme .animate-zoom-in-down {
+  animation: ren-zoom-in-down 1.5s ease-out both;
+}
+
+.ren-theme .animate-zoom-slide-from-top {
+  animation: ren-zoom-slide-from-top 1.5s ease-out both;
+}
+
+.ren-theme .animate-zoom-slide-from-left {
+  animation: ren-zoom-slide-from-left 1.5s ease-out both;
+}
+
+.ren-theme .opacity-0 {
+  opacity: 0;
+}
+
+/* ===== GLOBAL STYLES ===== */
+html:has([name=ren-theme]) {
+  ::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0.15rem rgba(0,0,0,0.3);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #D0B6B5;
+    outline: 1px solid #D0B6B5;
+  }
+}
+
+[name=ren-theme] {
+  background-image: url('/themes/ren/global/background-desktop.png');
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+[name=ren-theme] * {
+  font-family: 'poppinsR';
+  box-sizing: border-box;
+}
+
+[name=ren-theme] .content {
+  max-width: 80rem;
+  margin: auto;
+}
+
+.mobile [name=ren-theme] {
+  background-image: url('/themes/ren/global/background-mobile.png');
+  background-attachment: initial;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* ===== PRELOADER ===== */
+[name=ren-preloader] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[name=ren-preloader] .preloader-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #EFEAE4;
+}
+
+[name=ren-preloader] .preloader-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[name=ren-preloader] .logo-wave-wrapper {
+  width: 8rem;
+  height: 8rem;
+}
+
+[name=ren-preloader] .logo-svg {
+  width: 100%;
+  height: 100%;
+}
+
+[name=ren-preloader] .logo-gray {
+  fill: #c4b5aa;
+}
+
+[name=ren-preloader] .wave-fill-group .wave-solid-fill {
+  fill: #782626;
+}
+
+[name=ren-preloader] .wave-fill-group .wave-path {
+  fill: #782626;
+}
+
+/* ===== BUTTON ===== */
+[name=ren-button] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  border-radius: 1.875rem;
+  background: #782626;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 0 0 rgba(120, 38, 38, 0.4);
+}
+
+[name=ren-button]:hover {
+  box-shadow: 0 0 20px 5px rgba(120, 38, 38, 0.3);
+}
+
+[name=ren-button] .icon {
+  display: flex;
+  align-items: center;
+}
+
+[name=ren-button] .icon img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+[name=ren-button] .label p {
+  color: #fff;
+  font-family: 'poppinsM';
+  font-size: 1rem;
+}
+
+[name=ren-button].white {
+  background: #fff;
+  color: #782626;
+}
+
+[name=ren-button].white .label p {
+  color: #782626;
+}
+
+/* ===== INPUT ===== */
+.ren-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 0.0625rem solid rgba(120, 38, 38, 0.2);
+  border-radius: 0.9375rem;
+  background: transparent;
+  color: #782626;
+  font-family: 'poppinsR';
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.25s ease;
+  resize: none;
+}
+
+.ren-input:focus {
+  border-color: #782626;
+}
+
+.ren-input::placeholder {
+  color: rgba(120, 38, 38, 0.4);
+}
+
+/* ===== COVER SECTION ===== */
+[name=ren-theme] [name=cover-section] {
+  position: relative;
+  max-width: 160rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+[name=ren-theme] [name=cover-section].scroll-cover {
+  margin-top: -100vh;
+  transition: margin-top 1s ease-in-out;
+}
+
+[name=ren-theme] [name=cover-section] .content {
+  height: 100%;
+  display: flex;
+  position: relative;
+  z-index: 10;
+}
+
+[name=ren-theme] [name=cover-section] .content .view-content {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+[name=ren-theme] [name=cover-section] .wedding-title p {
+  color: #782626;
+  font-family: 'poppinsB';
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+}
+
+[name=ren-theme] [name=cover-section] .bride-groom {
+  margin-top: 2.94rem;
+  text-align: center;
+}
+
+[name=ren-theme] [name=cover-section] .bride-groom .bride p,
+[name=ren-theme] [name=cover-section] .bride-groom .groom p {
+  color: #782626;
+  text-align: center;
+  font-family: 'galardino';
+  font-size: 5rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=ren-theme] [name=cover-section] .bride-groom .bride {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0 1.5rem;
+}
+
+[name=ren-theme] [name=cover-section] .bride-groom .and {
+  margin: 0 0.5rem;
+}
+
+[name=ren-theme] [name=cover-section] .bride-groom .and p {
+  color: #782626;
+  text-align: center;
+  font-family: 'galardino';
+  font-size: 4.6875rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=ren-theme] [name=cover-section] .guest-name {
+  margin-top: 3.19rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.31rem 0;
+}
+
+[name=ren-theme] [name=cover-section] .guest-name .for p {
+  color: #782626;
+  text-align: center;
+  font-family: 'poppinsR';
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=ren-theme] [name=cover-section] .guest-name .name p {
+  color: #782626;
+  text-align: center;
+  font-family: 'poppinsSB';
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=ren-theme] [name=cover-section] .open-button-wrapper {
+  margin-top: 1.75rem;
+}
+
+
+
+[name=ren-theme] [name=cover-section] .decorations img {
+  pointer-events: none;
+}
+
+[name=ren-theme] [name=cover-section] .decorations .bottom-left {
+  position: absolute;
+  left: -1rem;
+  bottom: 1.25rem;
+  transform: scale(1.25);
+}
+
+[name=ren-theme] [name=cover-section] .decorations .bottom-right {
+  position: absolute;
+  right: -1rem;
+  bottom: 1.25rem;
+  -webkit-transform: scale(1.25) scaleX(-1);
+  transform: scale(1.25) scaleX(-1);
+}
+
+[name=ren-theme] [name=cover-section] .decorations .top-left {
+  position: absolute;
+  top: 70vh;
+  left: -15vw;
+  animation: 5s tiltFromLeftToRight infinite linear;
+}
+
+[name=ren-theme] [name=cover-section] .decorations .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 19%;
+  right: 19%;
+  width: 62%;
+  z-index: 7;
+}
+
+[name=ren-theme] [name=cover-section] .decorations .bottom img {
+  width: 100%;
+}
+
+body:has([name=ren-theme].desktop [name=cover-section].show) {
+  overflow-x: hidden;
+}
+
+/* ===== COVER SECTION - MOBILE ===== */
+.mobile [name=ren-theme] [name=cover-section] .wedding-title p {
+  font-size: 0.875rem;
+  letter-spacing: 0.0875rem;
+}
+
+.mobile [name=ren-theme] [name=cover-section] .bride-groom .bride p,
+.mobile [name=ren-theme] [name=cover-section] .bride-groom .groom p {
+  font-size: 3.75rem;
+}
+
+.mobile [name=ren-theme] [name=cover-section] .bride-groom .and p {
+  font-size: 2.5rem;
+}
+
+.mobile [name=ren-theme] [name=cover-section] .bride-groom .bride {
+  gap: 0 0.69rem;
+}
+
+.mobile [name=ren-theme] [name=cover-section] .guest-name {
+  margin-top: 1.31rem;
+}
+
+.mobile [name=ren-theme] [name=cover-section] .guest-name .for p {
+  font-size: 0.6875rem;
+}
+
+.mobile [name=ren-theme] [name=cover-section] .guest-name .name p {
+  font-size: 0.875rem;
+}
+
+.mobile [name=ren-theme] [name=cover-section] .open-button-wrapper {
+  margin-top: 1.25rem;
+}
+
+.mobile [name=ren-theme] [name=cover-section] .open-button-wrapper [name=ren-button] {
+  padding: 0.62rem 2.5rem;
+}
+
+.mobile [name=ren-theme] [name=cover-section] .open-button-wrapper [name=ren-button] .icon img {
+  width: 1.25rem;
+}
+
+.mobile [name=ren-theme] [name=cover-section] .open-button-wrapper [name=ren-button] .label p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=cover-section] .decorations .bottom-left {
+  left: -10rem;
+  bottom: -13.25rem;
+  transform: scale(0.5);
+}
+
+.mobile [name=ren-theme] [name=cover-section] .decorations .bottom-right {
+  right: -10rem;
+  bottom: -13.25rem;
+  transform: scale(0.5) scaleX(-1);
+}
+
+.mobile [name=ren-theme] [name=cover-section] .view-content:has(.guest-name) .open-button-wrapper {
+  margin-top: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=cover-section] .decorations .top-left {
+  top: 25vh;
+  left: -30vw;
+  animation: 3s tiltHalfFromLeftToRight infinite linear;
+  transform: scale(0.5);
+}
+
+
+/* ===== OPENING SECTION ===== */
+[name=ren-theme] [name=opening-section] {
+  position: relative;
+  max-width: 160rem;
+  margin: 0 auto;
+}
+
+[name=ren-theme] [name=opening-section] .opening-wrapper {
+  border-radius: 62.5rem 62.5rem 0rem 0rem;
+  background: #782626;
+  padding-top: 13.19rem;
+  padding-bottom: 3.1rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90rem;
+  position: relative;
+  z-index: 3;
+}
+
+[name=ren-theme] [name=opening-section] .content {
+  position: relative;
+  z-index: 10;
+}
+
+[name=ren-theme] [name=opening-section] .quotes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.62rem 0;
+}
+
+[name=ren-theme] [name=opening-section] .quote-text {
+  display: flex;
+  justify-content: center;
+}
+
+[name=ren-theme] [name=opening-section] .quote-text p {
+  color: #fff;
+  text-align: center;
+  font-family: 'opensansR';
+  font-size: 1rem;
+  width: 60%;
+}
+
+[name=ren-theme] [name=opening-section] .quote-title p {
+  color: #fff;
+  text-align: center;
+  font-family: 'opensansB';
+  font-size: 1rem;
+}
+
+[name=ren-theme] [name=opening-section] .bride-groom {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.88rem;
+}
+
+[name=ren-theme] [name=opening-section] .groom,
+[name=ren-theme] [name=opening-section] .bride {
+  padding: 4.25rem 4.625rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+[name=ren-theme] [name=opening-section] .groom-photo,
+[name=ren-theme] [name=opening-section] .bride-photo {
+  width: 12.93031rem;
+  height: 16.5rem;
+  flex-shrink: 0;
+  border-radius: 6.25rem;
+  overflow: hidden;
+}
+
+[name=ren-theme] [name=opening-section] .groom-photo img,
+[name=ren-theme] [name=opening-section] .bride-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+[name=ren-theme] [name=opening-section] .groom-name,
+[name=ren-theme] [name=opening-section] .bride-name {
+  margin-top: 1.75rem;
+  width: 100%;
+}
+
+[name=ren-theme] [name=opening-section] .groom-name p,
+[name=ren-theme] [name=opening-section] .bride-name p {
+  color: #fff;
+  text-align: center;
+  font-family: 'galardino';
+  font-size: 2rem;
+}
+
+[name=ren-theme] [name=opening-section] .conj {
+  margin-top: 1.06rem;
+}
+
+[name=ren-theme] [name=opening-section] .conj p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'opensansL';
+  font-size: 1.125rem;
+}
+
+[name=ren-theme] [name=opening-section] .parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.31rem 0;
+  margin-top: 0.63rem;
+}
+
+[name=ren-theme] [name=opening-section] .parent p {
+  color: #fff;
+  text-align: center;
+  font-family: 'opensansL';
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+}
+
+[name=ren-theme] [name=opening-section] .instagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.31rem;
+}
+
+[name=ren-theme] [name=opening-section] .instagram:hover .ig-wrapper {
+  border-bottom: 1px solid #fff;
+}
+
+[name=ren-theme] [name=opening-section] .ig-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0 0.31rem;
+  border-bottom: 1px solid transparent;
+  transition: 0.25s;
+}
+
+[name=ren-theme] [name=opening-section] .ig-wrapper .icon {
+  display: flex;
+  align-items: center;
+}
+
+[name=ren-theme] [name=opening-section] .ig-wrapper .icon img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+[name=ren-theme] [name=opening-section] .ig-wrapper .label p {
+  color: #fff;
+  font-family: "opensansSB";
+  font-size: 1rem;
+}
+
+[name=ren-theme] [name=opening-section] .and-separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2.5rem;
+  width: 40%;
+}
+
+[name=ren-theme] [name=opening-section] .and-separator .line-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=ren-theme] [name=opening-section] .and-separator .line {
+  width: 3.125rem;
+  height: 0.0625rem;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+[name=ren-theme] [name=opening-section] .and-separator .and-text p {
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  font-family: 'hightowertext';
+  font-size: 6.25rem;
+}
+
+[name=ren-theme] [name=opening-section] .decorations img {
+  pointer-events: none;
+}
+
+[name=ren-theme] [name=opening-section] .decorations .top {
+  display: flex;
+  justify-content: center;
+}
+
+[name=ren-theme] [name=opening-section] .decorations .top img {
+  position: absolute;
+  top: -4rem;
+  object-fit: contain;
+  width: 38.392%;
+  max-width: 36rem;
+  z-index: 10;
+}
+
+[name=ren-theme] [name=opening-section] .decorations .bottom-left {
+  position: absolute;
+  left: -6.5rem;
+  bottom: -16rem;
+  transform: scale(1.25);
+}
+
+[name=ren-theme] [name=opening-section] .decorations .bottom-right {
+  position: absolute;
+  right: -6.5rem;
+  bottom: -16rem;
+  transform: scale(1.25) scaleX(-1);
+}
+
+/* ===== OPENING SECTION - MOBILE ===== */
+.mobile [name=ren-theme] [name=opening-section] {
+  padding-top: 6rem;
+  padding-bottom: 0;
+  background-image: url('/themes/ren/global/background-mobile.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  overflow: visible;
+}
+
+.mobile [name=ren-theme] [name=opening-section]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -9.25rem;
+  height: 15rem;
+  background: #782626;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .opening-wrapper {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border-radius: 0;
+  margin-top: 5.5rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .quotes {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-bottom: 0.94rem;
+  background-image: url('/themes/ren/global/background-mobile.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .quote-text p {
+  color: #782626;
+  font-size: 0.75rem;
+  width: 100%;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .quote-title p {
+  color: #782626;
+  font-size: 0.6875rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom {
+  position: relative;
+  z-index: 2;
+  margin-top: 0.94rem;
+  padding: 1.5rem 1.88rem 3.56rem 1.88rem;
+  border-radius: 18.75rem 18.75rem 0rem 0rem;
+  background: #782626;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .bride-photo,
+.mobile [name=ren-theme] [name=opening-section] .groom-photo {
+  width: 10.1875rem;
+  height: 13.78569rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .bride {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .bride .bride-photo {
+  flex-shrink: 0;
+  border-radius: 6.25rem;
+  overflow: hidden;
+  margin: auto;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .bride .bride-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .bride-name {
+  margin-top: 1.19rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .bride-name p {
+  width: 72%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .bride .conj {
+  margin-top: 0.63rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .bride .parent {
+  margin-top: 0.25rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .bride .instagram {
+  margin-top: 0.5rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .groom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3.19rem auto 0 auto;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .groom .groom-photo {
+  flex-shrink: 0;
+  border-radius: 6.25rem;
+  overflow: hidden;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .groom .groom-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .groom-name {
+  margin-top: 1.19rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .groom-name p {
+  width: 72%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 0.5rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .groom .conj {
+  margin-top: 0.63rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .groom .parent {
+  margin-top: 0.25rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .groom .instagram {
+  margin-top: 0.5rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .and-separator .line-wrapper {
+  width: 100%;
+}
+
+/* top decorations inside mobile-bride-groom */
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .decorations .top img,
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom .decorations .bottom img {
+  position: absolute;
+}
+
+/* When bride has instagram, groom margin-top should be 0 */
+.mobile [name=ren-theme] [name=opening-section] .mobile-bride-groom:has(.bride .instagram) .groom {
+  margin-top: 0;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .bride-name p,
+.mobile [name=ren-theme] [name=opening-section] .groom-name p {
+  font-size: 1.875rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .conj p {
+  font-size: 0.625rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .parent p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .ig-wrapper .icon img {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .ig-wrapper .label p {
+  font-size: 0.6875rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .and-separator {
+  column-gap: 1.64rem;
+  margin-top: 3.06rem;
+  margin-bottom: 3.06rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .and-separator .and-text p {
+  font-size: 2.5rem;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .groom {
+  margin: 3.19rem auto 0 auto;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .decorations .bottom-left {
+  left: -7.25rem;
+  top: -5rem;
+  transform: scale(0.5);
+}
+
+.mobile [name=ren-theme] [name=opening-section] .decorations .bottom-right {
+  right: -7.25rem;
+  top: -5rem;
+  transform: scale(0.5) scaleX(-1);
+}
+
+.mobile [name=ren-theme] [name=opening-section] .decorations .top img {
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.mobile [name=ren-theme] [name=opening-section] .decorations .bottom img {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -9.25rem;
+  z-index: 3;
+}
+
+/* ===== DATE SECTION ===== */
+[name=ren-theme] [name=date-section] {
+  position: relative;
+  z-index: 2;
+  max-width: 160rem;
+  margin: -1px auto 0 auto;
+}
+
+[name=ren-theme] [name=date-section] .date-section-wrapper {
+  padding: 7.7rem 0 16.75rem 0;
+  border-radius: 0 0 62.5rem 62.5rem;
+  background: #782626;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90rem;
+}
+
+[name=ren-theme] [name=date-section] .content .view-content {
+  text-align: center;
+}
+
+[name=ren-theme] [name=date-section] .akad,
+[name=ren-theme] [name=date-section] .reception {
+  text-align: center;
+}
+
+[name=ren-theme] [name=date-section] .date-icon img {
+  width: 3.125rem;
+  height: 3.125rem;
+  object-fit: contain;
+  object-position: top center;
+}
+
+[name=ren-theme] [name=date-section] .akad .title {
+  margin-top: 3.12rem;
+}
+
+[name=ren-theme] [name=date-section] .akad .title p,
+[name=ren-theme] [name=date-section] .reception .title p {
+  color: #fff;
+  text-align: center;
+  font-family: 'galardino';
+  font-size: 2.8125rem;
+}
+
+[name=ren-theme] [name=date-section] .date {
+  margin-top: 2.31rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+[name=ren-theme] [name=date-section] .date .day {
+  padding: 0 0.75rem 0 0;
+  width: 15.625rem;
+}
+
+[name=ren-theme] [name=date-section] .date .day p,
+[name=ren-theme] [name=date-section] .date .month .month-number p,
+[name=ren-theme] [name=date-section] .date .year p {
+  color: #fff;
+  text-align: center;
+  font-family: 'cinzel';
+  font-weight: 700;
+}
+
+[name=ren-theme] [name=date-section] .date .day p,
+[name=ren-theme] [name=date-section] .date .year p {
+  font-size: 2.5rem;
+}
+
+[name=ren-theme] [name=date-section] .date .year {
+  padding: 0 0 0 0.75rem;
+  width: 15.625rem;
+}
+
+[name=ren-theme] [name=date-section] .date .month {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 13.5rem;
+  border-left: 0.0625rem solid #fff;
+  border-right: 0.0625rem solid #fff;
+}
+
+[name=ren-theme] [name=date-section] .date .month .month-number p {
+  font-size: 3rem;
+}
+
+[name=ren-theme] [name=date-section] .date .month .month-name p {
+  color: #fff;
+  text-align: center;
+  font-family: 'cinzel';
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+[name=ren-theme] [name=date-section] .akad .time p,
+[name=ren-theme] [name=date-section] .reception .time p {
+  color: #fff;
+  text-align: center;
+  font-family: 'cinzel';
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+}
+
+[name=ren-theme] [name=date-section] .akad .time {
+  margin-top: 2rem;
+}
+
+[name=ren-theme] [name=date-section] .reception {
+  padding-top: 4.19rem;
+  position: relative;
+}
+
+[name=ren-theme] [name=date-section] .reception .title {
+  margin-top: 2.06rem;
+}
+
+[name=ren-theme] [name=date-section] .reception .time {
+  margin-top: 2rem;
+}
+
+[name=ren-theme] [name=date-section] .decorations img {
+  pointer-events: none;
+  position: absolute;
+  z-index: 10;
+}
+
+[name=ren-theme] [name=date-section] .decorations .bottom {
+  display: flex;
+  justify-content: center;
+}
+
+[name=ren-theme] [name=date-section] .decorations .bottom img {
+  position: absolute;
+  bottom: -4rem;
+  object-fit: contain;
+  width: 39.33%;
+  max-width: 36rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ===== DATE SECTION - MOBILE ===== */
+.mobile [name=ren-theme] [name=date-section] {
+  z-index: 2;
+  margin-top: -1px;
+  padding-top: 8.63rem;
+  padding-bottom: 13rem;
+  border-radius: 0 0 18.75rem 18.75rem;
+  background: #782626;
+}
+
+.mobile [name=ren-theme] [name=date-section] .date-section-wrapper {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.mobile [name=ren-theme] [name=date-section] .date {
+  margin-top: 1.12rem;
+}
+
+.mobile [name=ren-theme] [name=date-section] .date .day {
+  width: 5.8125rem;
+  padding-right: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=date-section] .date .day p,
+.mobile [name=ren-theme] [name=date-section] .date .month .month-number p,
+.mobile [name=ren-theme] [name=date-section] .date .year p {
+  font-size: 1.125rem;
+}
+
+.mobile [name=ren-theme] [name=date-section] .date .month {
+  width: 6.75rem;
+  height: 3rem;
+  padding: 0 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=date-section] .date .month .month-number p {
+  font-size: 1.75rem;
+}
+
+.mobile [name=ren-theme] [name=date-section] .date .month .month-name p {
+  font-size: 0.875rem;
+}
+
+.mobile [name=ren-theme] [name=date-section] .date .year {
+  width: 5.8125rem;
+  padding-left: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=date-section] .date-icon img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.mobile [name=ren-theme] [name=date-section] .akad .title {
+  margin-top: 1.13rem;
+}
+
+.mobile [name=ren-theme] [name=date-section] .akad .title p,
+.mobile [name=ren-theme] [name=date-section] .reception .title p {
+  font-size: 1.75rem;
+}
+
+.mobile [name=ren-theme] [name=date-section] .akad .time p,
+.mobile [name=ren-theme] [name=date-section] .reception .time p {
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+}
+
+.mobile [name=ren-theme] [name=date-section] .akad .time {
+  margin-top: 1rem;
+}
+
+.mobile [name=ren-theme] [name=date-section] .reception {
+  padding-top: 3.12rem;
+}
+
+.mobile [name=ren-theme] [name=date-section] .reception .title {
+  margin-top: 0;
+}
+
+.mobile [name=ren-theme] [name=date-section] .reception .time {
+  margin-top: 1rem;
+}
+
+.mobile [name=ren-theme] [name=date-section] .decorations .bottom img {
+  width: 100%;
+  position: absolute;
+  bottom: -2.25rem;
+  left: 0;
+  right: 0;
+  clip-path: inset(0 0 0.1875rem 0);
+}
+
+/* ===== COUNT DOWN AND DISPLAY PICTURE SECTION ===== */
+[name=ren-theme] [name=count-down-and-display-picture-section] {
+  position: relative;
+  max-width: 160rem;
+  margin: 0 auto;
+  padding: 4.37rem 0 4.44rem 0;
+  z-index: 10;
+}
+
+[name=ren-theme] [name=count-down-and-display-picture-section] .content .view-content {
+  text-align: center;
+}
+
+[name=ren-theme] [name=count-down-and-display-picture-section] .display-img-wrapper {
+  padding: 0.81rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 62.5rem 62.5rem 0 0;
+  border: 1px solid #782626;
+  width: max-content;
+  margin: 0 auto;
+}
+
+[name=ren-theme] [name=count-down-and-display-picture-section] .display-img {
+  width: 26.25rem;
+  height: 33.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 62.5rem 62.5rem 0 0;
+  overflow: hidden;
+}
+
+[name=ren-theme] [name=count-down-and-display-picture-section] .display-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+[name=ren-theme] [name=count-down-and-display-picture-section] .title {
+  margin-top: 1.89rem;
+}
+
+[name=ren-theme] [name=count-down-and-display-picture-section] .title p {
+  color: #782626;
+  font-family: 'galardino';
+  font-size: 2.8125rem;
+}
+
+[name=ren-theme] [name=count-down-and-display-picture-section] .count-down {
+  margin-top: 3.5rem;
+  display: flex;
+  gap: 0 2.5rem;
+  justify-content: center;
+}
+
+[name=ren-theme] [name=count-down-and-display-picture-section] .count-down-item {
+  padding-top: 1.31rem;
+  padding-bottom: 0.81rem;
+  width: 8.75rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: #782626;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.56rem 0;
+}
+
+[name=ren-theme] [name=count-down-and-display-picture-section] .count-down-item .label p {
+  color: #fff;
+  font-family: 'opensansR';
+  font-size: 1.125rem;
+}
+
+[name=ren-theme] [name=count-down-and-display-picture-section] .count-down-item .value p {
+  color: #fff;
+  font-family: 'antsvalley';
+  font-size: 3.75rem;
+}
+
+[name=ren-theme] [name=count-down-and-display-picture-section] .decorations img {
+  pointer-events: none;
+}
+
+[name=ren-theme] [name=count-down-and-display-picture-section] .decorations .top-left {
+  position: absolute;
+  left: -1rem;
+  top: 1.25rem;
+  -webkit-transform: scale(1.25) scaleY(-1);
+  transform: scale(1.25) scaleY(-1);
+}
+
+[name=ren-theme] [name=count-down-and-display-picture-section] .decorations .top-right {
+  position: absolute;
+  right: -1rem;
+  top: 1.25rem;
+  -webkit-transform: scale(1.25) scaleX(-1) scaleY(-1);
+  transform: scale(1.25) scaleX(-1) scaleY(-1);
+}
+
+[name=ren-theme] [name=count-down-and-display-picture-section] .decorations .middle-left {
+  position: absolute;
+  top: 70vh;
+  left: -15vw;
+  animation: 6.5s tiltHalfFromLeftToRight infinite linear;
+  animation-delay: 6.2s;
+}
+
+/* ===== COUNT DOWN AND DISPLAY PICTURE - MOBILE ===== */
+.mobile [name=ren-theme] [name=count-down-and-display-picture-section] {
+  padding-top: 4rem;
+  padding-bottom: 1.38rem;
+  position: relative;
+  z-index: 10;
+}
+
+.mobile [name=ren-theme] [name=count-down-and-display-picture-section] .display-img-wrapper {
+  padding: 0.56rem;
+}
+
+.mobile [name=ren-theme] [name=count-down-and-display-picture-section] .display-img {
+  width: 17rem;
+  height: 26.3125rem;
+}
+
+.mobile [name=ren-theme] [name=count-down-and-display-picture-section] .title {
+  margin-top: 1.5rem;
+}
+
+.mobile [name=ren-theme] [name=count-down-and-display-picture-section] .title p {
+  font-size: 2rem;
+}
+
+.mobile [name=ren-theme] [name=count-down-and-display-picture-section] .count-down {
+  margin-top: 1.56rem;
+  gap: 0 0.5rem;
+}
+
+.mobile [name=ren-theme] [name=count-down-and-display-picture-section] .count-down-item {
+  width: 4.375rem;
+  height: 5.3125rem;
+  padding: 0.5rem 0.63rem;
+}
+
+.mobile [name=ren-theme] [name=count-down-and-display-picture-section] .count-down-item .label p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=count-down-and-display-picture-section] .count-down-item .value p {
+  font-size: 2rem;
+}
+
+.mobile [name=ren-theme] [name=count-down-and-display-picture-section] .decorations .top img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.mobile [name=ren-theme] [name=count-down-and-display-picture-section] .decorations .middle-left {
+  top: 70%;
+  left: -30vw;
+  animation: 4s tiltOverflowFromLeftToRight infinite linear;
+  transform: scale(0.5);
+  animation-delay: 1s;
+}
+
+/* ===== LOCATION SECTION ===== */
+[name=ren-theme] [name=location-section] {
+  background: transparent;
+  padding: 5.31rem 0 9.37rem 0;
+  position: relative;
+  z-index: 1;
+  max-width: 150rem;
+  margin: 0 auto;
+}
+
+[name=ren-theme] [name=location-section] .location-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+[name=ren-theme] [name=location-section] .lw-left {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+[name=ren-theme] [name=location-section] .location-home-icon {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+[name=ren-theme] [name=location-section] .location-home-icon img {
+  width: 28.75175rem;
+  height: 34.26419rem;
+  object-fit: contain;
+  object-position: center;
+}
+
+[name=ren-theme] [name=location-section] .decorations img {
+  pointer-events: none;
+}
+
+[name=ren-theme] [name=location-section] .decorations .bottom {
+  display: flex;
+  justify-content: center;
+}
+
+[name=ren-theme] [name=location-section] .decorations .bottom img {
+  width: 130%;
+  max-width: none;
+  position: absolute;
+  bottom: -11.25rem;
+  left: -4.25rem;
+  right: auto;
+}
+
+[name=ren-theme] [name=location-section] .lw-right {
+  width: 100%;
+  margin-top: 5.56rem;
+}
+
+[name=ren-theme] [name=location-section] .lw-right .title p {
+  color: #782626;
+  text-align: center;
+  font-family: 'galardino';
+  font-size: 3.75rem;
+  max-width: 80%;
+}
+
+[name=ren-theme] [name=location-section] .lw-right .desc {
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: center;
+}
+
+[name=ren-theme] [name=location-section] .lw-right .desc p {
+  color: #782626;
+  text-align: center;
+  font-family: 'opensansR';
+  font-size: 1.25rem;
+  max-width: 80%;
+}
+
+[name=ren-theme] [name=location-section] .maps {
+  margin-top: 1.87rem;
+}
+
+[name=ren-theme] [name=location-section] .maps iframe {
+  width: 100%;
+  height: 21.9375rem;
+  border-radius: 0.625rem;
+}
+
+[name=ren-theme] [name=location-section] .g-maps {
+  width: 100%;
+  height: 20rem;
+  border-radius: 0.9375rem;
+}
+
+/* ===== LOCATION SECTION - MOBILE ===== */
+.mobile [name=ren-theme] [name=location-section] {
+  padding-top: 2.38rem;
+  padding-bottom: 1.75rem;
+}
+
+.mobile [name=ren-theme] [name=location-section] .location-wrapper {
+  flex-direction: column;
+}
+
+.mobile [name=ren-theme] [name=location-section] .lw-left {
+  padding-left: 2.62rem;
+  padding-right: 2.62rem;
+}
+
+.mobile [name=ren-theme] [name=location-section] .location-home-icon > img {
+  width: 100%;
+  height: unset;
+}
+
+.mobile [name=ren-theme] [name=location-section] .decorations .bottom img {
+  width: 120%;
+  max-width: none;
+  left: -2rem;
+  right: auto;
+  bottom: -7.25rem;
+}
+
+.mobile [name=ren-theme] [name=location-section] .lw-right {
+  margin-top: 7.56rem;
+}
+
+.mobile [name=ren-theme] [name=location-section] .lw-right .title {
+  margin-top: 0.59rem;
+}
+
+.mobile [name=ren-theme] [name=location-section] .lw-right .title p {
+  width: 100%;
+  max-width: 100%;
+  font-size: 2rem;
+}
+
+.mobile [name=ren-theme] [name=location-section] .lw-right .desc {
+  margin-top: 0.31rem;
+  padding-left: 1.88rem;
+  padding-right: 1.88rem;
+}
+
+.mobile [name=ren-theme] [name=location-section] .lw-right .desc p {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  max-width: unset;
+}
+
+.mobile [name=ren-theme] [name=location-section] .maps {
+  margin-top: 1.25rem;
+  padding-left: 1.88rem;
+  padding-right: 1.88rem;
+}
+
+.mobile [name=ren-theme] [name=location-section] .maps iframe {
+  height: 10.6875rem;
+}
+
+.mobile [name=ren-theme] [name=location-section] .g-maps {
+  height: 15rem;
+}
+
+/* ===== RSVP SECTION ===== */
+[name=ren-theme] [name=rsvp-section] {
+  position: relative;
+  max-width: 160rem;
+  margin: 0 auto;
+}
+
+[name=ren-theme] [name=rsvp-section] .rsvp-wrapper {
+  border-radius: 62.5rem 62.5rem 0rem 0rem;
+  background: #782626;
+  padding-top: 7.62rem;
+  padding-bottom: 3.1rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90rem;
+}
+
+[name=ren-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content {
+  min-height: 47rem;
+}
+
+[name=ren-theme] [name=rsvp-section] .title p {
+  color: #fff;
+  text-align: center;
+  font-family: 'galardino';
+  font-size: 2.8125rem;
+}
+
+[name=ren-theme] [name=rsvp-section] .desc {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+[name=ren-theme] [name=rsvp-section] .desc p {
+  width: 70%;
+  color: #fff;
+  text-align: center;
+  font-family: 'poppinsL';
+  font-size: 1.25rem;
+  line-height: 2.5rem;
+}
+
+[name=ren-theme] [name=rsvp-section] .desc .bold {
+  font-family: 'poppinsSB';
+}
+
+[name=ren-theme] [name=rsvp-section] .rsvp-input-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+[name=ren-theme] [name=rsvp-section] .rsvp-input-container {
+  margin-top: 3.13rem;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  gap: 3.75rem 0;
+}
+
+[name=ren-theme] [name=rsvp-section] .group-member-input {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3.75rem;
+}
+
+[name=ren-theme] [name=rsvp-section] .group-member-input .label {
+  margin-bottom: 1.5rem;
+}
+
+[name=ren-theme] [name=rsvp-section] .group-member-input .label p {
+  color: #fff;
+  font-family: 'poppinsSB';
+  font-size: 1.25rem;
+}
+
+[name=ren-theme] [name=rsvp-section] .reason-input {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3.75rem;
+}
+
+[name=ren-theme] [name=rsvp-section] .reason-input .label {
+  margin-bottom: 1.5rem;
+}
+
+[name=ren-theme] [name=rsvp-section] .reason-input .label p {
+  color: #fff;
+  font-family: 'poppinsSB';
+  font-size: 1.25rem;
+}
+
+[name=ren-theme] [name=rsvp-section] .confirm-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 4.91rem;
+  padding-bottom: 8rem;
+}
+
+[name=ren-theme] [name=rsvp-section] .confirm-button [name=ren-button] {
+  min-width: 25rem;
+  padding: 1.12rem 2.5rem;
+  display: flex;
+  justify-content: center;
+  background: #FADFDF;
+}
+
+[name=ren-theme] [name=rsvp-section] .confirm-button [name=ren-button] .label p {
+  color: #782626;
+}
+
+[name=ren-theme] [name=rsvp-section] .change-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.38rem;
+}
+
+[name=ren-theme] [name=rsvp-section] .change-button [name=ren-button] {
+  min-width: 25rem;
+  padding: 1.12rem 2.5rem;
+  display: flex;
+  justify-content: center;
+  background: #FADFDF;
+}
+
+[name=ren-theme] [name=rsvp-section] .change-button [name=ren-button] .label p {
+  color: #782626;
+}
+
+[name=ren-theme] [name=rsvp-section] .rsvp-sent {
+  margin-top: 1rem;
+}
+
+[name=ren-theme] [name=rsvp-section] .decorations .top-left {
+  position: absolute;
+  left: -1rem;
+  top: 1.25rem;
+  -webkit-transform: scale(1.25) scaleY(-1);
+  transform: scale(1.25) scaleY(-1);
+}
+
+[name=ren-theme] [name=rsvp-section] .decorations .top-right {
+  position: absolute;
+  right: -1rem;
+  top: 1.25rem;
+  -webkit-transform: scale(1.25) scaleX(-1) scaleY(-1);
+  transform: scale(1.25) scaleX(-1) scaleY(-1);
+}
+
+/* ===== RSVP SECTION - MOBILE ===== */
+.mobile [name=ren-theme] [name=rsvp-section] .rsvp-wrapper {
+  padding: 3.75rem 1.5rem 10.08rem 1.5rem;
+  margin-left: 0;
+  margin-right: 0;
+  border-radius: 62.5rem;
+}
+
+.mobile [name=ren-theme] [name=rsvp-section] .rsvp-wrapper .content .view-content {
+  min-height: unset;
+}
+
+.mobile [name=ren-theme] [name=rsvp-section] .title p {
+  font-size: 2rem;
+}
+
+.mobile [name=ren-theme] [name=rsvp-section] .desc {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.25rem;
+}
+
+.mobile [name=ren-theme] [name=rsvp-section] .desc p {
+  font-size: 0.75rem;
+  line-height: normal;
+  width: 100%;
+}
+
+.mobile [name=ren-theme] [name=rsvp-section] .rsvp-input-container {
+  margin-top: 1.87rem;
+  width: 100%;
+  gap: 1.5rem 0;
+}
+
+.mobile [name=ren-theme] [name=rsvp-section] .reason-input,
+.mobile [name=ren-theme] [name=rsvp-section] .group-member-input {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.mobile [name=ren-theme] [name=rsvp-section] .reason-input .label,
+.mobile [name=ren-theme] [name=rsvp-section] .group-member-input .label {
+  margin-bottom: 0.5rem;
+}
+
+.mobile [name=ren-theme] [name=rsvp-section] .reason-input .label p,
+.mobile [name=ren-theme] [name=rsvp-section] .group-member-input .label p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=rsvp-section] .confirm-button,
+.mobile [name=ren-theme] [name=rsvp-section] .change-button {
+  margin-top: 1.5rem;
+}
+
+.mobile [name=ren-theme] [name=rsvp-section] .confirm-button [name=ren-button],
+.mobile [name=ren-theme] [name=rsvp-section] .change-button [name=ren-button] {
+  min-width: 100%;
+  padding: 0.62rem 1.5rem;
+}
+
+.mobile [name=ren-theme] [name=rsvp-section] .decorations .bottom img {
+  position: absolute;
+  right: 11%;
+  bottom: -1.5rem;
+  left: 11%;
+  width: 76.2%;
+  object-fit: contain;
+  z-index: 11;
+}
+
+/* ===== OUR STORY SECTION ===== */
+[name=ren-theme] [name=our-story-section] {
+  position: relative;
+  z-index: 1;
+  max-width: 160rem;
+  margin: 0 auto 3.69rem auto;
+}
+
+[name=ren-theme] [name=our-story-section] .our-story-wrapper {
+  padding: 2.5rem 0 12.69rem 0;
+  border-radius: 0 0 62.5rem 62.5rem;
+  background: #782626;
+  margin-left: 7.5rem;
+  margin-right: 7.5rem;
+}
+
+[name=ren-theme] [name=our-story-section] .content .view-content {
+  text-align: center;
+}
+
+[name=ren-theme] [name=our-story-section] .title p {
+  color: #fff;
+  font-family: 'galardino';
+  font-size: 2.8125rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=ren-theme] [name=our-story-section] .our-stories {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 37rem;
+  overflow-y: auto;
+  box-sizing: content-box;
+  max-width: 70%;
+  margin: 2.5rem auto 0 auto;
+}
+
+[name=ren-theme] [name=our-story-section] .our-stories:has(.story-with-image) {
+  max-width: 78%;
+}
+
+[name=ren-theme] [name=our-story-section] .our-stories::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+[name=ren-theme] [name=our-story-section] .our-stories::-webkit-scrollbar-thumb {
+  background-color: #D0B6B5;
+  border-radius: 1rem;
+}
+
+[name=ren-theme] [name=our-story-section] .story-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 95%;
+}
+
+[name=ren-theme] [name=our-story-section] .bridge img {
+  width: 2.5rem;
+  height: 7.5rem;
+  object-fit: cover;
+  object-position: top;
+}
+
+[name=ren-theme] [name=our-story-section] .story-wrapper {
+  padding: 1.88rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.9375rem;
+  min-width: 100%;
+  border: 0.25px dashed #FFF;
+}
+
+[name=ren-theme] [name=our-story-section] .story-title p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsB';
+  font-size: 0.875rem;
+}
+
+[name=ren-theme] [name=our-story-section] .story-desc p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsR';
+  font-size: 0.875rem;
+}
+
+[name=ren-theme] [name=our-story-section] .our-stories .story-wrapper .story-text p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsM';
+  font-size: 0.875rem;
+}
+
+[name=ren-theme] [name=our-story-section] .story-text p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsM';
+  font-size: 0.875rem;
+}
+
+[name=ren-theme] [name=our-story-section] .decorations .bottom-left img {
+  position: absolute;
+  left: 0;
+  bottom: -22.5rem;
+  width: 34%;
+  object-fit: contain;
+  z-index: 11;
+}
+
+[name=ren-theme] [name=our-story-section] .decorations .bottom-right img {
+  position: absolute;
+  right: 0;
+  bottom: -22.5rem;
+  width: 34%;
+  object-fit: contain;
+  z-index: 11;
+}
+
+/* ===== OUR STORY SECTION - MOBILE ===== */
+.mobile [name=ren-theme] [name=our-story-section] {
+  position: relative;
+  margin: 0;
+  margin-top: -1px;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .our-story-wrapper {
+  padding: 6.55rem 0 6.88rem 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .our-stories {
+  margin-top: 0;
+  display: unset;
+  height: unset;
+  overflow-y: unset;
+  box-sizing: unset;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .our-stories .bridge img {
+  width: 100%;
+  height: unset !important;
+  object-fit: contain;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .story-wrapper {
+  width: 76%;
+  height: 11.5rem;
+  background-image: url('/themes/ren/our-story/mobile-story-bg.png');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.9375rem;
+  overflow: hidden;
+  border: 1px dashed #FFF;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .story-text p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsM';
+  font-size: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .decorations .top img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  object-fit: contain;
+  z-index: 11;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .decorations .bottom img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2.255rem;
+  width: 100%;
+  object-fit: contain;
+  z-index: 11;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .our-stories:has(.story-with-image) {
+  max-width: 100%;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .mobile-story-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .mobile-story-item .bridge {
+  width: 12%;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .mobile-story-item .bridge img {
+  width: 100%;
+  height: unset !important;
+  object-fit: contain;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .mobile-story-item .bridge-dummy {
+  width: 12%;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .mobile-story-item .story-wrapper {
+  width: 76%;
+  height: 11.5rem;
+  background-image: url('/themes/ren/our-story/mobile-story-bg.png');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.9375rem;
+  overflow: hidden;
+  border: 1px dashed #FFF;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .mobile-story-item .story-wrapper:has(.story-with-image) {
+  padding-left: 0;
+  padding-right: 0;
+  height: 25.0625rem;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .mobile-story-item .story-wrapper:has(.story-with-title) {
+  height: 17.5rem;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .mobile-story-item .story-wrapper .story-text {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .mobile-story-item .story-wrapper .story-text:has(.story-with-title) {
+  align-items: flex-start;
+  padding: 1.25rem;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .mobile-story-item .story-wrapper .story-text .story-with-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.62rem 0;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .mobile-story-item .story-wrapper .story-text .story-with-title .story-title p {
+  font-family: 'poppinsB';
+  font-size: 1rem;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .mobile-story-item .story-wrapper .story-text .story-with-title .story-desc p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=our-story-section] .mobile-story-item .story-wrapper .story-text p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsM';
+  font-size: 0.75rem;
+}
+
+/* ===== OUR STORY STATIC SECTION ===== */
+[name=ren-theme] [name=our-story-static-section] {
+  position: relative;
+  z-index: 1;
+  max-width: 160rem;
+  margin: 0 auto 3.69rem auto;
+}
+
+[name=ren-theme] [name=our-story-static-section] .our-story-wrapper {
+  padding: 2.5rem 0 12.69rem 0;
+  border-radius: 0 0 62.5rem 62.5rem;
+  background: #782626;
+  margin-left: 7.5rem;
+  margin-right: 7.5rem;
+}
+
+[name=ren-theme] [name=our-story-static-section] .content .view-content {
+  text-align: center;
+}
+
+[name=ren-theme] [name=our-story-static-section] .title p {
+  color: #fff;
+  font-family: 'galardino';
+  font-size: 2.8125rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=ren-theme] [name=our-story-static-section] .our-stories {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 70%;
+  margin: 2.5rem auto 0 auto;
+  gap: 0;
+}
+
+[name=ren-theme] [name=our-story-static-section] .story-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 95%;
+}
+
+[name=ren-theme] [name=our-story-static-section] .bridge img {
+  width: 2.5rem;
+  height: 7.5rem;
+  object-fit: cover;
+  object-position: top;
+}
+
+[name=ren-theme] [name=our-story-static-section] .story-wrapper {
+  padding: 1.88rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.9375rem;
+  min-width: 100%;
+  border: 0.25px dashed #FFF;
+}
+
+[name=ren-theme] [name=our-story-static-section] .story-wrapper:has(.story-with-image) {
+  padding: unset;
+  height: 12.5rem;
+}
+
+[name=ren-theme] [name=our-story-static-section] .story-wrapper .story-with-image {
+  display: flex;
+  gap: 0 1.25rem;
+}
+
+[name=ren-theme] [name=our-story-static-section] .story-wrapper .story-with-image .story-left .story-image img {
+  width: 24.125rem;
+  height: 12.5rem;
+}
+
+[name=ren-theme] [name=our-story-static-section] .story-wrapper .story-with-image .story-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.62rem 0;
+}
+
+[name=ren-theme] [name=our-story-static-section] .story-wrapper .story-with-image .story-right .story-title p {
+  color: #FFF;
+  text-align: left;
+  font-family: 'poppinsB';
+  font-size: 1.125rem;
+}
+
+[name=ren-theme] [name=our-story-static-section] .story-wrapper .story-with-image .story-right .story-desc p {
+  color: #FFF;
+  text-align: left;
+  font-family: 'poppinsR';
+  font-size: 0.875rem;
+}
+
+[name=ren-theme] [name=our-story-static-section] .story-wrapper .story-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.62rem 0;
+}
+
+[name=ren-theme] [name=our-story-static-section] .story-wrapper .story-text .story-with-title .story-title p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsB';
+  font-size: 0.875rem;
+}
+
+[name=ren-theme] [name=our-story-static-section] .story-wrapper .story-text .story-with-title .story-desc p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsR';
+  font-size: 0.875rem;
+}
+
+[name=ren-theme] [name=our-story-static-section] .story-wrapper .story-text p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsM';
+  font-size: 0.875rem;
+}
+
+/* ===== GALLERY SECTION ===== */
+[name=ren-theme] [name=gallery-section] {
+  padding: 3.12rem 0 3.44rem 0;
+  position: relative;
+  z-index: 1;
+  max-width: 160rem;
+  margin: 0 auto;
+}
+
+[name=ren-theme] [name=gallery-section] .content {
+  max-width: 85rem;
+}
+
+[name=ren-theme] [name=gallery-section] .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=ren-theme] [name=gallery-section] .logo img {
+  width: 7.375rem;
+  object-fit: contain;
+  object-position: center;
+}
+
+[name=ren-theme] [name=gallery-section] .decorations .bottom-left img {
+  position: absolute;
+  left: 0;
+  bottom: -6rem;
+  width: 25.14%;
+  object-fit: contain;
+  z-index: 3;
+}
+
+[name=ren-theme] [name=gallery-section] .decorations .bottom-right img {
+  position: absolute;
+  right: 0;
+  bottom: -6rem;
+  width: 25.14%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+[name=ren-theme] [name=gallery-section] .content .view-content {
+  text-align: center;
+}
+
+[name=ren-theme] [name=gallery-section] .logo img {
+  width: 7.375rem;
+  object-fit: contain;
+  object-position: center;
+}
+
+[name=ren-theme] [name=gallery-section] .decorations img {
+  pointer-events: none;
+}
+
+/* ===== GALLERY 4P1L - DESKTOP ===== */
+[name=ren-theme] [name=gt-4P1L].galleries {
+  margin-top: 2.12rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 0 0.4rem;
+  width: 100%;
+  height: 28.125rem;
+}
+
+[name=ren-theme] [name=gt-4P1L].galleries img {
+  transition: 0.25s;
+  border-radius: 0.625rem;
+}
+
+[name=ren-theme] [name=gt-4P1L].galleries img:hover {
+  transform: scale(1.02);
+  transition: 0.25s;
+  cursor: zoom-in;
+}
+
+[name=ren-theme] [name=gt-4P1L].galleries .left-image {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  gap: 0 0.45rem;
+}
+
+[name=ren-theme] [name=gt-4P1L].galleries .left-image .left-left {
+  width: 60%;
+  height: 100%;
+}
+
+[name=ren-theme] [name=gt-4P1L].galleries .left-image .left-left .first-image {
+  width: 100%;
+  height: 100%;
+}
+
+[name=ren-theme] [name=gt-4P1L].galleries .left-image .left-left .first-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+[name=ren-theme] [name=gt-4P1L].galleries .left-image .left-right {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem 0;
+}
+
+[name=ren-theme] [name=gt-4P1L].galleries .left-image .left-right .second-image,
+[name=ren-theme] [name=gt-4P1L].galleries .left-image .left-right .third-image {
+  width: 100%;
+}
+
+[name=ren-theme] [name=gt-4P1L].galleries .left-image .left-right .second-image img,
+[name=ren-theme] [name=gt-4P1L].galleries .left-image .left-right .third-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+[name=ren-theme] [name=gt-4P1L].galleries .left-image .left-right .second-image {
+  height: 32%;
+}
+
+[name=ren-theme] [name=gt-4P1L].galleries .left-image .left-right .third-image {
+  height: 68%;
+}
+
+[name=ren-theme] [name=gt-4P1L].galleries .right-image {
+  width: 55%;
+  height: 100%;
+  display: flex;
+  gap: 0 0.45rem;
+}
+
+[name=ren-theme] [name=gt-4P1L].galleries .right-image .right-left,
+[name=ren-theme] [name=gt-4P1L].galleries .right-image .right-right {
+  width: 100%;
+  height: 100%;
+}
+
+[name=ren-theme] [name=gt-4P1L].galleries .right-image .right-left .fourth-image,
+[name=ren-theme] [name=gt-4P1L].galleries .right-image .right-left .fifth-image,
+[name=ren-theme] [name=gt-4P1L].galleries .right-image .right-right .fourth-image,
+[name=ren-theme] [name=gt-4P1L].galleries .right-image .right-right .fifth-image {
+  width: 100%;
+  height: 100%;
+}
+
+[name=ren-theme] [name=gt-4P1L].galleries .right-image .right-left .fourth-image img,
+[name=ren-theme] [name=gt-4P1L].galleries .right-image .right-left .fifth-image img,
+[name=ren-theme] [name=gt-4P1L].galleries .right-image .right-right .fourth-image img,
+[name=ren-theme] [name=gt-4P1L].galleries .right-image .right-right .fifth-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ===== GALLERY 5P0L - DESKTOP ===== */
+[name=ren-theme] [name=gt-5P0L].galleries {
+  margin-top: 2.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 0 0.4rem;
+  width: 100%;
+  height: 28.125rem;
+}
+
+[name=ren-theme] [name=gt-5P0L].galleries img {
+  transition: 0.25s;
+  border-radius: 0.625rem;
+}
+
+[name=ren-theme] [name=gt-5P0L].galleries img:hover {
+  transform: scale(1.02);
+  transition: 0.25s;
+  cursor: zoom-in;
+}
+
+[name=ren-theme] [name=gt-5P0L].galleries .left-image {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  gap: 0 0.45rem;
+}
+
+[name=ren-theme] [name=gt-5P0L].galleries .left-image .left-left {
+  width: 65%;
+  height: 100%;
+}
+
+[name=ren-theme] [name=gt-5P0L].galleries .left-image .left-left .first-image {
+  width: 100%;
+  height: 100%;
+}
+
+[name=ren-theme] [name=gt-5P0L].galleries .left-image .left-left .first-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+[name=ren-theme] [name=gt-5P0L].galleries .left-image .left-right {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem 0;
+}
+
+[name=ren-theme] [name=gt-5P0L].galleries .left-image .left-right .second-image,
+[name=ren-theme] [name=gt-5P0L].galleries .left-image .left-right .third-image {
+  width: 100%;
+}
+
+[name=ren-theme] [name=gt-5P0L].galleries .left-image .left-right .second-image img,
+[name=ren-theme] [name=gt-5P0L].galleries .left-image .left-right .third-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+[name=ren-theme] [name=gt-5P0L].galleries .left-image .left-right .second-image {
+  height: 50%;
+}
+
+[name=ren-theme] [name=gt-5P0L].galleries .left-image .left-right .third-image {
+  height: 50%;
+}
+
+[name=ren-theme] [name=gt-5P0L].galleries .right-image {
+  width: 55%;
+  height: 100%;
+  display: flex;
+  gap: 0 0.45rem;
+}
+
+[name=ren-theme] [name=gt-5P0L].galleries .right-image .right-left,
+[name=ren-theme] [name=gt-5P0L].galleries .right-image .right-right {
+  width: 100%;
+  height: 100%;
+}
+
+[name=ren-theme] [name=gt-5P0L].galleries .right-image .right-left .fourth-image,
+[name=ren-theme] [name=gt-5P0L].galleries .right-image .right-left .fifth-image,
+[name=ren-theme] [name=gt-5P0L].galleries .right-image .right-right .fourth-image,
+[name=ren-theme] [name=gt-5P0L].galleries .right-image .right-right .fifth-image {
+  width: 100%;
+  height: 100%;
+}
+
+[name=ren-theme] [name=gt-5P0L].galleries .right-image .right-left .fourth-image img,
+[name=ren-theme] [name=gt-5P0L].galleries .right-image .right-left .fifth-image img,
+[name=ren-theme] [name=gt-5P0L].galleries .right-image .right-right .fourth-image img,
+[name=ren-theme] [name=gt-5P0L].galleries .right-image .right-right .fifth-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ===== GALLERY 4P1L - MOBILE ===== */
+.mobile [name=ren-theme] [name=gallery-section] {
+  background-image: url('/themes/ren/global/background-mobile.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.mobile [name=ren-theme] [name=gallery-section]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6rem;
+  height: 12rem;
+  background-image: url('/themes/ren/global/background-mobile.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries {
+  margin-top: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.37rem 0;
+  padding-left: 0.94rem;
+  padding-right: 0.94rem;
+}
+
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries img {
+  transition: 0.25s;
+  border-radius: 0.625rem;
+}
+
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries img:hover {
+  transform: scale(1.02);
+  transition: 0.25s;
+  cursor: zoom-in;
+}
+
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .top-image {
+  display: flex;
+  gap: 0 0.38rem;
+}
+
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .top-image .top-left,
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .top-image .top-right {
+  height: 14.5625rem;
+  width: 100%;
+}
+
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .top-image .top-left .first-image,
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .top-image .top-right .second-image {
+  width: 100%;
+  height: 100%;
+}
+
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .top-image .top-left .first-image img,
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .top-image .top-right .second-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .middle-image {
+  height: 13.8125rem;
+  width: 100%;
+}
+
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .middle-image .third-image {
+  width: 100%;
+  height: 100%;
+}
+
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .middle-image .third-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .bottom-image {
+  display: flex;
+  gap: 0 0.38rem;
+}
+
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .bottom-image .bottom-left,
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .bottom-image .bottom-right {
+  height: 14.5625rem;
+  width: 100%;
+}
+
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .bottom-image .bottom-left .fourth-image,
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .bottom-image .bottom-right .fifth-image {
+  width: 100%;
+  height: 100%;
+}
+
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .bottom-image .bottom-left .fourth-image img,
+.mobile [name=ren-theme] [name=gt-4P1L].mobile-galleries .bottom-image .bottom-right .fifth-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ===== GALLERY 5P0L - MOBILE ===== */
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries {
+  margin-top: 1.19rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.37rem 0;
+  padding-left: 0.94rem;
+  padding-right: 0.94rem;
+}
+
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries img {
+  transition: 0.25s;
+  border-radius: 0.625rem;
+}
+
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries img:hover {
+  transform: scale(1.02);
+  transition: 0.25s;
+  cursor: zoom-in;
+}
+
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .top-image {
+  display: flex;
+  gap: 0 0.38rem;
+}
+
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .top-image .top-left,
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .top-image .top-right {
+  height: 14.5625rem;
+  width: 100%;
+}
+
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .top-image .top-left .first-image,
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .top-image .top-right .second-image {
+  width: 100%;
+  height: 100%;
+}
+
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .top-image .top-left .first-image img,
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .top-image .top-right .second-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .middle-image {
+  height: 29.688rem;
+  width: 100%;
+}
+
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .middle-image .third-image {
+  width: 100%;
+  height: 100%;
+}
+
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .middle-image .third-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .bottom-image {
+  display: flex;
+  gap: 0 0.38rem;
+}
+
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .bottom-image .bottom-left,
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .bottom-image .bottom-right {
+  height: 14.5625rem;
+  width: 100%;
+}
+
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .bottom-image .bottom-left .fourth-image,
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .bottom-image .bottom-right .fifth-image {
+  width: 100%;
+  height: 100%;
+}
+
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .bottom-image .bottom-left .fourth-image img,
+.mobile [name=ren-theme] [name=gt-5P0L].mobile-galleries .bottom-image .bottom-right .fifth-image img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ===== GALLERY SECTION - MOBILE ===== */
+.mobile [name=ren-theme] [name=gallery-section] {
+  padding-top: 2.63rem;
+  position: relative;
+}
+
+.mobile [name=ren-theme] [name=gallery-section] .content {
+  position: relative;
+  z-index: 3;
+}
+
+.mobile [name=ren-theme] [name=gallery-section] .logo img {
+  width: 4.58375rem;
+  height: 4.93031rem;
+  object-fit: contain;
+}
+
+.mobile [name=ren-theme] [name=gallery-section] .decorations .bottom img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  object-fit: contain;
+  z-index: 3;
+}
+
+/* ===== FILTER INSTAGRAM SECTION ===== */
+[name=ren-theme] [name=filter-instagram-section] {
+  background: #782626;
+  padding: 2.5rem 0 3.63rem 0;
+  position: relative;
+  z-index: 1;
+  max-width: 160rem;
+  margin: 0 auto;
+}
+
+[name=ren-theme] [name=filter-instagram-section]:has(.livestream) {
+  padding-top: 0;
+}
+
+[name=ren-theme] [name=filter-instagram-section] .separator {
+  height: 4.94rem;
+  width: 100%;
+  background: #EFEAE4;
+}
+
+[name=ren-theme] [name=filter-instagram-section] .content:has(.livestream) {
+  padding-left: 2.5rem;
+  padding-top: 2.5rem;
+}
+
+[name=ren-theme] [name=filter-instagram-section] .content .view-content {
+  display: flex;
+  justify-content: center;
+  gap: 0 10.5rem;
+}
+
+[name=ren-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item {
+  width: 50%;
+}
+
+[name=ren-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .title p,
+[name=ren-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .desc p {
+  text-align: left;
+  max-width: 90%;
+}
+
+[name=ren-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .action-button {
+  justify-content: flex-start;
+}
+
+[name=ren-theme] [name=filter-instagram-section] .content .view-content .title p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'galardino';
+  font-size: 2.8125rem;
+}
+
+[name=ren-theme] [name=filter-instagram-section] .content .view-content .desc {
+  margin-top: 1.25rem;
+}
+
+[name=ren-theme] [name=filter-instagram-section] .content .view-content .desc p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'opensansR';
+  font-size: 1.25rem;
+}
+
+[name=ren-theme] [name=filter-instagram-section] .content .view-content .filter-button,
+[name=ren-theme] [name=filter-instagram-section] .content .view-content .action-button {
+  margin-top: 3.06rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=ren-theme] [name=filter-instagram-section] .content .view-content .filter-button [name=ren-button],
+[name=ren-theme] [name=filter-instagram-section] .content .view-content .action-button [name=ren-button] {
+  background: #FADFDF;
+}
+
+[name=ren-theme] [name=filter-instagram-section] .content .view-content .filter-button [name=ren-button] .label p,
+[name=ren-theme] [name=filter-instagram-section] .content .view-content .action-button [name=ren-button] .label p {
+  color: #782626 !important;
+}
+
+/* ===== FILTER INSTAGRAM SECTION - MOBILE ===== */
+.mobile [name=ren-theme] [name=filter-instagram-section] {
+  padding-top: 1.69rem;
+  padding-bottom: 9.88rem;
+}
+
+.mobile [name=ren-theme] [name=filter-instagram-section]:has(.livestream) {
+  padding-top: 1.75rem;
+}
+
+.mobile [name=ren-theme] [name=filter-instagram-section] .separator {
+  display: none;
+}
+
+.mobile [name=ren-theme] [name=filter-instagram-section] .content:has(.livestream) {
+  padding-top: 0;
+  padding-left: 0;
+}
+
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item {
+  width: unset;
+}
+
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .title,
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .desc {
+  display: flex;
+  justify-content: center;
+}
+
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .title p,
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .desc p {
+  text-align: center;
+}
+
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content:has(.livestream) .item .action-button {
+  justify-content: flex-start;
+}
+
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  flex-direction: column;
+  gap: 2.94rem 0;
+}
+
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content .title p {
+  font-size: 1.75rem;
+}
+
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content .desc {
+  margin-top: 1.13rem;
+}
+
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content .desc p {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+}
+
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content .filter-button,
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content .action-button {
+  margin-top: 1.5rem;
+}
+
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content .filter-button [name=ren-button],
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content .action-button [name=ren-button] {
+  width: 100%;
+  padding: 0.62rem 1.88rem;
+  justify-content: center;
+}
+
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content .filter-button [name=ren-button] .label p,
+.mobile [name=ren-theme] [name=filter-instagram-section] .content .view-content .action-button [name=ren-button] .label p {
+  color: #fff;
+  font-family: 'poppinsM';
+  font-size: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=filter-instagram-section] .decorations .bottom img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2rem;
+  width: 100%;
+  object-fit: contain;
+  z-index: 3;
+}
+
+/* ===== GIFT SECTION ===== */
+[name=ren-theme] [name=gift-section] {
+  padding-bottom: 1.56rem;
+  padding-top: 20rem;
+}
+
+[name=ren-theme] [name=gift-section] .content {
+  max-width: 85rem;
+  margin: 0 auto;
+}
+
+[name=ren-theme] [name=gift-section] .content .view-content .title p {
+  color: #782626;
+  text-align: center;
+  font-family: 'galardino';
+  font-size: 2.8125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=ren-theme] [name=gift-section] .content .view-content .desc {
+  margin-top: 1.25rem;
+}
+
+[name=ren-theme] [name=gift-section] .content .view-content .desc p {
+  color: #782626;
+  text-align: center;
+  font-family: 'opensansR';
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=ren-theme] [name=gift-section] .content .view-content .open-button {
+  margin-top: 3.13rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=ren-theme] [name=gift-section] .content .view-content .open-button [name=ren-button] {
+  padding: 1.13rem 11.75rem;
+}
+
+/* Gift modal */
+[name=ren-theme] [name=gift-section] .ren-gift-modal.modal-backdrop {
+  animation: renGiftModalBackdropIn 280ms ease forwards;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal.modal-backdrop.closing {
+  animation: renGiftModalBackdropOut 280ms ease forwards;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog {
+  animation: renGiftModalIn 280ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal.closing .modal-dialog {
+  animation: renGiftModalOut 280ms ease forwards;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog {
+  width: min(90vw, 42.3125rem);
+  max-width: 42.3125rem;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .modal-content {
+  background-color: #EFEAE4;
+  background-image: url('/themes/ren/component/modal-back.png');
+  background-size: cover;
+  border-radius: 1.5rem;
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header .gift-bank img {
+  width: auto;
+  height: 2.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header .close-modal-button img {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header .close-modal-button:hover {
+  cursor: pointer;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header .close-modal-button:hover img {
+  animation: 0.85s bubbling forwards;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-end;
+  margin-top: 1.12rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left {
+  max-width: 65%;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-receipt p {
+  color: #782626;
+  text-align: center;
+  font-family: 'poppinsR';
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: left;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-label p {
+  color: #782626;
+  font-family: 'poppinsSB';
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-address {
+  margin-top: 0.31rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-address p {
+  color: #782626;
+  font-family: 'poppinsR';
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-id {
+  margin-top: 0.62rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-id p {
+  color: #782626;
+  font-family: 'poppinsSB';
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-right [name=ren-button] {
+  padding: 0.75rem 1.88rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-right [name=ren-button] .icon img {
+  width: 1.25rem;
+  height: 1.25rem;
+  object-fit: contain;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body-bottom {
+  margin-top: 1.94rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body-bottom .info p {
+  color: #782626;
+  font-family: 'poppinsR';
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* ===== GIFT SECTION - MOBILE ===== */
+.mobile [name=ren-theme] [name=gift-section] {
+  padding: 2.38rem 0 2.25rem 0;
+  margin-top: 7rem;
+  position: relative;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .content .view-content {
+  padding-left: 3.25rem;
+  padding-right: 3.25rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .content .view-content .gift-icon {
+  text-align: center;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .content .view-content .gift-icon img {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .content .view-content .title {
+  margin-top: 1.31rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .content .view-content .title p {
+  color: #782626;
+  font-family: 'galardino';
+  font-size: 1.75rem;
+  font-style: normal;
+  line-height: normal;
+  text-align: center;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .content .view-content .desc {
+  margin-top: 1.31rem;
+  display: flex;
+  justify-content: center;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .content .view-content .desc p {
+  width: 70%;
+  color: #782626;
+  font-family: 'opensansR';
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .content .view-content .open-button {
+  margin-top: 1.31rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .content .view-content .open-button [name=ren-button] {
+  padding: 0.62rem 3rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .content .view-content .open-button [name=ren-button] .label p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsM';
+  font-size: 0.75rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+/* Gift modal mobile */
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog {
+  padding: 1.56rem 1.62rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header {
+  justify-content: flex-end;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header .gift-bank {
+  margin: auto;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header .gift-bank img {
+  width: 5rem;
+  height: 1.8rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header .close-modal-button img {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body {
+  margin-top: 0.62rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left {
+  text-align: center;
+  max-width: unset;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-receipt p {
+  color: #782626;
+  text-align: center;
+  font-family: 'poppinsR';
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-label p {
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-address p {
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-id {
+  margin-top: 0.12rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-id p {
+  color: #782626;
+  text-align: center;
+  font-family: 'poppinsSB';
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-right {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-right [name=ren-button] {
+  padding: 0.38rem 1rem;
+  gap: 0 0.38rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-right [name=ren-button] .icon img {
+  width: 0.875rem;
+  height: 0.875rem;
+  object-fit: contain;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-right [name=ren-button] .label p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'poppinsR';
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body-bottom {
+  margin-top: 1.48rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body-bottom .info p {
+  text-align: center;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .decorations img {
+  pointer-events: none;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .decorations .middle-left {
+  position: absolute;
+  left: -6.5rem;
+  bottom: -16rem;
+  transform: scale(0.5);
+}
+
+.mobile [name=ren-theme] [name=gift-section] .decorations .middle-right {
+  position: absolute;
+  right: -6.5rem;
+  bottom: -16rem;
+  -webkit-transform: scale(0.5) scaleX(-1);
+  transform: scale(0.5) scaleX(-1);
+}
+
+/* ===== WISH SECTION ===== */
+[name=ren-theme] [name=wish-section] {
+  padding-top: 2.5rem;
+  position: relative;
+  max-width: 160rem;
+  margin: 0 auto;
+  border-radius: 0rem 0rem 62.5rem 62.5rem;
+}
+
+[name=ren-theme] [name=wish-section].without-gift {
+  margin-bottom: 8rem;
+}
+
+[name=ren-theme] [name=wish-section] .content {
+  position: relative;
+  z-index: 10;
+  padding-bottom: 1.38rem;
+}
+
+[name=ren-theme] [name=wish-section] .title p {
+  color: #782626;
+  text-align: center;
+  font-family: 'galardino';
+  font-size: 2.8125rem;
+}
+
+[name=ren-theme] [name=wish-section] .wish-wrapper {
+  margin-top: 2rem;
+  display: flex;
+  gap: 0 0.31rem;
+}
+
+[name=ren-theme] [name=wish-section] .wish-wrapper .left {
+  width: 100%;
+}
+
+[name=ren-theme] [name=wish-section] .wish-wrapper .right {
+  width: 100%;
+}
+
+[name=ren-theme] [name=wish-section] .wishes {
+  flex-direction: column;
+  gap: 0;
+  max-height: 28rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #D0B6B5 transparent;
+}
+
+[name=ren-theme] [name=wish-section] .wishes::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+[name=ren-theme] [name=wish-section] .wishes::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 0.15rem rgba(0, 0, 0, 0.3);
+}
+
+[name=ren-theme] [name=wish-section] .wishes::-webkit-scrollbar-thumb {
+  background-color: #D0B6B5;
+  outline: 1px solid #D0B6B5;
+}
+
+[name=ren-theme] [name=wish-section] .wish {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #D0B6B5;
+}
+
+[name=ren-theme] [name=wish-section] .wish .top {
+  display: flex;
+  justify-content: space-between;
+}
+
+[name=ren-theme] [name=wish-section] .wish .top .name p {
+  color: #782626;
+  text-align: center;
+  font-family: 'opensansB';
+  font-size: 0.875rem;
+}
+
+[name=ren-theme] [name=wish-section] .wish .top .date p {
+  color: #782626;
+  text-align: right;
+  font-family: 'opensansR';
+  font-size: 0.75rem;
+}
+
+[name=ren-theme] [name=wish-section] .wish .bottom {
+  margin-top: 0.25rem;
+}
+
+[name=ren-theme] [name=wish-section] .wish .bottom .message p {
+  color: #782626;
+  font-family: 'opensansR';
+  font-size: 0.875rem;
+}
+
+[name=ren-theme] [name=wish-section] .form-wish {
+  padding: 2.81rem 2.5rem 2.94rem 2.5rem;
+}
+
+[name=ren-theme] [name=wish-section] .name-input {
+  margin-bottom: 1.88rem;
+}
+
+[name=ren-theme] [name=wish-section] .name-input .label {
+  margin-bottom: 0.37rem;
+}
+
+[name=ren-theme] [name=wish-section] .name-input .label p {
+  color: #782626;
+  font-family: 'poppinsSB';
+  font-size: 1rem;
+}
+
+[name=ren-theme] [name=wish-section] .message-input {
+  margin-bottom: 3.69rem;
+}
+
+[name=ren-theme] [name=wish-section] .message-input .label {
+  margin-bottom: 0.62rem;
+}
+
+[name=ren-theme] [name=wish-section] .message-input .label p {
+  color: #782626;
+  font-family: 'poppinsSB';
+  font-size: 1rem;
+}
+
+[name=ren-theme] [name=wish-section] .message-input .message-counter {
+  margin-top: 0.62rem;
+}
+
+[name=ren-theme] [name=wish-section] .message-input .message-counter p {
+  color: #782626;
+  text-align: right;
+  font-family: 'opensansR';
+  font-size: 0.875rem;
+}
+
+[name=ren-theme] [name=wish-section] .send-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=ren-theme] [name=wish-section] .send-button [name=ren-button] {
+  padding: 1.12rem 2.25rem;
+  min-width: 20.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=ren-theme] [name=wish-section] .decorations .bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding-right: 21%;
+}
+
+/* ===== WISH SECTION - MOBILE ===== */
+.mobile [name=ren-theme] [name=wish-section] {
+  padding-top: 2.5rem;
+  padding-bottom: 0;
+  border-radius: 0 0 18.75rem 18.75rem;
+  margin-bottom: 1.62rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .content {
+  min-height: unset;
+  padding-bottom: unset;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .title p {
+  font-size: 2rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .wish-wrapper {
+  flex-direction: column-reverse;
+  margin-top: 0.87rem;
+  padding-left: 0.97rem;
+  padding-right: 0.97rem;
+  gap: 0;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .wish-wrapper .right .form-wish {
+  padding: 1.25rem 1.5rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .wish-wrapper .right .bottom-border {
+  width: 7.375rem;
+  border-bottom: 1px solid #782626;
+  margin: 0.62rem auto 0 auto;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .wish-wrapper .left .wishes {
+  margin-top: 0.63rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-height: 31rem;
+  scrollbar-width: auto !important;
+  scrollbar-color: inherit !important;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .wish-wrapper .left .wishes .no-data p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .wish-wrapper .left .wishes .wish .top .name p {
+  text-align: left;
+  font-size: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .wish-wrapper .left .wishes .wish .top .date p {
+  font-size: 0.5rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .wish-wrapper .left .wishes .wish .bottom .message p {
+  font-size: 0.625rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .name-input {
+  margin-bottom: 0.62rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .name-input .label {
+  margin-bottom: 0.25rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .name-input .label p,
+.mobile [name=ren-theme] [name=wish-section] .message-input .label p {
+  text-align: left;
+  font-size: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .name-input [name=input] {
+  max-height: 2.5rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .name-input [name=input] input {
+  font-size: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .message-input {
+  margin-bottom: 0.94rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .message-input .label {
+  margin-bottom: 0.25rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .message-input [name=input].textarea {
+  padding-left: 1.12rem;
+  padding-right: 1.12rem;
+  border-color: transparent;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .message-input [name=input].textarea:hover,
+.mobile [name=ren-theme] [name=wish-section] .message-input [name=input].textarea:focus {
+  border-color: #CB877E;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .message-input [name=input].textarea textarea {
+  color: #CB877E;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .message-input .message-counter p {
+  font-size: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .send-button [name=ren-button] {
+  min-width: unset;
+  width: 100%;
+  border-radius: 0.9375rem;
+  padding: 0.69rem 2.5rem;
+}
+
+.mobile [name=ren-theme] [name=wish-section] .send-button [name=ren-button] .label p {
+  color: #FFF;
+  font-family: 'poppinsM';
+  font-size: 0.75rem;
+}
+
+/* ===== GIFT SECTION ===== */
+[name=ren-theme] [name=gift-section] {
+  padding-bottom: 1.56rem;
+  padding-top: 20rem;
+  position: relative;
+  max-width: 160rem;
+  margin: 0 auto;
+}
+
+[name=ren-theme] [name=gift-section] .title p {
+  color: #782626;
+  text-align: center;
+  font-family: 'galardino';
+  font-size: 2.8125rem;
+}
+
+[name=ren-theme] [name=gift-section] .desc {
+  margin-top: 1.25rem;
+}
+
+[name=ren-theme] [name=gift-section] .desc p {
+  color: #782626;
+  text-align: center;
+  font-family: 'opensansR';
+  font-size: 1.25rem;
+}
+
+[name=ren-theme] [name=gift-section] .open-button {
+  margin-top: 3.13rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[name=ren-theme] [name=gift-section] .open-button [name=ren-button] {
+  padding: 1.13rem 11.75rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog {
+  width: min(90vw, 42.3125rem);
+  max-width: 42.3125rem;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .modal-content {
+  background-color: #EFEAE4;
+  background-image: url('/themes/ren/component/modal-back.png');
+  background-size: cover;
+  border-radius: 1.5rem;
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header .gift-bank img {
+  width: auto;
+  height: 2.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header .close-modal-button img {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-end;
+  margin-top: 1.12rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left {
+  max-width: 65%;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-receipt p {
+  color: #782626;
+  text-align: left;
+  font-family: 'poppinsR';
+  font-size: 1rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-label p {
+  color: #782626;
+  font-family: 'poppinsSB';
+  font-size: 1rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-address {
+  margin-top: 0.31rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-address p {
+  color: #782626;
+  font-family: 'poppinsR';
+  font-size: 1rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-id {
+  margin-top: 0.62rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-id p {
+  color: #782626;
+  font-family: 'poppinsSB';
+  font-size: 1rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-right [name=ren-button] {
+  padding: 0.75rem 1.88rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-right [name=ren-button] .icon img {
+  width: 1.25rem;
+  height: 1.25rem;
+  object-fit: contain;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body-bottom {
+  margin-top: 1.94rem;
+}
+
+[name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body-bottom .info p {
+  color: #782626;
+  font-family: 'poppinsR';
+  font-size: 0.875rem;
+}
+
+[name=ren-theme] [name=gift-section] .gifts {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem 0;
+  margin-top: 2.25rem;
+}
+
+/* ===== GIFT SECTION - MOBILE ===== */
+.mobile [name=ren-theme] [name=gift-section] {
+  padding: 2.38rem 0 2.25rem 0;
+  margin-top: 7rem;
+  position: relative;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .content .view-content {
+  padding-left: 3.25rem;
+  padding-right: 3.25rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .gift-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .gift-icon img {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .title {
+  margin-top: 1.31rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .title p {
+  font-size: 1.75rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .desc {
+  margin-top: 1.31rem;
+  display: flex;
+  justify-content: center;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .desc p {
+  width: 70%;
+  font-size: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .open-button {
+  margin-top: 1.31rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .open-button [name=ren-button] {
+  padding: 0.62rem 3rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .open-button [name=ren-button] .label p {
+  color: #FFF;
+  font-family: 'poppinsM';
+  font-size: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog {
+  width: calc(100% - 1rem);
+  max-height: 88vh;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .modal-content {
+  padding: 1.56rem 1.62rem;
+  border-radius: 0.75rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header {
+  justify-content: flex-end;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header .gift-bank {
+  margin: auto;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header .gift-bank img {
+  width: auto;
+  height: 1.8rem;
+  max-width: 5rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .header .close-modal-button img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .gifts {
+  gap: 1.5rem 0;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .gifts .gift-item .header {
+  justify-content: center;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .gifts .gift-item .header .gift-bank {
+  margin: auto;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body {
+  margin-top: 0.62rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left {
+  text-align: center;
+  max-width: unset;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-receipt p,
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-label p,
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-address p {
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-left .gift-id {
+  margin-top: 0.12rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body .body-right {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .ren-gift-modal .modal-dialog .body-bottom {
+  margin-top: 1.48rem;
+}
+
+.mobile [name=ren-theme] [name=gift-section] .decorations .middle-left {
+  position: absolute;
+  left: -6.5rem;
+  bottom: -16rem;
+  transform: scale(0.5);
+}
+
+.mobile [name=ren-theme] [name=gift-section] .decorations .middle-right {
+  position: absolute;
+  right: -6.5rem;
+  bottom: -16rem;
+  -webkit-transform: scale(0.5) scaleX(-1);
+  transform: scale(0.5) scaleX(-1);
+}
+
+[name=ren-theme] [name=horizontal-flowers] {
+  position: relative;
+  max-width: 102rem;
+  height: 17.337rem;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+
+[name=ren-theme] [name=horizontal-flowers] img {
+  pointer-events: none;
+  position: absolute;
+  opacity: 0;
+}
+
+[name=ren-theme] [name=horizontal-flowers] .middle img { width: 29.59125rem; z-index: 5; }
+[name=ren-theme] [name=horizontal-flowers] .first-left img { width: 9.40219rem; bottom: 2rem; left: 47%; z-index: 6; }
+[name=ren-theme] [name=horizontal-flowers] .minus-leaf-left img { width: 5.54844rem; bottom: 2rem; left: 47%; z-index: 4; }
+[name=ren-theme] [name=horizontal-flowers] .first-leaf-left img { width: 12.12919rem; bottom: 6rem; left: 42%; z-index: 4; }
+[name=ren-theme] [name=horizontal-flowers] .two-left img { width: 6.76069rem; bottom: 8.7rem; left: 45.5%; z-index: 4; }
+[name=ren-theme] [name=horizontal-flowers] .two-leaf-left img { width: 12.15656rem; bottom: 5.5rem; left: 37%; z-index: 4; }
+[name=ren-theme] [name=horizontal-flowers] .three-left img { width: 10.91663rem; bottom: 1.5rem; left: 40%; z-index: 4; }
+[name=ren-theme] [name=horizontal-flowers] .four-left img { width: 10.60894rem; bottom: 2.5rem; left: 34.5%; z-index: 4; }
+[name=ren-theme] [name=horizontal-flowers] .three-leaf-left img { width: 10.91663rem; bottom: 1.95rem; left: 28%; z-index: 3; }
+[name=ren-theme] [name=horizontal-flowers] .four-leaf-left img { width: 12.62181rem; bottom: 9.5rem; left: 26.8%; z-index: 2; }
+[name=ren-theme] [name=horizontal-flowers] .five-left img { width: 9.0115rem; bottom: 5rem; left: 30.5%; z-index: 3; }
+[name=ren-theme] [name=horizontal-flowers] .first-right img { width: 9.40219rem; bottom: 2rem; right: 20%; z-index: 6; }
+[name=ren-theme] [name=horizontal-flowers] .minus-leaf-right img { width: 5.54844rem; bottom: 2rem; right: 20%; z-index: 4; }
+[name=ren-theme] [name=horizontal-flowers] .first-leaf-right img { width: 12.12919rem; bottom: 6rem; right: 15%; z-index: 4; }
+[name=ren-theme] [name=horizontal-flowers] .two-right img { width: 6.76069rem; bottom: 8.7rem; right: 18.5%; z-index: 4; }
+[name=ren-theme] [name=horizontal-flowers] .two-leaf-right img { width: 12.15656rem; bottom: 5.5rem; right: 10%; z-index: 4; }
+[name=ren-theme] [name=horizontal-flowers] .three-right img { width: 10.91663rem; bottom: 1.5rem; right: 13%; z-index: 4; }
+[name=ren-theme] [name=horizontal-flowers] .four-right img { width: 10.60894rem; bottom: 2.5rem; right: 7.5%; z-index: 4; }
+[name=ren-theme] [name=horizontal-flowers] .three-leaf-right img { width: 10.91663rem; bottom: 1.95rem; right: 1%; z-index: 3; }
+[name=ren-theme] [name=horizontal-flowers] .four-leaf-right img { width: 12.62181rem; bottom: 9.5rem; right: -0.2%; z-index: 2; }
+[name=ren-theme] [name=horizontal-flowers] .five-right img { width: 9.0115rem; bottom: 5rem; right: 3.5%; z-index: 3; }
+
+[name=ren-theme] [name=horizontal-flowers] .middle img.animated {
+  animation: 0.8s 0.2s ease-out zoomIn forwards;
+}
+
+[name=ren-theme] [name=horizontal-flowers] .first-left img.animated,
+[name=ren-theme] [name=horizontal-flowers] .minus-leaf-left img.animated,
+[name=ren-theme] [name=horizontal-flowers] .first-leaf-left img.animated,
+[name=ren-theme] [name=horizontal-flowers] .two-left img.animated,
+[name=ren-theme] [name=horizontal-flowers] .two-leaf-left img.animated,
+[name=ren-theme] [name=horizontal-flowers] .three-left img.animated,
+[name=ren-theme] [name=horizontal-flowers] .four-left img.animated,
+[name=ren-theme] [name=horizontal-flowers] .three-leaf-left img.animated,
+[name=ren-theme] [name=horizontal-flowers] .four-leaf-left img.animated,
+[name=ren-theme] [name=horizontal-flowers] .five-left img.animated,
+[name=ren-theme] [name=horizontal-flowers] .first-right img.animated,
+[name=ren-theme] [name=horizontal-flowers] .minus-leaf-right img.animated,
+[name=ren-theme] [name=horizontal-flowers] .first-leaf-right img.animated,
+[name=ren-theme] [name=horizontal-flowers] .two-right img.animated,
+[name=ren-theme] [name=horizontal-flowers] .two-leaf-right img.animated,
+[name=ren-theme] [name=horizontal-flowers] .three-right img.animated,
+[name=ren-theme] [name=horizontal-flowers] .four-right img.animated,
+[name=ren-theme] [name=horizontal-flowers] .three-leaf-right img.animated,
+[name=ren-theme] [name=horizontal-flowers] .four-leaf-right img.animated,
+[name=ren-theme] [name=horizontal-flowers] .five-right img.animated {
+  animation-name: var(--enter-name), var(--idle-name);
+  animation-duration: 0.8s, 5s;
+  animation-delay: var(--enter-delay), 6.5s;
+  animation-timing-function: ease-out, linear;
+  animation-fill-mode: forwards, none;
+  animation-iteration-count: 1, infinite;
+}
+
+[name=ren-theme] [name=horizontal-flowers] .first-left img.animated { --enter-name: zoomInLeft; --enter-delay: 0.7s; --idle-name: giggling; }
+[name=ren-theme] [name=horizontal-flowers] .minus-leaf-left img.animated { --enter-name: zoomInLeft; --enter-delay: 1.2s; --idle-name: giggling; }
+[name=ren-theme] [name=horizontal-flowers] .first-leaf-left img.animated { --enter-name: zoomInLeft; --enter-delay: 1.7s; --idle-name: reverseGiggling; }
+[name=ren-theme] [name=horizontal-flowers] .two-left img.animated { --enter-name: zoomInLeft; --enter-delay: 2.2s; --idle-name: reverseGiggling; }
+[name=ren-theme] [name=horizontal-flowers] .two-leaf-left img.animated { --enter-name: zoomInLeft; --enter-delay: 2.7s; --idle-name: giggling; }
+[name=ren-theme] [name=horizontal-flowers] .three-left img.animated { --enter-name: zoomInLeft; --enter-delay: 3.2s; --idle-name: giggling; }
+[name=ren-theme] [name=horizontal-flowers] .four-left img.animated { --enter-name: zoomInLeft; --enter-delay: 3.7s; --idle-name: forwardBubbling; }
+[name=ren-theme] [name=horizontal-flowers] .three-leaf-left img.animated { --enter-name: zoomInLeft; --enter-delay: 4.2s; --idle-name: reverseGiggling; }
+[name=ren-theme] [name=horizontal-flowers] .four-leaf-left img.animated { --enter-name: zoomInLeft; --enter-delay: 4.7s; --idle-name: giggling; }
+[name=ren-theme] [name=horizontal-flowers] .five-left img.animated { --enter-name: zoomInLeft; --enter-delay: 5.2s; --idle-name: forwardBubbling; }
+
+[name=ren-theme] [name=horizontal-flowers] .first-right img.animated { --enter-name: zoomInRight; --enter-delay: 0.7s; --idle-name: giggling; }
+[name=ren-theme] [name=horizontal-flowers] .minus-leaf-right img.animated { --enter-name: zoomInRight; --enter-delay: 1.2s; --idle-name: giggling; }
+[name=ren-theme] [name=horizontal-flowers] .first-leaf-right img.animated { --enter-name: zoomInRight; --enter-delay: 1.7s; --idle-name: reverseGiggling; }
+[name=ren-theme] [name=horizontal-flowers] .two-right img.animated { --enter-name: zoomInRight; --enter-delay: 2.2s; --idle-name: reverseGiggling; }
+[name=ren-theme] [name=horizontal-flowers] .two-leaf-right img.animated { --enter-name: zoomInRight; --enter-delay: 2.7s; --idle-name: giggling; }
+[name=ren-theme] [name=horizontal-flowers] .three-right img.animated { --enter-name: zoomInRight; --enter-delay: 3.2s; --idle-name: giggling; }
+[name=ren-theme] [name=horizontal-flowers] .four-right img.animated { --enter-name: zoomInRight; --enter-delay: 3.7s; --idle-name: forwardBubbling; }
+[name=ren-theme] [name=horizontal-flowers] .three-leaf-right img.animated { --enter-name: zoomInRight; --enter-delay: 4.2s; --idle-name: reverseGiggling; }
+[name=ren-theme] [name=horizontal-flowers] .four-leaf-right img.animated { --enter-name: zoomInRight; --enter-delay: 4.7s; --idle-name: giggling; }
+[name=ren-theme] [name=horizontal-flowers] .five-right img.animated { --enter-name: zoomInRight; --enter-delay: 5.2s; --idle-name: forwardBubbling; }
+
+@keyframes giggling {
+  0%, 100% { transform: rotate(0deg) translate3d(0, 0, 0); }
+  25% { transform: rotate(1.6deg) translate3d(1px, -2px, 0); }
+  50% { transform: rotate(-1.6deg) translate3d(-1px, 1px, 0); }
+  75% { transform: rotate(1deg) translate3d(1px, 0, 0); }
+}
+
+@keyframes reverseGiggling {
+  0%, 100% { transform: rotate(0deg) translate3d(0, 0, 0); }
+  25% { transform: rotate(-1.6deg) translate3d(-1px, -2px, 0); }
+  50% { transform: rotate(1.6deg) translate3d(1px, 1px, 0); }
+  75% { transform: rotate(-1deg) translate3d(-1px, 0, 0); }
+}
+
+@keyframes forwardBubbling {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  25% { transform: translate3d(1px, -3px, 0) scale(1.01); }
+  50% { transform: translate3d(-1px, -5px, 0) scale(1.02); }
+  75% { transform: translate3d(1px, -2px, 0) scale(1.01); }
+}
+
+@keyframes renGiftModalBackdropIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes renGiftModalBackdropOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes renGiftModalIn {
+  from { opacity: 0; transform: scale(0.92) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes renGiftModalOut {
+  from { opacity: 1; transform: scale(1) translateY(0); }
+  to { opacity: 0; transform: scale(0.95) translateY(8px); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes zoomInLeft {
+  from { opacity: 0; transform: scale(0.6) translateX(60px); }
+  to { opacity: 1; transform: scale(1) translateX(0); }
+}
+
+@keyframes zoomInRight {
+  from { opacity: 0; transform: scale(0.6) translateX(-60px); }
+  to { opacity: 1; transform: scale(1) translateX(0); }
+}
+
+[name=ren-theme] [name=side-flowers] {
+  position: relative;
+  width: 21rem;
+  height: 43.3125rem;
+}
+
+[name=ren-theme] [name=side-flowers] img {
+  pointer-events: none;
+  position: absolute;
+}
+
+[name=ren-theme] [name=side-flowers] .bottom-flower img {
+  width: 9.86731rem;
+  bottom: 0;
+  left: 1rem;
+  z-index: 5;
+}
+
+[name=ren-theme] [name=side-flowers] .bottom-flower img.animated,
+[name=ren-theme] [name=side-flowers] .upper-bottom-leaf img.animated,
+[name=ren-theme] [name=side-flowers] .middle-left-leaf img.animated {
+  animation: 5s giggling infinite linear;
+  animation-delay: 0.6s;
+}
+
+[name=ren-theme] [name=side-flowers] .bottom-leaf img.animated,
+[name=ren-theme] [name=side-flowers] .middle-right-leaf img.animated,
+[name=ren-theme] [name=side-flowers] .middle-red-flower img.animated,
+[name=ren-theme] [name=side-flowers] .top-leaf img.animated {
+  animation: 5s reverseGiggling infinite linear;
+  animation-delay: 0.6s;
+}
+
+[name=ren-theme] [name=side-flowers] .middle-pink-flower img.animated,
+[name=ren-theme] [name=side-flowers] .top-pink-flower img.animated {
+  animation: 5s forwardBubbling infinite linear;
+  animation-delay: 0.6s;
+}
+
+[name=ren-theme] [name=side-flowers] .bottom-leaf img {
+  width: 6.67575rem;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+}
+
+[name=ren-theme] [name=side-flowers] .upper-bottom-leaf img {
+  width: 15.99875rem;
+  bottom: 3.5rem;
+  left: 1.8rem;
+  z-index: 3;
+}
+
+[name=ren-theme] [name=side-flowers] .middle-pink-flower img {
+  width: 13.08688rem;
+  bottom: 5.5rem;
+  left: -1.5rem;
+  z-index: 6;
+}
+
+[name=ren-theme] [name=side-flowers] .middle-right-leaf img {
+  width: 14.99875rem;
+  bottom: 7.25rem;
+  left: 1.5rem;
+  z-index: 5;
+}
+
+[name=ren-theme] [name=side-flowers] .middle-red-flower img {
+  width: 11.16756rem;
+  bottom: 12.25rem;
+  left: -0.35rem;
+  z-index: 6;
+}
+
+[name=ren-theme] [name=side-flowers] .middle-left-leaf img {
+  width: 11.81381rem;
+  bottom: 18rem;
+  left: -2rem;
+  z-index: 5;
+}
+
+[name=ren-theme] [name=side-flowers] .top-pink-flower img {
+  width: 10.29069rem;
+  bottom: 18.2rem;
+  left: 1.5rem;
+  z-index: 5;
+}
+
+[name=ren-theme] [name=side-flowers] .top-leaf img {
+  width: 6.58338rem;
+  bottom: 14.2rem;
+  left: 5rem;
+  z-index: 4;
+}
+
+/* ===== FOOTER SECTION ===== */
+[name=ren-theme] [name=footer-section] {
+  padding-top: 7.94rem;
+  padding-bottom: 10.67rem;
+  position: relative;
+  max-width: 160rem;
+  margin: 0 auto -28rem auto;
+}
+
+[name=ren-theme] [name=footer-section] .content {
+  position: relative;
+  z-index: 10;
+}
+
+[name=ren-theme] [name=footer-section] .content .view-content {
+  position: relative;
+  height: 34rem;
+  margin-bottom: 0;
+}
+
+[name=ren-theme] [name=footer-section] .content .view-content .couple {
+  display: flex;
+  justify-content: center;
+  gap: 0 3.19rem;
+}
+
+[name=ren-theme] [name=footer-section] .content .view-content .couple img {
+  width: 17.8125rem;
+  height: 23.0625rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+[name=ren-theme] [name=footer-section] .content .view-content .logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 5.75rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+[name=ren-theme] [name=footer-section] .content .view-content .logo img {
+  width: 12.5rem;
+  height: 4.01731rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+[name=ren-theme] [name=footer-section] .decorations .back img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  z-index: 1;
+  width: 100%;
+}
+
+[name=ren-theme] [name=footer-section] .decorations .bottom-left img {
+  position: absolute;
+  left: 0;
+  bottom: 25rem;
+  width: 24.44%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+[name=ren-theme] [name=footer-section] .decorations .bottom-right img {
+  position: absolute;
+  right: 0;
+  bottom: 25rem;
+  width: 24.44%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+/* ===== FOOTER SECTION - MOBILE ===== */
+.mobile [name=ren-theme] [name=footer-section] {
+  padding: 2.5rem 0;
+  margin: 0 auto;
+}
+
+.mobile [name=ren-theme] [name=footer-section] .content .view-content {
+  height: unset;
+}
+
+.mobile [name=ren-theme] [name=footer-section] .content .view-content .couple {
+  gap: 0 1.25rem;
+}
+
+.mobile [name=ren-theme] [name=footer-section] .content .view-content .couple img {
+  width: 7.0625rem;
+  height: 9.125rem;
+}
+
+.mobile [name=ren-theme] [name=footer-section] .content .view-content .logo {
+  position: unset;
+  margin-top: 2.5rem;
+  padding-bottom: 5rem;
+}
+
+.mobile [name=ren-theme] [name=footer-section] .content .view-content .logo img {
+  width: 7.77881rem;
+  height: 2.5rem;
+  object-fit: contain;
+}
+
+.mobile [name=ren-theme] [name=footer-section] .decorations .top-right img {
+  position: absolute;
+  right: 0;
+  top: -2.4rem;
+  width: 57.55%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.mobile [name=ren-theme] [name=footer-section] .decorations .bottom-center img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  object-fit: contain;
+  z-index: 11;
+}
+
+/* ===== FLOATING MENU ===== */
+[name=ren-floating-menu] {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+  background: rgba(120, 38, 38, 0.95);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.5s ease;
+}
+
+.mobile [name=ren-theme] [name=ren-floating-menu] {
+  padding: 0;
+  background: transparent;
+  backdrop-filter: none;
+  bottom: 3rem;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0);
+  transition: none;
+}
+
+[name=ren-floating-menu].show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile [name=ren-theme] [name=ren-floating-menu].show {
+  animation: 0.5s zoomAndBubbling forwards;
+  transform: none;
+}
+
+[name=ren-floating-menu] .menus {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mobile [name=ren-theme] [name=ren-floating-menu] .menus {
+  padding: 0.62rem 1.56rem;
+  justify-content: center;
+  width: fit-content;
+  gap: 0 1.25rem;
+  border-radius: 1.875rem;
+  background: #fff;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+[name=ren-floating-menu] .menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.25s ease;
+}
+
+.mobile [name=ren-theme] [name=ren-floating-menu] .menu {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: 0;
+  transition: none;
+}
+
+[name=ren-floating-menu] .menu img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.mobile [name=ren-theme] [name=ren-floating-menu] .menu img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+[name=ren-floating-menu] .menu.active {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile [name=ren-theme] [name=ren-floating-menu] .menu.active {
+  background: transparent;
+  animation: 0.5s bubblingOnly forwards;
+}
+
+/* ===== MUSIC BUTTON ===== */
+[name=ren-music-button] {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+  opacity: 0;
+  animation: ren-fade-in 0.5s ease-out 1.5s forwards;
+}
+
+.mobile [name=ren-theme] [name=ren-music-button] {
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+  animation: 0.5s zoomAndBubbling 1.5s forwards;
+}
+
+[name=ren-music-button] .wrapper {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: rgba(120, 38, 38, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
+}
+
+.mobile [name=ren-theme] [name=ren-music-button] .wrapper {
+  border-radius: 2.5rem;
+  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(205, 158, 146, 0.65);
+  box-shadow: none;
+}
+
+[name=ren-music-button] .wrapper:hover {
+  transform: scale(1.1);
+}
+
+.mobile [name=ren-theme] [name=ren-music-button] .wrapper:hover {
+  transform: none;
+  background-color: rgba(205, 158, 146, 1);
+}
+
+[name=ren-music-button] .music-button img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.mobile [name=ren-theme] [name=ren-music-button] .music-button {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* ===== UTILITY ===== */
+.md\:hidden {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .md\:hidden {
+    display: none !important;
+  }
+}

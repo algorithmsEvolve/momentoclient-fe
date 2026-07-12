@@ -5,6 +5,7 @@ import YamatoTheme from "@/components/features/invitations/themes/yamato/YamatoT
 import YonakaTheme from "@/components/features/invitations/themes/yonaka/YonakaTheme";
 import BaraTheme from "@/components/features/invitations/themes/bara/BaraTheme";
 import BaraSimpleTheme from "@/components/features/invitations/themes/bara-simple/BaraSimpleTheme";
+import RenTheme from "@/components/features/invitations/themes/ren/RenTheme";
 import UnsupportedTheme from "@/components/features/invitations/UnsupportedTheme";
 
 export const invitationThemeRegistry = {
@@ -15,6 +16,7 @@ export const invitationThemeRegistry = {
   yonaka: YonakaTheme,
   bara: BaraTheme,
   "bara-simple": BaraSimpleTheme,
+  ren: RenTheme,
 };
 
 export function resolveInvitationTheme(themeKey) {
