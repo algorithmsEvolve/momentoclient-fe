@@ -11,7 +11,7 @@ import { ShoppingCart } from "lucide-react";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Info Produk", href: "/info-produk" },
-  // { name: "Harga", href: "/harga" },
+  { name: "Harga", href: "/harga" },
   { name: "Customer", href: "/customer" },
 ];
 
@@ -184,8 +184,7 @@ export default function Navbar({ onOpenCart, cartItemCount = 0 }) {
                   </div>
                   
                   {/* Seperator Lines based on Design - Line color #A9A9A9 */}
-                  {/* {(link.name === 'Info Produk' || link.name === 'Harga') && (*/}
-                  {link.name === 'Info Produk' && (
+                  {(link.name === 'Info Produk' || link.name === 'Harga') && (
                     <div className="w-full h-[1px] bg-[#A9A9A9]/30 my-2" />
                   )}
                 </div>
